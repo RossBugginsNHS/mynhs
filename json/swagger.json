@@ -20,29 +20,54 @@
     "description" : "My Digital Health Checks - would take data from the \"Observations\" data store?"
   }, {
     "name" : "Profile",
-    "description" : "Basic Obs"
+    "description" : "NHS Profiles"
   }, {
     "name" : "Audits",
-    "description" : "Basic Obs"
+    "description" : "Audit Access History"
   }, {
     "name" : "Observations",
-    "description" : "Basic Obs"
+    "description" : "Basic Observations"
   }, {
     "name" : "Observations Submissions",
-    "description" : "Basic Obs"
+    "description" : "Submit new observations"
   }, {
     "name" : "Observation Summaries",
-    "description" : "Basic Obs"
+    "description" : "Access to aggregated values over a set period of time."
   }, {
     "name" : "Events",
-    "description" : "Basic Obs"
+    "description" : "Events and notifications."
   }, {
     "name" : "Medical Records",
     "description" : "dealing with long running GP queries (that don't have a SLA on their API calls), have a request driven model with a reponse to an end point to view status of request, and the actual result"
   }, {
-    "name" : "Appointments"
+    "name" : "Appointments",
+    "description" : "Details of your appointments."
+  }, {
+    "name" : "My NHS Management",
+    "description" : "is not in the scope of a tenancy - ie covers all."
   } ],
   "paths" : {
+    "/mynhsmanagement/tenants" : {
+      "get" : {
+        "tags" : [ "My NHS Management" ],
+        "description" : "Gets a list of all tenancies for the current user. Required OAuth Scopes: [tenants.read]",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "tenants.read" ]
+        } ]
+      }
+    },
     "/mynhs/my/appointments" : {
       "get" : {
         "tags" : [ "Appointments" ],
@@ -1303,16 +1328,21 @@
             "tokenUrl" : "https://example.com/oauth/token",
             "scopes" : {
               "applications.read" : "Grants read access to applications",
-              "digitalhealthcheck.read" : "Grants read access to digital health check",
               "profile.read" : "Read My Profile- only for owner to read the primary user profile",
               "profile.read.all" : "Read All Profiles - ie read profile of primary user if you have been given guest access",
               "events.read" : "Read My Events in this tennant",
               "events.read.shared" : "Read All events shared with me (ie another users events)",
               "events.read.all" : "Read All events - must be granted owner for this",
+              "digitalhealthcheck.read" : "Grants read access to digital health check",
+              "digitalhealthcheck.read.shared" : "Grants read access to digital health check",
               "observations.read" : "Read observations",
-              "observations.read.all" : "Read all obs",
-              "observations.bloodpressure.read" : "sd",
-              "observations.bloodpressure.summary.read" : "read summary"
+              "observations.read.shared" : "Read all obs",
+              "observations.bloodpressure.read" : "Read your blood pressures",
+              "observations.bloodpressure.read.shared" : "Read any blood pressures shared with you",
+              "observations.bloodpressure.submit" : "Submit new blood pressure reading",
+              "observations.bloodpressure.delete" : "Delete existing blood pressure reading",
+              "observations.bloodpressure.summary.read" : "read summary",
+              "observations.bloodpressure.summary.read.shared" : "sd"
             }
           }
         }
