@@ -1,4 +1,4 @@
-# IO.Swagger.Model.GpProfile
+# mynhs.sdk.Model.GpProfile
 ## Properties
 
 Name | Type | Description | Notes

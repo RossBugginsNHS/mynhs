@@ -1,4 +1,4 @@
-# IO.Swagger.Model.DigitalHealthCheckResult
+# mynhs.sdk.Model.DigitalHealthCheckResult
 ## Properties
 
 Name | Type | Description | Notes

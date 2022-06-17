@@ -1,4 +1,4 @@
-# IO.Swagger.Model.MyNhsProfile
+# mynhs.sdk.Model.MyNhsProfile
 ## Properties
 
 Name | Type | Description | Notes

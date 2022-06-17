@@ -1,4 +1,4 @@
-# IO.Swagger.Api.DigitalHealthChecksDataApi
+# mynhs.sdk.Api.DigitalHealthChecksDataApi
 
 All URIs are relative to *https://virtserver.swaggerhub.com/NHSX/MyNhs/0.1*
 
@@ -20,9 +20,9 @@ Method | HTTP request | Description
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using mynhs.sdk.Api;
+using mynhs.sdk.Client;
+using mynhs.sdk.Model;
 
 namespace Example
 {
@@ -76,9 +76,9 @@ This endpoint does not need any parameter.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using mynhs.sdk.Api;
+using mynhs.sdk.Client;
+using mynhs.sdk.Model;
 
 namespace Example
 {
@@ -132,9 +132,9 @@ This endpoint does not need any parameter.
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using mynhs.sdk.Api;
+using mynhs.sdk.Client;
+using mynhs.sdk.Model;
 
 namespace Example
 {
@@ -192,9 +192,9 @@ Name | Type | Description  | Notes
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using mynhs.sdk.Api;
+using mynhs.sdk.Client;
+using mynhs.sdk.Model;
 
 namespace Example
 {
@@ -252,9 +252,9 @@ Name | Type | Description  | Notes
 ```csharp
 using System;
 using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
+using mynhs.sdk.Api;
+using mynhs.sdk.Client;
+using mynhs.sdk.Model;
 
 namespace Example
 {
