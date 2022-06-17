@@ -1,0 +1,1322 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "My NHS Graph",
+    "description" : "WIP Strawman API ideas for a Unified API myNHS API Graph endpoint, bringing together both new \"User Generated Data\" and existing sources into one endpoint and one Authorisation model, supporting delegated user access and proxy access. Modeling that the records belong to the \"tennant\" with owners having proxy access (ie full) and users being shared specifics records. Oauth scopes, with modifiers of .shared and .all. Look at Microsoft Graph for where that comes from. To support idempotency, all POST apis are just requests to start something, the put starts this. Alows for evential consistency. Long running GETs are removed, by POSTing requests for data, with a GET endpoint returned.",
+    "version" : "0.1"
+  },
+  "servers" : [ {
+    "url" : "https://virtserver.swaggerhub.com/NHSX/MyNhs/0.1",
+    "description" : "SwaggerHub API Auto Mocking"
+  } ],
+  "tags" : [ {
+    "name" : "Access and Applications",
+    "description" : "Applications and Services that have been granted access. A \"tenant\" has the data linked to it. It has owners (normally just 1) and if that person wants to share it, they can add additional users - ie family members - delegation / shared. Proxy could work by allowing additional owners to be added. Or, a childs record has both parents as owners, and the child can be optionally added with specific permissions? A user by default accessing their own data, would use the /my endpoints. A user given delegated access, would use the /{userId} endpoints. Full proxy access would allow access to the /my as if you were the primary user?"
+  }, {
+    "name" : "Digital Health Tools",
+    "description" : "APIs that take submitted data and give an answer - ie a wrapper around \"the algorithm\", and not reading from the users data store"
+  }, {
+    "name" : "Digital Health Checks Data",
+    "description" : "My Digital Health Checks - would take data from the \"Observations\" data store?"
+  }, {
+    "name" : "Profile",
+    "description" : "Basic Obs"
+  }, {
+    "name" : "Audits",
+    "description" : "Basic Obs"
+  }, {
+    "name" : "Observations",
+    "description" : "Basic Obs"
+  }, {
+    "name" : "Observations Submissions",
+    "description" : "Basic Obs"
+  }, {
+    "name" : "Observation Summaries",
+    "description" : "Basic Obs"
+  }, {
+    "name" : "Events",
+    "description" : "Basic Obs"
+  }, {
+    "name" : "Medical Records",
+    "description" : "dealing with long running GP queries (that don't have a SLA on their API calls), have a request driven model with a reponse to an end point to view status of request, and the actual result"
+  }, {
+    "name" : "Appointments"
+  } ],
+  "paths" : {
+    "/mynhs/my/appointments" : {
+      "get" : {
+        "tags" : [ "Appointments" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "appointment.read", "appointment.read.all" ]
+        } ]
+      }
+    },
+    "/mynhs/{userId}/appointments" : {
+      "get" : {
+        "tags" : [ "Appointments" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "appointment.read", "appointment.read.shared" ]
+        } ]
+      }
+    },
+    "/mynhs/tools/healthcheck" : {
+      "post" : {
+        "tags" : [ "Digital Health Tools" ],
+        "requestBody" : {
+          "description" : "Optional description in *Markdown*",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DigitalHealthCheckRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/DigitalHealthCheckResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mynhs/tools/heartage" : {
+      "post" : {
+        "tags" : [ "Digital Health Tools" ],
+        "requestBody" : {
+          "description" : "Optional description in *Markdown*",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DigitalHealthCheckRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/DigitalHealthCheckResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mynhs/my/digitalhealthchecks" : {
+      "get" : {
+        "tags" : [ "Digital Health Checks Data" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "digitalhealthcheck.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/digitalhealthchecks/submissions" : {
+      "post" : {
+        "tags" : [ "Digital Health Checks Data" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "digitalhealthcheck.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/digitalhealthchecks/submissions/{submissionId}" : {
+      "get" : {
+        "tags" : [ "Digital Health Checks Data" ],
+        "parameters" : [ {
+          "name" : "submissionId",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "digitalhealthcheck.read" ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "Digital Health Checks Data" ],
+        "parameters" : [ {
+          "name" : "submissionId",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "digitalhealthcheck.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/digitalhealthchecks/submissions/{submissionId}/submit" : {
+      "put" : {
+        "tags" : [ "Digital Health Checks Data" ],
+        "parameters" : [ {
+          "name" : "submissionId",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "digitalhealthcheck.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/digitalhealthchecks/{healthcheckid}" : {
+      "get" : {
+        "tags" : [ "Digital Health Checks" ],
+        "parameters" : [ {
+          "name" : "healthcheckid",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "digitalhealthcheck.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/digitalhealthchecks/{healthcheckid}/bloodpressure" : {
+      "get" : {
+        "tags" : [ "Digital Health Checks" ],
+        "parameters" : [ {
+          "name" : "healthcheckid",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "digitalhealthcheck.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/digitalhealthchecks/{healthcheckid}/bloodsugar" : {
+      "get" : {
+        "tags" : [ "Digital Health Checks" ],
+        "parameters" : [ {
+          "name" : "healthcheckid",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "digitalhealthcheck.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/digitalhealthchecks/{healthcheckid}/height" : {
+      "get" : {
+        "tags" : [ "Digital Health Checks" ],
+        "parameters" : [ {
+          "name" : "healthcheckid",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "digitalhealthcheck.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/digitalhealthchecks/{healthcheckid}/weight" : {
+      "get" : {
+        "tags" : [ "Digital Health Checks" ],
+        "parameters" : [ {
+          "name" : "healthcheckid",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "digitalhealthcheck.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/digitalhealthchecks/{healthcheckid}/colesterol" : {
+      "get" : {
+        "tags" : [ "Digital Health Checks" ],
+        "parameters" : [ {
+          "name" : "healthcheckid",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "digitalhealthcheck.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/digitalhealthchecks/{healthcheckid}/wellnessquestions" : {
+      "get" : {
+        "tags" : [ "Digital Health Checks" ],
+        "parameters" : [ {
+          "name" : "healthcheckid",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "digitalhealthcheck.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/digitalhealthchecks/{healthcheckid}/age" : {
+      "get" : {
+        "tags" : [ "Digital Health Checks" ],
+        "parameters" : [ {
+          "name" : "healthcheckid",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "digitalhealthcheck.read" ]
+        } ]
+      }
+    },
+    "/mynhs/tennantOrOrganisationOrTheNameForWhatRecordsAreLinkedTo" : {
+      "get" : {
+        "tags" : [ "Access and Applications" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "tennant.read" ]
+        } ]
+      }
+    },
+    "/mynhs/applications" : {
+      "get" : {
+        "tags" : [ "Access and Applications" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "applications.read" ]
+        } ]
+      }
+    },
+    "/mynhs/owners" : {
+      "get" : {
+        "tags" : [ "Access and Applications" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "applications.read" ]
+        } ]
+      }
+    },
+    "/mynhs/users" : {
+      "get" : {
+        "tags" : [ "Access and Applications" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/UserProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "applications.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/user" : {
+      "get" : {
+        "tags" : [ "Access and Applications" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/UserProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "applications.read" ]
+        } ]
+      }
+    },
+    "/mynhs/{userId}/user" : {
+      "get" : {
+        "tags" : [ "Access and Applications" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/UserProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "applications.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/medicalrecords/detailed/nhs/requestRecords" : {
+      "post" : {
+        "tags" : [ "Medical Records" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/MyNhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "profile.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/medicalrecords/detailed/nhs/requestRecords/{requestId}" : {
+      "get" : {
+        "tags" : [ "Medical Records" ],
+        "parameters" : [ {
+          "name" : "requestId",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/MyNhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "profile.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/medicalrecords/detailed/nhs/requestRecords/{requestId}/submit" : {
+      "put" : {
+        "tags" : [ "Medical Records" ],
+        "parameters" : [ {
+          "name" : "requestId",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/MyNhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "profile.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/medicalrecords/detailed/nhs/requestRecords/results/{resultId}" : {
+      "get" : {
+        "tags" : [ "Medical Records" ],
+        "parameters" : [ {
+          "name" : "resultId",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/MyNhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "profile.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/medicalrecords/summary/nhs" : {
+      "get" : {
+        "tags" : [ "Medical Records" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/MyNhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "profile.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/medicalrecords/summary/nhs/{trustId}" : {
+      "get" : {
+        "tags" : [ "Medical Records" ],
+        "parameters" : [ {
+          "name" : "trustId",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/MyNhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "profile.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/profile" : {
+      "get" : {
+        "tags" : [ "Profile" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/MyNhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "profile.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/profile/centralnhs" : {
+      "get" : {
+        "tags" : [ "Profile" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "profile.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/profile/gp" : {
+      "get" : {
+        "tags" : [ "Profile" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GpProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "profile.read" ]
+        } ]
+      }
+    },
+    "/mynhs/{userId}/profile" : {
+      "get" : {
+        "tags" : [ "Profile" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/MyNhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "profile.read.all" ]
+        } ]
+      }
+    },
+    "/mynhs/my/observations" : {
+      "get" : {
+        "tags" : [ "Observations" ],
+        "parameters" : [ {
+          "name" : "type",
+          "in" : "query",
+          "required" : true,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "all", "weight", "bloodpressure", "height" ]
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mynhs/my/observations/submissions" : {
+      "get" : {
+        "tags" : [ "Observations Submissions" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Observations Submissions" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mynhs/my/observations/submissions/{newObsId}/submit" : {
+      "put" : {
+        "tags" : [ "Observations Submissions" ],
+        "parameters" : [ {
+          "name" : "newObsId",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mynhs/my/observations/submissions/{newObsId}" : {
+      "get" : {
+        "tags" : [ "Observations Submissions" ],
+        "parameters" : [ {
+          "name" : "newObsId",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Observations Submissions" ],
+        "parameters" : [ {
+          "name" : "newObsId",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mynhs/my/observations/bloodpressures" : {
+      "get" : {
+        "tags" : [ "Observations" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mynhs/my/observations/heights" : {
+      "get" : {
+        "tags" : [ "Observations" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mynhs/my/observations/weights" : {
+      "get" : {
+        "tags" : [ "Observations" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mynhs/my/observations/summaries" : {
+      "get" : {
+        "tags" : [ "Observation Summaries" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mynhs/my/observations/summaries/bloodpressure/{queryType}/{pastDays}" : {
+      "get" : {
+        "tags" : [ "Observation Summaries" ],
+        "parameters" : [ {
+          "name" : "queryType",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "min", "max", "avg", "stdDev" ]
+          }
+        }, {
+          "name" : "pastDays",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "number",
+            "enum" : [ 1, 3, 5, 7, 14, 30 ]
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "observations.bloodpressure.summary.read" ]
+        } ]
+      }
+    },
+    "/mynhs/my/events" : {
+      "get" : {
+        "tags" : [ "Events" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "events.read" ]
+        } ]
+      }
+    },
+    "/mynhs/{userId}/events" : {
+      "get" : {
+        "tags" : [ "Events" ],
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "events.read.shared", "events.read.all" ]
+        } ]
+      }
+    },
+    "/mynhs/my/audits" : {
+      "get" : {
+        "tags" : [ "Audits" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "MyNhsProfile" : {
+        "type" : "object",
+        "properties" : {
+          "NHSProfile" : {
+            "$ref" : "#/components/schemas/NhsProfile"
+          },
+          "GpProfile" : {
+            "$ref" : "#/components/schemas/GpProfile"
+          }
+        }
+      },
+      "UserProfile" : {
+        "type" : "object",
+        "properties" : {
+          "FirstName" : {
+            "type" : "string"
+          },
+          "SurName" : {
+            "type" : "string"
+          },
+          "DateOfBirth" : {
+            "type" : "string",
+            "format" : "date"
+          }
+        }
+      },
+      "NhsProfile" : {
+        "type" : "object",
+        "properties" : {
+          "NhsNumber" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "GpProfile" : {
+        "type" : "object",
+        "properties" : {
+          "GpIdCode" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "DigitalHealthCheckRequest" : {
+        "type" : "object",
+        "properties" : {
+          "Height" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "Weight" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "BloodPressure" : {
+            "type" : "string"
+          },
+          "BloodSugar" : {
+            "type" : "string"
+          },
+          "Colesterol" : {
+            "type" : "string"
+          },
+          "Ethnicity" : {
+            "type" : "string"
+          }
+        }
+      },
+      "DigitalHealthCheckResult" : {
+        "type" : "object",
+        "properties" : {
+          "HealthyPercentage" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      }
+    },
+    "securitySchemes" : {
+      "OAuth2" : {
+        "type" : "oauth2",
+        "flows" : {
+          "authorizationCode" : {
+            "authorizationUrl" : "https://example.com/oauth/authorize",
+            "tokenUrl" : "https://example.com/oauth/token",
+            "scopes" : {
+              "applications.read" : "Grants read access to applications",
+              "digitalhealthcheck.read" : "Grants read access to digital health check",
+              "profile.read" : "Read My Profile- only for owner to read the primary user profile",
+              "profile.read.all" : "Read All Profiles - ie read profile of primary user if you have been given guest access",
+              "events.read" : "Read My Events in this tennant",
+              "events.read.shared" : "Read All events shared with me (ie another users events)",
+              "events.read.all" : "Read All events - must be granted owner for this",
+              "observations.read" : "Read observations",
+              "observations.read.all" : "Read all obs",
+              "observations.bloodpressure.read" : "sd",
+              "observations.bloodpressure.summary.read" : "read summary"
+            }
+          }
+        }
+      }
+    }
+  }
+}
