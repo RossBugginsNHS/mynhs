@@ -30,8 +30,9 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>NhsProfile</returns>
-        NhsProfile MynhsMyProfileCentralnhsGet ();
+        NhsProfile MynhsUserIdProfileCentralnhsGet (string userId);
 
         /// <summary>
         /// 
@@ -40,54 +41,17 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsMyProfileCentralnhsGetWithHttpInfo ();
+        ApiResponse<NhsProfile> MynhsUserIdProfileCentralnhsGetWithHttpInfo (string userId);
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Scopes: [profile.read, profile.read.shared, profile.read.all]
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>MyNhsProfile</returns>
-        MyNhsProfile MynhsMyProfileGet ();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of MyNhsProfile</returns>
-        ApiResponse<MyNhsProfile> MynhsMyProfileGetWithHttpInfo ();
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>GpProfile</returns>
-        GpProfile MynhsMyProfileGpGet ();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of GpProfile</returns>
-        ApiResponse<GpProfile> MynhsMyProfileGpGetWithHttpInfo ();
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>MyNhsProfile</returns>
         MyNhsProfile MynhsUserIdProfileGet (string userId);
 
@@ -95,12 +59,33 @@ namespace mynhs.sdk.Api
         /// 
         /// </summary>
         /// <remarks>
+        /// Scopes: [profile.read, profile.read.shared, profile.read.all]
+        /// </remarks>
+        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <returns>ApiResponse of MyNhsProfile</returns>
+        ApiResponse<MyNhsProfile> MynhsUserIdProfileGetWithHttpInfo (string userId);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <returns>ApiResponse of MyNhsProfile</returns>
-        ApiResponse<MyNhsProfile> MynhsUserIdProfileGetWithHttpInfo (string userId);
+        /// <param name="userId">The User Id to access</param>
+        /// <returns>GpProfile</returns>
+        GpProfile MynhsUserIdProfileGpGet (string userId);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <returns>ApiResponse of GpProfile</returns>
+        ApiResponse<GpProfile> MynhsUserIdProfileGpGetWithHttpInfo (string userId);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -110,8 +95,9 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsMyProfileCentralnhsGetAsync ();
+        System.Threading.Tasks.Task<NhsProfile> MynhsUserIdProfileCentralnhsGetAsync (string userId);
 
         /// <summary>
         /// 
@@ -120,54 +106,17 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyProfileCentralnhsGetAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdProfileCentralnhsGetAsyncWithHttpInfo (string userId);
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Scopes: [profile.read, profile.read.shared, profile.read.all]
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of MyNhsProfile</returns>
-        System.Threading.Tasks.Task<MyNhsProfile> MynhsMyProfileGetAsync ();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (MyNhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsMyProfileGetAsyncWithHttpInfo ();
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of GpProfile</returns>
-        System.Threading.Tasks.Task<GpProfile> MynhsMyProfileGpGetAsync ();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (GpProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GpProfile>> MynhsMyProfileGpGetAsyncWithHttpInfo ();
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of MyNhsProfile</returns>
         System.Threading.Tasks.Task<MyNhsProfile> MynhsUserIdProfileGetAsync (string userId);
 
@@ -175,12 +124,33 @@ namespace mynhs.sdk.Api
         /// 
         /// </summary>
         /// <remarks>
+        /// Scopes: [profile.read, profile.read.shared, profile.read.all]
+        /// </remarks>
+        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <returns>Task of ApiResponse (MyNhsProfile)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsUserIdProfileGetAsyncWithHttpInfo (string userId);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <returns>Task of ApiResponse (MyNhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsUserIdProfileGetAsyncWithHttpInfo (string userId);
+        /// <param name="userId">The User Id to access</param>
+        /// <returns>Task of GpProfile</returns>
+        System.Threading.Tasks.Task<GpProfile> MynhsUserIdProfileGpGetAsync (string userId);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <returns>Task of ApiResponse (GpProfile)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GpProfile>> MynhsUserIdProfileGpGetAsyncWithHttpInfo (string userId);
         #endregion Asynchronous Operations
     }
 
@@ -296,10 +266,11 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsMyProfileCentralnhsGet ()
+        public NhsProfile MynhsUserIdProfileCentralnhsGet (string userId)
         {
-             ApiResponse<NhsProfile> localVarResponse = MynhsMyProfileCentralnhsGetWithHttpInfo();
+             ApiResponse<NhsProfile> localVarResponse = MynhsUserIdProfileCentralnhsGetWithHttpInfo(userId);
              return localVarResponse.Data;
         }
 
@@ -307,11 +278,15 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsMyProfileCentralnhsGetWithHttpInfo ()
+        public ApiResponse< NhsProfile > MynhsUserIdProfileCentralnhsGetWithHttpInfo (string userId)
         {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ProfileApi->MynhsUserIdProfileCentralnhsGet");
 
-            var localVarPath = "./mynhs/my/profile/centralnhs";
+            var localVarPath = "./mynhs/{userId}/profile/centralnhs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -332,6 +307,7 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             // authentication (OAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
@@ -348,7 +324,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyProfileCentralnhsGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdProfileCentralnhsGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -361,10 +337,11 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsMyProfileCentralnhsGetAsync ()
+        public async System.Threading.Tasks.Task<NhsProfile> MynhsUserIdProfileCentralnhsGetAsync (string userId)
         {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsMyProfileCentralnhsGetAsyncWithHttpInfo();
+             ApiResponse<NhsProfile> localVarResponse = await MynhsUserIdProfileCentralnhsGetAsyncWithHttpInfo(userId);
              return localVarResponse.Data;
 
         }
@@ -373,11 +350,15 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyProfileCentralnhsGetAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdProfileCentralnhsGetAsyncWithHttpInfo (string userId)
         {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ProfileApi->MynhsUserIdProfileCentralnhsGet");
 
-            var localVarPath = "./mynhs/my/profile/centralnhs";
+            var localVarPath = "./mynhs/{userId}/profile/centralnhs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -398,6 +379,7 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             // authentication (OAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
@@ -414,7 +396,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyProfileCentralnhsGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdProfileCentralnhsGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -424,272 +406,10 @@ namespace mynhs.sdk.Api
         }
 
         /// <summary>
-        ///  
+        ///  Scopes: [profile.read, profile.read.shared, profile.read.all]
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>MyNhsProfile</returns>
-        public MyNhsProfile MynhsMyProfileGet ()
-        {
-             ApiResponse<MyNhsProfile> localVarResponse = MynhsMyProfileGetWithHttpInfo();
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of MyNhsProfile</returns>
-        public ApiResponse< MyNhsProfile > MynhsMyProfileGetWithHttpInfo ()
-        {
-
-            var localVarPath = "./mynhs/my/profile";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // authentication (OAuth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MynhsMyProfileGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<MyNhsProfile>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (MyNhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MyNhsProfile)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of MyNhsProfile</returns>
-        public async System.Threading.Tasks.Task<MyNhsProfile> MynhsMyProfileGetAsync ()
-        {
-             ApiResponse<MyNhsProfile> localVarResponse = await MynhsMyProfileGetAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (MyNhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsMyProfileGetAsyncWithHttpInfo ()
-        {
-
-            var localVarPath = "./mynhs/my/profile";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // authentication (OAuth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MynhsMyProfileGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<MyNhsProfile>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (MyNhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MyNhsProfile)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>GpProfile</returns>
-        public GpProfile MynhsMyProfileGpGet ()
-        {
-             ApiResponse<GpProfile> localVarResponse = MynhsMyProfileGpGetWithHttpInfo();
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of GpProfile</returns>
-        public ApiResponse< GpProfile > MynhsMyProfileGpGetWithHttpInfo ()
-        {
-
-            var localVarPath = "./mynhs/my/profile/gp";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // authentication (OAuth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MynhsMyProfileGpGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<GpProfile>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (GpProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GpProfile)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of GpProfile</returns>
-        public async System.Threading.Tasks.Task<GpProfile> MynhsMyProfileGpGetAsync ()
-        {
-             ApiResponse<GpProfile> localVarResponse = await MynhsMyProfileGpGetAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (GpProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GpProfile>> MynhsMyProfileGpGetAsyncWithHttpInfo ()
-        {
-
-            var localVarPath = "./mynhs/my/profile/gp";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // authentication (OAuth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MynhsMyProfileGpGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<GpProfile>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (GpProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GpProfile)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>MyNhsProfile</returns>
         public MyNhsProfile MynhsUserIdProfileGet (string userId)
         {
@@ -698,10 +418,10 @@ namespace mynhs.sdk.Api
         }
 
         /// <summary>
-        ///  
+        ///  Scopes: [profile.read, profile.read.shared, profile.read.all]
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>ApiResponse of MyNhsProfile</returns>
         public ApiResponse< MyNhsProfile > MynhsUserIdProfileGetWithHttpInfo (string userId)
         {
@@ -757,10 +477,10 @@ namespace mynhs.sdk.Api
         }
 
         /// <summary>
-        ///  
+        ///  Scopes: [profile.read, profile.read.shared, profile.read.all]
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of MyNhsProfile</returns>
         public async System.Threading.Tasks.Task<MyNhsProfile> MynhsUserIdProfileGetAsync (string userId)
         {
@@ -770,10 +490,10 @@ namespace mynhs.sdk.Api
         }
 
         /// <summary>
-        ///  
+        ///  Scopes: [profile.read, profile.read.shared, profile.read.all]
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of ApiResponse (MyNhsProfile)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsUserIdProfileGetAsyncWithHttpInfo (string userId)
         {
@@ -826,6 +546,149 @@ namespace mynhs.sdk.Api
             return new ApiResponse<MyNhsProfile>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
                 (MyNhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MyNhsProfile)));
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <returns>GpProfile</returns>
+        public GpProfile MynhsUserIdProfileGpGet (string userId)
+        {
+             ApiResponse<GpProfile> localVarResponse = MynhsUserIdProfileGpGetWithHttpInfo(userId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <returns>ApiResponse of GpProfile</returns>
+        public ApiResponse< GpProfile > MynhsUserIdProfileGpGetWithHttpInfo (string userId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ProfileApi->MynhsUserIdProfileGpGet");
+
+            var localVarPath = "./mynhs/{userId}/profile/gp";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            // authentication (OAuth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MynhsUserIdProfileGpGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<GpProfile>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (GpProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GpProfile)));
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <returns>Task of GpProfile</returns>
+        public async System.Threading.Tasks.Task<GpProfile> MynhsUserIdProfileGpGetAsync (string userId)
+        {
+             ApiResponse<GpProfile> localVarResponse = await MynhsUserIdProfileGpGetAsyncWithHttpInfo(userId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <returns>Task of ApiResponse (GpProfile)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GpProfile>> MynhsUserIdProfileGpGetAsyncWithHttpInfo (string userId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ProfileApi->MynhsUserIdProfileGpGet");
+
+            var localVarPath = "./mynhs/{userId}/profile/gp";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            // authentication (OAuth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MynhsUserIdProfileGpGet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<GpProfile>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (GpProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GpProfile)));
         }
 
     }

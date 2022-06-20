@@ -4,16 +4,16 @@ All URIs are relative to *https://virtserver.swaggerhub.com/NHSX/MyNhs/0.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**MynhsMyMedicalrecordsDetailedNhsRequestRecordsPost**](MedicalRecordsApi.md#mynhsmymedicalrecordsdetailednhsrequestrecordspost) | **POST** /mynhs/my/medicalrecords/detailed/nhs/requestRecords | 
-[**MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGet**](MedicalRecordsApi.md#mynhsmymedicalrecordsdetailednhsrequestrecordsrequestidget) | **GET** /mynhs/my/medicalrecords/detailed/nhs/requestRecords/{requestId} | 
-[**MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut**](MedicalRecordsApi.md#mynhsmymedicalrecordsdetailednhsrequestrecordsrequestidsubmitput) | **PUT** /mynhs/my/medicalrecords/detailed/nhs/requestRecords/{requestId}/submit | 
-[**MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet**](MedicalRecordsApi.md#mynhsmymedicalrecordsdetailednhsrequestrecordsresultsresultidget) | **GET** /mynhs/my/medicalrecords/detailed/nhs/requestRecords/results/{resultId} | 
-[**MynhsMyMedicalrecordsSummaryNhsGet**](MedicalRecordsApi.md#mynhsmymedicalrecordssummarynhsget) | **GET** /mynhs/my/medicalrecords/summary/nhs | 
-[**MynhsMyMedicalrecordsSummaryNhsTrustIdGet**](MedicalRecordsApi.md#mynhsmymedicalrecordssummarynhstrustidget) | **GET** /mynhs/my/medicalrecords/summary/nhs/{trustId} | 
+[**MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPost**](MedicalRecordsApi.md#mynhsuseridmedicalrecordsdetailednhsrequestrecordspost) | **POST** /mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords | 
+[**MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGet**](MedicalRecordsApi.md#mynhsuseridmedicalrecordsdetailednhsrequestrecordsrequestidget) | **GET** /mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords/{requestId} | 
+[**MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut**](MedicalRecordsApi.md#mynhsuseridmedicalrecordsdetailednhsrequestrecordsrequestidsubmitput) | **PUT** /mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords/{requestId}/submit | 
+[**MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet**](MedicalRecordsApi.md#mynhsuseridmedicalrecordsdetailednhsrequestrecordsresultsresultidget) | **GET** /mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords/results/{resultId} | 
+[**MynhsUserIdMedicalrecordsSummaryNhsGet**](MedicalRecordsApi.md#mynhsuseridmedicalrecordssummarynhsget) | **GET** /mynhs/{userId}/medicalrecords/summary/nhs | 
+[**MynhsUserIdMedicalrecordsSummaryNhsTrustIdGet**](MedicalRecordsApi.md#mynhsuseridmedicalrecordssummarynhstrustidget) | **GET** /mynhs/{userId}/medicalrecords/summary/nhs/{trustId} | 
 
-<a name="mynhsmymedicalrecordsdetailednhsrequestrecordspost"></a>
-# **MynhsMyMedicalrecordsDetailedNhsRequestRecordsPost**
-> MyNhsProfile MynhsMyMedicalrecordsDetailedNhsRequestRecordsPost ()
+<a name="mynhsuseridmedicalrecordsdetailednhsrequestrecordspost"></a>
+# **MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPost**
+> MyNhsProfile MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPost (string userId)
 
 
 
@@ -27,7 +27,7 @@ using mynhs.sdk.Model;
 
 namespace Example
 {
-    public class MynhsMyMedicalrecordsDetailedNhsRequestRecordsPostExample
+    public class MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPostExample
     {
         public void main()
         {
@@ -35,15 +35,16 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new MedicalRecordsApi();
+            var userId = userId_example;  // string | The User Id to access
 
             try
             {
-                MyNhsProfile result = apiInstance.MynhsMyMedicalrecordsDetailedNhsRequestRecordsPost();
+                MyNhsProfile result = apiInstance.MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPost(userId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling MedicalRecordsApi.MynhsMyMedicalrecordsDetailedNhsRequestRecordsPost: " + e.Message );
+                Debug.Print("Exception when calling MedicalRecordsApi.MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPost: " + e.Message );
             }
         }
     }
@@ -51,7 +52,10 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**| The User Id to access | 
 
 ### Return type
 
@@ -67,9 +71,9 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-<a name="mynhsmymedicalrecordsdetailednhsrequestrecordsrequestidget"></a>
-# **MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGet**
-> MyNhsProfile MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGet (string requestId)
+<a name="mynhsuseridmedicalrecordsdetailednhsrequestrecordsrequestidget"></a>
+# **MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGet**
+> MyNhsProfile MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGet (string userId, string requestId)
 
 
 
@@ -83,7 +87,7 @@ using mynhs.sdk.Model;
 
 namespace Example
 {
-    public class MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGetExample
+    public class MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGetExample
     {
         public void main()
         {
@@ -91,16 +95,17 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new MedicalRecordsApi();
+            var userId = userId_example;  // string | The User Id to access
             var requestId = requestId_example;  // string | 
 
             try
             {
-                MyNhsProfile result = apiInstance.MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGet(requestId);
+                MyNhsProfile result = apiInstance.MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGet(userId, requestId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling MedicalRecordsApi.MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGet: " + e.Message );
+                Debug.Print("Exception when calling MedicalRecordsApi.MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGet: " + e.Message );
             }
         }
     }
@@ -111,6 +116,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **userId** | **string**| The User Id to access | 
  **requestId** | **string**|  | 
 
 ### Return type
@@ -127,9 +133,9 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-<a name="mynhsmymedicalrecordsdetailednhsrequestrecordsrequestidsubmitput"></a>
-# **MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut**
-> MyNhsProfile MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut (string requestId)
+<a name="mynhsuseridmedicalrecordsdetailednhsrequestrecordsrequestidsubmitput"></a>
+# **MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut**
+> MyNhsProfile MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut (string userId, string requestId)
 
 
 
@@ -143,7 +149,7 @@ using mynhs.sdk.Model;
 
 namespace Example
 {
-    public class MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPutExample
+    public class MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPutExample
     {
         public void main()
         {
@@ -151,16 +157,17 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new MedicalRecordsApi();
+            var userId = userId_example;  // string | The User Id to access
             var requestId = requestId_example;  // string | 
 
             try
             {
-                MyNhsProfile result = apiInstance.MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut(requestId);
+                MyNhsProfile result = apiInstance.MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut(userId, requestId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling MedicalRecordsApi.MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut: " + e.Message );
+                Debug.Print("Exception when calling MedicalRecordsApi.MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut: " + e.Message );
             }
         }
     }
@@ -171,6 +178,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **userId** | **string**| The User Id to access | 
  **requestId** | **string**|  | 
 
 ### Return type
@@ -187,9 +195,9 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-<a name="mynhsmymedicalrecordsdetailednhsrequestrecordsresultsresultidget"></a>
-# **MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet**
-> MyNhsProfile MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet (string resultId)
+<a name="mynhsuseridmedicalrecordsdetailednhsrequestrecordsresultsresultidget"></a>
+# **MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet**
+> MyNhsProfile MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet (string userId, string resultId)
 
 
 
@@ -203,7 +211,7 @@ using mynhs.sdk.Model;
 
 namespace Example
 {
-    public class MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGetExample
+    public class MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGetExample
     {
         public void main()
         {
@@ -211,16 +219,17 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new MedicalRecordsApi();
+            var userId = userId_example;  // string | The User Id to access
             var resultId = resultId_example;  // string | 
 
             try
             {
-                MyNhsProfile result = apiInstance.MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet(resultId);
+                MyNhsProfile result = apiInstance.MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet(userId, resultId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling MedicalRecordsApi.MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet: " + e.Message );
+                Debug.Print("Exception when calling MedicalRecordsApi.MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet: " + e.Message );
             }
         }
     }
@@ -231,6 +240,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **userId** | **string**| The User Id to access | 
  **resultId** | **string**|  | 
 
 ### Return type
@@ -247,9 +257,9 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-<a name="mynhsmymedicalrecordssummarynhsget"></a>
-# **MynhsMyMedicalrecordsSummaryNhsGet**
-> MyNhsProfile MynhsMyMedicalrecordsSummaryNhsGet ()
+<a name="mynhsuseridmedicalrecordssummarynhsget"></a>
+# **MynhsUserIdMedicalrecordsSummaryNhsGet**
+> MyNhsProfile MynhsUserIdMedicalrecordsSummaryNhsGet (string userId)
 
 
 
@@ -263,7 +273,7 @@ using mynhs.sdk.Model;
 
 namespace Example
 {
-    public class MynhsMyMedicalrecordsSummaryNhsGetExample
+    public class MynhsUserIdMedicalrecordsSummaryNhsGetExample
     {
         public void main()
         {
@@ -271,15 +281,16 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new MedicalRecordsApi();
+            var userId = userId_example;  // string | The User Id to access
 
             try
             {
-                MyNhsProfile result = apiInstance.MynhsMyMedicalrecordsSummaryNhsGet();
+                MyNhsProfile result = apiInstance.MynhsUserIdMedicalrecordsSummaryNhsGet(userId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling MedicalRecordsApi.MynhsMyMedicalrecordsSummaryNhsGet: " + e.Message );
+                Debug.Print("Exception when calling MedicalRecordsApi.MynhsUserIdMedicalrecordsSummaryNhsGet: " + e.Message );
             }
         }
     }
@@ -287,7 +298,10 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**| The User Id to access | 
 
 ### Return type
 
@@ -303,9 +317,9 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-<a name="mynhsmymedicalrecordssummarynhstrustidget"></a>
-# **MynhsMyMedicalrecordsSummaryNhsTrustIdGet**
-> MyNhsProfile MynhsMyMedicalrecordsSummaryNhsTrustIdGet (string trustId)
+<a name="mynhsuseridmedicalrecordssummarynhstrustidget"></a>
+# **MynhsUserIdMedicalrecordsSummaryNhsTrustIdGet**
+> MyNhsProfile MynhsUserIdMedicalrecordsSummaryNhsTrustIdGet (string userId, string trustId)
 
 
 
@@ -319,7 +333,7 @@ using mynhs.sdk.Model;
 
 namespace Example
 {
-    public class MynhsMyMedicalrecordsSummaryNhsTrustIdGetExample
+    public class MynhsUserIdMedicalrecordsSummaryNhsTrustIdGetExample
     {
         public void main()
         {
@@ -327,16 +341,17 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new MedicalRecordsApi();
+            var userId = userId_example;  // string | The User Id to access
             var trustId = trustId_example;  // string | 
 
             try
             {
-                MyNhsProfile result = apiInstance.MynhsMyMedicalrecordsSummaryNhsTrustIdGet(trustId);
+                MyNhsProfile result = apiInstance.MynhsUserIdMedicalrecordsSummaryNhsTrustIdGet(userId, trustId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling MedicalRecordsApi.MynhsMyMedicalrecordsSummaryNhsTrustIdGet: " + e.Message );
+                Debug.Print("Exception when calling MedicalRecordsApi.MynhsUserIdMedicalrecordsSummaryNhsTrustIdGet: " + e.Message );
             }
         }
     }
@@ -347,6 +362,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **userId** | **string**| The User Id to access | 
  **trustId** | **string**|  | 
 
 ### Return type

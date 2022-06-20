@@ -30,8 +30,12 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="observationType"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>NhsProfile</returns>
-        NhsProfile MynhsMyObservationsBloodpressuresGet ();
+        NhsProfile MynhsUserIdObservationsObservationTypeGet (string userId, string observationType, int? skip = null, int? limit = null);
 
         /// <summary>
         /// 
@@ -40,8 +44,12 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="observationType"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsMyObservationsBloodpressuresGetWithHttpInfo ();
+        ApiResponse<NhsProfile> MynhsUserIdObservationsObservationTypeGetWithHttpInfo (string userId, string observationType, int? skip = null, int? limit = null);
         /// <summary>
         /// 
         /// </summary>
@@ -49,9 +57,9 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type"></param>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>NhsProfile</returns>
-        NhsProfile MynhsMyObservationsGet (string type);
+        NhsProfile MynhsUserIdObservationsSummariesGet (string userId);
 
         /// <summary>
         /// 
@@ -60,9 +68,9 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type"></param>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsMyObservationsGetWithHttpInfo (string type);
+        ApiResponse<NhsProfile> MynhsUserIdObservationsSummariesGetWithHttpInfo (string userId);
         /// <summary>
         /// 
         /// </summary>
@@ -70,8 +78,12 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="observationType"></param>
+        /// <param name="queryType"></param>
+        /// <param name="pastDays"></param>
         /// <returns>NhsProfile</returns>
-        NhsProfile MynhsMyObservationsHeightsGet ();
+        NhsProfile MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGet (string userId, string observationType, string queryType, decimal? pastDays);
 
         /// <summary>
         /// 
@@ -80,27 +92,12 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="observationType"></param>
+        /// <param name="queryType"></param>
+        /// <param name="pastDays"></param>
         /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsMyObservationsHeightsGetWithHttpInfo ();
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>NhsProfile</returns>
-        NhsProfile MynhsMyObservationsWeightsGet ();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsMyObservationsWeightsGetWithHttpInfo ();
+        ApiResponse<NhsProfile> MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGetWithHttpInfo (string userId, string observationType, string queryType, decimal? pastDays);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -110,8 +107,12 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="observationType"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsMyObservationsBloodpressuresGetAsync ();
+        System.Threading.Tasks.Task<NhsProfile> MynhsUserIdObservationsObservationTypeGetAsync (string userId, string observationType, int? skip = null, int? limit = null);
 
         /// <summary>
         /// 
@@ -120,8 +121,12 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="observationType"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyObservationsBloodpressuresGetAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdObservationsObservationTypeGetAsyncWithHttpInfo (string userId, string observationType, int? skip = null, int? limit = null);
         /// <summary>
         /// 
         /// </summary>
@@ -129,9 +134,9 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type"></param>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsMyObservationsGetAsync (string type);
+        System.Threading.Tasks.Task<NhsProfile> MynhsUserIdObservationsSummariesGetAsync (string userId);
 
         /// <summary>
         /// 
@@ -140,9 +145,9 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type"></param>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyObservationsGetAsyncWithHttpInfo (string type);
+        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdObservationsSummariesGetAsyncWithHttpInfo (string userId);
         /// <summary>
         /// 
         /// </summary>
@@ -150,8 +155,12 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="observationType"></param>
+        /// <param name="queryType"></param>
+        /// <param name="pastDays"></param>
         /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsMyObservationsHeightsGetAsync ();
+        System.Threading.Tasks.Task<NhsProfile> MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGetAsync (string userId, string observationType, string queryType, decimal? pastDays);
 
         /// <summary>
         /// 
@@ -160,27 +169,12 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="observationType"></param>
+        /// <param name="queryType"></param>
+        /// <param name="pastDays"></param>
         /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyObservationsHeightsGetAsyncWithHttpInfo ();
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsMyObservationsWeightsGetAsync ();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyObservationsWeightsGetAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGetAsyncWithHttpInfo (string userId, string observationType, string queryType, decimal? pastDays);
         #endregion Asynchronous Operations
     }
 
@@ -296,10 +290,14 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="observationType"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsMyObservationsBloodpressuresGet ()
+        public NhsProfile MynhsUserIdObservationsObservationTypeGet (string userId, string observationType, int? skip = null, int? limit = null)
         {
-             ApiResponse<NhsProfile> localVarResponse = MynhsMyObservationsBloodpressuresGetWithHttpInfo();
+             ApiResponse<NhsProfile> localVarResponse = MynhsUserIdObservationsObservationTypeGetWithHttpInfo(userId, observationType, skip, limit);
              return localVarResponse.Data;
         }
 
@@ -307,11 +305,21 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="observationType"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsMyObservationsBloodpressuresGetWithHttpInfo ()
+        public ApiResponse< NhsProfile > MynhsUserIdObservationsObservationTypeGetWithHttpInfo (string userId, string observationType, int? skip = null, int? limit = null)
         {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ObservationsApi->MynhsUserIdObservationsObservationTypeGet");
+            // verify the required parameter 'observationType' is set
+            if (observationType == null)
+                throw new ApiException(400, "Missing required parameter 'observationType' when calling ObservationsApi->MynhsUserIdObservationsObservationTypeGet");
 
-            var localVarPath = "./mynhs/my/observations/bloodpressures";
+            var localVarPath = "./mynhs/{userId}/observations/{observationType}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -332,6 +340,10 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (observationType != null) localVarPathParams.Add("observationType", this.Configuration.ApiClient.ParameterToString(observationType)); // path parameter
+            if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
@@ -342,7 +354,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyObservationsBloodpressuresGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdObservationsObservationTypeGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -355,10 +367,14 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="observationType"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsMyObservationsBloodpressuresGetAsync ()
+        public async System.Threading.Tasks.Task<NhsProfile> MynhsUserIdObservationsObservationTypeGetAsync (string userId, string observationType, int? skip = null, int? limit = null)
         {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsMyObservationsBloodpressuresGetAsyncWithHttpInfo();
+             ApiResponse<NhsProfile> localVarResponse = await MynhsUserIdObservationsObservationTypeGetAsyncWithHttpInfo(userId, observationType, skip, limit);
              return localVarResponse.Data;
 
         }
@@ -367,11 +383,21 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="observationType"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyObservationsBloodpressuresGetAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdObservationsObservationTypeGetAsyncWithHttpInfo (string userId, string observationType, int? skip = null, int? limit = null)
         {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ObservationsApi->MynhsUserIdObservationsObservationTypeGet");
+            // verify the required parameter 'observationType' is set
+            if (observationType == null)
+                throw new ApiException(400, "Missing required parameter 'observationType' when calling ObservationsApi->MynhsUserIdObservationsObservationTypeGet");
 
-            var localVarPath = "./mynhs/my/observations/bloodpressures";
+            var localVarPath = "./mynhs/{userId}/observations/{observationType}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -392,6 +418,10 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (observationType != null) localVarPathParams.Add("observationType", this.Configuration.ApiClient.ParameterToString(observationType)); // path parameter
+            if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -402,7 +432,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyObservationsBloodpressuresGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdObservationsObservationTypeGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -415,11 +445,11 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type"></param>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsMyObservationsGet (string type)
+        public NhsProfile MynhsUserIdObservationsSummariesGet (string userId)
         {
-             ApiResponse<NhsProfile> localVarResponse = MynhsMyObservationsGetWithHttpInfo(type);
+             ApiResponse<NhsProfile> localVarResponse = MynhsUserIdObservationsSummariesGetWithHttpInfo(userId);
              return localVarResponse.Data;
         }
 
@@ -427,15 +457,15 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type"></param>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsMyObservationsGetWithHttpInfo (string type)
+        public ApiResponse< NhsProfile > MynhsUserIdObservationsSummariesGetWithHttpInfo (string userId)
         {
-            // verify the required parameter 'type' is set
-            if (type == null)
-                throw new ApiException(400, "Missing required parameter 'type' when calling ObservationsApi->MynhsMyObservationsGet");
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ObservationsApi->MynhsUserIdObservationsSummariesGet");
 
-            var localVarPath = "./mynhs/my/observations";
+            var localVarPath = "./mynhs/{userId}/observations/summaries";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -456,7 +486,7 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (type != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "type", type)); // query parameter
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
@@ -467,7 +497,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyObservationsGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdObservationsSummariesGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -480,11 +510,11 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type"></param>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsMyObservationsGetAsync (string type)
+        public async System.Threading.Tasks.Task<NhsProfile> MynhsUserIdObservationsSummariesGetAsync (string userId)
         {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsMyObservationsGetAsyncWithHttpInfo(type);
+             ApiResponse<NhsProfile> localVarResponse = await MynhsUserIdObservationsSummariesGetAsyncWithHttpInfo(userId);
              return localVarResponse.Data;
 
         }
@@ -493,15 +523,15 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type"></param>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyObservationsGetAsyncWithHttpInfo (string type)
+        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdObservationsSummariesGetAsyncWithHttpInfo (string userId)
         {
-            // verify the required parameter 'type' is set
-            if (type == null)
-                throw new ApiException(400, "Missing required parameter 'type' when calling ObservationsApi->MynhsMyObservationsGet");
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ObservationsApi->MynhsUserIdObservationsSummariesGet");
 
-            var localVarPath = "./mynhs/my/observations";
+            var localVarPath = "./mynhs/{userId}/observations/summaries";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -522,7 +552,7 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (type != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "type", type)); // query parameter
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -533,7 +563,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyObservationsGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdObservationsSummariesGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -546,10 +576,14 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="observationType"></param>
+        /// <param name="queryType"></param>
+        /// <param name="pastDays"></param>
         /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsMyObservationsHeightsGet ()
+        public NhsProfile MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGet (string userId, string observationType, string queryType, decimal? pastDays)
         {
-             ApiResponse<NhsProfile> localVarResponse = MynhsMyObservationsHeightsGetWithHttpInfo();
+             ApiResponse<NhsProfile> localVarResponse = MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGetWithHttpInfo(userId, observationType, queryType, pastDays);
              return localVarResponse.Data;
         }
 
@@ -557,11 +591,27 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="observationType"></param>
+        /// <param name="queryType"></param>
+        /// <param name="pastDays"></param>
         /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsMyObservationsHeightsGetWithHttpInfo ()
+        public ApiResponse< NhsProfile > MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGetWithHttpInfo (string userId, string observationType, string queryType, decimal? pastDays)
         {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ObservationsApi->MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGet");
+            // verify the required parameter 'observationType' is set
+            if (observationType == null)
+                throw new ApiException(400, "Missing required parameter 'observationType' when calling ObservationsApi->MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGet");
+            // verify the required parameter 'queryType' is set
+            if (queryType == null)
+                throw new ApiException(400, "Missing required parameter 'queryType' when calling ObservationsApi->MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGet");
+            // verify the required parameter 'pastDays' is set
+            if (pastDays == null)
+                throw new ApiException(400, "Missing required parameter 'pastDays' when calling ObservationsApi->MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGet");
 
-            var localVarPath = "./mynhs/my/observations/heights";
+            var localVarPath = "./mynhs/{userId}/observations/summaries/{observationType}/{queryType}/{pastDays}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -582,6 +632,16 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (observationType != null) localVarPathParams.Add("observationType", this.Configuration.ApiClient.ParameterToString(observationType)); // path parameter
+            if (queryType != null) localVarPathParams.Add("queryType", this.Configuration.ApiClient.ParameterToString(queryType)); // path parameter
+            if (pastDays != null) localVarPathParams.Add("pastDays", this.Configuration.ApiClient.ParameterToString(pastDays)); // path parameter
+            // authentication (OAuth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
@@ -592,7 +652,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyObservationsHeightsGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -605,10 +665,14 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="observationType"></param>
+        /// <param name="queryType"></param>
+        /// <param name="pastDays"></param>
         /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsMyObservationsHeightsGetAsync ()
+        public async System.Threading.Tasks.Task<NhsProfile> MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGetAsync (string userId, string observationType, string queryType, decimal? pastDays)
         {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsMyObservationsHeightsGetAsyncWithHttpInfo();
+             ApiResponse<NhsProfile> localVarResponse = await MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGetAsyncWithHttpInfo(userId, observationType, queryType, pastDays);
              return localVarResponse.Data;
 
         }
@@ -617,11 +681,27 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="observationType"></param>
+        /// <param name="queryType"></param>
+        /// <param name="pastDays"></param>
         /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyObservationsHeightsGetAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGetAsyncWithHttpInfo (string userId, string observationType, string queryType, decimal? pastDays)
         {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling ObservationsApi->MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGet");
+            // verify the required parameter 'observationType' is set
+            if (observationType == null)
+                throw new ApiException(400, "Missing required parameter 'observationType' when calling ObservationsApi->MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGet");
+            // verify the required parameter 'queryType' is set
+            if (queryType == null)
+                throw new ApiException(400, "Missing required parameter 'queryType' when calling ObservationsApi->MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGet");
+            // verify the required parameter 'pastDays' is set
+            if (pastDays == null)
+                throw new ApiException(400, "Missing required parameter 'pastDays' when calling ObservationsApi->MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGet");
 
-            var localVarPath = "./mynhs/my/observations/heights";
+            var localVarPath = "./mynhs/{userId}/observations/summaries/{observationType}/{queryType}/{pastDays}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -642,6 +722,16 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (observationType != null) localVarPathParams.Add("observationType", this.Configuration.ApiClient.ParameterToString(observationType)); // path parameter
+            if (queryType != null) localVarPathParams.Add("queryType", this.Configuration.ApiClient.ParameterToString(queryType)); // path parameter
+            if (pastDays != null) localVarPathParams.Add("pastDays", this.Configuration.ApiClient.ParameterToString(pastDays)); // path parameter
+            // authentication (OAuth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -652,126 +742,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyObservationsHeightsGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsMyObservationsWeightsGet ()
-        {
-             ApiResponse<NhsProfile> localVarResponse = MynhsMyObservationsWeightsGetWithHttpInfo();
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsMyObservationsWeightsGetWithHttpInfo ()
-        {
-
-            var localVarPath = "./mynhs/my/observations/weights";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MynhsMyObservationsWeightsGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsMyObservationsWeightsGetAsync ()
-        {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsMyObservationsWeightsGetAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyObservationsWeightsGetAsyncWithHttpInfo ()
-        {
-
-            var localVarPath = "./mynhs/my/observations/weights";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MynhsMyObservationsWeightsGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 

@@ -30,9 +30,12 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="healthCheckId"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>NhsProfile</returns>
-        NhsProfile MynhsMyDigitalhealthchecksHealthcheckidAgeGet (string healthcheckid);
+        NhsProfile MynhsUserIdDigitalhealthchecksHealthCheckIdGet (string userId, Guid? healthCheckId, int? skip = null, int? limit = null);
 
         /// <summary>
         /// 
@@ -41,9 +44,12 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="healthCheckId"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidAgeGetWithHttpInfo (string healthcheckid);
+        ApiResponse<NhsProfile> MynhsUserIdDigitalhealthchecksHealthCheckIdGetWithHttpInfo (string userId, Guid? healthCheckId, int? skip = null, int? limit = null);
         /// <summary>
         /// 
         /// </summary>
@@ -51,9 +57,13 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="healthCheckId"></param>
+        /// <param name="healthCheckType"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>NhsProfile</returns>
-        NhsProfile MynhsMyDigitalhealthchecksHealthcheckidBloodpressureGet (string healthcheckid);
+        NhsProfile MynhsUserIdDigitalhealthchecksHealthCheckIdHealthCheckTypeGet (string userId, Guid? healthCheckId, string healthCheckType, int? skip = null, int? limit = null);
 
         /// <summary>
         /// 
@@ -62,135 +72,13 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="healthCheckId"></param>
+        /// <param name="healthCheckType"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidBloodpressureGetWithHttpInfo (string healthcheckid);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>NhsProfile</returns>
-        NhsProfile MynhsMyDigitalhealthchecksHealthcheckidBloodsugarGet (string healthcheckid);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidBloodsugarGetWithHttpInfo (string healthcheckid);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>NhsProfile</returns>
-        NhsProfile MynhsMyDigitalhealthchecksHealthcheckidColesterolGet (string healthcheckid);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidColesterolGetWithHttpInfo (string healthcheckid);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>NhsProfile</returns>
-        NhsProfile MynhsMyDigitalhealthchecksHealthcheckidGet (string healthcheckid);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidGetWithHttpInfo (string healthcheckid);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>NhsProfile</returns>
-        NhsProfile MynhsMyDigitalhealthchecksHealthcheckidHeightGet (string healthcheckid);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidHeightGetWithHttpInfo (string healthcheckid);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>NhsProfile</returns>
-        NhsProfile MynhsMyDigitalhealthchecksHealthcheckidWeightGet (string healthcheckid);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidWeightGetWithHttpInfo (string healthcheckid);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>NhsProfile</returns>
-        NhsProfile MynhsMyDigitalhealthchecksHealthcheckidWellnessquestionsGet (string healthcheckid);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidWellnessquestionsGetWithHttpInfo (string healthcheckid);
+        ApiResponse<NhsProfile> MynhsUserIdDigitalhealthchecksHealthCheckIdHealthCheckTypeGetWithHttpInfo (string userId, Guid? healthCheckId, string healthCheckType, int? skip = null, int? limit = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -200,9 +88,12 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="healthCheckId"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidAgeGetAsync (string healthcheckid);
+        System.Threading.Tasks.Task<NhsProfile> MynhsUserIdDigitalhealthchecksHealthCheckIdGetAsync (string userId, Guid? healthCheckId, int? skip = null, int? limit = null);
 
         /// <summary>
         /// 
@@ -211,9 +102,12 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="healthCheckId"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyDigitalhealthchecksHealthcheckidAgeGetAsyncWithHttpInfo (string healthcheckid);
+        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdDigitalhealthchecksHealthCheckIdGetAsyncWithHttpInfo (string userId, Guid? healthCheckId, int? skip = null, int? limit = null);
         /// <summary>
         /// 
         /// </summary>
@@ -221,9 +115,13 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="healthCheckId"></param>
+        /// <param name="healthCheckType"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidBloodpressureGetAsync (string healthcheckid);
+        System.Threading.Tasks.Task<NhsProfile> MynhsUserIdDigitalhealthchecksHealthCheckIdHealthCheckTypeGetAsync (string userId, Guid? healthCheckId, string healthCheckType, int? skip = null, int? limit = null);
 
         /// <summary>
         /// 
@@ -232,135 +130,13 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="healthCheckId"></param>
+        /// <param name="healthCheckType"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyDigitalhealthchecksHealthcheckidBloodpressureGetAsyncWithHttpInfo (string healthcheckid);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidBloodsugarGetAsync (string healthcheckid);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyDigitalhealthchecksHealthcheckidBloodsugarGetAsyncWithHttpInfo (string healthcheckid);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidColesterolGetAsync (string healthcheckid);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyDigitalhealthchecksHealthcheckidColesterolGetAsyncWithHttpInfo (string healthcheckid);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidGetAsync (string healthcheckid);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyDigitalhealthchecksHealthcheckidGetAsyncWithHttpInfo (string healthcheckid);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidHeightGetAsync (string healthcheckid);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyDigitalhealthchecksHealthcheckidHeightGetAsyncWithHttpInfo (string healthcheckid);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidWeightGetAsync (string healthcheckid);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyDigitalhealthchecksHealthcheckidWeightGetAsyncWithHttpInfo (string healthcheckid);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidWellnessquestionsGetAsync (string healthcheckid);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyDigitalhealthchecksHealthcheckidWellnessquestionsGetAsyncWithHttpInfo (string healthcheckid);
+        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdDigitalhealthchecksHealthCheckIdHealthCheckTypeGetAsyncWithHttpInfo (string userId, Guid? healthCheckId, string healthCheckType, int? skip = null, int? limit = null);
         #endregion Asynchronous Operations
     }
 
@@ -476,11 +252,14 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="healthCheckId"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsMyDigitalhealthchecksHealthcheckidAgeGet (string healthcheckid)
+        public NhsProfile MynhsUserIdDigitalhealthchecksHealthCheckIdGet (string userId, Guid? healthCheckId, int? skip = null, int? limit = null)
         {
-             ApiResponse<NhsProfile> localVarResponse = MynhsMyDigitalhealthchecksHealthcheckidAgeGetWithHttpInfo(healthcheckid);
+             ApiResponse<NhsProfile> localVarResponse = MynhsUserIdDigitalhealthchecksHealthCheckIdGetWithHttpInfo(userId, healthCheckId, skip, limit);
              return localVarResponse.Data;
         }
 
@@ -488,15 +267,21 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="healthCheckId"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsMyDigitalhealthchecksHealthcheckidAgeGetWithHttpInfo (string healthcheckid)
+        public ApiResponse< NhsProfile > MynhsUserIdDigitalhealthchecksHealthCheckIdGetWithHttpInfo (string userId, Guid? healthCheckId, int? skip = null, int? limit = null)
         {
-            // verify the required parameter 'healthcheckid' is set
-            if (healthcheckid == null)
-                throw new ApiException(400, "Missing required parameter 'healthcheckid' when calling DigitalHealthChecksApi->MynhsMyDigitalhealthchecksHealthcheckidAgeGet");
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling DigitalHealthChecksApi->MynhsUserIdDigitalhealthchecksHealthCheckIdGet");
+            // verify the required parameter 'healthCheckId' is set
+            if (healthCheckId == null)
+                throw new ApiException(400, "Missing required parameter 'healthCheckId' when calling DigitalHealthChecksApi->MynhsUserIdDigitalhealthchecksHealthCheckIdGet");
 
-            var localVarPath = "./mynhs/my/digitalhealthchecks/{healthcheckid}/age";
+            var localVarPath = "./mynhs/{userId}/digitalhealthchecks/{healthCheckId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -517,7 +302,10 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (healthcheckid != null) localVarPathParams.Add("healthcheckid", this.Configuration.ApiClient.ParameterToString(healthcheckid)); // path parameter
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (healthCheckId != null) localVarPathParams.Add("healthCheckId", this.Configuration.ApiClient.ParameterToString(healthCheckId)); // path parameter
+            if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
             // authentication (OAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
@@ -534,7 +322,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyDigitalhealthchecksHealthcheckidAgeGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdDigitalhealthchecksHealthCheckIdGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -547,11 +335,14 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="healthCheckId"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidAgeGetAsync (string healthcheckid)
+        public async System.Threading.Tasks.Task<NhsProfile> MynhsUserIdDigitalhealthchecksHealthCheckIdGetAsync (string userId, Guid? healthCheckId, int? skip = null, int? limit = null)
         {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsMyDigitalhealthchecksHealthcheckidAgeGetAsyncWithHttpInfo(healthcheckid);
+             ApiResponse<NhsProfile> localVarResponse = await MynhsUserIdDigitalhealthchecksHealthCheckIdGetAsyncWithHttpInfo(userId, healthCheckId, skip, limit);
              return localVarResponse.Data;
 
         }
@@ -560,15 +351,21 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="healthCheckId"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyDigitalhealthchecksHealthcheckidAgeGetAsyncWithHttpInfo (string healthcheckid)
+        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdDigitalhealthchecksHealthCheckIdGetAsyncWithHttpInfo (string userId, Guid? healthCheckId, int? skip = null, int? limit = null)
         {
-            // verify the required parameter 'healthcheckid' is set
-            if (healthcheckid == null)
-                throw new ApiException(400, "Missing required parameter 'healthcheckid' when calling DigitalHealthChecksApi->MynhsMyDigitalhealthchecksHealthcheckidAgeGet");
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling DigitalHealthChecksApi->MynhsUserIdDigitalhealthchecksHealthCheckIdGet");
+            // verify the required parameter 'healthCheckId' is set
+            if (healthCheckId == null)
+                throw new ApiException(400, "Missing required parameter 'healthCheckId' when calling DigitalHealthChecksApi->MynhsUserIdDigitalhealthchecksHealthCheckIdGet");
 
-            var localVarPath = "./mynhs/my/digitalhealthchecks/{healthcheckid}/age";
+            var localVarPath = "./mynhs/{userId}/digitalhealthchecks/{healthCheckId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -589,7 +386,10 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (healthcheckid != null) localVarPathParams.Add("healthcheckid", this.Configuration.ApiClient.ParameterToString(healthcheckid)); // path parameter
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (healthCheckId != null) localVarPathParams.Add("healthCheckId", this.Configuration.ApiClient.ParameterToString(healthCheckId)); // path parameter
+            if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
             // authentication (OAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
@@ -606,7 +406,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyDigitalhealthchecksHealthcheckidAgeGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdDigitalhealthchecksHealthCheckIdGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -619,11 +419,15 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="healthCheckId"></param>
+        /// <param name="healthCheckType"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsMyDigitalhealthchecksHealthcheckidBloodpressureGet (string healthcheckid)
+        public NhsProfile MynhsUserIdDigitalhealthchecksHealthCheckIdHealthCheckTypeGet (string userId, Guid? healthCheckId, string healthCheckType, int? skip = null, int? limit = null)
         {
-             ApiResponse<NhsProfile> localVarResponse = MynhsMyDigitalhealthchecksHealthcheckidBloodpressureGetWithHttpInfo(healthcheckid);
+             ApiResponse<NhsProfile> localVarResponse = MynhsUserIdDigitalhealthchecksHealthCheckIdHealthCheckTypeGetWithHttpInfo(userId, healthCheckId, healthCheckType, skip, limit);
              return localVarResponse.Data;
         }
 
@@ -631,15 +435,25 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="healthCheckId"></param>
+        /// <param name="healthCheckType"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsMyDigitalhealthchecksHealthcheckidBloodpressureGetWithHttpInfo (string healthcheckid)
+        public ApiResponse< NhsProfile > MynhsUserIdDigitalhealthchecksHealthCheckIdHealthCheckTypeGetWithHttpInfo (string userId, Guid? healthCheckId, string healthCheckType, int? skip = null, int? limit = null)
         {
-            // verify the required parameter 'healthcheckid' is set
-            if (healthcheckid == null)
-                throw new ApiException(400, "Missing required parameter 'healthcheckid' when calling DigitalHealthChecksApi->MynhsMyDigitalhealthchecksHealthcheckidBloodpressureGet");
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling DigitalHealthChecksApi->MynhsUserIdDigitalhealthchecksHealthCheckIdHealthCheckTypeGet");
+            // verify the required parameter 'healthCheckId' is set
+            if (healthCheckId == null)
+                throw new ApiException(400, "Missing required parameter 'healthCheckId' when calling DigitalHealthChecksApi->MynhsUserIdDigitalhealthchecksHealthCheckIdHealthCheckTypeGet");
+            // verify the required parameter 'healthCheckType' is set
+            if (healthCheckType == null)
+                throw new ApiException(400, "Missing required parameter 'healthCheckType' when calling DigitalHealthChecksApi->MynhsUserIdDigitalhealthchecksHealthCheckIdHealthCheckTypeGet");
 
-            var localVarPath = "./mynhs/my/digitalhealthchecks/{healthcheckid}/bloodpressure";
+            var localVarPath = "./mynhs/{userId}/digitalhealthchecks/{healthCheckId}/{healthCheckType}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -660,7 +474,11 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (healthcheckid != null) localVarPathParams.Add("healthcheckid", this.Configuration.ApiClient.ParameterToString(healthcheckid)); // path parameter
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (healthCheckId != null) localVarPathParams.Add("healthCheckId", this.Configuration.ApiClient.ParameterToString(healthCheckId)); // path parameter
+            if (healthCheckType != null) localVarPathParams.Add("healthCheckType", this.Configuration.ApiClient.ParameterToString(healthCheckType)); // path parameter
+            if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
             // authentication (OAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
@@ -677,7 +495,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyDigitalhealthchecksHealthcheckidBloodpressureGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdDigitalhealthchecksHealthCheckIdHealthCheckTypeGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -690,11 +508,15 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="healthCheckId"></param>
+        /// <param name="healthCheckType"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidBloodpressureGetAsync (string healthcheckid)
+        public async System.Threading.Tasks.Task<NhsProfile> MynhsUserIdDigitalhealthchecksHealthCheckIdHealthCheckTypeGetAsync (string userId, Guid? healthCheckId, string healthCheckType, int? skip = null, int? limit = null)
         {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsMyDigitalhealthchecksHealthcheckidBloodpressureGetAsyncWithHttpInfo(healthcheckid);
+             ApiResponse<NhsProfile> localVarResponse = await MynhsUserIdDigitalhealthchecksHealthCheckIdHealthCheckTypeGetAsyncWithHttpInfo(userId, healthCheckId, healthCheckType, skip, limit);
              return localVarResponse.Data;
 
         }
@@ -703,15 +525,25 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="healthCheckId"></param>
+        /// <param name="healthCheckType"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set. (optional)</param>
+        /// <param name="limit">The numbers of items to return. (optional, default to 20)</param>
         /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyDigitalhealthchecksHealthcheckidBloodpressureGetAsyncWithHttpInfo (string healthcheckid)
+        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdDigitalhealthchecksHealthCheckIdHealthCheckTypeGetAsyncWithHttpInfo (string userId, Guid? healthCheckId, string healthCheckType, int? skip = null, int? limit = null)
         {
-            // verify the required parameter 'healthcheckid' is set
-            if (healthcheckid == null)
-                throw new ApiException(400, "Missing required parameter 'healthcheckid' when calling DigitalHealthChecksApi->MynhsMyDigitalhealthchecksHealthcheckidBloodpressureGet");
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling DigitalHealthChecksApi->MynhsUserIdDigitalhealthchecksHealthCheckIdHealthCheckTypeGet");
+            // verify the required parameter 'healthCheckId' is set
+            if (healthCheckId == null)
+                throw new ApiException(400, "Missing required parameter 'healthCheckId' when calling DigitalHealthChecksApi->MynhsUserIdDigitalhealthchecksHealthCheckIdHealthCheckTypeGet");
+            // verify the required parameter 'healthCheckType' is set
+            if (healthCheckType == null)
+                throw new ApiException(400, "Missing required parameter 'healthCheckType' when calling DigitalHealthChecksApi->MynhsUserIdDigitalhealthchecksHealthCheckIdHealthCheckTypeGet");
 
-            var localVarPath = "./mynhs/my/digitalhealthchecks/{healthcheckid}/bloodpressure";
+            var localVarPath = "./mynhs/{userId}/digitalhealthchecks/{healthCheckId}/{healthCheckType}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -732,7 +564,11 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (healthcheckid != null) localVarPathParams.Add("healthcheckid", this.Configuration.ApiClient.ParameterToString(healthcheckid)); // path parameter
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (healthCheckId != null) localVarPathParams.Add("healthCheckId", this.Configuration.ApiClient.ParameterToString(healthCheckId)); // path parameter
+            if (healthCheckType != null) localVarPathParams.Add("healthCheckType", this.Configuration.ApiClient.ParameterToString(healthCheckType)); // path parameter
+            if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
             // authentication (OAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
@@ -749,865 +585,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyDigitalhealthchecksHealthcheckidBloodpressureGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsMyDigitalhealthchecksHealthcheckidBloodsugarGet (string healthcheckid)
-        {
-             ApiResponse<NhsProfile> localVarResponse = MynhsMyDigitalhealthchecksHealthcheckidBloodsugarGetWithHttpInfo(healthcheckid);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsMyDigitalhealthchecksHealthcheckidBloodsugarGetWithHttpInfo (string healthcheckid)
-        {
-            // verify the required parameter 'healthcheckid' is set
-            if (healthcheckid == null)
-                throw new ApiException(400, "Missing required parameter 'healthcheckid' when calling DigitalHealthChecksApi->MynhsMyDigitalhealthchecksHealthcheckidBloodsugarGet");
-
-            var localVarPath = "./mynhs/my/digitalhealthchecks/{healthcheckid}/bloodsugar";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (healthcheckid != null) localVarPathParams.Add("healthcheckid", this.Configuration.ApiClient.ParameterToString(healthcheckid)); // path parameter
-            // authentication (OAuth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MynhsMyDigitalhealthchecksHealthcheckidBloodsugarGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidBloodsugarGetAsync (string healthcheckid)
-        {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsMyDigitalhealthchecksHealthcheckidBloodsugarGetAsyncWithHttpInfo(healthcheckid);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyDigitalhealthchecksHealthcheckidBloodsugarGetAsyncWithHttpInfo (string healthcheckid)
-        {
-            // verify the required parameter 'healthcheckid' is set
-            if (healthcheckid == null)
-                throw new ApiException(400, "Missing required parameter 'healthcheckid' when calling DigitalHealthChecksApi->MynhsMyDigitalhealthchecksHealthcheckidBloodsugarGet");
-
-            var localVarPath = "./mynhs/my/digitalhealthchecks/{healthcheckid}/bloodsugar";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (healthcheckid != null) localVarPathParams.Add("healthcheckid", this.Configuration.ApiClient.ParameterToString(healthcheckid)); // path parameter
-            // authentication (OAuth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MynhsMyDigitalhealthchecksHealthcheckidBloodsugarGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsMyDigitalhealthchecksHealthcheckidColesterolGet (string healthcheckid)
-        {
-             ApiResponse<NhsProfile> localVarResponse = MynhsMyDigitalhealthchecksHealthcheckidColesterolGetWithHttpInfo(healthcheckid);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsMyDigitalhealthchecksHealthcheckidColesterolGetWithHttpInfo (string healthcheckid)
-        {
-            // verify the required parameter 'healthcheckid' is set
-            if (healthcheckid == null)
-                throw new ApiException(400, "Missing required parameter 'healthcheckid' when calling DigitalHealthChecksApi->MynhsMyDigitalhealthchecksHealthcheckidColesterolGet");
-
-            var localVarPath = "./mynhs/my/digitalhealthchecks/{healthcheckid}/colesterol";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (healthcheckid != null) localVarPathParams.Add("healthcheckid", this.Configuration.ApiClient.ParameterToString(healthcheckid)); // path parameter
-            // authentication (OAuth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MynhsMyDigitalhealthchecksHealthcheckidColesterolGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidColesterolGetAsync (string healthcheckid)
-        {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsMyDigitalhealthchecksHealthcheckidColesterolGetAsyncWithHttpInfo(healthcheckid);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyDigitalhealthchecksHealthcheckidColesterolGetAsyncWithHttpInfo (string healthcheckid)
-        {
-            // verify the required parameter 'healthcheckid' is set
-            if (healthcheckid == null)
-                throw new ApiException(400, "Missing required parameter 'healthcheckid' when calling DigitalHealthChecksApi->MynhsMyDigitalhealthchecksHealthcheckidColesterolGet");
-
-            var localVarPath = "./mynhs/my/digitalhealthchecks/{healthcheckid}/colesterol";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (healthcheckid != null) localVarPathParams.Add("healthcheckid", this.Configuration.ApiClient.ParameterToString(healthcheckid)); // path parameter
-            // authentication (OAuth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MynhsMyDigitalhealthchecksHealthcheckidColesterolGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsMyDigitalhealthchecksHealthcheckidGet (string healthcheckid)
-        {
-             ApiResponse<NhsProfile> localVarResponse = MynhsMyDigitalhealthchecksHealthcheckidGetWithHttpInfo(healthcheckid);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsMyDigitalhealthchecksHealthcheckidGetWithHttpInfo (string healthcheckid)
-        {
-            // verify the required parameter 'healthcheckid' is set
-            if (healthcheckid == null)
-                throw new ApiException(400, "Missing required parameter 'healthcheckid' when calling DigitalHealthChecksApi->MynhsMyDigitalhealthchecksHealthcheckidGet");
-
-            var localVarPath = "./mynhs/my/digitalhealthchecks/{healthcheckid}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (healthcheckid != null) localVarPathParams.Add("healthcheckid", this.Configuration.ApiClient.ParameterToString(healthcheckid)); // path parameter
-            // authentication (OAuth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MynhsMyDigitalhealthchecksHealthcheckidGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidGetAsync (string healthcheckid)
-        {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsMyDigitalhealthchecksHealthcheckidGetAsyncWithHttpInfo(healthcheckid);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyDigitalhealthchecksHealthcheckidGetAsyncWithHttpInfo (string healthcheckid)
-        {
-            // verify the required parameter 'healthcheckid' is set
-            if (healthcheckid == null)
-                throw new ApiException(400, "Missing required parameter 'healthcheckid' when calling DigitalHealthChecksApi->MynhsMyDigitalhealthchecksHealthcheckidGet");
-
-            var localVarPath = "./mynhs/my/digitalhealthchecks/{healthcheckid}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (healthcheckid != null) localVarPathParams.Add("healthcheckid", this.Configuration.ApiClient.ParameterToString(healthcheckid)); // path parameter
-            // authentication (OAuth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MynhsMyDigitalhealthchecksHealthcheckidGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsMyDigitalhealthchecksHealthcheckidHeightGet (string healthcheckid)
-        {
-             ApiResponse<NhsProfile> localVarResponse = MynhsMyDigitalhealthchecksHealthcheckidHeightGetWithHttpInfo(healthcheckid);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsMyDigitalhealthchecksHealthcheckidHeightGetWithHttpInfo (string healthcheckid)
-        {
-            // verify the required parameter 'healthcheckid' is set
-            if (healthcheckid == null)
-                throw new ApiException(400, "Missing required parameter 'healthcheckid' when calling DigitalHealthChecksApi->MynhsMyDigitalhealthchecksHealthcheckidHeightGet");
-
-            var localVarPath = "./mynhs/my/digitalhealthchecks/{healthcheckid}/height";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (healthcheckid != null) localVarPathParams.Add("healthcheckid", this.Configuration.ApiClient.ParameterToString(healthcheckid)); // path parameter
-            // authentication (OAuth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MynhsMyDigitalhealthchecksHealthcheckidHeightGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidHeightGetAsync (string healthcheckid)
-        {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsMyDigitalhealthchecksHealthcheckidHeightGetAsyncWithHttpInfo(healthcheckid);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyDigitalhealthchecksHealthcheckidHeightGetAsyncWithHttpInfo (string healthcheckid)
-        {
-            // verify the required parameter 'healthcheckid' is set
-            if (healthcheckid == null)
-                throw new ApiException(400, "Missing required parameter 'healthcheckid' when calling DigitalHealthChecksApi->MynhsMyDigitalhealthchecksHealthcheckidHeightGet");
-
-            var localVarPath = "./mynhs/my/digitalhealthchecks/{healthcheckid}/height";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (healthcheckid != null) localVarPathParams.Add("healthcheckid", this.Configuration.ApiClient.ParameterToString(healthcheckid)); // path parameter
-            // authentication (OAuth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MynhsMyDigitalhealthchecksHealthcheckidHeightGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsMyDigitalhealthchecksHealthcheckidWeightGet (string healthcheckid)
-        {
-             ApiResponse<NhsProfile> localVarResponse = MynhsMyDigitalhealthchecksHealthcheckidWeightGetWithHttpInfo(healthcheckid);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsMyDigitalhealthchecksHealthcheckidWeightGetWithHttpInfo (string healthcheckid)
-        {
-            // verify the required parameter 'healthcheckid' is set
-            if (healthcheckid == null)
-                throw new ApiException(400, "Missing required parameter 'healthcheckid' when calling DigitalHealthChecksApi->MynhsMyDigitalhealthchecksHealthcheckidWeightGet");
-
-            var localVarPath = "./mynhs/my/digitalhealthchecks/{healthcheckid}/weight";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (healthcheckid != null) localVarPathParams.Add("healthcheckid", this.Configuration.ApiClient.ParameterToString(healthcheckid)); // path parameter
-            // authentication (OAuth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MynhsMyDigitalhealthchecksHealthcheckidWeightGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidWeightGetAsync (string healthcheckid)
-        {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsMyDigitalhealthchecksHealthcheckidWeightGetAsyncWithHttpInfo(healthcheckid);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyDigitalhealthchecksHealthcheckidWeightGetAsyncWithHttpInfo (string healthcheckid)
-        {
-            // verify the required parameter 'healthcheckid' is set
-            if (healthcheckid == null)
-                throw new ApiException(400, "Missing required parameter 'healthcheckid' when calling DigitalHealthChecksApi->MynhsMyDigitalhealthchecksHealthcheckidWeightGet");
-
-            var localVarPath = "./mynhs/my/digitalhealthchecks/{healthcheckid}/weight";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (healthcheckid != null) localVarPathParams.Add("healthcheckid", this.Configuration.ApiClient.ParameterToString(healthcheckid)); // path parameter
-            // authentication (OAuth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MynhsMyDigitalhealthchecksHealthcheckidWeightGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsMyDigitalhealthchecksHealthcheckidWellnessquestionsGet (string healthcheckid)
-        {
-             ApiResponse<NhsProfile> localVarResponse = MynhsMyDigitalhealthchecksHealthcheckidWellnessquestionsGetWithHttpInfo(healthcheckid);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsMyDigitalhealthchecksHealthcheckidWellnessquestionsGetWithHttpInfo (string healthcheckid)
-        {
-            // verify the required parameter 'healthcheckid' is set
-            if (healthcheckid == null)
-                throw new ApiException(400, "Missing required parameter 'healthcheckid' when calling DigitalHealthChecksApi->MynhsMyDigitalhealthchecksHealthcheckidWellnessquestionsGet");
-
-            var localVarPath = "./mynhs/my/digitalhealthchecks/{healthcheckid}/wellnessquestions";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (healthcheckid != null) localVarPathParams.Add("healthcheckid", this.Configuration.ApiClient.ParameterToString(healthcheckid)); // path parameter
-            // authentication (OAuth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MynhsMyDigitalhealthchecksHealthcheckidWellnessquestionsGet", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsMyDigitalhealthchecksHealthcheckidWellnessquestionsGetAsync (string healthcheckid)
-        {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsMyDigitalhealthchecksHealthcheckidWellnessquestionsGetAsyncWithHttpInfo(healthcheckid);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="healthcheckid"></param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyDigitalhealthchecksHealthcheckidWellnessquestionsGetAsyncWithHttpInfo (string healthcheckid)
-        {
-            // verify the required parameter 'healthcheckid' is set
-            if (healthcheckid == null)
-                throw new ApiException(400, "Missing required parameter 'healthcheckid' when calling DigitalHealthChecksApi->MynhsMyDigitalhealthchecksHealthcheckidWellnessquestionsGet");
-
-            var localVarPath = "./mynhs/my/digitalhealthchecks/{healthcheckid}/wellnessquestions";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (healthcheckid != null) localVarPathParams.Add("healthcheckid", this.Configuration.ApiClient.ParameterToString(healthcheckid)); // path parameter
-            // authentication (OAuth2) required
-            // oauth required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MynhsMyDigitalhealthchecksHealthcheckidWellnessquestionsGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdDigitalhealthchecksHealthCheckIdHealthCheckTypeGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 

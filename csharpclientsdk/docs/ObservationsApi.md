@@ -4,67 +4,13 @@ All URIs are relative to *https://virtserver.swaggerhub.com/NHSX/MyNhs/0.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**MynhsMyObservationsBloodpressuresGet**](ObservationsApi.md#mynhsmyobservationsbloodpressuresget) | **GET** /mynhs/my/observations/bloodpressures | 
-[**MynhsMyObservationsGet**](ObservationsApi.md#mynhsmyobservationsget) | **GET** /mynhs/my/observations | 
-[**MynhsMyObservationsHeightsGet**](ObservationsApi.md#mynhsmyobservationsheightsget) | **GET** /mynhs/my/observations/heights | 
-[**MynhsMyObservationsWeightsGet**](ObservationsApi.md#mynhsmyobservationsweightsget) | **GET** /mynhs/my/observations/weights | 
+[**MynhsUserIdObservationsObservationTypeGet**](ObservationsApi.md#mynhsuseridobservationsobservationtypeget) | **GET** /mynhs/{userId}/observations/{observationType} | 
+[**MynhsUserIdObservationsSummariesGet**](ObservationsApi.md#mynhsuseridobservationssummariesget) | **GET** /mynhs/{userId}/observations/summaries | 
+[**MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGet**](ObservationsApi.md#mynhsuseridobservationssummariesobservationtypequerytypepastdaysget) | **GET** /mynhs/{userId}/observations/summaries/{observationType}/{queryType}/{pastDays} | 
 
-<a name="mynhsmyobservationsbloodpressuresget"></a>
-# **MynhsMyObservationsBloodpressuresGet**
-> NhsProfile MynhsMyObservationsBloodpressuresGet ()
-
-
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using mynhs.sdk.Api;
-using mynhs.sdk.Client;
-using mynhs.sdk.Model;
-
-namespace Example
-{
-    public class MynhsMyObservationsBloodpressuresGetExample
-    {
-        public void main()
-        {
-            var apiInstance = new ObservationsApi();
-
-            try
-            {
-                NhsProfile result = apiInstance.MynhsMyObservationsBloodpressuresGet();
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling ObservationsApi.MynhsMyObservationsBloodpressuresGet: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**NhsProfile**](NhsProfile.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-<a name="mynhsmyobservationsget"></a>
-# **MynhsMyObservationsGet**
-> NhsProfile MynhsMyObservationsGet (string type)
+<a name="mynhsuseridobservationsobservationtypeget"></a>
+# **MynhsUserIdObservationsObservationTypeGet**
+> NhsProfile MynhsUserIdObservationsObservationTypeGet (string userId, string observationType, int? skip = null, int? limit = null)
 
 
 
@@ -78,21 +24,24 @@ using mynhs.sdk.Model;
 
 namespace Example
 {
-    public class MynhsMyObservationsGetExample
+    public class MynhsUserIdObservationsObservationTypeGetExample
     {
         public void main()
         {
             var apiInstance = new ObservationsApi();
-            var type = type_example;  // string | 
+            var userId = userId_example;  // string | The User Id to access
+            var observationType = observationType_example;  // string | 
+            var skip = 56;  // int? | The number of items to skip before starting to collect the result set. (optional) 
+            var limit = 56;  // int? | The numbers of items to return. (optional)  (default to 20)
 
             try
             {
-                NhsProfile result = apiInstance.MynhsMyObservationsGet(type);
+                NhsProfile result = apiInstance.MynhsUserIdObservationsObservationTypeGet(userId, observationType, skip, limit);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ObservationsApi.MynhsMyObservationsGet: " + e.Message );
+                Debug.Print("Exception when calling ObservationsApi.MynhsUserIdObservationsObservationTypeGet: " + e.Message );
             }
         }
     }
@@ -103,7 +52,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **string**|  | 
+ **userId** | **string**| The User Id to access | 
+ **observationType** | **string**|  | 
+ **skip** | **int?**| The number of items to skip before starting to collect the result set. | [optional] 
+ **limit** | **int?**| The numbers of items to return. | [optional] [default to 20]
 
 ### Return type
 
@@ -119,9 +71,9 @@ No authorization required
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-<a name="mynhsmyobservationsheightsget"></a>
-# **MynhsMyObservationsHeightsGet**
-> NhsProfile MynhsMyObservationsHeightsGet ()
+<a name="mynhsuseridobservationssummariesget"></a>
+# **MynhsUserIdObservationsSummariesGet**
+> NhsProfile MynhsUserIdObservationsSummariesGet (string userId)
 
 
 
@@ -135,20 +87,21 @@ using mynhs.sdk.Model;
 
 namespace Example
 {
-    public class MynhsMyObservationsHeightsGetExample
+    public class MynhsUserIdObservationsSummariesGetExample
     {
         public void main()
         {
             var apiInstance = new ObservationsApi();
+            var userId = userId_example;  // string | The User Id to access
 
             try
             {
-                NhsProfile result = apiInstance.MynhsMyObservationsHeightsGet();
+                NhsProfile result = apiInstance.MynhsUserIdObservationsSummariesGet(userId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ObservationsApi.MynhsMyObservationsHeightsGet: " + e.Message );
+                Debug.Print("Exception when calling ObservationsApi.MynhsUserIdObservationsSummariesGet: " + e.Message );
             }
         }
     }
@@ -156,7 +109,10 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**| The User Id to access | 
 
 ### Return type
 
@@ -172,9 +128,9 @@ No authorization required
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-<a name="mynhsmyobservationsweightsget"></a>
-# **MynhsMyObservationsWeightsGet**
-> NhsProfile MynhsMyObservationsWeightsGet ()
+<a name="mynhsuseridobservationssummariesobservationtypequerytypepastdaysget"></a>
+# **MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGet**
+> NhsProfile MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGet (string userId, string observationType, string queryType, decimal? pastDays)
 
 
 
@@ -188,20 +144,27 @@ using mynhs.sdk.Model;
 
 namespace Example
 {
-    public class MynhsMyObservationsWeightsGetExample
+    public class MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGetExample
     {
         public void main()
         {
+            // Configure OAuth2 access token for authorization: OAuth2
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new ObservationsApi();
+            var userId = userId_example;  // string | The User Id to access
+            var observationType = observationType_example;  // string | 
+            var queryType = queryType_example;  // string | 
+            var pastDays = 1.2;  // decimal? | 
 
             try
             {
-                NhsProfile result = apiInstance.MynhsMyObservationsWeightsGet();
+                NhsProfile result = apiInstance.MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGet(userId, observationType, queryType, pastDays);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ObservationsApi.MynhsMyObservationsWeightsGet: " + e.Message );
+                Debug.Print("Exception when calling ObservationsApi.MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGet: " + e.Message );
             }
         }
     }
@@ -209,7 +172,13 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**| The User Id to access | 
+ **observationType** | **string**|  | 
+ **queryType** | **string**|  | 
+ **pastDays** | **decimal?**|  | 
 
 ### Return type
 
@@ -217,7 +186,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 

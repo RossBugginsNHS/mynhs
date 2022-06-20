@@ -5,7 +5,6 @@ All URIs are relative to *https://virtserver.swaggerhub.com/NHSX/MyNhs/0.1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**MynhsApplicationsGet**](AccessAndApplicationsApi.md#mynhsapplicationsget) | **GET** /mynhs/applications | 
-[**MynhsMyUserGet**](AccessAndApplicationsApi.md#mynhsmyuserget) | **GET** /mynhs/my/user | 
 [**MynhsOwnersGet**](AccessAndApplicationsApi.md#mynhsownersget) | **GET** /mynhs/owners | 
 [**MynhsTennantOrOrganisationOrTheNameForWhatRecordsAreLinkedToGet**](AccessAndApplicationsApi.md#mynhstennantororganisationorthenameforwhatrecordsarelinkedtoget) | **GET** /mynhs/tennantOrOrganisationOrTheNameForWhatRecordsAreLinkedTo | 
 [**MynhsUserIdUserGet**](AccessAndApplicationsApi.md#mynhsuseriduserget) | **GET** /mynhs/{userId}/user | 
@@ -56,62 +55,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**NhsProfile**](NhsProfile.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-<a name="mynhsmyuserget"></a>
-# **MynhsMyUserGet**
-> UserProfile MynhsMyUserGet ()
-
-
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using mynhs.sdk.Api;
-using mynhs.sdk.Client;
-using mynhs.sdk.Model;
-
-namespace Example
-{
-    public class MynhsMyUserGetExample
-    {
-        public void main()
-        {
-            // Configure OAuth2 access token for authorization: OAuth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new AccessAndApplicationsApi();
-
-            try
-            {
-                UserProfile result = apiInstance.MynhsMyUserGet();
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling AccessAndApplicationsApi.MynhsMyUserGet: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**UserProfile**](UserProfile.md)
 
 ### Authorization
 
@@ -259,7 +202,7 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AccessAndApplicationsApi();
-            var userId = userId_example;  // string | 
+            var userId = userId_example;  // string | The User Id to access
 
             try
             {
@@ -279,7 +222,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| The User Id to access | 
 
 ### Return type
 

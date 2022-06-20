@@ -30,8 +30,9 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>MyNhsProfile</returns>
-        MyNhsProfile MynhsMyMedicalrecordsDetailedNhsRequestRecordsPost ();
+        MyNhsProfile MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPost (string userId);
 
         /// <summary>
         /// 
@@ -40,8 +41,9 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>ApiResponse of MyNhsProfile</returns>
-        ApiResponse<MyNhsProfile> MynhsMyMedicalrecordsDetailedNhsRequestRecordsPostWithHttpInfo ();
+        ApiResponse<MyNhsProfile> MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPostWithHttpInfo (string userId);
         /// <summary>
         /// 
         /// </summary>
@@ -49,9 +51,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="requestId"></param>
         /// <returns>MyNhsProfile</returns>
-        MyNhsProfile MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGet (string requestId);
+        MyNhsProfile MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGet (string userId, string requestId);
 
         /// <summary>
         /// 
@@ -60,9 +63,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="requestId"></param>
         /// <returns>ApiResponse of MyNhsProfile</returns>
-        ApiResponse<MyNhsProfile> MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGetWithHttpInfo (string requestId);
+        ApiResponse<MyNhsProfile> MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGetWithHttpInfo (string userId, string requestId);
         /// <summary>
         /// 
         /// </summary>
@@ -70,9 +74,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="requestId"></param>
         /// <returns>MyNhsProfile</returns>
-        MyNhsProfile MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut (string requestId);
+        MyNhsProfile MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut (string userId, string requestId);
 
         /// <summary>
         /// 
@@ -81,9 +86,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="requestId"></param>
         /// <returns>ApiResponse of MyNhsProfile</returns>
-        ApiResponse<MyNhsProfile> MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPutWithHttpInfo (string requestId);
+        ApiResponse<MyNhsProfile> MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPutWithHttpInfo (string userId, string requestId);
         /// <summary>
         /// 
         /// </summary>
@@ -91,9 +97,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="resultId"></param>
         /// <returns>MyNhsProfile</returns>
-        MyNhsProfile MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet (string resultId);
+        MyNhsProfile MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet (string userId, string resultId);
 
         /// <summary>
         /// 
@@ -102,9 +109,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="resultId"></param>
         /// <returns>ApiResponse of MyNhsProfile</returns>
-        ApiResponse<MyNhsProfile> MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGetWithHttpInfo (string resultId);
+        ApiResponse<MyNhsProfile> MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGetWithHttpInfo (string userId, string resultId);
         /// <summary>
         /// 
         /// </summary>
@@ -112,8 +120,9 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>MyNhsProfile</returns>
-        MyNhsProfile MynhsMyMedicalrecordsSummaryNhsGet ();
+        MyNhsProfile MynhsUserIdMedicalrecordsSummaryNhsGet (string userId);
 
         /// <summary>
         /// 
@@ -122,8 +131,9 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>ApiResponse of MyNhsProfile</returns>
-        ApiResponse<MyNhsProfile> MynhsMyMedicalrecordsSummaryNhsGetWithHttpInfo ();
+        ApiResponse<MyNhsProfile> MynhsUserIdMedicalrecordsSummaryNhsGetWithHttpInfo (string userId);
         /// <summary>
         /// 
         /// </summary>
@@ -131,9 +141,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="trustId"></param>
         /// <returns>MyNhsProfile</returns>
-        MyNhsProfile MynhsMyMedicalrecordsSummaryNhsTrustIdGet (string trustId);
+        MyNhsProfile MynhsUserIdMedicalrecordsSummaryNhsTrustIdGet (string userId, string trustId);
 
         /// <summary>
         /// 
@@ -142,9 +153,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="trustId"></param>
         /// <returns>ApiResponse of MyNhsProfile</returns>
-        ApiResponse<MyNhsProfile> MynhsMyMedicalrecordsSummaryNhsTrustIdGetWithHttpInfo (string trustId);
+        ApiResponse<MyNhsProfile> MynhsUserIdMedicalrecordsSummaryNhsTrustIdGetWithHttpInfo (string userId, string trustId);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -154,8 +166,9 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of MyNhsProfile</returns>
-        System.Threading.Tasks.Task<MyNhsProfile> MynhsMyMedicalrecordsDetailedNhsRequestRecordsPostAsync ();
+        System.Threading.Tasks.Task<MyNhsProfile> MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPostAsync (string userId);
 
         /// <summary>
         /// 
@@ -164,8 +177,9 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of ApiResponse (MyNhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsMyMedicalrecordsDetailedNhsRequestRecordsPostAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPostAsyncWithHttpInfo (string userId);
         /// <summary>
         /// 
         /// </summary>
@@ -173,9 +187,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="requestId"></param>
         /// <returns>Task of MyNhsProfile</returns>
-        System.Threading.Tasks.Task<MyNhsProfile> MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGetAsync (string requestId);
+        System.Threading.Tasks.Task<MyNhsProfile> MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGetAsync (string userId, string requestId);
 
         /// <summary>
         /// 
@@ -184,9 +199,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="requestId"></param>
         /// <returns>Task of ApiResponse (MyNhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGetAsyncWithHttpInfo (string requestId);
+        System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGetAsyncWithHttpInfo (string userId, string requestId);
         /// <summary>
         /// 
         /// </summary>
@@ -194,9 +210,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="requestId"></param>
         /// <returns>Task of MyNhsProfile</returns>
-        System.Threading.Tasks.Task<MyNhsProfile> MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPutAsync (string requestId);
+        System.Threading.Tasks.Task<MyNhsProfile> MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPutAsync (string userId, string requestId);
 
         /// <summary>
         /// 
@@ -205,9 +222,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="requestId"></param>
         /// <returns>Task of ApiResponse (MyNhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPutAsyncWithHttpInfo (string requestId);
+        System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPutAsyncWithHttpInfo (string userId, string requestId);
         /// <summary>
         /// 
         /// </summary>
@@ -215,9 +233,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="resultId"></param>
         /// <returns>Task of MyNhsProfile</returns>
-        System.Threading.Tasks.Task<MyNhsProfile> MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGetAsync (string resultId);
+        System.Threading.Tasks.Task<MyNhsProfile> MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGetAsync (string userId, string resultId);
 
         /// <summary>
         /// 
@@ -226,9 +245,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="resultId"></param>
         /// <returns>Task of ApiResponse (MyNhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGetAsyncWithHttpInfo (string resultId);
+        System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGetAsyncWithHttpInfo (string userId, string resultId);
         /// <summary>
         /// 
         /// </summary>
@@ -236,8 +256,9 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of MyNhsProfile</returns>
-        System.Threading.Tasks.Task<MyNhsProfile> MynhsMyMedicalrecordsSummaryNhsGetAsync ();
+        System.Threading.Tasks.Task<MyNhsProfile> MynhsUserIdMedicalrecordsSummaryNhsGetAsync (string userId);
 
         /// <summary>
         /// 
@@ -246,8 +267,9 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of ApiResponse (MyNhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsMyMedicalrecordsSummaryNhsGetAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsUserIdMedicalrecordsSummaryNhsGetAsyncWithHttpInfo (string userId);
         /// <summary>
         /// 
         /// </summary>
@@ -255,9 +277,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="trustId"></param>
         /// <returns>Task of MyNhsProfile</returns>
-        System.Threading.Tasks.Task<MyNhsProfile> MynhsMyMedicalrecordsSummaryNhsTrustIdGetAsync (string trustId);
+        System.Threading.Tasks.Task<MyNhsProfile> MynhsUserIdMedicalrecordsSummaryNhsTrustIdGetAsync (string userId, string trustId);
 
         /// <summary>
         /// 
@@ -266,9 +289,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="trustId"></param>
         /// <returns>Task of ApiResponse (MyNhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsMyMedicalrecordsSummaryNhsTrustIdGetAsyncWithHttpInfo (string trustId);
+        System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsUserIdMedicalrecordsSummaryNhsTrustIdGetAsyncWithHttpInfo (string userId, string trustId);
         #endregion Asynchronous Operations
     }
 
@@ -384,10 +408,11 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>MyNhsProfile</returns>
-        public MyNhsProfile MynhsMyMedicalrecordsDetailedNhsRequestRecordsPost ()
+        public MyNhsProfile MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPost (string userId)
         {
-             ApiResponse<MyNhsProfile> localVarResponse = MynhsMyMedicalrecordsDetailedNhsRequestRecordsPostWithHttpInfo();
+             ApiResponse<MyNhsProfile> localVarResponse = MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPostWithHttpInfo(userId);
              return localVarResponse.Data;
         }
 
@@ -395,11 +420,15 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>ApiResponse of MyNhsProfile</returns>
-        public ApiResponse< MyNhsProfile > MynhsMyMedicalrecordsDetailedNhsRequestRecordsPostWithHttpInfo ()
+        public ApiResponse< MyNhsProfile > MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPostWithHttpInfo (string userId)
         {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MedicalRecordsApi->MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPost");
 
-            var localVarPath = "./mynhs/my/medicalrecords/detailed/nhs/requestRecords";
+            var localVarPath = "./mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -420,6 +449,7 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             // authentication (OAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
@@ -436,7 +466,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyMedicalrecordsDetailedNhsRequestRecordsPost", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPost", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -449,10 +479,11 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of MyNhsProfile</returns>
-        public async System.Threading.Tasks.Task<MyNhsProfile> MynhsMyMedicalrecordsDetailedNhsRequestRecordsPostAsync ()
+        public async System.Threading.Tasks.Task<MyNhsProfile> MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPostAsync (string userId)
         {
-             ApiResponse<MyNhsProfile> localVarResponse = await MynhsMyMedicalrecordsDetailedNhsRequestRecordsPostAsyncWithHttpInfo();
+             ApiResponse<MyNhsProfile> localVarResponse = await MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPostAsyncWithHttpInfo(userId);
              return localVarResponse.Data;
 
         }
@@ -461,11 +492,15 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of ApiResponse (MyNhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsMyMedicalrecordsDetailedNhsRequestRecordsPostAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPostAsyncWithHttpInfo (string userId)
         {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MedicalRecordsApi->MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPost");
 
-            var localVarPath = "./mynhs/my/medicalrecords/detailed/nhs/requestRecords";
+            var localVarPath = "./mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -486,6 +521,7 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             // authentication (OAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
@@ -502,7 +538,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyMedicalrecordsDetailedNhsRequestRecordsPost", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPost", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -515,11 +551,12 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="requestId"></param>
         /// <returns>MyNhsProfile</returns>
-        public MyNhsProfile MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGet (string requestId)
+        public MyNhsProfile MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGet (string userId, string requestId)
         {
-             ApiResponse<MyNhsProfile> localVarResponse = MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGetWithHttpInfo(requestId);
+             ApiResponse<MyNhsProfile> localVarResponse = MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGetWithHttpInfo(userId, requestId);
              return localVarResponse.Data;
         }
 
@@ -527,15 +564,19 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="requestId"></param>
         /// <returns>ApiResponse of MyNhsProfile</returns>
-        public ApiResponse< MyNhsProfile > MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGetWithHttpInfo (string requestId)
+        public ApiResponse< MyNhsProfile > MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGetWithHttpInfo (string userId, string requestId)
         {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MedicalRecordsApi->MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGet");
             // verify the required parameter 'requestId' is set
             if (requestId == null)
-                throw new ApiException(400, "Missing required parameter 'requestId' when calling MedicalRecordsApi->MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGet");
+                throw new ApiException(400, "Missing required parameter 'requestId' when calling MedicalRecordsApi->MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGet");
 
-            var localVarPath = "./mynhs/my/medicalrecords/detailed/nhs/requestRecords/{requestId}";
+            var localVarPath = "./mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords/{requestId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -556,6 +597,7 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (requestId != null) localVarPathParams.Add("requestId", this.Configuration.ApiClient.ParameterToString(requestId)); // path parameter
             // authentication (OAuth2) required
             // oauth required
@@ -573,7 +615,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -586,11 +628,12 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="requestId"></param>
         /// <returns>Task of MyNhsProfile</returns>
-        public async System.Threading.Tasks.Task<MyNhsProfile> MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGetAsync (string requestId)
+        public async System.Threading.Tasks.Task<MyNhsProfile> MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGetAsync (string userId, string requestId)
         {
-             ApiResponse<MyNhsProfile> localVarResponse = await MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGetAsyncWithHttpInfo(requestId);
+             ApiResponse<MyNhsProfile> localVarResponse = await MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGetAsyncWithHttpInfo(userId, requestId);
              return localVarResponse.Data;
 
         }
@@ -599,15 +642,19 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="requestId"></param>
         /// <returns>Task of ApiResponse (MyNhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGetAsyncWithHttpInfo (string requestId)
+        public async System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGetAsyncWithHttpInfo (string userId, string requestId)
         {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MedicalRecordsApi->MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGet");
             // verify the required parameter 'requestId' is set
             if (requestId == null)
-                throw new ApiException(400, "Missing required parameter 'requestId' when calling MedicalRecordsApi->MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGet");
+                throw new ApiException(400, "Missing required parameter 'requestId' when calling MedicalRecordsApi->MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGet");
 
-            var localVarPath = "./mynhs/my/medicalrecords/detailed/nhs/requestRecords/{requestId}";
+            var localVarPath = "./mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords/{requestId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -628,6 +675,7 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (requestId != null) localVarPathParams.Add("requestId", this.Configuration.ApiClient.ParameterToString(requestId)); // path parameter
             // authentication (OAuth2) required
             // oauth required
@@ -645,7 +693,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -658,11 +706,12 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="requestId"></param>
         /// <returns>MyNhsProfile</returns>
-        public MyNhsProfile MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut (string requestId)
+        public MyNhsProfile MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut (string userId, string requestId)
         {
-             ApiResponse<MyNhsProfile> localVarResponse = MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPutWithHttpInfo(requestId);
+             ApiResponse<MyNhsProfile> localVarResponse = MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPutWithHttpInfo(userId, requestId);
              return localVarResponse.Data;
         }
 
@@ -670,15 +719,19 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="requestId"></param>
         /// <returns>ApiResponse of MyNhsProfile</returns>
-        public ApiResponse< MyNhsProfile > MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPutWithHttpInfo (string requestId)
+        public ApiResponse< MyNhsProfile > MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPutWithHttpInfo (string userId, string requestId)
         {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MedicalRecordsApi->MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut");
             // verify the required parameter 'requestId' is set
             if (requestId == null)
-                throw new ApiException(400, "Missing required parameter 'requestId' when calling MedicalRecordsApi->MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut");
+                throw new ApiException(400, "Missing required parameter 'requestId' when calling MedicalRecordsApi->MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut");
 
-            var localVarPath = "./mynhs/my/medicalrecords/detailed/nhs/requestRecords/{requestId}/submit";
+            var localVarPath = "./mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords/{requestId}/submit";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -699,6 +752,7 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (requestId != null) localVarPathParams.Add("requestId", this.Configuration.ApiClient.ParameterToString(requestId)); // path parameter
             // authentication (OAuth2) required
             // oauth required
@@ -716,7 +770,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -729,11 +783,12 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="requestId"></param>
         /// <returns>Task of MyNhsProfile</returns>
-        public async System.Threading.Tasks.Task<MyNhsProfile> MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPutAsync (string requestId)
+        public async System.Threading.Tasks.Task<MyNhsProfile> MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPutAsync (string userId, string requestId)
         {
-             ApiResponse<MyNhsProfile> localVarResponse = await MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPutAsyncWithHttpInfo(requestId);
+             ApiResponse<MyNhsProfile> localVarResponse = await MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPutAsyncWithHttpInfo(userId, requestId);
              return localVarResponse.Data;
 
         }
@@ -742,15 +797,19 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="requestId"></param>
         /// <returns>Task of ApiResponse (MyNhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPutAsyncWithHttpInfo (string requestId)
+        public async System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPutAsyncWithHttpInfo (string userId, string requestId)
         {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MedicalRecordsApi->MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut");
             // verify the required parameter 'requestId' is set
             if (requestId == null)
-                throw new ApiException(400, "Missing required parameter 'requestId' when calling MedicalRecordsApi->MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut");
+                throw new ApiException(400, "Missing required parameter 'requestId' when calling MedicalRecordsApi->MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut");
 
-            var localVarPath = "./mynhs/my/medicalrecords/detailed/nhs/requestRecords/{requestId}/submit";
+            var localVarPath = "./mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords/{requestId}/submit";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -771,6 +830,7 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (requestId != null) localVarPathParams.Add("requestId", this.Configuration.ApiClient.ParameterToString(requestId)); // path parameter
             // authentication (OAuth2) required
             // oauth required
@@ -788,7 +848,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -801,11 +861,12 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="resultId"></param>
         /// <returns>MyNhsProfile</returns>
-        public MyNhsProfile MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet (string resultId)
+        public MyNhsProfile MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet (string userId, string resultId)
         {
-             ApiResponse<MyNhsProfile> localVarResponse = MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGetWithHttpInfo(resultId);
+             ApiResponse<MyNhsProfile> localVarResponse = MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGetWithHttpInfo(userId, resultId);
              return localVarResponse.Data;
         }
 
@@ -813,15 +874,19 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="resultId"></param>
         /// <returns>ApiResponse of MyNhsProfile</returns>
-        public ApiResponse< MyNhsProfile > MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGetWithHttpInfo (string resultId)
+        public ApiResponse< MyNhsProfile > MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGetWithHttpInfo (string userId, string resultId)
         {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MedicalRecordsApi->MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet");
             // verify the required parameter 'resultId' is set
             if (resultId == null)
-                throw new ApiException(400, "Missing required parameter 'resultId' when calling MedicalRecordsApi->MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet");
+                throw new ApiException(400, "Missing required parameter 'resultId' when calling MedicalRecordsApi->MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet");
 
-            var localVarPath = "./mynhs/my/medicalrecords/detailed/nhs/requestRecords/results/{resultId}";
+            var localVarPath = "./mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords/results/{resultId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -842,6 +907,7 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (resultId != null) localVarPathParams.Add("resultId", this.Configuration.ApiClient.ParameterToString(resultId)); // path parameter
             // authentication (OAuth2) required
             // oauth required
@@ -859,7 +925,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -872,11 +938,12 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="resultId"></param>
         /// <returns>Task of MyNhsProfile</returns>
-        public async System.Threading.Tasks.Task<MyNhsProfile> MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGetAsync (string resultId)
+        public async System.Threading.Tasks.Task<MyNhsProfile> MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGetAsync (string userId, string resultId)
         {
-             ApiResponse<MyNhsProfile> localVarResponse = await MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGetAsyncWithHttpInfo(resultId);
+             ApiResponse<MyNhsProfile> localVarResponse = await MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGetAsyncWithHttpInfo(userId, resultId);
              return localVarResponse.Data;
 
         }
@@ -885,15 +952,19 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="resultId"></param>
         /// <returns>Task of ApiResponse (MyNhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGetAsyncWithHttpInfo (string resultId)
+        public async System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGetAsyncWithHttpInfo (string userId, string resultId)
         {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MedicalRecordsApi->MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet");
             // verify the required parameter 'resultId' is set
             if (resultId == null)
-                throw new ApiException(400, "Missing required parameter 'resultId' when calling MedicalRecordsApi->MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet");
+                throw new ApiException(400, "Missing required parameter 'resultId' when calling MedicalRecordsApi->MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet");
 
-            var localVarPath = "./mynhs/my/medicalrecords/detailed/nhs/requestRecords/results/{resultId}";
+            var localVarPath = "./mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords/results/{resultId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -914,6 +985,7 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (resultId != null) localVarPathParams.Add("resultId", this.Configuration.ApiClient.ParameterToString(resultId)); // path parameter
             // authentication (OAuth2) required
             // oauth required
@@ -931,7 +1003,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -944,10 +1016,11 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>MyNhsProfile</returns>
-        public MyNhsProfile MynhsMyMedicalrecordsSummaryNhsGet ()
+        public MyNhsProfile MynhsUserIdMedicalrecordsSummaryNhsGet (string userId)
         {
-             ApiResponse<MyNhsProfile> localVarResponse = MynhsMyMedicalrecordsSummaryNhsGetWithHttpInfo();
+             ApiResponse<MyNhsProfile> localVarResponse = MynhsUserIdMedicalrecordsSummaryNhsGetWithHttpInfo(userId);
              return localVarResponse.Data;
         }
 
@@ -955,11 +1028,15 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>ApiResponse of MyNhsProfile</returns>
-        public ApiResponse< MyNhsProfile > MynhsMyMedicalrecordsSummaryNhsGetWithHttpInfo ()
+        public ApiResponse< MyNhsProfile > MynhsUserIdMedicalrecordsSummaryNhsGetWithHttpInfo (string userId)
         {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MedicalRecordsApi->MynhsUserIdMedicalrecordsSummaryNhsGet");
 
-            var localVarPath = "./mynhs/my/medicalrecords/summary/nhs";
+            var localVarPath = "./mynhs/{userId}/medicalrecords/summary/nhs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -980,6 +1057,7 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             // authentication (OAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
@@ -996,7 +1074,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyMedicalrecordsSummaryNhsGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdMedicalrecordsSummaryNhsGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1009,10 +1087,11 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of MyNhsProfile</returns>
-        public async System.Threading.Tasks.Task<MyNhsProfile> MynhsMyMedicalrecordsSummaryNhsGetAsync ()
+        public async System.Threading.Tasks.Task<MyNhsProfile> MynhsUserIdMedicalrecordsSummaryNhsGetAsync (string userId)
         {
-             ApiResponse<MyNhsProfile> localVarResponse = await MynhsMyMedicalrecordsSummaryNhsGetAsyncWithHttpInfo();
+             ApiResponse<MyNhsProfile> localVarResponse = await MynhsUserIdMedicalrecordsSummaryNhsGetAsyncWithHttpInfo(userId);
              return localVarResponse.Data;
 
         }
@@ -1021,11 +1100,15 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of ApiResponse (MyNhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsMyMedicalrecordsSummaryNhsGetAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsUserIdMedicalrecordsSummaryNhsGetAsyncWithHttpInfo (string userId)
         {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MedicalRecordsApi->MynhsUserIdMedicalrecordsSummaryNhsGet");
 
-            var localVarPath = "./mynhs/my/medicalrecords/summary/nhs";
+            var localVarPath = "./mynhs/{userId}/medicalrecords/summary/nhs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1046,6 +1129,7 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             // authentication (OAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
@@ -1062,7 +1146,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyMedicalrecordsSummaryNhsGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdMedicalrecordsSummaryNhsGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1075,11 +1159,12 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="trustId"></param>
         /// <returns>MyNhsProfile</returns>
-        public MyNhsProfile MynhsMyMedicalrecordsSummaryNhsTrustIdGet (string trustId)
+        public MyNhsProfile MynhsUserIdMedicalrecordsSummaryNhsTrustIdGet (string userId, string trustId)
         {
-             ApiResponse<MyNhsProfile> localVarResponse = MynhsMyMedicalrecordsSummaryNhsTrustIdGetWithHttpInfo(trustId);
+             ApiResponse<MyNhsProfile> localVarResponse = MynhsUserIdMedicalrecordsSummaryNhsTrustIdGetWithHttpInfo(userId, trustId);
              return localVarResponse.Data;
         }
 
@@ -1087,15 +1172,19 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="trustId"></param>
         /// <returns>ApiResponse of MyNhsProfile</returns>
-        public ApiResponse< MyNhsProfile > MynhsMyMedicalrecordsSummaryNhsTrustIdGetWithHttpInfo (string trustId)
+        public ApiResponse< MyNhsProfile > MynhsUserIdMedicalrecordsSummaryNhsTrustIdGetWithHttpInfo (string userId, string trustId)
         {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MedicalRecordsApi->MynhsUserIdMedicalrecordsSummaryNhsTrustIdGet");
             // verify the required parameter 'trustId' is set
             if (trustId == null)
-                throw new ApiException(400, "Missing required parameter 'trustId' when calling MedicalRecordsApi->MynhsMyMedicalrecordsSummaryNhsTrustIdGet");
+                throw new ApiException(400, "Missing required parameter 'trustId' when calling MedicalRecordsApi->MynhsUserIdMedicalrecordsSummaryNhsTrustIdGet");
 
-            var localVarPath = "./mynhs/my/medicalrecords/summary/nhs/{trustId}";
+            var localVarPath = "./mynhs/{userId}/medicalrecords/summary/nhs/{trustId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1116,6 +1205,7 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (trustId != null) localVarPathParams.Add("trustId", this.Configuration.ApiClient.ParameterToString(trustId)); // path parameter
             // authentication (OAuth2) required
             // oauth required
@@ -1133,7 +1223,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyMedicalrecordsSummaryNhsTrustIdGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdMedicalrecordsSummaryNhsTrustIdGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1146,11 +1236,12 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="trustId"></param>
         /// <returns>Task of MyNhsProfile</returns>
-        public async System.Threading.Tasks.Task<MyNhsProfile> MynhsMyMedicalrecordsSummaryNhsTrustIdGetAsync (string trustId)
+        public async System.Threading.Tasks.Task<MyNhsProfile> MynhsUserIdMedicalrecordsSummaryNhsTrustIdGetAsync (string userId, string trustId)
         {
-             ApiResponse<MyNhsProfile> localVarResponse = await MynhsMyMedicalrecordsSummaryNhsTrustIdGetAsyncWithHttpInfo(trustId);
+             ApiResponse<MyNhsProfile> localVarResponse = await MynhsUserIdMedicalrecordsSummaryNhsTrustIdGetAsyncWithHttpInfo(userId, trustId);
              return localVarResponse.Data;
 
         }
@@ -1159,15 +1250,19 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="trustId"></param>
         /// <returns>Task of ApiResponse (MyNhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsMyMedicalrecordsSummaryNhsTrustIdGetAsyncWithHttpInfo (string trustId)
+        public async System.Threading.Tasks.Task<ApiResponse<MyNhsProfile>> MynhsUserIdMedicalrecordsSummaryNhsTrustIdGetAsyncWithHttpInfo (string userId, string trustId)
         {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling MedicalRecordsApi->MynhsUserIdMedicalrecordsSummaryNhsTrustIdGet");
             // verify the required parameter 'trustId' is set
             if (trustId == null)
-                throw new ApiException(400, "Missing required parameter 'trustId' when calling MedicalRecordsApi->MynhsMyMedicalrecordsSummaryNhsTrustIdGet");
+                throw new ApiException(400, "Missing required parameter 'trustId' when calling MedicalRecordsApi->MynhsUserIdMedicalrecordsSummaryNhsTrustIdGet");
 
-            var localVarPath = "./mynhs/my/medicalrecords/summary/nhs/{trustId}";
+            var localVarPath = "./mynhs/{userId}/medicalrecords/summary/nhs/{trustId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1188,6 +1283,7 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (trustId != null) localVarPathParams.Add("trustId", this.Configuration.ApiClient.ParameterToString(trustId)); // path parameter
             // authentication (OAuth2) required
             // oauth required
@@ -1205,7 +1301,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyMedicalrecordsSummaryNhsTrustIdGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdMedicalrecordsSummaryNhsTrustIdGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 

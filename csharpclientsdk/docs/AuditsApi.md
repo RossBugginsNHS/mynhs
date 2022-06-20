@@ -4,11 +4,11 @@ All URIs are relative to *https://virtserver.swaggerhub.com/NHSX/MyNhs/0.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**MynhsMyAuditsGet**](AuditsApi.md#mynhsmyauditsget) | **GET** /mynhs/my/audits | 
+[**MynhsUserIdAuditsGet**](AuditsApi.md#mynhsuseridauditsget) | **GET** /mynhs/{userId}/audits | 
 
-<a name="mynhsmyauditsget"></a>
-# **MynhsMyAuditsGet**
-> NhsProfile MynhsMyAuditsGet ()
+<a name="mynhsuseridauditsget"></a>
+# **MynhsUserIdAuditsGet**
+> NhsProfile MynhsUserIdAuditsGet (string userId)
 
 
 
@@ -22,20 +22,21 @@ using mynhs.sdk.Model;
 
 namespace Example
 {
-    public class MynhsMyAuditsGetExample
+    public class MynhsUserIdAuditsGetExample
     {
         public void main()
         {
             var apiInstance = new AuditsApi();
+            var userId = userId_example;  // string | The User Id to access
 
             try
             {
-                NhsProfile result = apiInstance.MynhsMyAuditsGet();
+                NhsProfile result = apiInstance.MynhsUserIdAuditsGet(userId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AuditsApi.MynhsMyAuditsGet: " + e.Message );
+                Debug.Print("Exception when calling AuditsApi.MynhsUserIdAuditsGet: " + e.Message );
             }
         }
     }
@@ -43,7 +44,10 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**| The User Id to access | 
 
 ### Return type
 

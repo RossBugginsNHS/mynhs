@@ -4,14 +4,13 @@ All URIs are relative to *https://virtserver.swaggerhub.com/NHSX/MyNhs/0.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**MynhsMyProfileCentralnhsGet**](ProfileApi.md#mynhsmyprofilecentralnhsget) | **GET** /mynhs/my/profile/centralnhs | 
-[**MynhsMyProfileGet**](ProfileApi.md#mynhsmyprofileget) | **GET** /mynhs/my/profile | 
-[**MynhsMyProfileGpGet**](ProfileApi.md#mynhsmyprofilegpget) | **GET** /mynhs/my/profile/gp | 
+[**MynhsUserIdProfileCentralnhsGet**](ProfileApi.md#mynhsuseridprofilecentralnhsget) | **GET** /mynhs/{userId}/profile/centralnhs | 
 [**MynhsUserIdProfileGet**](ProfileApi.md#mynhsuseridprofileget) | **GET** /mynhs/{userId}/profile | 
+[**MynhsUserIdProfileGpGet**](ProfileApi.md#mynhsuseridprofilegpget) | **GET** /mynhs/{userId}/profile/gp | 
 
-<a name="mynhsmyprofilecentralnhsget"></a>
-# **MynhsMyProfileCentralnhsGet**
-> NhsProfile MynhsMyProfileCentralnhsGet ()
+<a name="mynhsuseridprofilecentralnhsget"></a>
+# **MynhsUserIdProfileCentralnhsGet**
+> NhsProfile MynhsUserIdProfileCentralnhsGet (string userId)
 
 
 
@@ -25,7 +24,7 @@ using mynhs.sdk.Model;
 
 namespace Example
 {
-    public class MynhsMyProfileCentralnhsGetExample
+    public class MynhsUserIdProfileCentralnhsGetExample
     {
         public void main()
         {
@@ -33,15 +32,16 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ProfileApi();
+            var userId = userId_example;  // string | The User Id to access
 
             try
             {
-                NhsProfile result = apiInstance.MynhsMyProfileCentralnhsGet();
+                NhsProfile result = apiInstance.MynhsUserIdProfileCentralnhsGet(userId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ProfileApi.MynhsMyProfileCentralnhsGet: " + e.Message );
+                Debug.Print("Exception when calling ProfileApi.MynhsUserIdProfileCentralnhsGet: " + e.Message );
             }
         }
     }
@@ -49,123 +49,14 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**| The User Id to access | 
 
 ### Return type
 
 [**NhsProfile**](NhsProfile.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-<a name="mynhsmyprofileget"></a>
-# **MynhsMyProfileGet**
-> MyNhsProfile MynhsMyProfileGet ()
-
-
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using mynhs.sdk.Api;
-using mynhs.sdk.Client;
-using mynhs.sdk.Model;
-
-namespace Example
-{
-    public class MynhsMyProfileGetExample
-    {
-        public void main()
-        {
-            // Configure OAuth2 access token for authorization: OAuth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new ProfileApi();
-
-            try
-            {
-                MyNhsProfile result = apiInstance.MynhsMyProfileGet();
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling ProfileApi.MynhsMyProfileGet: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**MyNhsProfile**](MyNhsProfile.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-<a name="mynhsmyprofilegpget"></a>
-# **MynhsMyProfileGpGet**
-> GpProfile MynhsMyProfileGpGet ()
-
-
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using mynhs.sdk.Api;
-using mynhs.sdk.Client;
-using mynhs.sdk.Model;
-
-namespace Example
-{
-    public class MynhsMyProfileGpGetExample
-    {
-        public void main()
-        {
-            // Configure OAuth2 access token for authorization: OAuth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new ProfileApi();
-
-            try
-            {
-                GpProfile result = apiInstance.MynhsMyProfileGpGet();
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling ProfileApi.MynhsMyProfileGpGet: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**GpProfile**](GpProfile.md)
 
 ### Authorization
 
@@ -182,6 +73,8 @@ This endpoint does not need any parameter.
 > MyNhsProfile MynhsUserIdProfileGet (string userId)
 
 
+
+Scopes: [profile.read, profile.read.shared, profile.read.all]
 
 ### Example
 ```csharp
@@ -201,7 +94,7 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ProfileApi();
-            var userId = userId_example;  // string | 
+            var userId = userId_example;  // string | The User Id to access
 
             try
             {
@@ -221,11 +114,71 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**|  | 
+ **userId** | **string**| The User Id to access | 
 
 ### Return type
 
 [**MyNhsProfile**](MyNhsProfile.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+<a name="mynhsuseridprofilegpget"></a>
+# **MynhsUserIdProfileGpGet**
+> GpProfile MynhsUserIdProfileGpGet (string userId)
+
+
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using mynhs.sdk.Api;
+using mynhs.sdk.Client;
+using mynhs.sdk.Model;
+
+namespace Example
+{
+    public class MynhsUserIdProfileGpGetExample
+    {
+        public void main()
+        {
+            // Configure OAuth2 access token for authorization: OAuth2
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new ProfileApi();
+            var userId = userId_example;  // string | The User Id to access
+
+            try
+            {
+                GpProfile result = apiInstance.MynhsUserIdProfileGpGet(userId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ProfileApi.MynhsUserIdProfileGpGet: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**| The User Id to access | 
+
+### Return type
+
+[**GpProfile**](GpProfile.md)
 
 ### Authorization
 

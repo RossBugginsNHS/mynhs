@@ -30,8 +30,9 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>NhsProfile</returns>
-        NhsProfile MynhsMyAuditsGet ();
+        NhsProfile MynhsUserIdAuditsGet (string userId);
 
         /// <summary>
         /// 
@@ -40,8 +41,9 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsMyAuditsGetWithHttpInfo ();
+        ApiResponse<NhsProfile> MynhsUserIdAuditsGetWithHttpInfo (string userId);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -51,8 +53,9 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsMyAuditsGetAsync ();
+        System.Threading.Tasks.Task<NhsProfile> MynhsUserIdAuditsGetAsync (string userId);
 
         /// <summary>
         /// 
@@ -61,8 +64,9 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyAuditsGetAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdAuditsGetAsyncWithHttpInfo (string userId);
         #endregion Asynchronous Operations
     }
 
@@ -178,10 +182,11 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsMyAuditsGet ()
+        public NhsProfile MynhsUserIdAuditsGet (string userId)
         {
-             ApiResponse<NhsProfile> localVarResponse = MynhsMyAuditsGetWithHttpInfo();
+             ApiResponse<NhsProfile> localVarResponse = MynhsUserIdAuditsGetWithHttpInfo(userId);
              return localVarResponse.Data;
         }
 
@@ -189,11 +194,15 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsMyAuditsGetWithHttpInfo ()
+        public ApiResponse< NhsProfile > MynhsUserIdAuditsGetWithHttpInfo (string userId)
         {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling AuditsApi->MynhsUserIdAuditsGet");
 
-            var localVarPath = "./mynhs/my/audits";
+            var localVarPath = "./mynhs/{userId}/audits";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -214,6 +223,7 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
@@ -224,7 +234,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyAuditsGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdAuditsGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -237,10 +247,11 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsMyAuditsGetAsync ()
+        public async System.Threading.Tasks.Task<NhsProfile> MynhsUserIdAuditsGetAsync (string userId)
         {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsMyAuditsGetAsyncWithHttpInfo();
+             ApiResponse<NhsProfile> localVarResponse = await MynhsUserIdAuditsGetAsyncWithHttpInfo(userId);
              return localVarResponse.Data;
 
         }
@@ -249,11 +260,15 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
         /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsMyAuditsGetAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdAuditsGetAsyncWithHttpInfo (string userId)
         {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new ApiException(400, "Missing required parameter 'userId' when calling AuditsApi->MynhsUserIdAuditsGet");
 
-            var localVarPath = "./mynhs/my/audits";
+            var localVarPath = "./mynhs/{userId}/audits";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -274,6 +289,7 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -284,7 +300,7 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsMyAuditsGet", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsUserIdAuditsGet", localVarResponse);
                 if (exception != null) throw exception;
             }
 
