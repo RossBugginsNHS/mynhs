@@ -30,36 +30,14 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <response code="200">OK</response>
-        [HttpGet]
-        [Route("/NHSX/MyNhs/0.1/mynhs/my/appointments")]
-        [ValidateModelState]
-        [SwaggerOperation("MynhsMyAppointmentsGet")]
-        [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
-        public virtual IActionResult MynhsMyAppointmentsGet()
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(NhsProfile));
-            string exampleJson = null;
-            exampleJson = "{\n  \"NhsNumber\" : 0\n}";
-            
-                        var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<NhsProfile>(exampleJson)
-                        : default(NhsProfile);            //TODO: Change the data returned
-            return new ObjectResult(example);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="userId"></param>
+        /// <param name="userId">The User Id to access</param>
         /// <response code="200">OK</response>
         [HttpGet]
         [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/appointments")]
         [ValidateModelState]
         [SwaggerOperation("MynhsUserIdAppointmentsGet")]
         [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
-        public virtual IActionResult MynhsUserIdAppointmentsGet([FromRoute][Required]string userId)
+        public virtual IActionResult MynhsUserIdAppointmentsGet([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(NhsProfile));

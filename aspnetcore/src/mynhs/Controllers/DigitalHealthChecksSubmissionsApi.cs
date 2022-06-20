@@ -25,62 +25,21 @@ namespace mynhs.Controllers
     /// 
     /// </summary>
     [ApiController]
-    public class AccessAndApplicationsApiController : ControllerBase
+    public class DigitalHealthChecksSubmissionsApiController : ControllerBase
     { 
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set.</param>
+        /// <param name="limit">The numbers of items to return.</param>
         /// <response code="200">OK</response>
         [HttpGet]
-        [Route("/NHSX/MyNhs/0.1/mynhs/applications")]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/digitalhealthchecks")]
         [ValidateModelState]
-        [SwaggerOperation("MynhsApplicationsGet")]
+        [SwaggerOperation("MynhsUserIdDigitalhealthchecksGet")]
         [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
-        public virtual IActionResult MynhsApplicationsGet()
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(NhsProfile));
-            string exampleJson = null;
-            exampleJson = "{\n  \"NhsNumber\" : 0\n}";
-            
-                        var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<NhsProfile>(exampleJson)
-                        : default(NhsProfile);            //TODO: Change the data returned
-            return new ObjectResult(example);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <response code="200">OK</response>
-        [HttpGet]
-        [Route("/NHSX/MyNhs/0.1/mynhs/owners")]
-        [ValidateModelState]
-        [SwaggerOperation("MynhsOwnersGet")]
-        [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
-        public virtual IActionResult MynhsOwnersGet()
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(NhsProfile));
-            string exampleJson = null;
-            exampleJson = "{\n  \"NhsNumber\" : 0\n}";
-            
-                        var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<NhsProfile>(exampleJson)
-                        : default(NhsProfile);            //TODO: Change the data returned
-            return new ObjectResult(example);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <response code="200">OK</response>
-        [HttpGet]
-        [Route("/NHSX/MyNhs/0.1/mynhs/tennantOrOrganisationOrTheNameForWhatRecordsAreLinkedTo")]
-        [ValidateModelState]
-        [SwaggerOperation("MynhsTennantOrOrganisationOrTheNameForWhatRecordsAreLinkedToGet")]
-        [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
-        public virtual IActionResult MynhsTennantOrOrganisationOrTheNameForWhatRecordsAreLinkedToGet()
+        public virtual IActionResult MynhsUserIdDigitalhealthchecksGet([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromQuery]int? skip, [FromQuery][Range(1, 50)]int? limit)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(NhsProfile));
@@ -98,43 +57,93 @@ namespace mynhs.Controllers
         /// </summary>
         /// <param name="userId">The User Id to access</param>
         /// <response code="200">OK</response>
-        [HttpGet]
-        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/user")]
+        [HttpPost]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/digitalhealthchecks/submissions")]
         [ValidateModelState]
-        [SwaggerOperation("MynhsUserIdUserGet")]
-        [SwaggerResponse(statusCode: 200, type: typeof(UserProfile), description: "OK")]
-        public virtual IActionResult MynhsUserIdUserGet([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId)
+        [SwaggerOperation("MynhsUserIdDigitalhealthchecksSubmissionsPost")]
+        [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
+        public virtual IActionResult MynhsUserIdDigitalhealthchecksSubmissionsPost([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(UserProfile));
+            // return StatusCode(200, default(NhsProfile));
             string exampleJson = null;
-            exampleJson = "{\n  \"DateOfBirth\" : \"2000-01-23\",\n  \"FirstName\" : \"FirstName\",\n  \"SurName\" : \"SurName\"\n}";
+            exampleJson = "{\n  \"NhsNumber\" : 0\n}";
             
                         var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<UserProfile>(exampleJson)
-                        : default(UserProfile);            //TODO: Change the data returned
+                        ? JsonConvert.DeserializeObject<NhsProfile>(exampleJson)
+                        : default(NhsProfile);            //TODO: Change the data returned
             return new ObjectResult(example);
         }
 
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="submissionId"></param>
         /// <response code="200">OK</response>
         [HttpGet]
-        [Route("/NHSX/MyNhs/0.1/mynhs/users")]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/digitalhealthchecks/submissions/{submissionId}")]
         [ValidateModelState]
-        [SwaggerOperation("MynhsUsersGet")]
-        [SwaggerResponse(statusCode: 200, type: typeof(UserProfile), description: "OK")]
-        public virtual IActionResult MynhsUsersGet()
+        [SwaggerOperation("MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdGet")]
+        [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
+        public virtual IActionResult MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdGet([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromRoute][Required]Guid? submissionId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(UserProfile));
+            // return StatusCode(200, default(NhsProfile));
             string exampleJson = null;
-            exampleJson = "{\n  \"DateOfBirth\" : \"2000-01-23\",\n  \"FirstName\" : \"FirstName\",\n  \"SurName\" : \"SurName\"\n}";
+            exampleJson = "{\n  \"NhsNumber\" : 0\n}";
             
                         var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<UserProfile>(exampleJson)
-                        : default(UserProfile);            //TODO: Change the data returned
+                        ? JsonConvert.DeserializeObject<NhsProfile>(exampleJson)
+                        : default(NhsProfile);            //TODO: Change the data returned
+            return new ObjectResult(example);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="submissionId"></param>
+        /// <response code="200">OK</response>
+        [HttpPut]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/digitalhealthchecks/submissions/{submissionId}")]
+        [ValidateModelState]
+        [SwaggerOperation("MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut")]
+        [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
+        public virtual IActionResult MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromRoute][Required]Guid? submissionId)
+        { 
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200, default(NhsProfile));
+            string exampleJson = null;
+            exampleJson = "{\n  \"NhsNumber\" : 0\n}";
+            
+                        var example = exampleJson != null
+                        ? JsonConvert.DeserializeObject<NhsProfile>(exampleJson)
+                        : default(NhsProfile);            //TODO: Change the data returned
+            return new ObjectResult(example);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="submissionId"></param>
+        /// <response code="200">OK</response>
+        [HttpPut]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/digitalhealthchecks/submissions/{submissionId}/submit")]
+        [ValidateModelState]
+        [SwaggerOperation("MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut")]
+        [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
+        public virtual IActionResult MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromRoute][Required]Guid? submissionId)
+        { 
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200, default(NhsProfile));
+            string exampleJson = null;
+            exampleJson = "{\n  \"NhsNumber\" : 0\n}";
+            
+                        var example = exampleJson != null
+                        ? JsonConvert.DeserializeObject<NhsProfile>(exampleJson)
+                        : default(NhsProfile);            //TODO: Change the data returned
             return new ObjectResult(example);
         }
     }

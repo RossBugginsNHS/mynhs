@@ -30,13 +30,14 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="userId">The User Id to access</param>
         /// <response code="200">OK</response>
         [HttpPost]
-        [Route("/NHSX/MyNhs/0.1/mynhs/my/medicalrecords/detailed/nhs/requestRecords")]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords")]
         [ValidateModelState]
-        [SwaggerOperation("MynhsMyMedicalrecordsDetailedNhsRequestRecordsPost")]
+        [SwaggerOperation("MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(MyNhsProfile), description: "OK")]
-        public virtual IActionResult MynhsMyMedicalrecordsDetailedNhsRequestRecordsPost()
+        public virtual IActionResult MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPost([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(MyNhsProfile));
@@ -52,14 +53,15 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="requestId"></param>
         /// <response code="200">OK</response>
         [HttpGet]
-        [Route("/NHSX/MyNhs/0.1/mynhs/my/medicalrecords/detailed/nhs/requestRecords/{requestId}")]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords/{requestId}")]
         [ValidateModelState]
-        [SwaggerOperation("MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGet")]
+        [SwaggerOperation("MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGet")]
         [SwaggerResponse(statusCode: 200, type: typeof(MyNhsProfile), description: "OK")]
-        public virtual IActionResult MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdGet([FromRoute][Required]string requestId)
+        public virtual IActionResult MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGet([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromRoute][Required]string requestId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(MyNhsProfile));
@@ -75,14 +77,15 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="requestId"></param>
         /// <response code="200">OK</response>
         [HttpPut]
-        [Route("/NHSX/MyNhs/0.1/mynhs/my/medicalrecords/detailed/nhs/requestRecords/{requestId}/submit")]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords/{requestId}/submit")]
         [ValidateModelState]
-        [SwaggerOperation("MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut")]
+        [SwaggerOperation("MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut")]
         [SwaggerResponse(statusCode: 200, type: typeof(MyNhsProfile), description: "OK")]
-        public virtual IActionResult MynhsMyMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut([FromRoute][Required]string requestId)
+        public virtual IActionResult MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromRoute][Required]string requestId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(MyNhsProfile));
@@ -98,14 +101,15 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="resultId"></param>
         /// <response code="200">OK</response>
         [HttpGet]
-        [Route("/NHSX/MyNhs/0.1/mynhs/my/medicalrecords/detailed/nhs/requestRecords/results/{resultId}")]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords/results/{resultId}")]
         [ValidateModelState]
-        [SwaggerOperation("MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet")]
+        [SwaggerOperation("MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet")]
         [SwaggerResponse(statusCode: 200, type: typeof(MyNhsProfile), description: "OK")]
-        public virtual IActionResult MynhsMyMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet([FromRoute][Required]string resultId)
+        public virtual IActionResult MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromRoute][Required]string resultId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(MyNhsProfile));
@@ -121,13 +125,14 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="userId">The User Id to access</param>
         /// <response code="200">OK</response>
         [HttpGet]
-        [Route("/NHSX/MyNhs/0.1/mynhs/my/medicalrecords/summary/nhs")]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/medicalrecords/summary/nhs")]
         [ValidateModelState]
-        [SwaggerOperation("MynhsMyMedicalrecordsSummaryNhsGet")]
+        [SwaggerOperation("MynhsUserIdMedicalrecordsSummaryNhsGet")]
         [SwaggerResponse(statusCode: 200, type: typeof(MyNhsProfile), description: "OK")]
-        public virtual IActionResult MynhsMyMedicalrecordsSummaryNhsGet()
+        public virtual IActionResult MynhsUserIdMedicalrecordsSummaryNhsGet([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(MyNhsProfile));
@@ -143,14 +148,15 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="userId">The User Id to access</param>
         /// <param name="trustId"></param>
         /// <response code="200">OK</response>
         [HttpGet]
-        [Route("/NHSX/MyNhs/0.1/mynhs/my/medicalrecords/summary/nhs/{trustId}")]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/medicalrecords/summary/nhs/{trustId}")]
         [ValidateModelState]
-        [SwaggerOperation("MynhsMyMedicalrecordsSummaryNhsTrustIdGet")]
+        [SwaggerOperation("MynhsUserIdMedicalrecordsSummaryNhsTrustIdGet")]
         [SwaggerResponse(statusCode: 200, type: typeof(MyNhsProfile), description: "OK")]
-        public virtual IActionResult MynhsMyMedicalrecordsSummaryNhsTrustIdGet([FromRoute][Required]string trustId)
+        public virtual IActionResult MynhsUserIdMedicalrecordsSummaryNhsTrustIdGet([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromRoute][Required]string trustId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(MyNhsProfile));

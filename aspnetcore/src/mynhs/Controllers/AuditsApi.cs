@@ -30,13 +30,14 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="userId">The User Id to access</param>
         /// <response code="200">OK</response>
         [HttpGet]
-        [Route("/NHSX/MyNhs/0.1/mynhs/my/audits")]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/audits")]
         [ValidateModelState]
-        [SwaggerOperation("MynhsMyAuditsGet")]
+        [SwaggerOperation("MynhsUserIdAuditsGet")]
         [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
-        public virtual IActionResult MynhsMyAuditsGet()
+        public virtual IActionResult MynhsUserIdAuditsGet([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(NhsProfile));

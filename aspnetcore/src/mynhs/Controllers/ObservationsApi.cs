@@ -30,13 +30,17 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="observationType"></param>
+        /// <param name="skip">The number of items to skip before starting to collect the result set.</param>
+        /// <param name="limit">The numbers of items to return.</param>
         /// <response code="200">OK</response>
         [HttpGet]
-        [Route("/NHSX/MyNhs/0.1/mynhs/my/observations/bloodpressures")]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/observations/{observationType}")]
         [ValidateModelState]
-        [SwaggerOperation("MynhsMyObservationsBloodpressuresGet")]
+        [SwaggerOperation("MynhsUserIdObservationsObservationTypeGet")]
         [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
-        public virtual IActionResult MynhsMyObservationsBloodpressuresGet()
+        public virtual IActionResult MynhsUserIdObservationsObservationTypeGet([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromRoute][Required]string observationType, [FromQuery]int? skip, [FromQuery][Range(1, 50)]int? limit)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(NhsProfile));
@@ -52,14 +56,14 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="type"></param>
+        /// <param name="userId">The User Id to access</param>
         /// <response code="200">OK</response>
         [HttpGet]
-        [Route("/NHSX/MyNhs/0.1/mynhs/my/observations")]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/observations/summaries")]
         [ValidateModelState]
-        [SwaggerOperation("MynhsMyObservationsGet")]
+        [SwaggerOperation("MynhsUserIdObservationsSummariesGet")]
         [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
-        public virtual IActionResult MynhsMyObservationsGet([FromQuery][Required()]string type)
+        public virtual IActionResult MynhsUserIdObservationsSummariesGet([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(NhsProfile));
@@ -75,35 +79,17 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="observationType"></param>
+        /// <param name="queryType"></param>
+        /// <param name="pastDays"></param>
         /// <response code="200">OK</response>
         [HttpGet]
-        [Route("/NHSX/MyNhs/0.1/mynhs/my/observations/heights")]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/observations/summaries/{observationType}/{queryType}/{pastDays}")]
         [ValidateModelState]
-        [SwaggerOperation("MynhsMyObservationsHeightsGet")]
+        [SwaggerOperation("MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGet")]
         [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
-        public virtual IActionResult MynhsMyObservationsHeightsGet()
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(NhsProfile));
-            string exampleJson = null;
-            exampleJson = "{\n  \"NhsNumber\" : 0\n}";
-            
-                        var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<NhsProfile>(exampleJson)
-                        : default(NhsProfile);            //TODO: Change the data returned
-            return new ObjectResult(example);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <response code="200">OK</response>
-        [HttpGet]
-        [Route("/NHSX/MyNhs/0.1/mynhs/my/observations/weights")]
-        [ValidateModelState]
-        [SwaggerOperation("MynhsMyObservationsWeightsGet")]
-        [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
-        public virtual IActionResult MynhsMyObservationsWeightsGet()
+        public virtual IActionResult MynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGet([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromRoute][Required]string observationType, [FromRoute][Required]string queryType, [FromRoute][Required]decimal? pastDays)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(NhsProfile));

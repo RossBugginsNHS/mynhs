@@ -30,13 +30,14 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="userId">The User Id to access</param>
         /// <response code="200">OK</response>
         [HttpGet]
-        [Route("/NHSX/MyNhs/0.1/mynhs/my/profile/centralnhs")]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/profile/centralnhs")]
         [ValidateModelState]
-        [SwaggerOperation("MynhsMyProfileCentralnhsGet")]
+        [SwaggerOperation("MynhsUserIdProfileCentralnhsGet")]
         [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
-        public virtual IActionResult MynhsMyProfileCentralnhsGet()
+        public virtual IActionResult MynhsUserIdProfileCentralnhsGet([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(NhsProfile));
@@ -52,13 +53,15 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <remarks>Scopes: [profile.read, profile.read.shared, profile.read.all]</remarks>
+        /// <param name="userId">The User Id to access</param>
         /// <response code="200">OK</response>
         [HttpGet]
-        [Route("/NHSX/MyNhs/0.1/mynhs/my/profile")]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/profile")]
         [ValidateModelState]
-        [SwaggerOperation("MynhsMyProfileGet")]
+        [SwaggerOperation("MynhsUserIdProfileGet")]
         [SwaggerResponse(statusCode: 200, type: typeof(MyNhsProfile), description: "OK")]
-        public virtual IActionResult MynhsMyProfileGet()
+        public virtual IActionResult MynhsUserIdProfileGet([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(MyNhsProfile));
@@ -74,13 +77,14 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="userId">The User Id to access</param>
         /// <response code="200">OK</response>
         [HttpGet]
-        [Route("/NHSX/MyNhs/0.1/mynhs/my/profile/gp")]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/profile/gp")]
         [ValidateModelState]
-        [SwaggerOperation("MynhsMyProfileGpGet")]
+        [SwaggerOperation("MynhsUserIdProfileGpGet")]
         [SwaggerResponse(statusCode: 200, type: typeof(GpProfile), description: "OK")]
-        public virtual IActionResult MynhsMyProfileGpGet()
+        public virtual IActionResult MynhsUserIdProfileGpGet([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(GpProfile));
@@ -90,29 +94,6 @@ namespace mynhs.Controllers
                         var example = exampleJson != null
                         ? JsonConvert.DeserializeObject<GpProfile>(exampleJson)
                         : default(GpProfile);            //TODO: Change the data returned
-            return new ObjectResult(example);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <response code="200">OK</response>
-        [HttpGet]
-        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/profile")]
-        [ValidateModelState]
-        [SwaggerOperation("MynhsUserIdProfileGet")]
-        [SwaggerResponse(statusCode: 200, type: typeof(MyNhsProfile), description: "OK")]
-        public virtual IActionResult MynhsUserIdProfileGet([FromRoute][Required]string userId)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(MyNhsProfile));
-            string exampleJson = null;
-            exampleJson = "{\n  \"GpProfile\" : {\n    \"GpIdCode\" : 0\n  },\n  \"NHSProfile\" : {\n    \"NhsNumber\" : 0\n  }\n}";
-            
-                        var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<MyNhsProfile>(exampleJson)
-                        : default(MyNhsProfile);            //TODO: Change the data returned
             return new ObjectResult(example);
         }
     }

@@ -30,13 +30,14 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="userId">The User Id to access</param>
         /// <response code="200">OK</response>
         [HttpGet]
-        [Route("/NHSX/MyNhs/0.1/mynhs/my/observations/submissions")]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/observations/submissions")]
         [ValidateModelState]
-        [SwaggerOperation("MynhsMyObservationsSubmissionsGet")]
+        [SwaggerOperation("MynhsUserIdObservationsSubmissionsGet")]
         [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
-        public virtual IActionResult MynhsMyObservationsSubmissionsGet()
+        public virtual IActionResult MynhsUserIdObservationsSubmissionsGet([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(NhsProfile));
@@ -52,82 +53,86 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="newObsId"></param>
-        /// <response code="200">OK</response>
-        [HttpGet]
-        [Route("/NHSX/MyNhs/0.1/mynhs/my/observations/submissions/{newObsId}")]
-        [ValidateModelState]
-        [SwaggerOperation("MynhsMyObservationsSubmissionsNewObsIdGet")]
-        [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
-        public virtual IActionResult MynhsMyObservationsSubmissionsNewObsIdGet([FromRoute][Required]string newObsId)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(NhsProfile));
-            string exampleJson = null;
-            exampleJson = "{\n  \"NhsNumber\" : 0\n}";
-            
-                        var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<NhsProfile>(exampleJson)
-                        : default(NhsProfile);            //TODO: Change the data returned
-            return new ObjectResult(example);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="newObsId"></param>
-        /// <response code="200">OK</response>
-        [HttpPut]
-        [Route("/NHSX/MyNhs/0.1/mynhs/my/observations/submissions/{newObsId}")]
-        [ValidateModelState]
-        [SwaggerOperation("MynhsMyObservationsSubmissionsNewObsIdPut")]
-        [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
-        public virtual IActionResult MynhsMyObservationsSubmissionsNewObsIdPut([FromRoute][Required]string newObsId)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(NhsProfile));
-            string exampleJson = null;
-            exampleJson = "{\n  \"NhsNumber\" : 0\n}";
-            
-                        var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<NhsProfile>(exampleJson)
-                        : default(NhsProfile);            //TODO: Change the data returned
-            return new ObjectResult(example);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="newObsId"></param>
-        /// <response code="200">OK</response>
-        [HttpPut]
-        [Route("/NHSX/MyNhs/0.1/mynhs/my/observations/submissions/{newObsId}/submit")]
-        [ValidateModelState]
-        [SwaggerOperation("MynhsMyObservationsSubmissionsNewObsIdSubmitPut")]
-        [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
-        public virtual IActionResult MynhsMyObservationsSubmissionsNewObsIdSubmitPut([FromRoute][Required]string newObsId)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(NhsProfile));
-            string exampleJson = null;
-            exampleJson = "{\n  \"NhsNumber\" : 0\n}";
-            
-                        var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<NhsProfile>(exampleJson)
-                        : default(NhsProfile);            //TODO: Change the data returned
-            return new ObjectResult(example);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <param name="userId">The User Id to access</param>
         /// <response code="200">OK</response>
         [HttpPost]
-        [Route("/NHSX/MyNhs/0.1/mynhs/my/observations/submissions")]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/observations/submissions")]
         [ValidateModelState]
-        [SwaggerOperation("MynhsMyObservationsSubmissionsPost")]
+        [SwaggerOperation("MynhsUserIdObservationsSubmissionsPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
-        public virtual IActionResult MynhsMyObservationsSubmissionsPost()
+        public virtual IActionResult MynhsUserIdObservationsSubmissionsPost([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId)
+        { 
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200, default(NhsProfile));
+            string exampleJson = null;
+            exampleJson = "{\n  \"NhsNumber\" : 0\n}";
+            
+                        var example = exampleJson != null
+                        ? JsonConvert.DeserializeObject<NhsProfile>(exampleJson)
+                        : default(NhsProfile);            //TODO: Change the data returned
+            return new ObjectResult(example);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="submissionId"></param>
+        /// <response code="200">OK</response>
+        [HttpGet]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/observations/submissions/{submissionId}")]
+        [ValidateModelState]
+        [SwaggerOperation("MynhsUserIdObservationsSubmissionsSubmissionIdGet")]
+        [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
+        public virtual IActionResult MynhsUserIdObservationsSubmissionsSubmissionIdGet([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromRoute][Required]Guid? submissionId)
+        { 
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200, default(NhsProfile));
+            string exampleJson = null;
+            exampleJson = "{\n  \"NhsNumber\" : 0\n}";
+            
+                        var example = exampleJson != null
+                        ? JsonConvert.DeserializeObject<NhsProfile>(exampleJson)
+                        : default(NhsProfile);            //TODO: Change the data returned
+            return new ObjectResult(example);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="submissionId"></param>
+        /// <response code="200">OK</response>
+        [HttpPut]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/observations/submissions/{submissionId}")]
+        [ValidateModelState]
+        [SwaggerOperation("MynhsUserIdObservationsSubmissionsSubmissionIdPut")]
+        [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
+        public virtual IActionResult MynhsUserIdObservationsSubmissionsSubmissionIdPut([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromRoute][Required]Guid? submissionId)
+        { 
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200, default(NhsProfile));
+            string exampleJson = null;
+            exampleJson = "{\n  \"NhsNumber\" : 0\n}";
+            
+                        var example = exampleJson != null
+                        ? JsonConvert.DeserializeObject<NhsProfile>(exampleJson)
+                        : default(NhsProfile);            //TODO: Change the data returned
+            return new ObjectResult(example);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="submissionId"></param>
+        /// <response code="200">OK</response>
+        [HttpPut]
+        [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/observations/submissions/{submissionId}/submit")]
+        [ValidateModelState]
+        [SwaggerOperation("MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut")]
+        [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
+        public virtual IActionResult MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromRoute][Required]Guid? submissionId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(NhsProfile));
