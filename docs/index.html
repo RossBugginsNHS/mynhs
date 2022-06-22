@@ -707,9 +707,23 @@
   },
   "description" : "Diastolic/Systolic"
 };
+            defs["BloodPressureResult"] = {
+  "type" : "object",
+  "properties" : {
+    "BloodPressureCategory" : {
+      "type" : "string",
+      "example" : "Hypertensive Crisis",
+      "enum" : [ "Normal", "Elevated", "Hypertension Stage 1", "Hypertension Stage 2", "Hypertensive Crisis" ]
+    }
+  }
+};
             defs["DigitalHealthCheckRequest"] = {
   "type" : "object",
   "properties" : {
+    "Age" : {
+      "type" : "integer",
+      "format" : "int64"
+    },
     "Height" : {
       "$ref" : "#/components/schemas/Height"
     },
@@ -726,6 +740,25 @@
       "type" : "string"
     },
     "Ethnicity" : {
+      "type" : "string"
+    },
+    "AlcoholUse" : {
+      "type" : "integer",
+      "format" : "int64"
+    },
+    "Smoking" : {
+      "type" : "integer",
+      "format" : "int64"
+    },
+    "PhysicalActivity" : {
+      "type" : "integer",
+      "format" : "int64"
+    },
+    "FamilyHistory" : {
+      "type" : "integer",
+      "format" : "int64"
+    },
+    "Gender" : {
       "type" : "string"
     }
   }
@@ -870,11 +903,11 @@
                     <li data-group="DigitalHealthTools" data-name="mynhsToolsBloodpressurePost" class="">
                       <a href="#api-DigitalHealthTools-mynhsToolsBloodpressurePost">mynhsToolsBloodpressurePost</a>
                     </li>
-                    <li data-group="DigitalHealthTools" data-name="mynhsToolsHealthcheckPost" class="">
-                      <a href="#api-DigitalHealthTools-mynhsToolsHealthcheckPost">mynhsToolsHealthcheckPost</a>
-                    </li>
                     <li data-group="DigitalHealthTools" data-name="mynhsToolsHeartagePost" class="">
                       <a href="#api-DigitalHealthTools-mynhsToolsHeartagePost">mynhsToolsHeartagePost</a>
+                    </li>
+                    <li data-group="DigitalHealthTools" data-name="postHealthCheck" class="">
+                      <a href="#api-DigitalHealthTools-postHealthCheck">postHealthCheck</a>
                     </li>
                   <li class="nav-header" data-group="Events"><a href="#api-Events">API Methods - Events</a></li>
                     <li data-group="Events" data-name="mynhsUserIdEventsGet" class="">
@@ -5671,6 +5704,7 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-DigitalHealthTools-mynhsToolsBloodpressurePost-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
+-H "Accept: application/json"\
 -H "Content-Type: application/json"\
 "https://virtserver.swaggerhub.com/NHSX/MyNhs/0.1/mynhs/tools/bloodpressure"</code></pre>
                           </div>
@@ -5688,9 +5722,15 @@ public class DigitalHealthToolsApiExample {
     public static void main(String[] args) {
         
         DigitalHealthToolsApi apiInstance = new DigitalHealthToolsApi();
-        BloodPressure body = ; // BloodPressure | Returns an analysis of the given blood pressure reading.
+        BloodPressure body = {
+  "value" : {
+    "Systolic" : 110,
+    "Diastolic" : 70
+  }
+}; // BloodPressure | Returns an analysis of the given blood pressure reading.
         try {
-            apiInstance.mynhsToolsBloodpressurePost(body);
+            BloodPressureResult result = apiInstance.mynhsToolsBloodpressurePost(body);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DigitalHealthToolsApi#mynhsToolsBloodpressurePost");
             e.printStackTrace();
@@ -5706,9 +5746,15 @@ public class DigitalHealthToolsApiExample {
 
     public static void main(String[] args) {
         DigitalHealthToolsApi apiInstance = new DigitalHealthToolsApi();
-        BloodPressure body = ; // BloodPressure | Returns an analysis of the given blood pressure reading.
+        BloodPressure body = {
+  "value" : {
+    "Systolic" : 110,
+    "Diastolic" : 70
+  }
+}; // BloodPressure | Returns an analysis of the given blood pressure reading.
         try {
-            apiInstance.mynhsToolsBloodpressurePost(body);
+            BloodPressureResult result = apiInstance.mynhsToolsBloodpressurePost(body);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DigitalHealthToolsApi#mynhsToolsBloodpressurePost");
             e.printStackTrace();
@@ -5721,12 +5767,20 @@ public class DigitalHealthToolsApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-DigitalHealthTools-mynhsToolsBloodpressurePost-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">BloodPressure *body = ; // Returns an analysis of the given blood pressure reading.
+                              <pre class="prettyprint"><code class="language-cpp">BloodPressure *body = {
+  "value" : {
+    "Systolic" : 110,
+    "Diastolic" : 70
+  }
+}; // Returns an analysis of the given blood pressure reading.
 
 DigitalHealthToolsApi *apiInstance = [[DigitalHealthToolsApi alloc] init];
 
 [apiInstance mynhsToolsBloodpressurePostWith:body
-              completionHandler: ^(NSError* error) {
+              completionHandler: ^(BloodPressureResult output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
                             if (error) {
                                 NSLog(@"Error: %@", error);
                             }
@@ -5738,13 +5792,18 @@ DigitalHealthToolsApi *apiInstance = [[DigitalHealthToolsApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 
 var api = new MyNhsGraph.DigitalHealthToolsApi()
-var body = ; // {{BloodPressure}} Returns an analysis of the given blood pressure reading.
+var body = {
+  "value" : {
+    "Systolic" : 110,
+    "Diastolic" : 70
+  }
+}; // {{BloodPressure}} Returns an analysis of the given blood pressure reading.
 
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 api.mynhsToolsBloodpressurePost(body, callback);
@@ -5773,7 +5832,8 @@ namespace Example
 
             try
             {
-                apiInstance.mynhsToolsBloodpressurePost(body);
+                BloodPressureResult result = apiInstance.mynhsToolsBloodpressurePost(body);
+                Debug.WriteLine(result);
             }
             catch (Exception e)
             {
@@ -5790,10 +5850,16 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiDigitalHealthToolsApi();
-$body = ; // BloodPressure | Returns an analysis of the given blood pressure reading.
+$body = {
+  "value" : {
+    "Systolic" : 110,
+    "Diastolic" : 70
+  }
+}; // BloodPressure | Returns an analysis of the given blood pressure reading.
 
 try {
-    $api_instance->mynhsToolsBloodpressurePost($body);
+    $result = $api_instance->mynhsToolsBloodpressurePost($body);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DigitalHealthToolsApi->mynhsToolsBloodpressurePost: ', $e->getMessage(), PHP_EOL;
 }
@@ -5809,7 +5875,8 @@ my $api_instance = WWW::SwaggerClient::DigitalHealthToolsApi->new();
 my $body = WWW::SwaggerClient::Object::BloodPressure->new(); # BloodPressure | Returns an analysis of the given blood pressure reading.
 
 eval { 
-    $api_instance->mynhsToolsBloodpressurePost(body => $body);
+    my $result = $api_instance->mynhsToolsBloodpressurePost(body => $body);
+    print Dumper($result);
 };
 if ($@) {
     warn "Exception when calling DigitalHealthToolsApi->mynhsToolsBloodpressurePost: $@\n";
@@ -5825,10 +5892,16 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.DigitalHealthToolsApi()
-body =  # BloodPressure | Returns an analysis of the given blood pressure reading.
+body = {
+  "value" : {
+    "Systolic" : 110,
+    "Diastolic" : 70
+  }
+} # BloodPressure | Returns an analysis of the given blood pressure reading.
 
 try: 
-    api_instance.mynhs_tools_bloodpressure_post(body)
+    api_response = api_instance.mynhs_tools_bloodpressure_post(body)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling DigitalHealthToolsApi->mynhsToolsBloodpressurePost: %s\n" % e)</code></pre>
                             </div>
@@ -5856,6 +5929,20 @@ except ApiException as e:
     "application/json" : {
       "schema" : {
         "$ref" : "#/components/schemas/BloodPressure"
+      },
+      "examples" : {
+        "Normal" : {
+          "value" : {
+            "Systolic" : 110,
+            "Diastolic" : 70
+          }
+        },
+        "Hypertensive Crisis" : {
+          "value" : {
+            "Systolic" : 180,
+            "Diastolic" : 120
+          }
+        }
       }
     }
   },
@@ -5889,284 +5976,21 @@ except ApiException as e:
                             <h3> Status: 200 - OK </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
-                    <div id="api-DigitalHealthTools-mynhsToolsHealthcheckPost">
-                      <article id="api-DigitalHealthTools-mynhsToolsHealthcheckPost-0" data-group="User" data-name="mynhsToolsHealthcheckPost" data-version="0">
-                        <div class="pull-left">
-                          <h1>mynhsToolsHealthcheckPost</h1>
-                          <p></p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked"></p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/mynhs/tools/healthcheck</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-java">Java</a></li>
-                          <li class=""><a href="#examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-curl">
-                           <pre class="prettyprint"><code class="language-bsh">curl -X POST\
--H "Accept: application/json"\
--H "Content-Type: application/json"\
-"https://virtserver.swaggerhub.com/NHSX/MyNhs/0.1/mynhs/tools/healthcheck"</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.DigitalHealthToolsApi;
-
-import java.io.File;
-import java.util.*;
-
-public class DigitalHealthToolsApiExample {
-
-    public static void main(String[] args) {
-        
-        DigitalHealthToolsApi apiInstance = new DigitalHealthToolsApi();
-        DigitalHealthCheckRequest body = ; // DigitalHealthCheckRequest | Optional description in *Markdown*
-        try {
-            DigitalHealthCheckResult result = apiInstance.mynhsToolsHealthcheckPost(body);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DigitalHealthToolsApi#mynhsToolsHealthcheckPost");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DigitalHealthToolsApi;
-
-public class DigitalHealthToolsApiExample {
-
-    public static void main(String[] args) {
-        DigitalHealthToolsApi apiInstance = new DigitalHealthToolsApi();
-        DigitalHealthCheckRequest body = ; // DigitalHealthCheckRequest | Optional description in *Markdown*
-        try {
-            DigitalHealthCheckResult result = apiInstance.mynhsToolsHealthcheckPost(body);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DigitalHealthToolsApi#mynhsToolsHealthcheckPost");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">DigitalHealthCheckRequest *body = ; // Optional description in *Markdown*
-
-DigitalHealthToolsApi *apiInstance = [[DigitalHealthToolsApi alloc] init];
-
-[apiInstance mynhsToolsHealthcheckPostWith:body
-              completionHandler: ^(DigitalHealthCheckResult output, NSError* error) {
-                            if (output) {
-                                NSLog(@"%@", output);
-                            }
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
-
-var api = new MyNhsGraph.DigitalHealthToolsApi()
-var body = ; // {{DigitalHealthCheckRequest}} Optional description in *Markdown*
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.mynhsToolsHealthcheckPost(body, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class mynhsToolsHealthcheckPostExample
-    {
-        public void main()
-        {
-
-            var apiInstance = new DigitalHealthToolsApi();
-            var body = new DigitalHealthCheckRequest(); // DigitalHealthCheckRequest | Optional description in *Markdown*
-
-            try
-            {
-                DigitalHealthCheckResult result = apiInstance.mynhsToolsHealthcheckPost(body);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling DigitalHealthToolsApi.mynhsToolsHealthcheckPost: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\ApiDigitalHealthToolsApi();
-$body = ; // DigitalHealthCheckRequest | Optional description in *Markdown*
-
-try {
-    $result = $api_instance->mynhsToolsHealthcheckPost($body);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DigitalHealthToolsApi->mynhsToolsHealthcheckPost: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::DigitalHealthToolsApi;
-
-my $api_instance = WWW::SwaggerClient::DigitalHealthToolsApi->new();
-my $body = WWW::SwaggerClient::Object::DigitalHealthCheckRequest->new(); # DigitalHealthCheckRequest | Optional description in *Markdown*
-
-eval { 
-    my $result = $api_instance->mynhsToolsHealthcheckPost(body => $body);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling DigitalHealthToolsApi->mynhsToolsHealthcheckPost: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-DigitalHealthTools-mynhsToolsHealthcheckPost-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.DigitalHealthToolsApi()
-body =  # DigitalHealthCheckRequest | Optional description in *Markdown*
-
-try: 
-    api_response = api_instance.mynhs_tools_healthcheck_post(body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DigitalHealthToolsApi->mynhsToolsHealthcheckPost: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-
-
-                            <div class="methodsubtabletitle">Body parameters</div>
-                            <table id="methodsubtable">
-                              <tr>
-                                <th width="150px">Name</th>
-                                <th>Description</th>
-                              </tr>
-                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
-                                <td>
-                                
-                                
-                                <script>
-                                $(document).ready(function() {
-                                  var schemaWrapper = {
-  "description" : "Optional description in *Markdown*",
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/DigitalHealthCheckRequest"
-      }
-    }
-  },
-  "required" : true
-};
-                                  var schema = schemaWrapper.content["application/json"].schema;
-                                  if (schema.$ref != null) {
-                                    schema = defsParser.$refs.get(schema.$ref);
-                                  } else {
-                                    schemaWrapper.components = {};
-                                    schemaWrapper.components.schemas = Object.assign({}, defs);
-                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                      console.log(err);
-                                    });
-                                  }
-                                
-                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-                                  var result = $('#d2e199_mynhsToolsHealthcheckPost_body');
-                                  result.empty();
-                                  result.append(view.render());
-                                });
-                                </script>
-                                <div id="d2e199_mynhsToolsHealthcheckPost_body"></div>
-                                </td>
-                                </tr>
-                            </table>
-
-
-
-                          <h2>Responses</h2>
-                            <h3> Status: 200 - OK </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-mynhsToolsHealthcheckPost-200-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-mynhsToolsBloodpressurePost-200-schema">Schema</a>
                                 </li>
 
+                                  <li class="">
+                                    <a data-toggle="tab" href="#responses-mynhsToolsBloodpressurePost-200-example-0">Response Example</a>
+                                  </li>
+                                  <li class="">
+                                    <a data-toggle="tab" href="#responses-mynhsToolsBloodpressurePost-200-example-1">Response Example</a>
+                                  </li>
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-mynhsToolsHealthcheckPost-200-schema">
-                                  <div id='responses-mynhsToolsHealthcheckPost-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-mynhsToolsBloodpressurePost-200-schema">
+                                  <div id='responses-mynhsToolsBloodpressurePost-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -6174,7 +5998,19 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/DigitalHealthCheckResult"
+        "$ref" : "#/components/schemas/BloodPressureResult"
+      },
+      "examples" : {
+        "Normal" : {
+          "value" : {
+            "BloodPressureCategory" : "Normal"
+          }
+        },
+        "Crisis" : {
+          "value" : {
+            "BloodPressureCategory" : "Hypertensive Crisis"
+          }
+        }
       }
     }
   }
@@ -6192,14 +6028,20 @@ except ApiException as e:
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-mynhsToolsHealthcheckPost-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-mynhsToolsHealthcheckPost-200-schema-200');
+                                        $('#responses-mynhsToolsBloodpressurePost-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-mynhsToolsBloodpressurePost-200-schema-200');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-mynhsToolsHealthcheckPost-200-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-mynhsToolsBloodpressurePost-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                                  <div class="tab-pane" id="responses-mynhsToolsBloodpressurePost-200-example-0">
+                                      <pre class="prettyprint"><code class="json">{&quot;BloodPressureCategory&quot;:&quot;Normal&quot;}</code></pre>
+                                </div>
+                                  <div class="tab-pane" id="responses-mynhsToolsBloodpressurePost-200-example-1">
+                                      <pre class="prettyprint"><code class="json">{&quot;BloodPressureCategory&quot;:&quot;Hypertensive Crisis&quot;}</code></pre>
                                 </div>
                             </div>
 
@@ -6509,6 +6351,318 @@ except ApiException as e:
                                     </script>
                                   </div>
                                   <input id='responses-mynhsToolsHeartagePost-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-DigitalHealthTools-postHealthCheck">
+                      <article id="api-DigitalHealthTools-postHealthCheck-0" data-group="User" data-name="postHealthCheck" data-version="0">
+                        <div class="pull-left">
+                          <h1>postHealthCheck</h1>
+                          <p>Run a health check on provided data</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">**Does not store anything**, just returns response</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/mynhs/tools/healthcheck</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-DigitalHealthTools-postHealthCheck-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-DigitalHealthTools-postHealthCheck-0-java">Java</a></li>
+                          <li class=""><a href="#examples-DigitalHealthTools-postHealthCheck-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-DigitalHealthTools-postHealthCheck-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-DigitalHealthTools-postHealthCheck-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-DigitalHealthTools-postHealthCheck-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-DigitalHealthTools-postHealthCheck-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-DigitalHealthTools-postHealthCheck-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-DigitalHealthTools-postHealthCheck-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-DigitalHealthTools-postHealthCheck-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-DigitalHealthTools-postHealthCheck-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-DigitalHealthTools-postHealthCheck-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X POST\
+-H "Accept: application/json"\
+-H "Content-Type: application/json"\
+"https://virtserver.swaggerhub.com/NHSX/MyNhs/0.1/mynhs/tools/healthcheck"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-DigitalHealthTools-postHealthCheck-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DigitalHealthToolsApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DigitalHealthToolsApiExample {
+
+    public static void main(String[] args) {
+        
+        DigitalHealthToolsApi apiInstance = new DigitalHealthToolsApi();
+        DigitalHealthCheckRequest body = ; // DigitalHealthCheckRequest | Optional description in *Markdown*
+        try {
+            DigitalHealthCheckResult result = apiInstance.postHealthCheck(body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DigitalHealthToolsApi#postHealthCheck");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-DigitalHealthTools-postHealthCheck-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DigitalHealthToolsApi;
+
+public class DigitalHealthToolsApiExample {
+
+    public static void main(String[] args) {
+        DigitalHealthToolsApi apiInstance = new DigitalHealthToolsApi();
+        DigitalHealthCheckRequest body = ; // DigitalHealthCheckRequest | Optional description in *Markdown*
+        try {
+            DigitalHealthCheckResult result = apiInstance.postHealthCheck(body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DigitalHealthToolsApi#postHealthCheck");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-DigitalHealthTools-postHealthCheck-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-DigitalHealthTools-postHealthCheck-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">DigitalHealthCheckRequest *body = ; // Optional description in *Markdown*
+
+DigitalHealthToolsApi *apiInstance = [[DigitalHealthToolsApi alloc] init];
+
+// Run a health check on provided data
+[apiInstance postHealthCheckWith:body
+              completionHandler: ^(DigitalHealthCheckResult output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-DigitalHealthTools-postHealthCheck-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
+
+var api = new MyNhsGraph.DigitalHealthToolsApi()
+var body = ; // {{DigitalHealthCheckRequest}} Optional description in *Markdown*
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.postHealthCheck(body, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-DigitalHealthTools-postHealthCheck-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-DigitalHealthTools-postHealthCheck-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class postHealthCheckExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new DigitalHealthToolsApi();
+            var body = new DigitalHealthCheckRequest(); // DigitalHealthCheckRequest | Optional description in *Markdown*
+
+            try
+            {
+                // Run a health check on provided data
+                DigitalHealthCheckResult result = apiInstance.postHealthCheck(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DigitalHealthToolsApi.postHealthCheck: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-DigitalHealthTools-postHealthCheck-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiDigitalHealthToolsApi();
+$body = ; // DigitalHealthCheckRequest | Optional description in *Markdown*
+
+try {
+    $result = $api_instance->postHealthCheck($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DigitalHealthToolsApi->postHealthCheck: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-DigitalHealthTools-postHealthCheck-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DigitalHealthToolsApi;
+
+my $api_instance = WWW::SwaggerClient::DigitalHealthToolsApi->new();
+my $body = WWW::SwaggerClient::Object::DigitalHealthCheckRequest->new(); # DigitalHealthCheckRequest | Optional description in *Markdown*
+
+eval { 
+    my $result = $api_instance->postHealthCheck(body => $body);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DigitalHealthToolsApi->postHealthCheck: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-DigitalHealthTools-postHealthCheck-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.DigitalHealthToolsApi()
+body =  # DigitalHealthCheckRequest | Optional description in *Markdown*
+
+try: 
+    # Run a health check on provided data
+    api_response = api_instance.post_health_check(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DigitalHealthToolsApi->postHealthCheck: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                <td>
+                                
+                                
+                                <script>
+                                $(document).ready(function() {
+                                  var schemaWrapper = {
+  "description" : "Optional description in *Markdown*",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/DigitalHealthCheckRequest"
+      }
+    }
+  },
+  "required" : true
+};
+                                  var schema = schemaWrapper.content["application/json"].schema;
+                                  if (schema.$ref != null) {
+                                    schema = defsParser.$refs.get(schema.$ref);
+                                  } else {
+                                    schemaWrapper.components = {};
+                                    schemaWrapper.components.schemas = Object.assign({}, defs);
+                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                      console.log(err);
+                                    });
+                                  }
+                                
+                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+                                  var result = $('#d2e199_postHealthCheck_body');
+                                  result.empty();
+                                  result.append(view.render());
+                                });
+                                </script>
+                                <div id="d2e199_postHealthCheck_body"></div>
+                                </td>
+                                </tr>
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - OK </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-postHealthCheck-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-postHealthCheck-200-schema">
+                                  <div id='responses-postHealthCheck-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/DigitalHealthCheckResult"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-postHealthCheck-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-postHealthCheck-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-postHealthCheck-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
