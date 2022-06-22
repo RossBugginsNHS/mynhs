@@ -72,6 +72,7 @@ paths:
                 
   /mynhs/tools/healthcheck:
     post:
+      operationId: PostHealthCheck
       summary: Run a health check on provided data   
       description: '**Does not store anything**, just returns response'
       tags:
@@ -121,10 +122,30 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/BloodPressure'
+            examples:
+              Normal:
+                value:
+                  Systolic: 110       
+                  Diastolic: 70
+              Hypertensive Crisis:
+                value:
+                  Systolic: 180      
+                  Diastolic: 120                    
       responses:
         '200':
           description: OK
-
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BloodPressureResult'
+              examples:
+                Normal:
+                  value:
+                    BloodPressureCategory: Normal
+                Crisis:
+                  value:
+                    BloodPressureCategory: Hypertensive Crisis
+          
   /mynhs/{userId}/digitalhealthchecks:
     get:
       tags:
@@ -718,6 +739,9 @@ components:
     DigitalHealthCheckRequest:
       type: object
       properties:
+        Age:
+          type: integer
+          format: int64
         Height:
           $ref: '#/components/schemas/Height'
         Weight:
@@ -729,6 +753,20 @@ components:
         Colesterol:
           type: string
         Ethnicity:
+          type: string
+        AlcoholUse:
+          type: integer
+          format: int64
+        Smoking:
+          type: integer
+          format: int64    
+        PhysicalActivity:
+          type: integer
+          format: int64 
+        FamilyHistory:
+          type: integer
+          format: int64          
+        Gender:
           type: string
     DigitalHealthCheckResult:
       type: object
@@ -765,6 +803,14 @@ components:
           format: int64
           description: The smaller number (the second number)
           example: 110
+    BloodPressureResult:
+      type: object
+      properties:
+        BloodPressureCategory:
+          type: string
+          enum: [Normal, Elevated, Hypertension Stage 1, Hypertension Stage 2, Hypertensive Crisis]
+          example: 'Hypertensive Crisis'
+            
           
   parameters:
     skipParam:  # <-- Arbitrary name for the definition that will be used to refer to it.
