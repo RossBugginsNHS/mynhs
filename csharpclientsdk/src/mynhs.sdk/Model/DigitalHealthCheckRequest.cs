@@ -30,22 +30,40 @@ namespace mynhs.sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DigitalHealthCheckRequest" /> class.
         /// </summary>
+        /// <param name="age">age.</param>
         /// <param name="height">height.</param>
         /// <param name="weight">weight.</param>
         /// <param name="bloodPressure">bloodPressure.</param>
         /// <param name="bloodSugar">bloodSugar.</param>
         /// <param name="colesterol">colesterol.</param>
         /// <param name="ethnicity">ethnicity.</param>
-        public DigitalHealthCheckRequest(Height height = default(Height), Mass weight = default(Mass), BloodPressure bloodPressure = default(BloodPressure), string bloodSugar = default(string), string colesterol = default(string), string ethnicity = default(string))
+        /// <param name="alcoholUse">alcoholUse.</param>
+        /// <param name="smoking">smoking.</param>
+        /// <param name="physicalActivity">physicalActivity.</param>
+        /// <param name="familyHistory">familyHistory.</param>
+        /// <param name="gender">gender.</param>
+        public DigitalHealthCheckRequest(long? age = default(long?), Height height = default(Height), Mass weight = default(Mass), BloodPressure bloodPressure = default(BloodPressure), string bloodSugar = default(string), string colesterol = default(string), string ethnicity = default(string), long? alcoholUse = default(long?), long? smoking = default(long?), long? physicalActivity = default(long?), long? familyHistory = default(long?), string gender = default(string))
         {
+            this.Age = age;
             this.Height = height;
             this.Weight = weight;
             this.BloodPressure = bloodPressure;
             this.BloodSugar = bloodSugar;
             this.Colesterol = colesterol;
             this.Ethnicity = ethnicity;
+            this.AlcoholUse = alcoholUse;
+            this.Smoking = smoking;
+            this.PhysicalActivity = physicalActivity;
+            this.FamilyHistory = familyHistory;
+            this.Gender = gender;
         }
         
+        /// <summary>
+        /// Gets or Sets Age
+        /// </summary>
+        [DataMember(Name="Age", EmitDefaultValue=false)]
+        public long? Age { get; set; }
+
         /// <summary>
         /// Gets or Sets Height
         /// </summary>
@@ -83,6 +101,36 @@ namespace mynhs.sdk.Model
         public string Ethnicity { get; set; }
 
         /// <summary>
+        /// Gets or Sets AlcoholUse
+        /// </summary>
+        [DataMember(Name="AlcoholUse", EmitDefaultValue=false)]
+        public long? AlcoholUse { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Smoking
+        /// </summary>
+        [DataMember(Name="Smoking", EmitDefaultValue=false)]
+        public long? Smoking { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PhysicalActivity
+        /// </summary>
+        [DataMember(Name="PhysicalActivity", EmitDefaultValue=false)]
+        public long? PhysicalActivity { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FamilyHistory
+        /// </summary>
+        [DataMember(Name="FamilyHistory", EmitDefaultValue=false)]
+        public long? FamilyHistory { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Gender
+        /// </summary>
+        [DataMember(Name="Gender", EmitDefaultValue=false)]
+        public string Gender { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -90,12 +138,18 @@ namespace mynhs.sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class DigitalHealthCheckRequest {\n");
+            sb.Append("  Age: ").Append(Age).Append("\n");
             sb.Append("  Height: ").Append(Height).Append("\n");
             sb.Append("  Weight: ").Append(Weight).Append("\n");
             sb.Append("  BloodPressure: ").Append(BloodPressure).Append("\n");
             sb.Append("  BloodSugar: ").Append(BloodSugar).Append("\n");
             sb.Append("  Colesterol: ").Append(Colesterol).Append("\n");
             sb.Append("  Ethnicity: ").Append(Ethnicity).Append("\n");
+            sb.Append("  AlcoholUse: ").Append(AlcoholUse).Append("\n");
+            sb.Append("  Smoking: ").Append(Smoking).Append("\n");
+            sb.Append("  PhysicalActivity: ").Append(PhysicalActivity).Append("\n");
+            sb.Append("  FamilyHistory: ").Append(FamilyHistory).Append("\n");
+            sb.Append("  Gender: ").Append(Gender).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,6 +185,11 @@ namespace mynhs.sdk.Model
 
             return 
                 (
+                    this.Age == input.Age ||
+                    (this.Age != null &&
+                    this.Age.Equals(input.Age))
+                ) && 
+                (
                     this.Height == input.Height ||
                     (this.Height != null &&
                     this.Height.Equals(input.Height))
@@ -159,6 +218,31 @@ namespace mynhs.sdk.Model
                     this.Ethnicity == input.Ethnicity ||
                     (this.Ethnicity != null &&
                     this.Ethnicity.Equals(input.Ethnicity))
+                ) && 
+                (
+                    this.AlcoholUse == input.AlcoholUse ||
+                    (this.AlcoholUse != null &&
+                    this.AlcoholUse.Equals(input.AlcoholUse))
+                ) && 
+                (
+                    this.Smoking == input.Smoking ||
+                    (this.Smoking != null &&
+                    this.Smoking.Equals(input.Smoking))
+                ) && 
+                (
+                    this.PhysicalActivity == input.PhysicalActivity ||
+                    (this.PhysicalActivity != null &&
+                    this.PhysicalActivity.Equals(input.PhysicalActivity))
+                ) && 
+                (
+                    this.FamilyHistory == input.FamilyHistory ||
+                    (this.FamilyHistory != null &&
+                    this.FamilyHistory.Equals(input.FamilyHistory))
+                ) && 
+                (
+                    this.Gender == input.Gender ||
+                    (this.Gender != null &&
+                    this.Gender.Equals(input.Gender))
                 );
         }
 
@@ -171,6 +255,8 @@ namespace mynhs.sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Age != null)
+                    hashCode = hashCode * 59 + this.Age.GetHashCode();
                 if (this.Height != null)
                     hashCode = hashCode * 59 + this.Height.GetHashCode();
                 if (this.Weight != null)
@@ -183,6 +269,16 @@ namespace mynhs.sdk.Model
                     hashCode = hashCode * 59 + this.Colesterol.GetHashCode();
                 if (this.Ethnicity != null)
                     hashCode = hashCode * 59 + this.Ethnicity.GetHashCode();
+                if (this.AlcoholUse != null)
+                    hashCode = hashCode * 59 + this.AlcoholUse.GetHashCode();
+                if (this.Smoking != null)
+                    hashCode = hashCode * 59 + this.Smoking.GetHashCode();
+                if (this.PhysicalActivity != null)
+                    hashCode = hashCode * 59 + this.PhysicalActivity.GetHashCode();
+                if (this.FamilyHistory != null)
+                    hashCode = hashCode * 59 + this.FamilyHistory.GetHashCode();
+                if (this.Gender != null)
+                    hashCode = hashCode * 59 + this.Gender.GetHashCode();
                 return hashCode;
             }
         }

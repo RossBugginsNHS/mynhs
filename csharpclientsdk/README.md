@@ -88,8 +88,8 @@ Class | Method | HTTP request | Description
 *DigitalHealthChecksSubmissionsApi* | [**MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut**](docs/DigitalHealthChecksSubmissionsApi.md#mynhsuseriddigitalhealthcheckssubmissionssubmissionidput) | **PUT** /mynhs/{userId}/digitalhealthchecks/submissions/{submissionId} | 
 *DigitalHealthChecksSubmissionsApi* | [**MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut**](docs/DigitalHealthChecksSubmissionsApi.md#mynhsuseriddigitalhealthcheckssubmissionssubmissionidsubmitput) | **PUT** /mynhs/{userId}/digitalhealthchecks/submissions/{submissionId}/submit | 
 *DigitalHealthToolsApi* | [**MynhsToolsBloodpressurePost**](docs/DigitalHealthToolsApi.md#mynhstoolsbloodpressurepost) | **POST** /mynhs/tools/bloodpressure | 
-*DigitalHealthToolsApi* | [**MynhsToolsHealthcheckPost**](docs/DigitalHealthToolsApi.md#mynhstoolshealthcheckpost) | **POST** /mynhs/tools/healthcheck | 
 *DigitalHealthToolsApi* | [**MynhsToolsHeartagePost**](docs/DigitalHealthToolsApi.md#mynhstoolsheartagepost) | **POST** /mynhs/tools/heartage | 
+*DigitalHealthToolsApi* | [**PostHealthCheck**](docs/DigitalHealthToolsApi.md#posthealthcheck) | **POST** /mynhs/tools/healthcheck | Run a health check on provided data
 *EventsApi* | [**MynhsUserIdEventsGet**](docs/EventsApi.md#mynhsuserideventsget) | **GET** /mynhs/{userId}/events | 
 *MedicalRecordsApi* | [**MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPost**](docs/MedicalRecordsApi.md#mynhsuseridmedicalrecordsdetailednhsrequestrecordspost) | **POST** /mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords | 
 *MedicalRecordsApi* | [**MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGet**](docs/MedicalRecordsApi.md#mynhsuseridmedicalrecordsdetailednhsrequestrecordsrequestidget) | **GET** /mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords/{requestId} | 
@@ -114,6 +114,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Model.BloodPressure](docs/BloodPressure.md)
+ - [Model.BloodPressureResult](docs/BloodPressureResult.md)
  - [Model.DigitalHealthCheckRequest](docs/DigitalHealthCheckRequest.md)
  - [Model.DigitalHealthCheckResult](docs/DigitalHealthCheckResult.md)
  - [Model.GpProfile](docs/GpProfile.md)

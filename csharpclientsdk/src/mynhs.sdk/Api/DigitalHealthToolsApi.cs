@@ -31,8 +31,8 @@ namespace mynhs.sdk.Api
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
-        /// <returns></returns>
-        void MynhsToolsBloodpressurePost (BloodPressure body);
+        /// <returns>BloodPressureResult</returns>
+        BloodPressureResult MynhsToolsBloodpressurePost (BloodPressure body);
 
         /// <summary>
         /// 
@@ -42,29 +42,8 @@ namespace mynhs.sdk.Api
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> MynhsToolsBloodpressurePostWithHttpInfo (BloodPressure body);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Optional description in *Markdown*</param>
-        /// <returns>DigitalHealthCheckResult</returns>
-        DigitalHealthCheckResult MynhsToolsHealthcheckPost (DigitalHealthCheckRequest body);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Optional description in *Markdown*</param>
-        /// <returns>ApiResponse of DigitalHealthCheckResult</returns>
-        ApiResponse<DigitalHealthCheckResult> MynhsToolsHealthcheckPostWithHttpInfo (DigitalHealthCheckRequest body);
+        /// <returns>ApiResponse of BloodPressureResult</returns>
+        ApiResponse<BloodPressureResult> MynhsToolsBloodpressurePostWithHttpInfo (BloodPressure body);
         /// <summary>
         /// 
         /// </summary>
@@ -86,6 +65,27 @@ namespace mynhs.sdk.Api
         /// <param name="body">Optional description in *Markdown*</param>
         /// <returns>ApiResponse of DigitalHealthCheckResult</returns>
         ApiResponse<DigitalHealthCheckResult> MynhsToolsHeartagePostWithHttpInfo (DigitalHealthCheckRequest body);
+        /// <summary>
+        /// Run a health check on provided data
+        /// </summary>
+        /// <remarks>
+        /// **Does not store anything**, just returns response
+        /// </remarks>
+        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Optional description in *Markdown*</param>
+        /// <returns>DigitalHealthCheckResult</returns>
+        DigitalHealthCheckResult PostHealthCheck (DigitalHealthCheckRequest body);
+
+        /// <summary>
+        /// Run a health check on provided data
+        /// </summary>
+        /// <remarks>
+        /// **Does not store anything**, just returns response
+        /// </remarks>
+        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Optional description in *Markdown*</param>
+        /// <returns>ApiResponse of DigitalHealthCheckResult</returns>
+        ApiResponse<DigitalHealthCheckResult> PostHealthCheckWithHttpInfo (DigitalHealthCheckRequest body);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -96,8 +96,8 @@ namespace mynhs.sdk.Api
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task MynhsToolsBloodpressurePostAsync (BloodPressure body);
+        /// <returns>Task of BloodPressureResult</returns>
+        System.Threading.Tasks.Task<BloodPressureResult> MynhsToolsBloodpressurePostAsync (BloodPressure body);
 
         /// <summary>
         /// 
@@ -107,29 +107,8 @@ namespace mynhs.sdk.Api
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> MynhsToolsBloodpressurePostAsyncWithHttpInfo (BloodPressure body);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Optional description in *Markdown*</param>
-        /// <returns>Task of DigitalHealthCheckResult</returns>
-        System.Threading.Tasks.Task<DigitalHealthCheckResult> MynhsToolsHealthcheckPostAsync (DigitalHealthCheckRequest body);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Optional description in *Markdown*</param>
-        /// <returns>Task of ApiResponse (DigitalHealthCheckResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DigitalHealthCheckResult>> MynhsToolsHealthcheckPostAsyncWithHttpInfo (DigitalHealthCheckRequest body);
+        /// <returns>Task of ApiResponse (BloodPressureResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BloodPressureResult>> MynhsToolsBloodpressurePostAsyncWithHttpInfo (BloodPressure body);
         /// <summary>
         /// 
         /// </summary>
@@ -151,6 +130,27 @@ namespace mynhs.sdk.Api
         /// <param name="body">Optional description in *Markdown*</param>
         /// <returns>Task of ApiResponse (DigitalHealthCheckResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<DigitalHealthCheckResult>> MynhsToolsHeartagePostAsyncWithHttpInfo (DigitalHealthCheckRequest body);
+        /// <summary>
+        /// Run a health check on provided data
+        /// </summary>
+        /// <remarks>
+        /// **Does not store anything**, just returns response
+        /// </remarks>
+        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Optional description in *Markdown*</param>
+        /// <returns>Task of DigitalHealthCheckResult</returns>
+        System.Threading.Tasks.Task<DigitalHealthCheckResult> PostHealthCheckAsync (DigitalHealthCheckRequest body);
+
+        /// <summary>
+        /// Run a health check on provided data
+        /// </summary>
+        /// <remarks>
+        /// **Does not store anything**, just returns response
+        /// </remarks>
+        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Optional description in *Markdown*</param>
+        /// <returns>Task of ApiResponse (DigitalHealthCheckResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DigitalHealthCheckResult>> PostHealthCheckAsyncWithHttpInfo (DigitalHealthCheckRequest body);
         #endregion Asynchronous Operations
     }
 
@@ -267,153 +267,10 @@ namespace mynhs.sdk.Api
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
-        /// <returns></returns>
-        public void MynhsToolsBloodpressurePost (BloodPressure body)
+        /// <returns>BloodPressureResult</returns>
+        public BloodPressureResult MynhsToolsBloodpressurePost (BloodPressure body)
         {
-             MynhsToolsBloodpressurePostWithHttpInfo(body);
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> MynhsToolsBloodpressurePostWithHttpInfo (BloodPressure body)
-        {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling DigitalHealthToolsApi->MynhsToolsBloodpressurePost");
-
-            var localVarPath = "./mynhs/tools/bloodpressure";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (body != null && body.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = body; // byte array
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MynhsToolsBloodpressurePost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                null);
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task MynhsToolsBloodpressurePostAsync (BloodPressure body)
-        {
-             await MynhsToolsBloodpressurePostAsyncWithHttpInfo(body);
-
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> MynhsToolsBloodpressurePostAsyncWithHttpInfo (BloodPressure body)
-        {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling DigitalHealthToolsApi->MynhsToolsBloodpressurePost");
-
-            var localVarPath = "./mynhs/tools/bloodpressure";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (body != null && body.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = body; // byte array
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MynhsToolsBloodpressurePost", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                null);
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Optional description in *Markdown*</param>
-        /// <returns>DigitalHealthCheckResult</returns>
-        public DigitalHealthCheckResult MynhsToolsHealthcheckPost (DigitalHealthCheckRequest body)
-        {
-             ApiResponse<DigitalHealthCheckResult> localVarResponse = MynhsToolsHealthcheckPostWithHttpInfo(body);
+             ApiResponse<BloodPressureResult> localVarResponse = MynhsToolsBloodpressurePostWithHttpInfo(body);
              return localVarResponse.Data;
         }
 
@@ -421,15 +278,15 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Optional description in *Markdown*</param>
-        /// <returns>ApiResponse of DigitalHealthCheckResult</returns>
-        public ApiResponse< DigitalHealthCheckResult > MynhsToolsHealthcheckPostWithHttpInfo (DigitalHealthCheckRequest body)
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
+        /// <returns>ApiResponse of BloodPressureResult</returns>
+        public ApiResponse< BloodPressureResult > MynhsToolsBloodpressurePostWithHttpInfo (BloodPressure body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling DigitalHealthToolsApi->MynhsToolsHealthcheckPost");
+                throw new ApiException(400, "Missing required parameter 'body' when calling DigitalHealthToolsApi->MynhsToolsBloodpressurePost");
 
-            var localVarPath = "./mynhs/tools/healthcheck";
+            var localVarPath = "./mynhs/tools/bloodpressure";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -469,24 +326,24 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsToolsHealthcheckPost", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsToolsBloodpressurePost", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DigitalHealthCheckResult>(localVarStatusCode,
+            return new ApiResponse<BloodPressureResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DigitalHealthCheckResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DigitalHealthCheckResult)));
+                (BloodPressureResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BloodPressureResult)));
         }
 
         /// <summary>
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Optional description in *Markdown*</param>
-        /// <returns>Task of DigitalHealthCheckResult</returns>
-        public async System.Threading.Tasks.Task<DigitalHealthCheckResult> MynhsToolsHealthcheckPostAsync (DigitalHealthCheckRequest body)
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
+        /// <returns>Task of BloodPressureResult</returns>
+        public async System.Threading.Tasks.Task<BloodPressureResult> MynhsToolsBloodpressurePostAsync (BloodPressure body)
         {
-             ApiResponse<DigitalHealthCheckResult> localVarResponse = await MynhsToolsHealthcheckPostAsyncWithHttpInfo(body);
+             ApiResponse<BloodPressureResult> localVarResponse = await MynhsToolsBloodpressurePostAsyncWithHttpInfo(body);
              return localVarResponse.Data;
 
         }
@@ -495,15 +352,15 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Optional description in *Markdown*</param>
-        /// <returns>Task of ApiResponse (DigitalHealthCheckResult)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DigitalHealthCheckResult>> MynhsToolsHealthcheckPostAsyncWithHttpInfo (DigitalHealthCheckRequest body)
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
+        /// <returns>Task of ApiResponse (BloodPressureResult)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<BloodPressureResult>> MynhsToolsBloodpressurePostAsyncWithHttpInfo (BloodPressure body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling DigitalHealthToolsApi->MynhsToolsHealthcheckPost");
+                throw new ApiException(400, "Missing required parameter 'body' when calling DigitalHealthToolsApi->MynhsToolsBloodpressurePost");
 
-            var localVarPath = "./mynhs/tools/healthcheck";
+            var localVarPath = "./mynhs/tools/bloodpressure";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -543,13 +400,13 @@ namespace mynhs.sdk.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MynhsToolsHealthcheckPost", localVarResponse);
+                Exception exception = ExceptionFactory("MynhsToolsBloodpressurePost", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<DigitalHealthCheckResult>(localVarStatusCode,
+            return new ApiResponse<BloodPressureResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (DigitalHealthCheckResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DigitalHealthCheckResult)));
+                (BloodPressureResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BloodPressureResult)));
         }
 
         /// <summary>
@@ -691,6 +548,153 @@ namespace mynhs.sdk.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("MynhsToolsHeartagePost", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<DigitalHealthCheckResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (DigitalHealthCheckResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DigitalHealthCheckResult)));
+        }
+
+        /// <summary>
+        /// Run a health check on provided data **Does not store anything**, just returns response
+        /// </summary>
+        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Optional description in *Markdown*</param>
+        /// <returns>DigitalHealthCheckResult</returns>
+        public DigitalHealthCheckResult PostHealthCheck (DigitalHealthCheckRequest body)
+        {
+             ApiResponse<DigitalHealthCheckResult> localVarResponse = PostHealthCheckWithHttpInfo(body);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Run a health check on provided data **Does not store anything**, just returns response
+        /// </summary>
+        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Optional description in *Markdown*</param>
+        /// <returns>ApiResponse of DigitalHealthCheckResult</returns>
+        public ApiResponse< DigitalHealthCheckResult > PostHealthCheckWithHttpInfo (DigitalHealthCheckRequest body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling DigitalHealthToolsApi->PostHealthCheck");
+
+            var localVarPath = "./mynhs/tools/healthcheck";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PostHealthCheck", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<DigitalHealthCheckResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
+                (DigitalHealthCheckResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DigitalHealthCheckResult)));
+        }
+
+        /// <summary>
+        /// Run a health check on provided data **Does not store anything**, just returns response
+        /// </summary>
+        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Optional description in *Markdown*</param>
+        /// <returns>Task of DigitalHealthCheckResult</returns>
+        public async System.Threading.Tasks.Task<DigitalHealthCheckResult> PostHealthCheckAsync (DigitalHealthCheckRequest body)
+        {
+             ApiResponse<DigitalHealthCheckResult> localVarResponse = await PostHealthCheckAsyncWithHttpInfo(body);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Run a health check on provided data **Does not store anything**, just returns response
+        /// </summary>
+        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Optional description in *Markdown*</param>
+        /// <returns>Task of ApiResponse (DigitalHealthCheckResult)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<DigitalHealthCheckResult>> PostHealthCheckAsyncWithHttpInfo (DigitalHealthCheckRequest body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling DigitalHealthToolsApi->PostHealthCheck");
+
+            var localVarPath = "./mynhs/tools/healthcheck";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PostHealthCheck", localVarResponse);
                 if (exception != null) throw exception;
             }
 
