@@ -36,7 +36,7 @@ namespace mynhs.sdk.Model
         /// <param name="bloodSugar">bloodSugar.</param>
         /// <param name="colesterol">colesterol.</param>
         /// <param name="ethnicity">ethnicity.</param>
-        public DigitalHealthCheckRequest(long? height = default(long?), long? weight = default(long?), string bloodPressure = default(string), string bloodSugar = default(string), string colesterol = default(string), string ethnicity = default(string))
+        public DigitalHealthCheckRequest(Height height = default(Height), Mass weight = default(Mass), BloodPressure bloodPressure = default(BloodPressure), string bloodSugar = default(string), string colesterol = default(string), string ethnicity = default(string))
         {
             this.Height = height;
             this.Weight = weight;
@@ -50,19 +50,19 @@ namespace mynhs.sdk.Model
         /// Gets or Sets Height
         /// </summary>
         [DataMember(Name="Height", EmitDefaultValue=false)]
-        public long? Height { get; set; }
+        public Height Height { get; set; }
 
         /// <summary>
         /// Gets or Sets Weight
         /// </summary>
         [DataMember(Name="Weight", EmitDefaultValue=false)]
-        public long? Weight { get; set; }
+        public Mass Weight { get; set; }
 
         /// <summary>
         /// Gets or Sets BloodPressure
         /// </summary>
         [DataMember(Name="BloodPressure", EmitDefaultValue=false)]
-        public string BloodPressure { get; set; }
+        public BloodPressure BloodPressure { get; set; }
 
         /// <summary>
         /// Gets or Sets BloodSugar

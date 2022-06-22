@@ -87,6 +87,7 @@ Class | Method | HTTP request | Description
 *DigitalHealthChecksSubmissionsApi* | [**MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdGet**](docs/DigitalHealthChecksSubmissionsApi.md#mynhsuseriddigitalhealthcheckssubmissionssubmissionidget) | **GET** /mynhs/{userId}/digitalhealthchecks/submissions/{submissionId} | 
 *DigitalHealthChecksSubmissionsApi* | [**MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut**](docs/DigitalHealthChecksSubmissionsApi.md#mynhsuseriddigitalhealthcheckssubmissionssubmissionidput) | **PUT** /mynhs/{userId}/digitalhealthchecks/submissions/{submissionId} | 
 *DigitalHealthChecksSubmissionsApi* | [**MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut**](docs/DigitalHealthChecksSubmissionsApi.md#mynhsuseriddigitalhealthcheckssubmissionssubmissionidsubmitput) | **PUT** /mynhs/{userId}/digitalhealthchecks/submissions/{submissionId}/submit | 
+*DigitalHealthToolsApi* | [**MynhsToolsBloodpressurePost**](docs/DigitalHealthToolsApi.md#mynhstoolsbloodpressurepost) | **POST** /mynhs/tools/bloodpressure | 
 *DigitalHealthToolsApi* | [**MynhsToolsHealthcheckPost**](docs/DigitalHealthToolsApi.md#mynhstoolshealthcheckpost) | **POST** /mynhs/tools/healthcheck | 
 *DigitalHealthToolsApi* | [**MynhsToolsHeartagePost**](docs/DigitalHealthToolsApi.md#mynhstoolsheartagepost) | **POST** /mynhs/tools/heartage | 
 *EventsApi* | [**MynhsUserIdEventsGet**](docs/EventsApi.md#mynhsuserideventsget) | **GET** /mynhs/{userId}/events | 
@@ -112,9 +113,12 @@ Class | Method | HTTP request | Description
 <a name="documentation-for-models"></a>
 ## Documentation for Models
 
+ - [Model.BloodPressure](docs/BloodPressure.md)
  - [Model.DigitalHealthCheckRequest](docs/DigitalHealthCheckRequest.md)
  - [Model.DigitalHealthCheckResult](docs/DigitalHealthCheckResult.md)
  - [Model.GpProfile](docs/GpProfile.md)
+ - [Model.Height](docs/Height.md)
+ - [Model.Mass](docs/Mass.md)
  - [Model.MyNhsProfile](docs/MyNhsProfile.md)
  - [Model.NhsProfile](docs/NhsProfile.md)
  - [Model.UserProfile](docs/UserProfile.md)

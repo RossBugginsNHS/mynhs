@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Height** | **long?** |  | [optional] 
-**Weight** | **long?** |  | [optional] 
-**BloodPressure** | **string** |  | [optional] 
+**Height** | [**Height**](Height.md) |  | [optional] 
+**Weight** | [**Mass**](Mass.md) |  | [optional] 
+**BloodPressure** | [**BloodPressure**](BloodPressure.md) |  | [optional] 
 **BloodSugar** | **string** |  | [optional] 
 **Colesterol** | **string** |  | [optional] 
 **Ethnicity** | **string** |  | [optional] 
