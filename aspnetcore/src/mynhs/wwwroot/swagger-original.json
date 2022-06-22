@@ -113,6 +113,9 @@
     "/mynhs/tools/healthcheck" : {
       "post" : {
         "tags" : [ "Digital Health Tools" ],
+        "summary" : "Run a health check on provided data",
+        "description" : "**Does not store anything**, just returns response",
+        "operationId" : "PostHealthCheck",
         "requestBody" : {
           "description" : "Optional description in *Markdown*",
           "content" : {
@@ -175,6 +178,20 @@
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/BloodPressure"
+              },
+              "examples" : {
+                "Normal" : {
+                  "value" : {
+                    "Systolic" : 110,
+                    "Diastolic" : 70
+                  }
+                },
+                "Hypertensive Crisis" : {
+                  "value" : {
+                    "Systolic" : 180,
+                    "Diastolic" : 120
+                  }
+                }
               }
             }
           },
@@ -182,7 +199,26 @@
         },
         "responses" : {
           "200" : {
-            "description" : "OK"
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BloodPressureResult"
+                },
+                "examples" : {
+                  "Normal" : {
+                    "value" : {
+                      "BloodPressureCategory" : "Normal"
+                    }
+                  },
+                  "Crisis" : {
+                    "value" : {
+                      "BloodPressureCategory" : "Hypertensive Crisis"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -1711,6 +1747,10 @@
       "DigitalHealthCheckRequest" : {
         "type" : "object",
         "properties" : {
+          "Age" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
           "Height" : {
             "$ref" : "#/components/schemas/Height"
           },
@@ -1727,6 +1767,25 @@
             "type" : "string"
           },
           "Ethnicity" : {
+            "type" : "string"
+          },
+          "AlcoholUse" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "Smoking" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "PhysicalActivity" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "FamilyHistory" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "Gender" : {
             "type" : "string"
           }
         }
@@ -1780,6 +1839,19 @@
           }
         },
         "description" : "Diastolic/Systolic"
+      },
+      "BloodPressureResult" : {
+        "type" : "object",
+        "properties" : {
+          "BloodPressureCategory" : {
+            "type" : "string",
+            "example" : "Hypertensive Crisis",
+            "enum" : [ "Normal", "Elevated", "Hypertension Stage 1", "Hypertension Stage 2", "Hypertensive Crisis" ]
+          }
+        },
+        "example" : {
+          "BloodPressureCategory" : "Hypertensive Crisis"
+        }
       }
     },
     "parameters" : {

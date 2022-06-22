@@ -36,34 +36,17 @@ namespace mynhs.Controllers
         [Route("/NHSX/MyNhs/0.1/mynhs/tools/bloodpressure")]
         [ValidateModelState]
         [SwaggerOperation("MynhsToolsBloodpressurePost")]
+        [SwaggerResponse(statusCode: 200, type: typeof(BloodPressureResult), description: "OK")]
         public virtual IActionResult MynhsToolsBloodpressurePost([FromBody]BloodPressure body)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="body">Optional description in *Markdown*</param>
-        /// <response code="200">OK</response>
-        [HttpPost]
-        [Route("/NHSX/MyNhs/0.1/mynhs/tools/healthcheck")]
-        [ValidateModelState]
-        [SwaggerOperation("MynhsToolsHealthcheckPost")]
-        [SwaggerResponse(statusCode: 200, type: typeof(DigitalHealthCheckResult), description: "OK")]
-        public virtual IActionResult MynhsToolsHealthcheckPost([FromBody]DigitalHealthCheckRequest body)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(DigitalHealthCheckResult));
+            // return StatusCode(200, default(BloodPressureResult));
             string exampleJson = null;
-            exampleJson = "{\n  \"HealthyPercentage\" : 0\n}";
+            exampleJson = "{\n  \"BloodPressureCategory\" : \"Hypertensive Crisis\"\n}";
             
                         var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<DigitalHealthCheckResult>(exampleJson)
-                        : default(DigitalHealthCheckResult);            //TODO: Change the data returned
+                        ? JsonConvert.DeserializeObject<BloodPressureResult>(exampleJson)
+                        : default(BloodPressureResult);            //TODO: Change the data returned
             return new ObjectResult(example);
         }
 
@@ -78,6 +61,30 @@ namespace mynhs.Controllers
         [SwaggerOperation("MynhsToolsHeartagePost")]
         [SwaggerResponse(statusCode: 200, type: typeof(DigitalHealthCheckResult), description: "OK")]
         public virtual IActionResult MynhsToolsHeartagePost([FromBody]DigitalHealthCheckRequest body)
+        { 
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200, default(DigitalHealthCheckResult));
+            string exampleJson = null;
+            exampleJson = "{\n  \"HealthyPercentage\" : 0\n}";
+            
+                        var example = exampleJson != null
+                        ? JsonConvert.DeserializeObject<DigitalHealthCheckResult>(exampleJson)
+                        : default(DigitalHealthCheckResult);            //TODO: Change the data returned
+            return new ObjectResult(example);
+        }
+
+        /// <summary>
+        /// Run a health check on provided data
+        /// </summary>
+        /// <remarks>**Does not store anything**, just returns response</remarks>
+        /// <param name="body">Optional description in *Markdown*</param>
+        /// <response code="200">OK</response>
+        [HttpPost]
+        [Route("/NHSX/MyNhs/0.1/mynhs/tools/healthcheck")]
+        [ValidateModelState]
+        [SwaggerOperation("PostHealthCheck")]
+        [SwaggerResponse(statusCode: 200, type: typeof(DigitalHealthCheckResult), description: "OK")]
+        public virtual IActionResult PostHealthCheck([FromBody]DigitalHealthCheckRequest body)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(DigitalHealthCheckResult));

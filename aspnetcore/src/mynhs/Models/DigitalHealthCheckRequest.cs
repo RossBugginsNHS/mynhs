@@ -27,6 +27,13 @@ namespace mynhs.Models
     public partial class DigitalHealthCheckRequest : IEquatable<DigitalHealthCheckRequest>
     { 
         /// <summary>
+        /// Gets or Sets Age
+        /// </summary>
+
+        [DataMember(Name="Age")]
+        public long? Age { get; set; }
+
+        /// <summary>
         /// Gets or Sets Height
         /// </summary>
 
@@ -69,6 +76,41 @@ namespace mynhs.Models
         public string Ethnicity { get; set; }
 
         /// <summary>
+        /// Gets or Sets AlcoholUse
+        /// </summary>
+
+        [DataMember(Name="AlcoholUse")]
+        public long? AlcoholUse { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Smoking
+        /// </summary>
+
+        [DataMember(Name="Smoking")]
+        public long? Smoking { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PhysicalActivity
+        /// </summary>
+
+        [DataMember(Name="PhysicalActivity")]
+        public long? PhysicalActivity { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FamilyHistory
+        /// </summary>
+
+        [DataMember(Name="FamilyHistory")]
+        public long? FamilyHistory { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Gender
+        /// </summary>
+
+        [DataMember(Name="Gender")]
+        public string Gender { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -76,12 +118,18 @@ namespace mynhs.Models
         {
             var sb = new StringBuilder();
             sb.Append("class DigitalHealthCheckRequest {\n");
+            sb.Append("  Age: ").Append(Age).Append("\n");
             sb.Append("  Height: ").Append(Height).Append("\n");
             sb.Append("  Weight: ").Append(Weight).Append("\n");
             sb.Append("  BloodPressure: ").Append(BloodPressure).Append("\n");
             sb.Append("  BloodSugar: ").Append(BloodSugar).Append("\n");
             sb.Append("  Colesterol: ").Append(Colesterol).Append("\n");
             sb.Append("  Ethnicity: ").Append(Ethnicity).Append("\n");
+            sb.Append("  AlcoholUse: ").Append(AlcoholUse).Append("\n");
+            sb.Append("  Smoking: ").Append(Smoking).Append("\n");
+            sb.Append("  PhysicalActivity: ").Append(PhysicalActivity).Append("\n");
+            sb.Append("  FamilyHistory: ").Append(FamilyHistory).Append("\n");
+            sb.Append("  Gender: ").Append(Gender).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -119,6 +167,11 @@ namespace mynhs.Models
 
             return 
                 (
+                    Age == other.Age ||
+                    Age != null &&
+                    Age.Equals(other.Age)
+                ) && 
+                (
                     Height == other.Height ||
                     Height != null &&
                     Height.Equals(other.Height)
@@ -147,6 +200,31 @@ namespace mynhs.Models
                     Ethnicity == other.Ethnicity ||
                     Ethnicity != null &&
                     Ethnicity.Equals(other.Ethnicity)
+                ) && 
+                (
+                    AlcoholUse == other.AlcoholUse ||
+                    AlcoholUse != null &&
+                    AlcoholUse.Equals(other.AlcoholUse)
+                ) && 
+                (
+                    Smoking == other.Smoking ||
+                    Smoking != null &&
+                    Smoking.Equals(other.Smoking)
+                ) && 
+                (
+                    PhysicalActivity == other.PhysicalActivity ||
+                    PhysicalActivity != null &&
+                    PhysicalActivity.Equals(other.PhysicalActivity)
+                ) && 
+                (
+                    FamilyHistory == other.FamilyHistory ||
+                    FamilyHistory != null &&
+                    FamilyHistory.Equals(other.FamilyHistory)
+                ) && 
+                (
+                    Gender == other.Gender ||
+                    Gender != null &&
+                    Gender.Equals(other.Gender)
                 );
         }
 
@@ -160,6 +238,8 @@ namespace mynhs.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
+                    if (Age != null)
+                    hashCode = hashCode * 59 + Age.GetHashCode();
                     if (Height != null)
                     hashCode = hashCode * 59 + Height.GetHashCode();
                     if (Weight != null)
@@ -172,6 +252,16 @@ namespace mynhs.Models
                     hashCode = hashCode * 59 + Colesterol.GetHashCode();
                     if (Ethnicity != null)
                     hashCode = hashCode * 59 + Ethnicity.GetHashCode();
+                    if (AlcoholUse != null)
+                    hashCode = hashCode * 59 + AlcoholUse.GetHashCode();
+                    if (Smoking != null)
+                    hashCode = hashCode * 59 + Smoking.GetHashCode();
+                    if (PhysicalActivity != null)
+                    hashCode = hashCode * 59 + PhysicalActivity.GetHashCode();
+                    if (FamilyHistory != null)
+                    hashCode = hashCode * 59 + FamilyHistory.GetHashCode();
+                    if (Gender != null)
+                    hashCode = hashCode * 59 + Gender.GetHashCode();
                 return hashCode;
             }
         }
