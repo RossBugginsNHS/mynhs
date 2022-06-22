@@ -22,13 +22,13 @@
     "name" : "Observations",
     "description" : "Basic Observations"
   }, {
-    "name" : "Observations Submissions",
+    "name" : "Observations|Submissions",
     "description" : "Submit new observations"
   }, {
     "name" : "Digital Health Checks",
     "description" : "My Completed Digital Health Checks"
   }, {
-    "name" : "Digital Health Checks Submissions",
+    "name" : "Digital Health Checks|Submissions",
     "description" : "My Digital Health Checks - would take data from the \"Observations\" data store?"
   }, {
     "name" : "Medical Records",
@@ -166,9 +166,30 @@
         }
       }
     },
+    "/mynhs/tools/bloodpressure" : {
+      "post" : {
+        "tags" : [ "Digital Health Tools" ],
+        "requestBody" : {
+          "description" : "Returns an analysis of the given blood pressure reading.",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/BloodPressure"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
     "/mynhs/{userId}/digitalhealthchecks" : {
       "get" : {
-        "tags" : [ "Digital Health Checks Submissions" ],
+        "tags" : [ "Digital Health Checks|Submissions" ],
         "parameters" : [ {
           "name" : "userId",
           "in" : "path",
@@ -234,7 +255,7 @@
     },
     "/mynhs/{userId}/digitalhealthchecks/submissions" : {
       "post" : {
-        "tags" : [ "Digital Health Checks Submissions" ],
+        "tags" : [ "Digital Health Checks|Submissions" ],
         "parameters" : [ {
           "name" : "userId",
           "in" : "path",
@@ -276,7 +297,7 @@
     },
     "/mynhs/{userId}/digitalhealthchecks/submissions/{submissionId}" : {
       "get" : {
-        "tags" : [ "Digital Health Checks Submissions" ],
+        "tags" : [ "Digital Health Checks|Submissions" ],
         "parameters" : [ {
           "name" : "userId",
           "in" : "path",
@@ -327,7 +348,7 @@
         } ]
       },
       "put" : {
-        "tags" : [ "Digital Health Checks Submissions" ],
+        "tags" : [ "Digital Health Checks|Submissions" ],
         "parameters" : [ {
           "name" : "userId",
           "in" : "path",
@@ -380,7 +401,7 @@
     },
     "/mynhs/{userId}/digitalhealthchecks/submissions/{submissionId}/submit" : {
       "put" : {
-        "tags" : [ "Digital Health Checks Submissions" ],
+        "tags" : [ "Digital Health Checks|Submissions" ],
         "parameters" : [ {
           "name" : "userId",
           "in" : "path",
@@ -1207,7 +1228,7 @@
     },
     "/mynhs/{userId}/observations/submissions" : {
       "get" : {
-        "tags" : [ "Observations Submissions" ],
+        "tags" : [ "Observations|Submissions" ],
         "parameters" : [ {
           "name" : "userId",
           "in" : "path",
@@ -1244,7 +1265,7 @@
         }
       },
       "post" : {
-        "tags" : [ "Observations Submissions" ],
+        "tags" : [ "Observations|Submissions" ],
         "parameters" : [ {
           "name" : "userId",
           "in" : "path",
@@ -1283,7 +1304,7 @@
     },
     "/mynhs/{userId}/observations/submissions/{submissionId}/submit" : {
       "put" : {
-        "tags" : [ "Observations Submissions" ],
+        "tags" : [ "Observations|Submissions" ],
         "parameters" : [ {
           "name" : "userId",
           "in" : "path",
@@ -1333,7 +1354,7 @@
     },
     "/mynhs/{userId}/observations/submissions/{submissionId}" : {
       "get" : {
-        "tags" : [ "Observations Submissions" ],
+        "tags" : [ "Observations|Submissions" ],
         "parameters" : [ {
           "name" : "userId",
           "in" : "path",
@@ -1381,7 +1402,7 @@
         }
       },
       "put" : {
-        "tags" : [ "Observations Submissions" ],
+        "tags" : [ "Observations|Submissions" ],
         "parameters" : [ {
           "name" : "userId",
           "in" : "path",
@@ -1691,15 +1712,13 @@
         "type" : "object",
         "properties" : {
           "Height" : {
-            "type" : "integer",
-            "format" : "int64"
+            "$ref" : "#/components/schemas/Height"
           },
           "Weight" : {
-            "type" : "integer",
-            "format" : "int64"
+            "$ref" : "#/components/schemas/Mass"
           },
           "BloodPressure" : {
-            "type" : "string"
+            "$ref" : "#/components/schemas/BloodPressure"
           },
           "BloodSugar" : {
             "type" : "string"
@@ -1723,6 +1742,44 @@
         "example" : {
           "HealthyPercentage" : 0
         }
+      },
+      "Height" : {
+        "type" : "object",
+        "properties" : {
+          "Millimeters" : {
+            "type" : "integer",
+            "format" : "int64",
+            "example" : 1700
+          }
+        }
+      },
+      "Mass" : {
+        "type" : "object",
+        "properties" : {
+          "Grams" : {
+            "type" : "integer",
+            "format" : "int64",
+            "example" : 100000
+          }
+        }
+      },
+      "BloodPressure" : {
+        "type" : "object",
+        "properties" : {
+          "Systolic" : {
+            "type" : "integer",
+            "description" : "The bigger number (the first number)",
+            "format" : "int64",
+            "example" : 80
+          },
+          "Diastolic" : {
+            "type" : "integer",
+            "description" : "The smaller number (the second number)",
+            "format" : "int64",
+            "example" : 110
+          }
+        },
+        "description" : "Diastolic/Systolic"
       }
     },
     "parameters" : {

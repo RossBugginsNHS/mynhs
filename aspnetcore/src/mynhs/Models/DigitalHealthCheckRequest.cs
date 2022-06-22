@@ -31,21 +31,21 @@ namespace mynhs.Models
         /// </summary>
 
         [DataMember(Name="Height")]
-        public long? Height { get; set; }
+        public Height Height { get; set; }
 
         /// <summary>
         /// Gets or Sets Weight
         /// </summary>
 
         [DataMember(Name="Weight")]
-        public long? Weight { get; set; }
+        public Mass Weight { get; set; }
 
         /// <summary>
         /// Gets or Sets BloodPressure
         /// </summary>
 
         [DataMember(Name="BloodPressure")]
-        public string BloodPressure { get; set; }
+        public BloodPressure BloodPressure { get; set; }
 
         /// <summary>
         /// Gets or Sets BloodSugar

@@ -30,6 +30,23 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
+        /// <response code="200">OK</response>
+        [HttpPost]
+        [Route("/NHSX/MyNhs/0.1/mynhs/tools/bloodpressure")]
+        [ValidateModelState]
+        [SwaggerOperation("MynhsToolsBloodpressurePost")]
+        public virtual IActionResult MynhsToolsBloodpressurePost([FromBody]BloodPressure body)
+        { 
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200);
+
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="body">Optional description in *Markdown*</param>
         /// <response code="200">OK</response>
         [HttpPost]
