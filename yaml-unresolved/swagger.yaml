@@ -1,0 +1,871 @@
+openapi: 3.0.0
+info:
+  version: "0.1"
+  title: My NHS Graph
+  description: 'WIP Strawman API ideas for a Unified API myNHS API Graph endpoint, bringing together both new "User Generated Data" and existing sources into one endpoint and one Authorisation model, supporting delegated user access and proxy access. Modeling that the records belong to the "tennant" with owners having proxy access (ie full) and users being shared specifics records. Oauth scopes, with modifiers of .shared and .all. Look at Microsoft Graph for where that comes from. To support idempotency, all POST apis are just requests to start something, the put starts this. Alows for evential consistency. Long running GETs are removed, by POSTing requests for data, with a GET endpoint returned.'
+  
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/NHSX/MyNhs/0.1
+
+  
+tags:
+  - name: Digital Health Tools
+    description: APIs that take submitted data and give an answer - ie a wrapper around "the algorithm", and not reading from the users data store  
+  - name: Access and Applications
+    description: Applications and Services that have been granted access. A "tenant" has the data linked to it. It has owners (normally just 1) and if that person wants to share it, they can add additional users - ie family members - delegation / shared. Proxy could work by allowing additional owners to be added. Or, a childs record has both parents as owners, and the child can be optionally added with specific permissions? A user by default accessing their own data, would use the /my endpoints. A user given delegated access, would use the /{userId} endpoints. Full proxy access would allow access to the /my as if you were the primary user?
+  - name: Profile
+    description: NHS Profiles
+  - name: Observations
+    description: Basic Observations
+  - name: Observations|Submissions
+    description: Submit new observations
+  - name: Digital Health Checks
+    description: My Completed Digital Health Checks
+  - name: Digital Health Checks|Submissions
+    description: My Digital Health Checks - would take data from the "Observations" data store?
+  - name: Medical Records 
+    description: dealing with long running GP queries (that don't have a SLA on their API calls), have a request driven model with a reponse to an end point to view status of request, and the actual result
+  - name: Appointments  
+    description: Details of your appointments.
+  - name: Events
+    description: Events and notifications.
+  - name: Audits
+    description: Audit Access History 
+  - name: My NHS Management
+    description: is not in the scope of a tenancy - ie covers all.
+  
+paths:
+
+
+  /mynhsmanagement/tenants:
+    get:
+      description: "Gets a list of all tenancies for the current user. Required OAuth Scopes: [tenants.read]"
+      tags:
+        -  My NHS Management
+      security:
+        - OAuth2: [tenants.read]           
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NhsProfile'
+                
+  /mynhs/{userId}/appointments:
+    get:
+      tags:
+        -  Appointments
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'        
+      security:
+        - OAuth2: [appointment.read, appointment.read.shared, appointment.read.all]           
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NhsProfile'
+                
+  /mynhs/tools/healthcheck:
+    post:
+      summary: Run a health check on provided data   
+      description: '**Does not store anything**, just returns response'
+      tags:
+        -  Digital Health Tools
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DigitalHealthCheckRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DigitalHealthCheckResult'
+
+  /mynhs/tools/heartage:
+    post:
+      tags:
+        -  Digital Health Tools
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DigitalHealthCheckRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DigitalHealthCheckResult'
+                
+  /mynhs/tools/bloodpressure:
+    post:
+      tags:
+        -  Digital Health Tools
+      requestBody:
+        description: Returns an analysis of the given blood pressure reading.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BloodPressure'
+      responses:
+        '200':
+          description: OK
+
+  /mynhs/{userId}/digitalhealthchecks:
+    get:
+      tags:
+        -  Digital Health Checks|Submissions
+      security:
+        - OAuth2: [digitalhealthcheck.read]           
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+        - $ref: '#/components/parameters/skipParam'
+        - $ref: '#/components/parameters/limitParam'        
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/NhsProfile'
+                #  ---- /Added line  ----------------------------------------
+
+  /mynhs/{userId}/digitalhealthchecks/submissions:
+    post:
+      tags:
+        -  Digital Health Checks|Submissions
+      security:
+        - OAuth2: [digitalhealthcheck.read]  
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'        
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/NhsProfile'
+                #  ---- /Added line  ----------------------------------------
+  /mynhs/{userId}/digitalhealthchecks/submissions/{submissionId}:
+    put:
+      tags:
+        -  Digital Health Checks|Submissions
+      security:
+        - OAuth2: [digitalhealthcheck.read] 
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+        - $ref: '#/components/parameters/submissionIdParam'         
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/NhsProfile'
+                #  ---- /Added line  ----------------------------------------
+    get:
+      tags:
+        -  Digital Health Checks|Submissions
+      security:
+        - OAuth2: [digitalhealthcheck.read]    
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+        - $ref: '#/components/parameters/submissionIdParam'        
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/NhsProfile'
+                #  ---- /Added line  ----------------------------------------                
+  /mynhs/{userId}/digitalhealthchecks/submissions/{submissionId}/submit:
+    put:
+      tags:
+        -  Digital Health Checks|Submissions
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+        - $ref: '#/components/parameters/submissionIdParam'    
+      security:
+        - OAuth2: [digitalhealthcheck.read]           
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/NhsProfile'
+                #  ---- /Added line  ----------------------------------------                
+                                
+                
+  /mynhs/{userId}/digitalhealthchecks/{healthCheckId}:
+    get:
+      tags:
+        -  Digital Health Checks
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+        - $ref: '#/components/parameters/healthCheckIdParam'   
+        - $ref: '#/components/parameters/skipParam'
+        - $ref: '#/components/parameters/limitParam'          
+      security:
+        - OAuth2: [digitalhealthcheck.read]           
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/NhsProfile'
+                #  ---- /Added line  ----------------------------------------
+  /mynhs/{userId}/digitalhealthchecks/{healthCheckId}/{healthCheckType}:
+    get:
+      tags:
+        -  Digital Health Checks
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+        - $ref: '#/components/parameters/healthCheckIdParam'      
+        - $ref: '#/components/parameters/skipParam'
+        - $ref: '#/components/parameters/limitParam'     
+        - $ref: '#/components/parameters/healthCheckTypeParam'             
+        
+      security:
+        - OAuth2: [digitalhealthcheck.read]           
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/NhsProfile'
+                #  ---- /Added line  ----------------------------------------                
+
+  /mynhs/tennantOrOrganisationOrTheNameForWhatRecordsAreLinkedTo:
+    get:
+      tags:
+        - Access and Applications
+      security:
+        - OAuth2: [tennant.read]         
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/NhsProfile'
+                #  ---- /Added line  ----------------------------------------
+  /mynhs/applications:
+    get:
+      tags:
+        - Access and Applications
+      security:
+        - OAuth2: [applications.read]         
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/NhsProfile'
+                #  ---- /Added line  ----------------------------------------
+  /mynhs/owners:
+    get:
+      tags:
+        - Access and Applications
+      security:
+        - OAuth2: [applications.read]         
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/NhsProfile'
+                #  ---- /Added line  ----------------------------------------                
+  /mynhs/users:
+    get:
+      tags:
+        - Access and Applications
+      security:
+        - OAuth2: [applications.read]         
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+             
+  /mynhs/{userId}/user:
+    get:
+      tags:
+        - Access and Applications
+      security:
+        - OAuth2: [applications.read]        
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'          
+                
+  /mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords:
+    post:
+      tags:
+        - Medical Records
+      security:
+        - OAuth2: [profile.read]  
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'        
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/MyNhsProfile'
+                #  ---- /Added line  ----------------------------------------
+                
+                
+  /mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords/{requestId}:
+    get:
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+        - name: requestId
+          in: path
+          required: true
+          schema:
+            type: string       
+      tags:
+        - Medical Records
+      security:
+        - OAuth2: [profile.read]         
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/MyNhsProfile'
+                #  ---- /Added line  ----------------------------------------
+  /mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords/{requestId}/submit:
+    put:
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+        - name: requestId
+          in: path
+          required: true
+          schema:
+            type: string       
+      tags:
+        - Medical Records
+      security:
+        - OAuth2: [profile.read]         
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/MyNhsProfile'
+                #  ---- /Added line  ----------------------------------------
+                
+  /mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords/results/{resultId}:
+    get:
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+        - name: resultId
+          in: path
+          required: true
+          schema:
+            type: string       
+      tags:
+        - Medical Records
+      security:
+        - OAuth2: [profile.read]         
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/MyNhsProfile'
+                #  ---- /Added line  ----------------------------------------                
+  /mynhs/{userId}/medicalrecords/summary/nhs:
+    get:
+      tags:
+        - Medical Records
+      security:
+        - OAuth2: [profile.read]   
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'        
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/MyNhsProfile'
+                #  ---- /Added line  ----------------------------------------
+  /mynhs/{userId}/medicalrecords/summary/nhs/{trustId}:
+    get:
+      tags:
+        - Medical Records
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+        - name: trustId
+          in: path
+          required: true
+          schema:
+            type: string  
+      security:
+        - OAuth2: [profile.read]         
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/MyNhsProfile'
+                #  ---- /Added line  ----------------------------------------
+                                
+                
+
+  /mynhs/{userId}/profile/centralnhs:
+    get:
+      tags:
+        - Profile
+      security:
+        - OAuth2: [profile.read]   
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'        
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/NhsProfile'
+                #  ---- /Added line  ----------------------------------------        
+  /mynhs/{userId}/profile/gp:
+    get:
+      tags:
+        - Profile
+      security:
+        - OAuth2: [profile.read]   
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'        
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/GpProfile'
+                #  ---- /Added line  ----------------------------------------                    
+  /mynhs/{userId}/profile:
+    get:
+      tags:
+        - Profile
+      security:
+        - OAuth2: [profile.read, profile.read.shared, profile.read.all]   
+      description: 'Scopes: [profile.read, profile.read.shared, profile.read.all]'
+      parameters:
+        - $ref: '#/components/parameters/userIdParam' 
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/MyNhsProfile'
+                #  ---- /Added line  ----------------------------------------                
+  /mynhs/{userId}/observations/{observationType}:
+    get:
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+        - $ref: '#/components/parameters/skipParam'
+        - $ref: '#/components/parameters/limitParam'            
+        - $ref: '#/components/parameters/observationTypeParam'     
+
+      tags:
+        - Observations
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/NhsProfile'
+                #  ---- /Added line  ----------------------------------------  
+  /mynhs/{userId}/observations/submissions:
+    post:
+      tags:
+        - Observations|Submissions   
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'        
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/NhsProfile'
+                #  ---- /Added line  ----------------------------------------  
+    get:
+      tags:
+        - Observations|Submissions    
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'        
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/NhsProfile'
+                #  ---- /Added line  ----------------------------------------
+  /mynhs/{userId}/observations/submissions/{submissionId}/submit:
+    put:
+      tags:
+        - Observations|Submissions     
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+        - $ref: '#/components/parameters/submissionIdParam'   
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/NhsProfile'
+                #  ---- /Added line  ----------------------------------------    
+  /mynhs/{userId}/observations/submissions/{submissionId}:
+    get:
+      tags:
+        - Observations|Submissions    
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+        - $ref: '#/components/parameters/submissionIdParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/NhsProfile'
+                #  ---- /Added line  ----------------------------------------  
+    put:
+      tags:
+        - Observations|Submissions     
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+        - $ref: '#/components/parameters/submissionIdParam'   
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/NhsProfile'
+                #  ---- /Added line  ----------------------------------------       
+    
+               
+  /mynhs/{userId}/observations/summaries:
+    get:
+      tags:
+        - Observations
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'        
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/NhsProfile'
+                #  ---- /Added line  ---------------------------------------- 
+  /mynhs/{userId}/observations/summaries/{observationType}/{queryType}/{pastDays}:
+    get:
+      tags:
+        - Observations      
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'
+        - $ref: '#/components/parameters/observationTypeParam'      
+        - $ref: '#/components/parameters/queryTypeParam'      
+        - $ref: '#/components/parameters/pastDaysParam'              
+      
+      security:
+        - OAuth2: [observations.bloodpressure.summary.read]
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/NhsProfile'
+                #  ---- /Added line  ---------------------------------------- 
+  /mynhs/{userId}/events:
+    get:
+      tags:
+        - Events
+      security:
+        - OAuth2: [events.read, events.read.shared, events.read.all]
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'        
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NhsProfile'
+             
+  /mynhs/{userId}/audits:
+    get:
+      tags:
+        - Audits  
+      parameters:
+        - $ref: '#/components/parameters/userIdParam'        
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                #  ----- Added line  ----------------------------------------
+                $ref: '#/components/schemas/NhsProfile'
+                #  ---- /Added line  ----------------------------------------   
+
+components:
+  schemas:
+    MyNhsProfile:
+      type: object
+      properties:
+        NHSProfile:
+          $ref: '#/components/schemas/NhsProfile'
+        GpProfile:
+          $ref: '#/components/schemas/GpProfile'
+          
+    UserProfile:
+      type: object
+      properties:
+        FirstName:
+          type: string
+        SurName:
+          type: string  
+        DateOfBirth:
+          type: string
+          format: date
+          
+    NhsProfile:
+      type: object
+      properties:
+        NhsNumber:
+          type: integer
+          format: int64
+          
+    GpProfile:
+      type: object
+      properties:
+        GpIdCode:
+          type: integer
+          format: int64
+          
+    DigitalHealthCheckRequest:
+      type: object
+      properties:
+        Height:
+          $ref: '#/components/schemas/Height'
+        Weight:
+          $ref: '#/components/schemas/Mass'
+        BloodPressure:
+          $ref: '#/components/schemas/BloodPressure'
+        BloodSugar:
+          type: string
+        Colesterol:
+          type: string
+        Ethnicity:
+          type: string
+    DigitalHealthCheckResult:
+      type: object
+      properties:
+        HealthyPercentage:
+          type: integer
+          format: int64
+
+    Height:
+      type: object
+      properties:
+        Millimeters:
+          type: integer
+          format: int64    
+          example: 1700
+    Mass:
+      type: object
+      properties:
+        Grams:
+          type: integer
+          format: int64
+          example: 100000
+    BloodPressure:
+      type: object
+      description: 'Diastolic/Systolic'
+      properties:
+        Systolic:
+          type: integer
+          format: int64
+          description: The bigger number (the first number)
+          example: 80
+        Diastolic:
+          type: integer
+          format: int64
+          description: The smaller number (the second number)
+          example: 110
+          
+  parameters:
+    skipParam:  # <-- Arbitrary name for the definition that will be used to refer to it.
+      in: query
+      name: skip
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+      description: The number of items to skip before starting to collect the result set.
+    limitParam:
+      in: query
+      name: limit
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 50
+        default: 20
+      description: The numbers of items to return.          
+    userIdParam:
+      in: path
+      name: userId
+      description: The User Id to access
+      required: true
+      schema:
+        type: string  
+        pattern: '^my$|[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}'
+      examples: 
+        userId: 
+          value: 'baf12b6c-d18b-43ad-b49e-e72ca102a970'
+          summary: '[UserId UUID] - require .All or .Shared oath scope restrictors'
+        my: 
+          value: 'my'
+          summary: '[my] - will not require addition restrictor on the scope'
+    submissionIdParam:
+      in: path
+      name: submissionId
+      required: true
+      schema:
+        type: string     
+        format: uuid
+      example: 'baf12b6c-d18b-43ad-b49e-e72ca102a970'
+    healthCheckIdParam:
+      in: path
+      name: healthCheckId
+      required: true
+      schema:
+        type: string     
+        format: uuid
+      example: 'baf12b6c-d18b-43ad-b49e-e72ca102a970'      
+    observationTypeParam:
+      in: path
+      name: observationType
+      schema:
+        type: string
+        enum: [all, weight, bloodpressure, height]        
+      required: true      
+    healthCheckTypeParam:
+      in: path
+      name: healthCheckType
+      schema:
+        type: string
+        enum: [all, weight, bloodpressure, height, bloodsugar, colesterol, wellnessquestions, age]
+      required: true   
+    queryTypeParam:      
+      in: path
+      name: queryType
+      required: true
+      schema:
+        type: string
+        enum: [min, max, avg, stdDev]        
+    pastDaysParam:        
+      in: path
+      name: pastDays
+      required: true
+      schema:
+        type: number
+        enum: [1, 3, 5, 7, 14, 30]             
+      
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://example.com/oauth/authorize
+          tokenUrl: https://example.com/oauth/token
+          scopes:
+            applications.read: Grants read access to applications
+            profile.read: Read My Profile- only for owner to read the primary user profile
+            profile.read.all: Read All Profiles - ie read profile of primary user if you have been given guest access
+            events.read: Read My Events in this tennant
+            events.read.shared: Read All events shared with me (ie another users events)
+            events.read.all: Read All events - must be granted owner for this
+            digitalhealthcheck.read: Grants read access to digital health check
+            digitalhealthcheck.read.shared: Grants read access to digital health check            
+            observations.read: Read observations
+            observations.read.shared: Read all obs
+            observations.bloodpressure.read: Read your blood pressures
+            observations.bloodpressure.read.shared: Read any blood pressures shared with you
+            observations.bloodpressure.submit: Submit new blood pressure reading
+            observations.bloodpressure.delete: Delete existing blood pressure reading
+            observations.bloodpressure.summary.read: read summary
+            observations.bloodpressure.summary.read.shared: sd
