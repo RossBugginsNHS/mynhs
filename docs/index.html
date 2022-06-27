@@ -7139,6 +7139,7 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-DigitalHealthTools-postHealthCheck-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
+\
 -H "Accept: application/json"\
 -H "Content-Type: application/json"\
 "https://virtserver.swaggerhub.com/NHSX/MyNhs/0.1/mynhs/tools/healthcheck"</code></pre>
@@ -7155,7 +7156,12 @@ import java.util.*;
 public class DigitalHealthToolsApiExample {
 
     public static void main(String[] args) {
-        
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        // Configure OAuth2 access token for authorization: OAuth2
+        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
         DigitalHealthToolsApi apiInstance = new DigitalHealthToolsApi();
         DigitalHealthCheckRequestAll body = {
   "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
@@ -7196,7 +7202,10 @@ public class DigitalHealthToolsApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-DigitalHealthTools-postHealthCheck-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">DigitalHealthCheckRequestAll *body = {
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+DigitalHealthCheckRequestAll *body = {
   "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
 }; // Optional description in *Markdown*
 
@@ -7217,6 +7226,11 @@ DigitalHealthToolsApi *apiInstance = [[DigitalHealthToolsApi alloc] init];
 
                             <div class="tab-pane" id="examples-DigitalHealthTools-postHealthCheck-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
+var defaultClient = MyNhsGraph.ApiClient.instance;
+
+// Configure OAuth2 access token for authorization: OAuth2
+var OAuth2 = defaultClient.authentications['OAuth2'];
+OAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.DigitalHealthToolsApi()
 var body = {
@@ -7251,6 +7265,9 @@ namespace Example
         public void main()
         {
 
+            // Configure OAuth2 access token for authorization: OAuth2
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new DigitalHealthToolsApi();
             var body = new DigitalHealthCheckRequestAll(); // DigitalHealthCheckRequestAll | Optional description in *Markdown*
 
@@ -7274,6 +7291,9 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure OAuth2 access token for authorization: OAuth2
+Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 $api_instance = new Swagger\Client\ApiDigitalHealthToolsApi();
 $body = {
   "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
@@ -7293,6 +7313,9 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DigitalHealthToolsApi;
 
+# Configure OAuth2 access token for authorization: OAuth2
+$WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
+
 my $api_instance = WWW::SwaggerClient::DigitalHealthToolsApi->new();
 my $body = WWW::SwaggerClient::Object::DigitalHealthCheckRequestAll->new(); # DigitalHealthCheckRequestAll | Optional description in *Markdown*
 
@@ -7311,6 +7334,9 @@ import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
+
+# Configure OAuth2 access token for authorization: OAuth2
+swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = swagger_client.DigitalHealthToolsApi()
