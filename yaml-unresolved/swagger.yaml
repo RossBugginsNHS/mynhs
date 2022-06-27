@@ -37,8 +37,6 @@ tags:
     description: is not in the scope of a tenancy - ie covers all.
   
 paths:
-
-
   /mynhsmanagement/tenants:
     get:
       description: "Gets a list of all tenancies for the current user. Required OAuth Scopes: [tenants.read]"
@@ -74,6 +72,9 @@ paths:
     post:
       operationId: PostHealthCheck
       summary: Run a health check on provided data   
+      security:
+        - OAuth2: 
+          - healthcheck.execute
       description: '**Does not store anything**, just returns response'
       tags:
         -  Digital Health Tools
@@ -1184,6 +1185,9 @@ components:
           authorizationUrl: https://example.com/oauth/authorize
           tokenUrl: https://example.com/oauth/token
           scopes:
+            appointment.read: Read
+            appointment.read.all: Read All
+            appointment.read.shared: Read Shared
             applications.read: Grants read access to applications
             profile.read: Read My Profile- only for owner to read the primary user profile
             profile.read.all: Read All Profiles - ie read profile of primary user if you have been given guest access
@@ -1200,3 +1204,4 @@ components:
             observations.bloodpressure.delete: Delete existing blood pressure reading
             observations.bloodpressure.summary.read: read summary
             observations.bloodpressure.summary.read.shared: sd
+            healthcheck.execute: Run a health check
