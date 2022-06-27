@@ -37,6 +37,21 @@ tags:
     description: is not in the scope of a tenancy - ie covers all.
   
 paths:
+  /helloworld/hi:
+    get:
+      description: "Test"
+      tags:
+        -  My NHS Management
+      security:
+        - MyNhsOAuth2: [write:pets]           
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NhsProfile'
+                
   /mynhsmanagement/tenants:
     get:
       description: "Gets a list of all tenancies for the current user. Required OAuth Scopes: [tenants.read]"
@@ -1205,3 +1220,6 @@ components:
             observations.bloodpressure.summary.read: read summary
             observations.bloodpressure.summary.read.shared: sd
             healthcheck.execute: Run a health check
+            write:pets:
+              scope: "write:pets"
+              description: "Some description"
