@@ -29,8 +29,10 @@ namespace Example
     {
         public void main()
         {
-            // Configure OAuth2 access token for authorization: MyNhsOAuth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyAuth
+            Configuration.Default.AddApiKey("X-API-KEY", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("X-API-KEY", "Bearer");
 
             var apiInstance = new MyNHSManagementApi();
 
@@ -57,7 +59,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[MyNhsOAuth2](../README.md#MyNhsOAuth2)
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
