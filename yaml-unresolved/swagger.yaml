@@ -43,7 +43,7 @@ paths:
       tags:
         -  My NHS Management
       security:
-        - MyNhsOAuth2: [write:pets]           
+        - ApiKeyAuth: []       
       responses:
         '200':
           description: OK
@@ -1193,6 +1193,11 @@ components:
           schema:
             $ref: '#/components/schemas/SubmissionStatus'    
   securitySchemes:
+    ApiKeyAuth:        # arbitrary name for the security scheme
+      type: apiKey
+      in: header       # can be "header", "query" or "cookie"
+      name: X-API-KEY  
+      
     MyNhsOAuth2:
       type: oauth2
       flows:
