@@ -2490,8 +2490,7 @@
               "observations.bloodpressure.delete" : "Delete existing blood pressure reading",
               "observations.bloodpressure.summary.read" : "read summary",
               "observations.bloodpressure.summary.read.shared" : "sd",
-              "healthcheck.execute" : "Run a health check",
-              "write:pets" : ""
+              "healthcheck.execute" : "Run a health check"
             }
           }
         }
