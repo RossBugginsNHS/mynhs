@@ -20,7 +20,7 @@ tags:
   - name: Observations
     description: Basic Observations
   - name: Observations|Submissions
-    description: Submit new observations
+    description: Submit new observations in a fully Asyncronous way. Call POST with initital data and to get a submission Id, make changes with PUT, and then to start the submission call PUT on /submit.
   - name: Digital Health Checks
     description: My Completed Digital Health Checks
   - name: Digital Health Checks|Submissions
@@ -83,7 +83,11 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DigitalHealthCheckRequest'
+              $ref: '#/components/schemas/DigitalHealthCheckRequestAll'
+            examples:
+              All:
+                $ref: '#/components/schemas/DigitalHealthCheckRequestAll'
+
       responses:
         '200':
           description: OK
@@ -145,7 +149,26 @@ paths:
                 Crisis:
                   value:
                     BloodPressureCategory: Hypertensive Crisis
-          
+     
+  /mynhs/tools/daysold:
+    post:
+      tags:
+        -  Digital Health Tools
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DateOfBirth'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DaysOld'
+                
   /mynhs/{userId}/digitalhealthchecks:
     get:
       tags:
@@ -174,6 +197,16 @@ paths:
         - OAuth2: [digitalhealthcheck.read]  
       parameters:
         - $ref: '#/components/parameters/userIdParam'        
+      requestBody:
+        description: Returns an analysis of the given blood pressure reading.
+        required: true
+        content:        
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DigitalHealthCheckRequestAll'
+            examples:
+              All:
+                $ref: '#/components/schemas/DigitalHealthCheckRequestAll'
       responses:
         '200':
           description: OK
@@ -191,7 +224,23 @@ paths:
         - OAuth2: [digitalhealthcheck.read] 
       parameters:
         - $ref: '#/components/parameters/userIdParam'
-        - $ref: '#/components/parameters/submissionIdParam'         
+        - $ref: '#/components/parameters/submissionIdParam'    
+      requestBody:
+        description: Returns an analysis of the given blood pressure reading.
+        required: true
+        content:        
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DigitalHealthCheckRequest'
+            examples:
+              All:
+                $ref: '#/components/schemas/DigitalHealthCheckRequestAll'     
+              DaysOld:
+                $ref: '#/components/examples/DaysOldExample'  
+              Height:
+                  $ref: '#/components/examples/HeightExample1'    
+              AgeAndHeightExample:
+                  $ref: '#/components/examples/AgeAndHeightExample'                  
       responses:
         '200':
           description: OK
@@ -228,14 +277,8 @@ paths:
       security:
         - OAuth2: [digitalhealthcheck.read]           
       responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                #  ----- Added line  ----------------------------------------
-                $ref: '#/components/schemas/NhsProfile'
-                #  ---- /Added line  ----------------------------------------                
+        '202':
+          $ref: '#/components/responses/SubmissionAcceptedResponse'
                                 
                 
   /mynhs/{userId}/digitalhealthchecks/{healthCheckId}:
@@ -586,20 +629,16 @@ paths:
                 #  ---- /Added line  ----------------------------------------
   /mynhs/{userId}/observations/submissions/{submissionId}/submit:
     put:
+      description: 'Submits the request to create the observation submission. A PUT should be fully idempotent, so the result will always be the same. Call GET on /mynhs/{userId}/observations/submissions/{submissionId} to get the current status.'
       tags:
         - Observations|Submissions     
       parameters:
         - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/submissionIdParam'   
       responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                #  ----- Added line  ----------------------------------------
-                $ref: '#/components/schemas/NhsProfile'
-                #  ---- /Added line  ----------------------------------------    
+        '202':
+          $ref: '#/components/responses/SubmissionAcceptedResponse'
+
   /mynhs/{userId}/observations/submissions/{submissionId}:
     get:
       tags:
@@ -609,13 +648,8 @@ paths:
         - $ref: '#/components/parameters/submissionIdParam'
       responses:
         '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                #  ----- Added line  ----------------------------------------
-                $ref: '#/components/schemas/NhsProfile'
-                #  ---- /Added line  ----------------------------------------  
+          $ref: '#/components/responses/SubmissionStatusResponse'
+                                
     put:
       tags:
         - Observations|Submissions     
@@ -735,13 +769,41 @@ components:
         GpIdCode:
           type: integer
           format: int64
-          
+
     DigitalHealthCheckRequest:
       type: object
+      oneOf:
+        - $ref: '#/components/schemas/DigitalHealthCheckRequestAll'
+        - $ref: '#/components/schemas/DigitalHealthCheckRequestMinimal'
+
+    DigitalHealthCheckRequestMinimal:
+      type: object    
+      anyOf:
+        - $ref: '#/components/schemas/Age'
+        - $ref: '#/components/schemas/Height'
+        - $ref: '#/components/schemas/Mass'
+        - $ref: '#/components/schemas/BloodPressure'
+        - $ref: '#/components/schemas/BloodSugar'
+        - $ref: '#/components/schemas/Colesterol'    
+        
+    DigitalHealthCheckRequestAll:
+      type: object
+      required:
+        - Age
+        - Height
+        - Weight
+        - BloodPressure
+        - BloodSugar
+        - Colesterol
+        - Ethnicity
+        - AlcoholUse
+        - Smoking
+        - PhysicalActivity
+        - FamilyHistory
+        - Gender
       properties:
         Age:
-          type: integer
-          format: int64
+          $ref: '#/components/schemas/Age'
         Height:
           $ref: '#/components/schemas/Height'
         Weight:
@@ -749,11 +811,12 @@ components:
         BloodPressure:
           $ref: '#/components/schemas/BloodPressure'
         BloodSugar:
-          type: string
+          $ref: '#/components/schemas/BloodSugar'
         Colesterol:
-          type: string
+          $ref: '#/components/schemas/Colesterol'
         Ethnicity:
           type: string
+          example: 'Default Ethnicity'
         AlcoholUse:
           type: integer
           format: int64
@@ -774,9 +837,74 @@ components:
         HealthyPercentage:
           type: integer
           format: int64
-
+    
+    Colesterol:
+      type: object
+      properties:
+        LDL: 
+          type: number        
+          description: 'mg/dL'
+        HDL: 
+          type: number  
+          description: 'mg/dL'          
+        TotalCholesterol:
+          type: number        
+          description: 'mg/dL'          
+        Triglycerides:
+          type: number        
+          description: 'mg/dL'          
+        VldlLevels:
+          type: number        
+          description: 'mg/dL'          
+    BloodSugar:
+      type: object
+      oneOf:
+          - $ref: '#/components/schemas/Glocose'
+          - $ref: '#/components/schemas/MeanBlood'
+          - $ref: '#/components/schemas/HBA1C'
+      discriminator:
+        propertyName: bloodSugarReadingType
+    Glocose:
+      type: object
+      required:
+        - bloodSugarReadingType  
+        - mmolL
+      properties:
+        mmolL:
+          type: number
+          example: 8.2
+        bloodSugarReadingType:
+          type: string         
+          default: 'Glocose'
+    MeanBlood:
+      type: object
+      required:
+        - bloodSugarReadingType     
+        - mgdl
+      properties:
+        mgdl:
+          type: number
+          example: 150
+        bloodSugarReadingType:
+          type: string   
+          default: 'MeanBlood'
+    HBA1C:
+      type: object
+      required:
+        - bloodSugarReadingType       
+        - TestScore
+      properties:
+        TestScore:
+          type: number
+          example: 7.0
+        bloodSugarReadingType:
+          type: string   
+          default: 'HBA1C'
+          
     Height:
       type: object
+      required:
+        - Millimeters
       properties:
         Millimeters:
           type: integer
@@ -784,6 +912,8 @@ components:
           example: 1700
     Mass:
       type: object
+      required:
+        - Grams
       properties:
         Grams:
           type: integer
@@ -810,8 +940,135 @@ components:
           type: string
           enum: [Normal, Elevated, Hypertension Stage 1, Hypertension Stage 2, Hypertensive Crisis]
           example: 'Hypertensive Crisis'
-            
+    
+    Age:
+      type: object
+      oneOf:
+          - $ref: '#/components/schemas/DaysOld'         
+          - $ref: '#/components/schemas/YearsOld'
+          - $ref: '#/components/schemas/DateOfBirth'
+        
+    DateOfBirth:
+       type: object
+       properties: 
+          BirthdayDoNotUse:
+            type: string
+            format: date
+            description: 'Date of birth - * DO NOT USE * this as it means operations will not be repeatable'
+            example: '12/30/2000'
+    YearsOld:
+      type: object
+      properties: 
+        Years:
+          type: integer
+          description: 'Number of years old (rounded down to whole number)'
+          example: 33
+    DaysOld:
+      type: object
+      properties: 
+        Days:
+          type: integer
+          description: 'Number of days old (rounded down to whole number)'
+          example: 6541
+
+    SubmissionResponse:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/SubmissionStatusBase' 
+    
+    SubmissionStatusBase:
+      type: object
+      properties:
+        SubmissionId:
+          type: string
+          format: uuid
+        SubmittedByUserId:
+          type: string
+          format: uuid
+        SubmittedByAppId:
+          type: string
+          format: uuid        
+        ResourceId:
+          type: string
+          format: uuid                       
+        DateSubmitted:
+          type: string
+          format: date-time
+        SubmissionStatusLocation:
+          type: string
+          format: uri
+          example: '/mynhs/my/observations/submissions/{SubmissionId}'
+        ResourceLocation:
+          type: string
+          format: uri
+          description:  'The location that the created resource will be avaliable at. Same as response header Location'
+          example: '/mynhs/my/observations/{ResourceId}'
           
+    SubmissionStatus:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/SubmissionStatusBase' 
+      properties:
+        Status:
+          $ref: '#/components/schemas/StatusEnum' 
+        PercentComplete:
+          type: integer
+          format: percent
+        StagesDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubmissionResponseDetails'        
+          
+        
+    SubmissionResponseDetails:
+      type: object
+      properties:
+        SystemName: 
+         type: string
+        Status:
+          $ref: '#/components/schemas/StatusEnum' 
+        IsCompletedSuccessfully:
+          type: boolean
+        PercentComplete:
+          $ref: '#/components/schemas/PercentComplete' 
+        DateStarted:
+          type: string
+          format: date-time       
+        DateFinished:
+          type: string
+          format: date-time        
+        DateUpdated:
+          type: string
+          format: date-time    
+    
+    StatusEnum:
+      type: string
+      enum: [Not Started, In progress, Success, Failed ]      
+      
+    PercentComplete:
+      type: integer
+      format: int32   
+      minimum: 0
+      maximum: 100
+      example: 99
+      default: 0      
+  
+  examples:
+    DaysOldExample:
+      value:
+        Days: 4329
+      summary: Number of days old
+    HeightExample1:
+      value:
+        Millimeters: 654222
+      summary: Height in mm
+    AgeAndHeightExample:
+      value:
+        Days: 4329
+        Millimeters: 654222
+      summary: Days old and Height in mm      
+
+        
   parameters:
     skipParam:  # <-- Arbitrary name for the definition that will be used to refer to it.
       in: query
@@ -889,8 +1146,36 @@ components:
       required: true
       schema:
         type: number
-        enum: [1, 3, 5, 7, 14, 30]             
-      
+        enum: [1, 3, 5, 7, 14, 30]        
+  
+  responses:
+    SubmissionAcceptedResponse:
+        description: Accepted
+        headers:
+          Location:
+            schema:
+              type: string
+              format: uri
+            description: '202 The location that the created resource will be avaliable at. Same as response body ResourceLocation'
+            example: '/mynhs/my/observations/{ResourceId}'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubmissionResponse'
+
+    SubmissionStatusResponse:
+      description: Accepted
+      headers:
+        Location:
+          schema:
+            type: string
+            format: uri
+          description: '200 The location that the created resource will be avaliable at. Same as response body ResourceLocation'
+          example: '/mynhs/my/observations/{ResourceId}'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SubmissionStatus'    
   securitySchemes:
     OAuth2:
       type: oauth2
