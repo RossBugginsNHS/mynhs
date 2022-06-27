@@ -23,7 +23,7 @@
     "description" : "Basic Observations"
   }, {
     "name" : "Observations|Submissions",
-    "description" : "Submit new observations"
+    "description" : "Submit new observations in a fully Asyncronous way. Call POST with initital data and to get a submission Id, make changes with PUT, and then to start the submission call PUT on /submit."
   }, {
     "name" : "Digital Health Checks",
     "description" : "My Completed Digital Health Checks"
@@ -121,7 +121,12 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/DigitalHealthCheckRequest"
+                "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+              },
+              "examples" : {
+                "All" : {
+                  "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+                }
               }
             }
           },
@@ -223,6 +228,34 @@
         }
       }
     },
+    "/mynhs/tools/daysold" : {
+      "post" : {
+        "tags" : [ "Digital Health Tools" ],
+        "requestBody" : {
+          "description" : "Optional description in *Markdown*",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DateOfBirth"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/DaysOld"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/mynhs/{userId}/digitalhealthchecks" : {
       "get" : {
         "tags" : [ "Digital Health Checks|Submissions" ],
@@ -314,6 +347,22 @@
             }
           }
         } ],
+        "requestBody" : {
+          "description" : "Returns an analysis of the given blood pressure reading.",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+              },
+              "examples" : {
+                "All" : {
+                  "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
             "description" : "OK",
@@ -418,6 +467,31 @@
           },
           "example" : "baf12b6c-d18b-43ad-b49e-e72ca102a970"
         } ],
+        "requestBody" : {
+          "description" : "Returns an analysis of the given blood pressure reading.",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DigitalHealthCheckRequest"
+              },
+              "examples" : {
+                "All" : {
+                  "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+                },
+                "DaysOld" : {
+                  "$ref" : "#/components/examples/DaysOldExample"
+                },
+                "Height" : {
+                  "$ref" : "#/components/examples/HeightExample1"
+                },
+                "AgeAndHeightExample" : {
+                  "$ref" : "#/components/examples/AgeAndHeightExample"
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
             "description" : "OK",
@@ -472,12 +546,24 @@
           "example" : "baf12b6c-d18b-43ad-b49e-e72ca102a970"
         } ],
         "responses" : {
-          "200" : {
-            "description" : "OK",
+          "202" : {
+            "description" : "Accepted",
+            "headers" : {
+              "Location" : {
+                "description" : "202 The location that the created resource will be avaliable at. Same as response body ResourceLocation",
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "format" : "uri"
+                },
+                "example" : "/mynhs/my/observations/{ResourceId}"
+              }
+            },
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/NhsProfile"
+                  "$ref" : "#/components/schemas/SubmissionResponse"
                 }
               }
             }
@@ -1341,6 +1427,7 @@
     "/mynhs/{userId}/observations/submissions/{submissionId}/submit" : {
       "put" : {
         "tags" : [ "Observations|Submissions" ],
+        "description" : "Submits the request to create the observation submission. A PUT should be fully idempotent, so the result will always be the same. Call GET on /mynhs/{userId}/observations/submissions/{submissionId} to get the current status.",
         "parameters" : [ {
           "name" : "userId",
           "in" : "path",
@@ -1375,12 +1462,24 @@
           "example" : "baf12b6c-d18b-43ad-b49e-e72ca102a970"
         } ],
         "responses" : {
-          "200" : {
-            "description" : "OK",
+          "202" : {
+            "description" : "Accepted",
+            "headers" : {
+              "Location" : {
+                "description" : "202 The location that the created resource will be avaliable at. Same as response body ResourceLocation",
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "format" : "uri"
+                },
+                "example" : "/mynhs/my/observations/{ResourceId}"
+              }
+            },
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/NhsProfile"
+                  "$ref" : "#/components/schemas/SubmissionResponse"
                 }
               }
             }
@@ -1426,11 +1525,23 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "OK",
+            "description" : "Accepted",
+            "headers" : {
+              "Location" : {
+                "description" : "200 The location that the created resource will be avaliable at. Same as response body ResourceLocation",
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "format" : "uri"
+                },
+                "example" : "/mynhs/my/observations/{ResourceId}"
+              }
+            },
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/NhsProfile"
+                  "$ref" : "#/components/schemas/SubmissionStatus"
                 }
               }
             }
@@ -1746,10 +1857,34 @@
       },
       "DigitalHealthCheckRequest" : {
         "type" : "object",
+        "oneOf" : [ {
+          "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+        }, {
+          "$ref" : "#/components/schemas/DigitalHealthCheckRequestMinimal"
+        } ]
+      },
+      "DigitalHealthCheckRequestMinimal" : {
+        "type" : "object",
+        "anyOf" : [ {
+          "$ref" : "#/components/schemas/Age"
+        }, {
+          "$ref" : "#/components/schemas/Height"
+        }, {
+          "$ref" : "#/components/schemas/Mass"
+        }, {
+          "$ref" : "#/components/schemas/BloodPressure"
+        }, {
+          "$ref" : "#/components/schemas/BloodSugar"
+        }, {
+          "$ref" : "#/components/schemas/Colesterol"
+        } ]
+      },
+      "DigitalHealthCheckRequestAll" : {
+        "required" : [ "Age", "AlcoholUse", "BloodPressure", "BloodSugar", "Colesterol", "Ethnicity", "FamilyHistory", "Gender", "Height", "PhysicalActivity", "Smoking", "Weight" ],
+        "type" : "object",
         "properties" : {
           "Age" : {
-            "type" : "integer",
-            "format" : "int64"
+            "$ref" : "#/components/schemas/Age"
           },
           "Height" : {
             "$ref" : "#/components/schemas/Height"
@@ -1761,13 +1896,14 @@
             "$ref" : "#/components/schemas/BloodPressure"
           },
           "BloodSugar" : {
-            "type" : "string"
+            "$ref" : "#/components/schemas/BloodSugar"
           },
           "Colesterol" : {
-            "type" : "string"
+            "$ref" : "#/components/schemas/Colesterol"
           },
           "Ethnicity" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "Default Ethnicity"
           },
           "AlcoholUse" : {
             "type" : "integer",
@@ -1802,7 +1938,88 @@
           "HealthyPercentage" : 0
         }
       },
+      "Colesterol" : {
+        "type" : "object",
+        "properties" : {
+          "LDL" : {
+            "type" : "number",
+            "description" : "mg/dL"
+          },
+          "HDL" : {
+            "type" : "number",
+            "description" : "mg/dL"
+          },
+          "TotalCholesterol" : {
+            "type" : "number",
+            "description" : "mg/dL"
+          },
+          "Triglycerides" : {
+            "type" : "number",
+            "description" : "mg/dL"
+          },
+          "VldlLevels" : {
+            "type" : "number",
+            "description" : "mg/dL"
+          }
+        }
+      },
+      "BloodSugar" : {
+        "type" : "object",
+        "discriminator" : {
+          "propertyName" : "BloodSugarReadingType"
+        },
+        "oneOf" : [ {
+          "$ref" : "#/components/schemas/Glocose"
+        }, {
+          "$ref" : "#/components/schemas/MeanBlood"
+        }, {
+          "$ref" : "#/components/schemas/HBA1C"
+        } ]
+      },
+      "Glocose" : {
+        "required" : [ "bloodSugarReadingType", "mmolL" ],
+        "type" : "object",
+        "properties" : {
+          "mmolL" : {
+            "type" : "number",
+            "example" : 8.2
+          },
+          "bloodSugarReadingType" : {
+            "type" : "string",
+            "default" : "Glocose"
+          }
+        }
+      },
+      "MeanBlood" : {
+        "required" : [ "bloodSugarReadingType", "mgdl" ],
+        "type" : "object",
+        "properties" : {
+          "mgdl" : {
+            "type" : "number",
+            "example" : 150
+          },
+          "bloodSugarReadingType" : {
+            "type" : "string",
+            "default" : "MeanBlood"
+          }
+        }
+      },
+      "HBA1C" : {
+        "required" : [ "TestScore", "bloodSugarReadingType" ],
+        "type" : "object",
+        "properties" : {
+          "TestScore" : {
+            "type" : "number",
+            "example" : 7.0
+          },
+          "bloodSugarReadingType" : {
+            "type" : "string",
+            "default" : "HBA1C"
+          }
+        }
+      },
       "Height" : {
+        "required" : [ "Millimeters" ],
         "type" : "object",
         "properties" : {
           "Millimeters" : {
@@ -1813,6 +2030,7 @@
         }
       },
       "Mass" : {
+        "required" : [ "Grams" ],
         "type" : "object",
         "properties" : {
           "Grams" : {
@@ -1851,6 +2069,229 @@
         },
         "example" : {
           "BloodPressureCategory" : "Hypertensive Crisis"
+        }
+      },
+      "Age" : {
+        "type" : "object",
+        "oneOf" : [ {
+          "$ref" : "#/components/schemas/DaysOld"
+        }, {
+          "$ref" : "#/components/schemas/YearsOld"
+        }, {
+          "$ref" : "#/components/schemas/DateOfBirth"
+        } ]
+      },
+      "DateOfBirth" : {
+        "type" : "object",
+        "properties" : {
+          "BirthdayDoNotUse" : {
+            "type" : "string",
+            "description" : "Date of birth - * DO NOT USE * this as it means operations will not be repeatable",
+            "format" : "date"
+          }
+        }
+      },
+      "YearsOld" : {
+        "type" : "object",
+        "properties" : {
+          "Years" : {
+            "type" : "integer",
+            "description" : "Number of years old (rounded down to whole number)",
+            "example" : 33
+          }
+        }
+      },
+      "DaysOld" : {
+        "type" : "object",
+        "properties" : {
+          "Days" : {
+            "type" : "integer",
+            "description" : "Number of days old (rounded down to whole number)",
+            "example" : 6541
+          }
+        },
+        "example" : {
+          "Days" : 6541
+        }
+      },
+      "SubmissionResponse" : {
+        "type" : "object",
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmissionStatusBase"
+        } ]
+      },
+      "SubmissionStatusBase" : {
+        "type" : "object",
+        "properties" : {
+          "SubmissionId" : {
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "SubmittedByUserId" : {
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "SubmittedByAppId" : {
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "ResourceId" : {
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "DateSubmitted" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "SubmissionStatusLocation" : {
+            "type" : "string",
+            "format" : "uri",
+            "example" : "/mynhs/my/observations/submissions/{SubmissionId}"
+          },
+          "ResourceLocation" : {
+            "type" : "string",
+            "description" : "The location that the created resource will be avaliable at. Same as response header Location",
+            "format" : "uri",
+            "example" : "/mynhs/my/observations/{ResourceId}"
+          }
+        }
+      },
+      "SubmissionStatus" : {
+        "type" : "object",
+        "properties" : {
+          "Status" : {
+            "$ref" : "#/components/schemas/StatusEnum"
+          },
+          "PercentComplete" : {
+            "type" : "integer",
+            "format" : "percent"
+          },
+          "StagesDetails" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SubmissionResponseDetails"
+            }
+          }
+        },
+        "example" : {
+          "Status" : "Not Started",
+          "PercentComplete" : 0,
+          "StagesDetails" : [ {
+            "Status" : null,
+            "DateFinished" : "2000-01-23T04:56:07.000+00:00",
+            "DateStarted" : "2000-01-23T04:56:07.000+00:00",
+            "IsCompletedSuccessfully" : true,
+            "PercentComplete" : 99,
+            "DateUpdated" : "2000-01-23T04:56:07.000+00:00",
+            "SystemName" : "SystemName"
+          }, {
+            "Status" : null,
+            "DateFinished" : "2000-01-23T04:56:07.000+00:00",
+            "DateStarted" : "2000-01-23T04:56:07.000+00:00",
+            "IsCompletedSuccessfully" : true,
+            "PercentComplete" : 99,
+            "DateUpdated" : "2000-01-23T04:56:07.000+00:00",
+            "SystemName" : "SystemName"
+          } ]
+        },
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmissionStatusBase"
+        } ]
+      },
+      "SubmissionResponseDetails" : {
+        "type" : "object",
+        "properties" : {
+          "SystemName" : {
+            "type" : "string"
+          },
+          "Status" : {
+            "$ref" : "#/components/schemas/StatusEnum"
+          },
+          "IsCompletedSuccessfully" : {
+            "type" : "boolean"
+          },
+          "PercentComplete" : {
+            "$ref" : "#/components/schemas/PercentComplete"
+          },
+          "DateStarted" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "DateFinished" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "DateUpdated" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        },
+        "example" : {
+          "Status" : null,
+          "DateFinished" : "2000-01-23T04:56:07.000+00:00",
+          "DateStarted" : "2000-01-23T04:56:07.000+00:00",
+          "IsCompletedSuccessfully" : true,
+          "PercentComplete" : 99,
+          "DateUpdated" : "2000-01-23T04:56:07.000+00:00",
+          "SystemName" : "SystemName"
+        }
+      },
+      "StatusEnum" : {
+        "type" : "string",
+        "enum" : [ "Not Started", "In progress", "Success", "Failed" ]
+      },
+      "PercentComplete" : {
+        "maximum" : 100,
+        "minimum" : 0,
+        "type" : "integer",
+        "format" : "int32",
+        "example" : 99,
+        "default" : 0
+      }
+    },
+    "responses" : {
+      "SubmissionAcceptedResponse" : {
+        "description" : "Accepted",
+        "headers" : {
+          "Location" : {
+            "description" : "202 The location that the created resource will be avaliable at. Same as response body ResourceLocation",
+            "style" : "simple",
+            "explode" : false,
+            "schema" : {
+              "type" : "string",
+              "format" : "uri"
+            },
+            "example" : "/mynhs/my/observations/{ResourceId}"
+          }
+        },
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/SubmissionResponse"
+            }
+          }
+        }
+      },
+      "SubmissionStatusResponse" : {
+        "description" : "Accepted",
+        "headers" : {
+          "Location" : {
+            "description" : "200 The location that the created resource will be avaliable at. Same as response body ResourceLocation",
+            "style" : "simple",
+            "explode" : false,
+            "schema" : {
+              "type" : "string",
+              "format" : "uri"
+            },
+            "example" : "/mynhs/my/observations/{ResourceId}"
+          }
+        },
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/SubmissionStatus"
+            }
+          }
         }
       }
     },
@@ -1969,6 +2410,27 @@
         "schema" : {
           "type" : "number",
           "enum" : [ 1, 3, 5, 7, 14, 30 ]
+        }
+      }
+    },
+    "examples" : {
+      "DaysOldExample" : {
+        "summary" : "Number of days old",
+        "value" : {
+          "Days" : 4329
+        }
+      },
+      "HeightExample1" : {
+        "summary" : "Height in mm",
+        "value" : {
+          "Millimeters" : 654222
+        }
+      },
+      "AgeAndHeightExample" : {
+        "summary" : "Days old and Height in mm",
+        "value" : {
+          "Days" : 4329,
+          "Millimeters" : 654222
         }
       }
     },

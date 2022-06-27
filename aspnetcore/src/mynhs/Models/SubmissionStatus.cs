@@ -24,8 +24,29 @@ namespace mynhs.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class DigitalHealthCheckRequest : IEquatable<DigitalHealthCheckRequest>
+    public partial class SubmissionStatus : SubmissionStatusBase, IEquatable<SubmissionStatus>
     { 
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+
+        [DataMember(Name="Status")]
+        public StatusEnum Status { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PercentComplete
+        /// </summary>
+
+        [DataMember(Name="PercentComplete")]
+        public int? PercentComplete { get; set; }
+
+        /// <summary>
+        /// Gets or Sets StagesDetails
+        /// </summary>
+
+        [DataMember(Name="StagesDetails")]
+        public Collection<SubmissionResponseDetails> StagesDetails { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -33,7 +54,10 @@ namespace mynhs.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DigitalHealthCheckRequest {\n");
+            sb.Append("class SubmissionStatus {\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  PercentComplete: ").Append(PercentComplete).Append("\n");
+            sb.Append("  StagesDetails: ").Append(StagesDetails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -42,7 +66,7 @@ namespace mynhs.Models
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public  new string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -56,20 +80,35 @@ namespace mynhs.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((DigitalHealthCheckRequest)obj);
+            return obj.GetType() == GetType() && Equals((SubmissionStatus)obj);
         }
 
         /// <summary>
-        /// Returns true if DigitalHealthCheckRequest instances are equal
+        /// Returns true if SubmissionStatus instances are equal
         /// </summary>
-        /// <param name="other">Instance of DigitalHealthCheckRequest to be compared</param>
+        /// <param name="other">Instance of SubmissionStatus to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DigitalHealthCheckRequest other)
+        public bool Equals(SubmissionStatus other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
-            return false;
+            return 
+                (
+                    Status == other.Status ||
+                    Status != null &&
+                    Status.Equals(other.Status)
+                ) && 
+                (
+                    PercentComplete == other.PercentComplete ||
+                    PercentComplete != null &&
+                    PercentComplete.Equals(other.PercentComplete)
+                ) && 
+                (
+                    StagesDetails == other.StagesDetails ||
+                    StagesDetails != null &&
+                    StagesDetails.SequenceEqual(other.StagesDetails)
+                );
         }
 
         /// <summary>
@@ -82,6 +121,12 @@ namespace mynhs.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
+                    if (Status != null)
+                    hashCode = hashCode * 59 + Status.GetHashCode();
+                    if (PercentComplete != null)
+                    hashCode = hashCode * 59 + PercentComplete.GetHashCode();
+                    if (StagesDetails != null)
+                    hashCode = hashCode * 59 + StagesDetails.GetHashCode();
                 return hashCode;
             }
         }
@@ -89,12 +134,12 @@ namespace mynhs.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(DigitalHealthCheckRequest left, DigitalHealthCheckRequest right)
+        public static bool operator ==(SubmissionStatus left, SubmissionStatus right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(DigitalHealthCheckRequest left, DigitalHealthCheckRequest right)
+        public static bool operator !=(SubmissionStatus left, SubmissionStatus right)
         {
             return !Equals(left, right);
         }

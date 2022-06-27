@@ -24,8 +24,16 @@ namespace mynhs.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class DigitalHealthCheckRequest : IEquatable<DigitalHealthCheckRequest>
+    public partial class DaysOld : IEquatable<DaysOld>
     { 
+        /// <summary>
+        /// Number of days old (rounded down to whole number)
+        /// </summary>
+        /// <value>Number of days old (rounded down to whole number)</value>
+
+        [DataMember(Name="Days")]
+        public int? Days { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -33,7 +41,8 @@ namespace mynhs.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DigitalHealthCheckRequest {\n");
+            sb.Append("class DaysOld {\n");
+            sb.Append("  Days: ").Append(Days).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -56,20 +65,25 @@ namespace mynhs.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((DigitalHealthCheckRequest)obj);
+            return obj.GetType() == GetType() && Equals((DaysOld)obj);
         }
 
         /// <summary>
-        /// Returns true if DigitalHealthCheckRequest instances are equal
+        /// Returns true if DaysOld instances are equal
         /// </summary>
-        /// <param name="other">Instance of DigitalHealthCheckRequest to be compared</param>
+        /// <param name="other">Instance of DaysOld to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DigitalHealthCheckRequest other)
+        public bool Equals(DaysOld other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
-            return false;
+            return 
+                (
+                    Days == other.Days ||
+                    Days != null &&
+                    Days.Equals(other.Days)
+                );
         }
 
         /// <summary>
@@ -82,6 +96,8 @@ namespace mynhs.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
+                    if (Days != null)
+                    hashCode = hashCode * 59 + Days.GetHashCode();
                 return hashCode;
             }
         }
@@ -89,12 +105,12 @@ namespace mynhs.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(DigitalHealthCheckRequest left, DigitalHealthCheckRequest right)
+        public static bool operator ==(DaysOld left, DaysOld right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(DigitalHealthCheckRequest left, DigitalHealthCheckRequest right)
+        public static bool operator !=(DaysOld left, DaysOld right)
         {
             return !Equals(left, right);
         }

@@ -78,22 +78,22 @@ namespace mynhs.Controllers
         /// </summary>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <response code="200">OK</response>
+        /// <response code="200">Accepted</response>
         [HttpGet]
         [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/observations/submissions/{submissionId}")]
         [ValidateModelState]
         [SwaggerOperation("MynhsUserIdObservationsSubmissionsSubmissionIdGet")]
-        [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
+        [SwaggerResponse(statusCode: 200, type: typeof(SubmissionStatus), description: "Accepted")]
         public virtual IActionResult MynhsUserIdObservationsSubmissionsSubmissionIdGet([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromRoute][Required]Guid? submissionId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(NhsProfile));
+            // return StatusCode(200, default(SubmissionStatus));
             string exampleJson = null;
-            exampleJson = "{\n  \"NhsNumber\" : 0\n}";
+            exampleJson = "{\n  \"Status\" : \"Not Started\",\n  \"PercentComplete\" : 0,\n  \"StagesDetails\" : [ {\n    \"DateFinished\" : \"2000-01-23T04:56:07.000+00:00\",\n    \"DateStarted\" : \"2000-01-23T04:56:07.000+00:00\",\n    \"IsCompletedSuccessfully\" : true,\n    \"PercentComplete\" : 99,\n    \"DateUpdated\" : \"2000-01-23T04:56:07.000+00:00\",\n    \"SystemName\" : \"SystemName\"\n  }, {\n    \"DateFinished\" : \"2000-01-23T04:56:07.000+00:00\",\n    \"DateStarted\" : \"2000-01-23T04:56:07.000+00:00\",\n    \"IsCompletedSuccessfully\" : true,\n    \"PercentComplete\" : 99,\n    \"DateUpdated\" : \"2000-01-23T04:56:07.000+00:00\",\n    \"SystemName\" : \"SystemName\"\n  } ]\n}";
             
                         var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<NhsProfile>(exampleJson)
-                        : default(NhsProfile);            //TODO: Change the data returned
+                        ? JsonConvert.DeserializeObject<SubmissionStatus>(exampleJson)
+                        : default(SubmissionStatus);            //TODO: Change the data returned
             return new ObjectResult(example);
         }
 
@@ -124,24 +124,25 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <remarks>Submits the request to create the observation submission. A PUT should be fully idempotent, so the result will always be the same. Call GET on /mynhs/{userId}/observations/submissions/{submissionId} to get the current status.</remarks>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <response code="200">OK</response>
+        /// <response code="202">Accepted</response>
         [HttpPut]
         [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/observations/submissions/{submissionId}/submit")]
         [ValidateModelState]
         [SwaggerOperation("MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut")]
-        [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
+        [SwaggerResponse(statusCode: 202, type: typeof(SubmissionResponse), description: "Accepted")]
         public virtual IActionResult MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromRoute][Required]Guid? submissionId)
         { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(NhsProfile));
+            //TODO: Uncomment the next line to return response 202 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(202, default(SubmissionResponse));
             string exampleJson = null;
-            exampleJson = "{\n  \"NhsNumber\" : 0\n}";
+            exampleJson = "\"\"";
             
                         var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<NhsProfile>(exampleJson)
-                        : default(NhsProfile);            //TODO: Change the data returned
+                        ? JsonConvert.DeserializeObject<SubmissionResponse>(exampleJson)
+                        : default(SubmissionResponse);            //TODO: Change the data returned
             return new ObjectResult(example);
         }
     }

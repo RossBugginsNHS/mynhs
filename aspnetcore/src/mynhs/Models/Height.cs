@@ -29,6 +29,7 @@ namespace mynhs.Models
         /// <summary>
         /// Gets or Sets Millimeters
         /// </summary>
+        [Required]
 
         [DataMember(Name="Millimeters")]
         public long? Millimeters { get; set; }

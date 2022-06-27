@@ -24,8 +24,16 @@ namespace mynhs.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class DigitalHealthCheckRequest : IEquatable<DigitalHealthCheckRequest>
+    public partial class YearsOld : IEquatable<YearsOld>
     { 
+        /// <summary>
+        /// Number of years old (rounded down to whole number)
+        /// </summary>
+        /// <value>Number of years old (rounded down to whole number)</value>
+
+        [DataMember(Name="Years")]
+        public int? Years { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -33,7 +41,8 @@ namespace mynhs.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DigitalHealthCheckRequest {\n");
+            sb.Append("class YearsOld {\n");
+            sb.Append("  Years: ").Append(Years).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -56,20 +65,25 @@ namespace mynhs.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((DigitalHealthCheckRequest)obj);
+            return obj.GetType() == GetType() && Equals((YearsOld)obj);
         }
 
         /// <summary>
-        /// Returns true if DigitalHealthCheckRequest instances are equal
+        /// Returns true if YearsOld instances are equal
         /// </summary>
-        /// <param name="other">Instance of DigitalHealthCheckRequest to be compared</param>
+        /// <param name="other">Instance of YearsOld to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DigitalHealthCheckRequest other)
+        public bool Equals(YearsOld other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
-            return false;
+            return 
+                (
+                    Years == other.Years ||
+                    Years != null &&
+                    Years.Equals(other.Years)
+                );
         }
 
         /// <summary>
@@ -82,6 +96,8 @@ namespace mynhs.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
+                    if (Years != null)
+                    hashCode = hashCode * 59 + Years.GetHashCode();
                 return hashCode;
             }
         }
@@ -89,12 +105,12 @@ namespace mynhs.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(DigitalHealthCheckRequest left, DigitalHealthCheckRequest right)
+        public static bool operator ==(YearsOld left, YearsOld right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(DigitalHealthCheckRequest left, DigitalHealthCheckRequest right)
+        public static bool operator !=(YearsOld left, YearsOld right)
         {
             return !Equals(left, right);
         }

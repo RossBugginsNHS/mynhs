@@ -24,8 +24,24 @@ namespace mynhs.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class DigitalHealthCheckRequest : IEquatable<DigitalHealthCheckRequest>
+    public partial class HBA1C : IEquatable<HBA1C>
     { 
+        /// <summary>
+        /// Gets or Sets TestScore
+        /// </summary>
+        [Required]
+
+        [DataMember(Name="TestScore")]
+        public decimal? TestScore { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BloodSugarReadingType
+        /// </summary>
+        [Required]
+
+        [DataMember(Name="bloodSugarReadingType")]
+        public string BloodSugarReadingType { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -33,7 +49,9 @@ namespace mynhs.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DigitalHealthCheckRequest {\n");
+            sb.Append("class HBA1C {\n");
+            sb.Append("  TestScore: ").Append(TestScore).Append("\n");
+            sb.Append("  BloodSugarReadingType: ").Append(BloodSugarReadingType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -56,20 +74,30 @@ namespace mynhs.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((DigitalHealthCheckRequest)obj);
+            return obj.GetType() == GetType() && Equals((HBA1C)obj);
         }
 
         /// <summary>
-        /// Returns true if DigitalHealthCheckRequest instances are equal
+        /// Returns true if HBA1C instances are equal
         /// </summary>
-        /// <param name="other">Instance of DigitalHealthCheckRequest to be compared</param>
+        /// <param name="other">Instance of HBA1C to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DigitalHealthCheckRequest other)
+        public bool Equals(HBA1C other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
-            return false;
+            return 
+                (
+                    TestScore == other.TestScore ||
+                    TestScore != null &&
+                    TestScore.Equals(other.TestScore)
+                ) && 
+                (
+                    BloodSugarReadingType == other.BloodSugarReadingType ||
+                    BloodSugarReadingType != null &&
+                    BloodSugarReadingType.Equals(other.BloodSugarReadingType)
+                );
         }
 
         /// <summary>
@@ -82,6 +110,10 @@ namespace mynhs.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
+                    if (TestScore != null)
+                    hashCode = hashCode * 59 + TestScore.GetHashCode();
+                    if (BloodSugarReadingType != null)
+                    hashCode = hashCode * 59 + BloodSugarReadingType.GetHashCode();
                 return hashCode;
             }
         }
@@ -89,12 +121,12 @@ namespace mynhs.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(DigitalHealthCheckRequest left, DigitalHealthCheckRequest right)
+        public static bool operator ==(HBA1C left, HBA1C right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(DigitalHealthCheckRequest left, DigitalHealthCheckRequest right)
+        public static bool operator !=(HBA1C left, HBA1C right)
         {
             return !Equals(left, right);
         }

@@ -55,6 +55,7 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
         /// <param name="userId">The User Id to access</param>
         /// <response code="200">OK</response>
         [HttpPost]
@@ -62,7 +63,7 @@ namespace mynhs.Controllers
         [ValidateModelState]
         [SwaggerOperation("MynhsUserIdDigitalhealthchecksSubmissionsPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
-        public virtual IActionResult MynhsUserIdDigitalhealthchecksSubmissionsPost([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId)
+        public virtual IActionResult MynhsUserIdDigitalhealthchecksSubmissionsPost([FromBody]DigitalHealthCheckRequestAll body, [FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(NhsProfile));
@@ -102,6 +103,7 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
         /// <response code="200">OK</response>
@@ -110,7 +112,7 @@ namespace mynhs.Controllers
         [ValidateModelState]
         [SwaggerOperation("MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut")]
         [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
-        public virtual IActionResult MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromRoute][Required]Guid? submissionId)
+        public virtual IActionResult MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut([FromBody]DigitalHealthCheckRequest body, [FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromRoute][Required]Guid? submissionId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(NhsProfile));
@@ -128,22 +130,22 @@ namespace mynhs.Controllers
         /// </summary>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <response code="200">OK</response>
+        /// <response code="202">Accepted</response>
         [HttpPut]
         [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/digitalhealthchecks/submissions/{submissionId}/submit")]
         [ValidateModelState]
         [SwaggerOperation("MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut")]
-        [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
+        [SwaggerResponse(statusCode: 202, type: typeof(SubmissionResponse), description: "Accepted")]
         public virtual IActionResult MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromRoute][Required]Guid? submissionId)
         { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(NhsProfile));
+            //TODO: Uncomment the next line to return response 202 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(202, default(SubmissionResponse));
             string exampleJson = null;
-            exampleJson = "{\n  \"NhsNumber\" : 0\n}";
+            exampleJson = "\"\"";
             
                         var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<NhsProfile>(exampleJson)
-                        : default(NhsProfile);            //TODO: Change the data returned
+                        ? JsonConvert.DeserializeObject<SubmissionResponse>(exampleJson)
+                        : default(SubmissionResponse);            //TODO: Change the data returned
             return new ObjectResult(example);
         }
     }

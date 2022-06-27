@@ -29,6 +29,7 @@ namespace mynhs.Models
         /// <summary>
         /// Gets or Sets Grams
         /// </summary>
+        [Required]
 
         [DataMember(Name="Grams")]
         public long? Grams { get; set; }

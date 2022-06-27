@@ -24,7 +24,7 @@ namespace mynhs.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class DigitalHealthCheckRequest : IEquatable<DigitalHealthCheckRequest>
+    public partial class OneOfDigitalHealthCheckRequest : IEquatable<OneOfDigitalHealthCheckRequest>
     { 
         /// <summary>
         /// Returns the string presentation of the object
@@ -33,7 +33,7 @@ namespace mynhs.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DigitalHealthCheckRequest {\n");
+            sb.Append("class OneOfDigitalHealthCheckRequest {\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -56,15 +56,15 @@ namespace mynhs.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((DigitalHealthCheckRequest)obj);
+            return obj.GetType() == GetType() && Equals((OneOfDigitalHealthCheckRequest)obj);
         }
 
         /// <summary>
-        /// Returns true if DigitalHealthCheckRequest instances are equal
+        /// Returns true if OneOfDigitalHealthCheckRequest instances are equal
         /// </summary>
-        /// <param name="other">Instance of DigitalHealthCheckRequest to be compared</param>
+        /// <param name="other">Instance of OneOfDigitalHealthCheckRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DigitalHealthCheckRequest other)
+        public bool Equals(OneOfDigitalHealthCheckRequest other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -89,12 +89,12 @@ namespace mynhs.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(DigitalHealthCheckRequest left, DigitalHealthCheckRequest right)
+        public static bool operator ==(OneOfDigitalHealthCheckRequest left, OneOfDigitalHealthCheckRequest right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(DigitalHealthCheckRequest left, DigitalHealthCheckRequest right)
+        public static bool operator !=(OneOfDigitalHealthCheckRequest left, OneOfDigitalHealthCheckRequest right)
         {
             return !Equals(left, right);
         }

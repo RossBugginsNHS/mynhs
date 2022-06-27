@@ -56,6 +56,29 @@ namespace mynhs.Controllers
         /// <param name="body">Optional description in *Markdown*</param>
         /// <response code="200">OK</response>
         [HttpPost]
+        [Route("/NHSX/MyNhs/0.1/mynhs/tools/daysold")]
+        [ValidateModelState]
+        [SwaggerOperation("MynhsToolsDaysoldPost")]
+        [SwaggerResponse(statusCode: 200, type: typeof(DaysOld), description: "OK")]
+        public virtual IActionResult MynhsToolsDaysoldPost([FromBody]DateOfBirth body)
+        { 
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200, default(DaysOld));
+            string exampleJson = null;
+            exampleJson = "{\n  \"Days\" : 6541\n}";
+            
+                        var example = exampleJson != null
+                        ? JsonConvert.DeserializeObject<DaysOld>(exampleJson)
+                        : default(DaysOld);            //TODO: Change the data returned
+            return new ObjectResult(example);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="body">Optional description in *Markdown*</param>
+        /// <response code="200">OK</response>
+        [HttpPost]
         [Route("/NHSX/MyNhs/0.1/mynhs/tools/heartage")]
         [ValidateModelState]
         [SwaggerOperation("MynhsToolsHeartagePost")]
@@ -84,7 +107,7 @@ namespace mynhs.Controllers
         [ValidateModelState]
         [SwaggerOperation("PostHealthCheck")]
         [SwaggerResponse(statusCode: 200, type: typeof(DigitalHealthCheckResult), description: "OK")]
-        public virtual IActionResult PostHealthCheck([FromBody]DigitalHealthCheckRequest body)
+        public virtual IActionResult PostHealthCheck([FromBody]DigitalHealthCheckRequestAll body)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(DigitalHealthCheckResult));
