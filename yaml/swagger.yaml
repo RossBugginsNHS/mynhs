@@ -67,8 +67,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NhsProfile'
       security:
-      - MyNhsOAuth2:
-        - write:pets
+      - ApiKeyAuth: []
   /mynhsmanagement/tenants:
     get:
       tags:
@@ -1902,6 +1901,10 @@ components:
         Days: 4329
         Millimeters: 654222
   securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      name: X-API-KEY
+      in: header
     MyNhsOAuth2:
       type: oauth2
       flows:
