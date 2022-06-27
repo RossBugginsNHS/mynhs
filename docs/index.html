@@ -689,6 +689,17 @@
   <script>
     // Script section to load models into a JS Var
     var defs = {}
+            defs["Age"] = {
+  "type" : "object",
+  "oneOf" : [ {
+    "$ref" : "#/components/schemas/DaysOld"
+  }, {
+    "$ref" : "#/components/schemas/YearsOld"
+  }, {
+    "$ref" : "#/components/schemas/DateOfBirth"
+  } ]
+};
+            defs["AnyOfDigitalHealthCheckRequestMinimal"] = {};
             defs["BloodPressure"] = {
   "type" : "object",
   "properties" : {
@@ -717,12 +728,78 @@
     }
   }
 };
+            defs["BloodSugar"] = {
+  "type" : "object",
+  "discriminator" : {
+    "propertyName" : "bloodSugarReadingType"
+  },
+  "oneOf" : [ {
+    "$ref" : "#/components/schemas/Glocose"
+  }, {
+    "$ref" : "#/components/schemas/MeanBlood"
+  }, {
+    "$ref" : "#/components/schemas/HBA1C"
+  } ]
+};
+            defs["Colesterol"] = {
+  "type" : "object",
+  "properties" : {
+    "LDL" : {
+      "type" : "number",
+      "description" : "mg/dL"
+    },
+    "HDL" : {
+      "type" : "number",
+      "description" : "mg/dL"
+    },
+    "TotalCholesterol" : {
+      "type" : "number",
+      "description" : "mg/dL"
+    },
+    "Triglycerides" : {
+      "type" : "number",
+      "description" : "mg/dL"
+    },
+    "VldlLevels" : {
+      "type" : "number",
+      "description" : "mg/dL"
+    }
+  }
+};
+            defs["DateOfBirth"] = {
+  "type" : "object",
+  "properties" : {
+    "BirthdayDoNotUse" : {
+      "type" : "string",
+      "description" : "Date of birth - * DO NOT USE * this as it means operations will not be repeatable",
+      "format" : "date"
+    }
+  }
+};
+            defs["DaysOld"] = {
+  "type" : "object",
+  "properties" : {
+    "Days" : {
+      "type" : "integer",
+      "description" : "Number of days old (rounded down to whole number)",
+      "example" : 6541
+    }
+  }
+};
             defs["DigitalHealthCheckRequest"] = {
+  "type" : "object",
+  "oneOf" : [ {
+    "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+  }, {
+    "$ref" : "#/components/schemas/DigitalHealthCheckRequestMinimal"
+  } ]
+};
+            defs["DigitalHealthCheckRequestAll"] = {
+  "required" : [ "Age", "AlcoholUse", "BloodPressure", "BloodSugar", "Colesterol", "Ethnicity", "FamilyHistory", "Gender", "Height", "PhysicalActivity", "Smoking", "Weight" ],
   "type" : "object",
   "properties" : {
     "Age" : {
-      "type" : "integer",
-      "format" : "int64"
+      "$ref" : "#/components/schemas/Age"
     },
     "Height" : {
       "$ref" : "#/components/schemas/Height"
@@ -734,13 +811,14 @@
       "$ref" : "#/components/schemas/BloodPressure"
     },
     "BloodSugar" : {
-      "type" : "string"
+      "$ref" : "#/components/schemas/BloodSugar"
     },
     "Colesterol" : {
-      "type" : "string"
+      "$ref" : "#/components/schemas/Colesterol"
     },
     "Ethnicity" : {
-      "type" : "string"
+      "type" : "string",
+      "example" : "Default Ethnicity"
     },
     "AlcoholUse" : {
       "type" : "integer",
@@ -763,12 +841,42 @@
     }
   }
 };
+            defs["DigitalHealthCheckRequestMinimal"] = {
+  "type" : "object",
+  "anyOf" : [ {
+    "$ref" : "#/components/schemas/Age"
+  }, {
+    "$ref" : "#/components/schemas/Height"
+  }, {
+    "$ref" : "#/components/schemas/Mass"
+  }, {
+    "$ref" : "#/components/schemas/BloodPressure"
+  }, {
+    "$ref" : "#/components/schemas/BloodSugar"
+  }, {
+    "$ref" : "#/components/schemas/Colesterol"
+  } ]
+};
             defs["DigitalHealthCheckResult"] = {
   "type" : "object",
   "properties" : {
     "HealthyPercentage" : {
       "type" : "integer",
       "format" : "int64"
+    }
+  }
+};
+            defs["Glocose"] = {
+  "required" : [ "bloodSugarReadingType", "mmolL" ],
+  "type" : "object",
+  "properties" : {
+    "mmolL" : {
+      "type" : "number",
+      "example" : 8.2
+    },
+    "bloodSugarReadingType" : {
+      "type" : "string",
+      "default" : "Glocose"
     }
   }
 };
@@ -781,7 +889,22 @@
     }
   }
 };
+            defs["HBA1C"] = {
+  "required" : [ "TestScore", "bloodSugarReadingType" ],
+  "type" : "object",
+  "properties" : {
+    "TestScore" : {
+      "type" : "number",
+      "example" : 7.0
+    },
+    "bloodSugarReadingType" : {
+      "type" : "string",
+      "default" : "HBA1C"
+    }
+  }
+};
             defs["Height"] = {
+  "required" : [ "Millimeters" ],
   "type" : "object",
   "properties" : {
     "Millimeters" : {
@@ -792,12 +915,27 @@
   }
 };
             defs["Mass"] = {
+  "required" : [ "Grams" ],
   "type" : "object",
   "properties" : {
     "Grams" : {
       "type" : "integer",
       "format" : "int64",
       "example" : 100000
+    }
+  }
+};
+            defs["MeanBlood"] = {
+  "required" : [ "bloodSugarReadingType", "mgdl" ],
+  "type" : "object",
+  "properties" : {
+    "mgdl" : {
+      "type" : "number",
+      "example" : 150
+    },
+    "bloodSugarReadingType" : {
+      "type" : "string",
+      "default" : "MeanBlood"
     }
   }
 };
@@ -821,6 +959,113 @@
     }
   }
 };
+            defs["OneOfAge"] = {};
+            defs["OneOfBloodSugar"] = {};
+            defs["OneOfDigitalHealthCheckRequest"] = {};
+            defs["PercentComplete"] = {
+  "maximum" : 100,
+  "minimum" : 0,
+  "type" : "integer",
+  "format" : "int32",
+  "example" : 99,
+  "default" : 0
+};
+            defs["StatusEnum"] = {
+  "type" : "string",
+  "enum" : [ "Not Started", "In progress", "Success", "Failed" ]
+};
+            defs["SubmissionResponse"] = {
+  "type" : "object",
+  "allOf" : [ {
+    "$ref" : "#/components/schemas/SubmissionStatusBase"
+  } ]
+};
+            defs["SubmissionResponseDetails"] = {
+  "type" : "object",
+  "properties" : {
+    "SystemName" : {
+      "type" : "string"
+    },
+    "Status" : {
+      "$ref" : "#/components/schemas/StatusEnum"
+    },
+    "IsCompletedSuccessfully" : {
+      "type" : "boolean"
+    },
+    "PercentComplete" : {
+      "$ref" : "#/components/schemas/PercentComplete"
+    },
+    "DateStarted" : {
+      "type" : "string",
+      "format" : "date-time"
+    },
+    "DateFinished" : {
+      "type" : "string",
+      "format" : "date-time"
+    },
+    "DateUpdated" : {
+      "type" : "string",
+      "format" : "date-time"
+    }
+  }
+};
+            defs["SubmissionStatus"] = {
+  "type" : "object",
+  "properties" : {
+    "Status" : {
+      "$ref" : "#/components/schemas/StatusEnum"
+    },
+    "PercentComplete" : {
+      "type" : "integer",
+      "format" : "percent"
+    },
+    "StagesDetails" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/SubmissionResponseDetails"
+      }
+    }
+  },
+  "allOf" : [ {
+    "$ref" : "#/components/schemas/SubmissionStatusBase"
+  } ]
+};
+            defs["SubmissionStatusBase"] = {
+  "type" : "object",
+  "properties" : {
+    "SubmissionId" : {
+      "type" : "string",
+      "format" : "uuid"
+    },
+    "SubmittedByUserId" : {
+      "type" : "string",
+      "format" : "uuid"
+    },
+    "SubmittedByAppId" : {
+      "type" : "string",
+      "format" : "uuid"
+    },
+    "ResourceId" : {
+      "type" : "string",
+      "format" : "uuid"
+    },
+    "DateSubmitted" : {
+      "type" : "string",
+      "format" : "date-time"
+    },
+    "SubmissionStatusLocation" : {
+      "type" : "string",
+      "format" : "uri",
+      "example" : "/mynhs/my/observations/submissions/{SubmissionId}"
+    },
+    "ResourceLocation" : {
+      "type" : "string",
+      "description" : "The location that the created resource will be avaliable at. Same as response header Location",
+      "format" : "uri",
+      "example" : "/mynhs/my/observations/{ResourceId}"
+    }
+  }
+};
             defs["UserProfile"] = {
   "type" : "object",
   "properties" : {
@@ -833,6 +1078,16 @@
     "DateOfBirth" : {
       "type" : "string",
       "format" : "date"
+    }
+  }
+};
+            defs["YearsOld"] = {
+  "type" : "object",
+  "properties" : {
+    "Years" : {
+      "type" : "integer",
+      "description" : "Number of years old (rounded down to whole number)",
+      "example" : 33
     }
   }
 };
@@ -902,6 +1157,9 @@
                   <li class="nav-header" data-group="DigitalHealthTools"><a href="#api-DigitalHealthTools">API Methods - DigitalHealthTools</a></li>
                     <li data-group="DigitalHealthTools" data-name="mynhsToolsBloodpressurePost" class="">
                       <a href="#api-DigitalHealthTools-mynhsToolsBloodpressurePost">mynhsToolsBloodpressurePost</a>
+                    </li>
+                    <li data-group="DigitalHealthTools" data-name="mynhsToolsDaysoldPost" class="">
+                      <a href="#api-DigitalHealthTools-mynhsToolsDaysoldPost">mynhsToolsDaysoldPost</a>
                     </li>
                     <li data-group="DigitalHealthTools" data-name="mynhsToolsHeartagePost" class="">
                       <a href="#api-DigitalHealthTools-mynhsToolsHeartagePost">mynhsToolsHeartagePost</a>
@@ -4334,6 +4592,7 @@ except ApiException as e:
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
 \
 -H "Accept: application/json"\
+-H "Content-Type: application/json"\
 "https://virtserver.swaggerhub.com/NHSX/MyNhs/0.1/mynhs/{userId}/digitalhealthchecks/submissions"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-DigitalHealthChecksSubmissions-mynhsUserIdDigitalhealthchecksSubmissionsPost-0-java">
@@ -4355,9 +4614,12 @@ public class DigitalHealthChecksSubmissionsApiExample {
         OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         DigitalHealthChecksSubmissionsApi apiInstance = new DigitalHealthChecksSubmissionsApi();
+        DigitalHealthCheckRequestAll body = {
+  "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+}; // DigitalHealthCheckRequestAll | Returns an analysis of the given blood pressure reading.
         String userId = userId_example; // String | The User Id to access
         try {
-            NhsProfile result = apiInstance.mynhsUserIdDigitalhealthchecksSubmissionsPost(userId);
+            NhsProfile result = apiInstance.mynhsUserIdDigitalhealthchecksSubmissionsPost(body, userId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DigitalHealthChecksSubmissionsApi#mynhsUserIdDigitalhealthchecksSubmissionsPost");
@@ -4374,9 +4636,12 @@ public class DigitalHealthChecksSubmissionsApiExample {
 
     public static void main(String[] args) {
         DigitalHealthChecksSubmissionsApi apiInstance = new DigitalHealthChecksSubmissionsApi();
+        DigitalHealthCheckRequestAll body = {
+  "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+}; // DigitalHealthCheckRequestAll | Returns an analysis of the given blood pressure reading.
         String userId = userId_example; // String | The User Id to access
         try {
-            NhsProfile result = apiInstance.mynhsUserIdDigitalhealthchecksSubmissionsPost(userId);
+            NhsProfile result = apiInstance.mynhsUserIdDigitalhealthchecksSubmissionsPost(body, userId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DigitalHealthChecksSubmissionsApi#mynhsUserIdDigitalhealthchecksSubmissionsPost");
@@ -4393,11 +4658,15 @@ public class DigitalHealthChecksSubmissionsApiExample {
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
 // Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+DigitalHealthCheckRequestAll *body = {
+  "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+}; // Returns an analysis of the given blood pressure reading.
 String *userId = userId_example; // The User Id to access
 
 DigitalHealthChecksSubmissionsApi *apiInstance = [[DigitalHealthChecksSubmissionsApi alloc] init];
 
-[apiInstance mynhsUserIdDigitalhealthchecksSubmissionsPostWith:userId
+[apiInstance mynhsUserIdDigitalhealthchecksSubmissionsPostWith:body
+    userId:userId
               completionHandler: ^(NhsProfile output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
@@ -4418,6 +4687,9 @@ var OAuth2 = defaultClient.authentications['OAuth2'];
 OAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.DigitalHealthChecksSubmissionsApi()
+var body = {
+  "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+}; // {{DigitalHealthCheckRequestAll}} Returns an analysis of the given blood pressure reading.
 var userId = userId_example; // {{String}} The User Id to access
 
 var callback = function(error, data, response) {
@@ -4427,7 +4699,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.mynhsUserIdDigitalhealthchecksSubmissionsPost(userId, callback);
+api.mynhsUserIdDigitalhealthchecksSubmissionsPost(bodyuserId, callback);
 </code></pre>
                             </div>
 
@@ -4452,11 +4724,12 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DigitalHealthChecksSubmissionsApi();
+            var body = new DigitalHealthCheckRequestAll(); // DigitalHealthCheckRequestAll | Returns an analysis of the given blood pressure reading.
             var userId = userId_example;  // String | The User Id to access
 
             try
             {
-                NhsProfile result = apiInstance.mynhsUserIdDigitalhealthchecksSubmissionsPost(userId);
+                NhsProfile result = apiInstance.mynhsUserIdDigitalhealthchecksSubmissionsPost(body, userId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -4477,10 +4750,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiDigitalHealthChecksSubmissionsApi();
+$body = {
+  "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+}; // DigitalHealthCheckRequestAll | Returns an analysis of the given blood pressure reading.
 $userId = userId_example; // String | The User Id to access
 
 try {
-    $result = $api_instance->mynhsUserIdDigitalhealthchecksSubmissionsPost($userId);
+    $result = $api_instance->mynhsUserIdDigitalhealthchecksSubmissionsPost($body, $userId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DigitalHealthChecksSubmissionsApi->mynhsUserIdDigitalhealthchecksSubmissionsPost: ', $e->getMessage(), PHP_EOL;
@@ -4497,10 +4773,11 @@ use WWW::SwaggerClient::DigitalHealthChecksSubmissionsApi;
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::DigitalHealthChecksSubmissionsApi->new();
+my $body = WWW::SwaggerClient::Object::DigitalHealthCheckRequestAll->new(); # DigitalHealthCheckRequestAll | Returns an analysis of the given blood pressure reading.
 my $userId = userId_example; # String | The User Id to access
 
 eval { 
-    my $result = $api_instance->mynhsUserIdDigitalhealthchecksSubmissionsPost(userId => $userId);
+    my $result = $api_instance->mynhsUserIdDigitalhealthchecksSubmissionsPost(body => $body, userId => $userId);
     print Dumper($result);
 };
 if ($@) {
@@ -4520,10 +4797,13 @@ swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = swagger_client.DigitalHealthChecksSubmissionsApi()
+body = {
+  "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+} # DigitalHealthCheckRequestAll | Returns an analysis of the given blood pressure reading.
 userId = userId_example # String | The User Id to access
 
 try: 
-    api_response = api_instance.mynhs_user_id_digitalhealthchecks_submissions_post(userId)
+    api_response = api_instance.mynhs_user_id_digitalhealthchecks_submissions_post(body, userId)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DigitalHealthChecksSubmissionsApi->mynhsUserIdDigitalhealthchecksSubmissionsPost: %s\n" % e)</code></pre>
@@ -4563,6 +4843,55 @@ except ApiException as e:
                             </table>
 
 
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                <td>
+                                
+                                
+                                <script>
+                                $(document).ready(function() {
+                                  var schemaWrapper = {
+  "description" : "Returns an analysis of the given blood pressure reading.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+      },
+      "examples" : {
+        "All" : {
+          "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+        }
+      }
+    }
+  },
+  "required" : true
+};
+                                  var schema = schemaWrapper.content["application/json"].schema;
+                                  if (schema.$ref != null) {
+                                    schema = defsParser.$refs.get(schema.$ref);
+                                  } else {
+                                    schemaWrapper.components = {};
+                                    schemaWrapper.components.schemas = Object.assign({}, defs);
+                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                      console.log(err);
+                                    });
+                                  }
+                                
+                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+                                  var result = $('#d2e199_mynhsUserIdDigitalhealthchecksSubmissionsPost_body');
+                                  result.empty();
+                                  result.append(view.render());
+                                });
+                                </script>
+                                <div id="d2e199_mynhsUserIdDigitalhealthchecksSubmissionsPost_body"></div>
+                                </td>
+                                </tr>
+                            </table>
 
 
 
@@ -5003,6 +5332,7 @@ except ApiException as e:
                            <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
 \
 -H "Accept: application/json"\
+-H "Content-Type: application/json"\
 "https://virtserver.swaggerhub.com/NHSX/MyNhs/0.1/mynhs/{userId}/digitalhealthchecks/submissions/{submissionId}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-DigitalHealthChecksSubmissions-mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut-0-java">
@@ -5024,10 +5354,13 @@ public class DigitalHealthChecksSubmissionsApiExample {
         OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         DigitalHealthChecksSubmissionsApi apiInstance = new DigitalHealthChecksSubmissionsApi();
+        DigitalHealthCheckRequest body = {
+  "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+}; // DigitalHealthCheckRequest | Returns an analysis of the given blood pressure reading.
         String userId = userId_example; // String | The User Id to access
         UUID submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | 
         try {
-            NhsProfile result = apiInstance.mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut(userId, submissionId);
+            NhsProfile result = apiInstance.mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut(body, userId, submissionId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DigitalHealthChecksSubmissionsApi#mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut");
@@ -5044,10 +5377,13 @@ public class DigitalHealthChecksSubmissionsApiExample {
 
     public static void main(String[] args) {
         DigitalHealthChecksSubmissionsApi apiInstance = new DigitalHealthChecksSubmissionsApi();
+        DigitalHealthCheckRequest body = {
+  "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+}; // DigitalHealthCheckRequest | Returns an analysis of the given blood pressure reading.
         String userId = userId_example; // String | The User Id to access
         UUID submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | 
         try {
-            NhsProfile result = apiInstance.mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut(userId, submissionId);
+            NhsProfile result = apiInstance.mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut(body, userId, submissionId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DigitalHealthChecksSubmissionsApi#mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut");
@@ -5064,12 +5400,16 @@ public class DigitalHealthChecksSubmissionsApiExample {
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
 // Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+DigitalHealthCheckRequest *body = {
+  "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+}; // Returns an analysis of the given blood pressure reading.
 String *userId = userId_example; // The User Id to access
 UUID *submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // 
 
 DigitalHealthChecksSubmissionsApi *apiInstance = [[DigitalHealthChecksSubmissionsApi alloc] init];
 
-[apiInstance mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPutWith:userId
+[apiInstance mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPutWith:body
+    userId:userId
     submissionId:submissionId
               completionHandler: ^(NhsProfile output, NSError* error) {
                             if (output) {
@@ -5091,6 +5431,9 @@ var OAuth2 = defaultClient.authentications['OAuth2'];
 OAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.DigitalHealthChecksSubmissionsApi()
+var body = {
+  "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+}; // {{DigitalHealthCheckRequest}} Returns an analysis of the given blood pressure reading.
 var userId = userId_example; // {{String}} The User Id to access
 var submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // {{UUID}} 
 
@@ -5101,7 +5444,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut(userId, submissionId, callback);
+api.mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut(bodyuserIdsubmissionId, callback);
 </code></pre>
                             </div>
 
@@ -5126,12 +5469,13 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DigitalHealthChecksSubmissionsApi();
+            var body = new DigitalHealthCheckRequest(); // DigitalHealthCheckRequest | Returns an analysis of the given blood pressure reading.
             var userId = userId_example;  // String | The User Id to access
             var submissionId = new UUID(); // UUID | 
 
             try
             {
-                NhsProfile result = apiInstance.mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut(userId, submissionId);
+                NhsProfile result = apiInstance.mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut(body, userId, submissionId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -5152,11 +5496,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiDigitalHealthChecksSubmissionsApi();
+$body = {
+  "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+}; // DigitalHealthCheckRequest | Returns an analysis of the given blood pressure reading.
 $userId = userId_example; // String | The User Id to access
 $submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | 
 
 try {
-    $result = $api_instance->mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut($userId, $submissionId);
+    $result = $api_instance->mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut($body, $userId, $submissionId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DigitalHealthChecksSubmissionsApi->mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut: ', $e->getMessage(), PHP_EOL;
@@ -5173,11 +5520,12 @@ use WWW::SwaggerClient::DigitalHealthChecksSubmissionsApi;
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::DigitalHealthChecksSubmissionsApi->new();
+my $body = WWW::SwaggerClient::Object::DigitalHealthCheckRequest->new(); # DigitalHealthCheckRequest | Returns an analysis of the given blood pressure reading.
 my $userId = userId_example; # String | The User Id to access
 my $submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; # UUID | 
 
 eval { 
-    my $result = $api_instance->mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut(userId => $userId, submissionId => $submissionId);
+    my $result = $api_instance->mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut(body => $body, userId => $userId, submissionId => $submissionId);
     print Dumper($result);
 };
 if ($@) {
@@ -5197,11 +5545,14 @@ swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = swagger_client.DigitalHealthChecksSubmissionsApi()
+body = {
+  "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+} # DigitalHealthCheckRequest | Returns an analysis of the given blood pressure reading.
 userId = userId_example # String | The User Id to access
 submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | 
 
 try: 
-    api_response = api_instance.mynhs_user_id_digitalhealthchecks_submissions_submission_id_put(userId, submissionId)
+    api_response = api_instance.mynhs_user_id_digitalhealthchecks_submissions_submission_id_put(body, userId, submissionId)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DigitalHealthChecksSubmissionsApi->mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut: %s\n" % e)</code></pre>
@@ -5263,6 +5614,64 @@ except ApiException as e:
                             </table>
 
 
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                <td>
+                                
+                                
+                                <script>
+                                $(document).ready(function() {
+                                  var schemaWrapper = {
+  "description" : "Returns an analysis of the given blood pressure reading.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/DigitalHealthCheckRequest"
+      },
+      "examples" : {
+        "All" : {
+          "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+        },
+        "DaysOld" : {
+          "$ref" : "#/components/examples/DaysOldExample"
+        },
+        "Height" : {
+          "$ref" : "#/components/examples/HeightExample1"
+        },
+        "AgeAndHeightExample" : {
+          "$ref" : "#/components/examples/AgeAndHeightExample"
+        }
+      }
+    }
+  },
+  "required" : true
+};
+                                  var schema = schemaWrapper.content["application/json"].schema;
+                                  if (schema.$ref != null) {
+                                    schema = defsParser.$refs.get(schema.$ref);
+                                  } else {
+                                    schemaWrapper.components = {};
+                                    schemaWrapper.components.schemas = Object.assign({}, defs);
+                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                      console.log(err);
+                                    });
+                                  }
+                                
+                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+                                  var result = $('#d2e199_mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut_body');
+                                  result.empty();
+                                  result.append(view.render());
+                                });
+                                </script>
+                                <div id="d2e199_mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut_body"></div>
+                                </td>
+                                </tr>
+                            </table>
 
 
 
@@ -5377,7 +5786,7 @@ public class DigitalHealthChecksSubmissionsApiExample {
         String userId = userId_example; // String | The User Id to access
         UUID submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | 
         try {
-            NhsProfile result = apiInstance.mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut(userId, submissionId);
+            SubmissionResponse result = apiInstance.mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut(userId, submissionId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DigitalHealthChecksSubmissionsApi#mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut");
@@ -5397,7 +5806,7 @@ public class DigitalHealthChecksSubmissionsApiExample {
         String userId = userId_example; // String | The User Id to access
         UUID submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | 
         try {
-            NhsProfile result = apiInstance.mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut(userId, submissionId);
+            SubmissionResponse result = apiInstance.mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut(userId, submissionId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DigitalHealthChecksSubmissionsApi#mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut");
@@ -5421,7 +5830,7 @@ DigitalHealthChecksSubmissionsApi *apiInstance = [[DigitalHealthChecksSubmission
 
 [apiInstance mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPutWith:userId
     submissionId:submissionId
-              completionHandler: ^(NhsProfile output, NSError* error) {
+              completionHandler: ^(SubmissionResponse output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -5481,7 +5890,7 @@ namespace Example
 
             try
             {
-                NhsProfile result = apiInstance.mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut(userId, submissionId);
+                SubmissionResponse result = apiInstance.mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut(userId, submissionId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -5617,26 +6026,41 @@ except ApiException as e:
 
 
                           <h2>Responses</h2>
-                            <h3> Status: 200 - OK </h3>
+                            <h3> Status: 202 - Accepted </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut-200-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut-202-schema">Schema</a>
                                 </li>
 
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut-202-headers">Headers</a>
+                                </li>
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut-200-schema">
-                                  <div id='responses-mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut-202-schema">
+                                  <div id='responses-mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut-202-schema-202' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
-  "description" : "OK",
+  "description" : "Accepted",
+  "headers" : {
+    "Location" : {
+      "description" : "202 The location that the created resource will be avaliable at. Same as response body ResourceLocation",
+      "style" : "simple",
+      "explode" : false,
+      "schema" : {
+        "type" : "string",
+        "format" : "uri"
+      },
+      "example" : "/mynhs/my/observations/{ResourceId}"
+    }
+  },
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/NhsProfile"
+        "$ref" : "#/components/schemas/SubmissionResponse"
       }
     }
   }
@@ -5654,14 +6078,30 @@ except ApiException as e:
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut-200-schema-200');
+                                        $('#responses-mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut-202-schema-data').val(stringify(schema));
+                                        var result = $('#responses-mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut-202-schema-202');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut-200-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut-202-schema-data' type='hidden' value=''></input>
+                                </div>
+                                <div class="tab-pane" id="responses-mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut-202-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Location</td>
+                                            <td>String</td>
+                                            <td>uri</td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
 
@@ -6048,6 +6488,315 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
+                    <div id="api-DigitalHealthTools-mynhsToolsDaysoldPost">
+                      <article id="api-DigitalHealthTools-mynhsToolsDaysoldPost-0" data-group="User" data-name="mynhsToolsDaysoldPost" data-version="0">
+                        <div class="pull-left">
+                          <h1>mynhsToolsDaysoldPost</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/mynhs/tools/daysold</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-java">Java</a></li>
+                          <li class=""><a href="#examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X POST\
+-H "Accept: application/json"\
+-H "Content-Type: application/json"\
+"https://virtserver.swaggerhub.com/NHSX/MyNhs/0.1/mynhs/tools/daysold"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DigitalHealthToolsApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DigitalHealthToolsApiExample {
+
+    public static void main(String[] args) {
+        
+        DigitalHealthToolsApi apiInstance = new DigitalHealthToolsApi();
+        DateOfBirth body = ; // DateOfBirth | Optional description in *Markdown*
+        try {
+            DaysOld result = apiInstance.mynhsToolsDaysoldPost(body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DigitalHealthToolsApi#mynhsToolsDaysoldPost");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DigitalHealthToolsApi;
+
+public class DigitalHealthToolsApiExample {
+
+    public static void main(String[] args) {
+        DigitalHealthToolsApi apiInstance = new DigitalHealthToolsApi();
+        DateOfBirth body = ; // DateOfBirth | Optional description in *Markdown*
+        try {
+            DaysOld result = apiInstance.mynhsToolsDaysoldPost(body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DigitalHealthToolsApi#mynhsToolsDaysoldPost");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">DateOfBirth *body = ; // Optional description in *Markdown*
+
+DigitalHealthToolsApi *apiInstance = [[DigitalHealthToolsApi alloc] init];
+
+[apiInstance mynhsToolsDaysoldPostWith:body
+              completionHandler: ^(DaysOld output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
+
+var api = new MyNhsGraph.DigitalHealthToolsApi()
+var body = ; // {{DateOfBirth}} Optional description in *Markdown*
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.mynhsToolsDaysoldPost(body, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class mynhsToolsDaysoldPostExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new DigitalHealthToolsApi();
+            var body = new DateOfBirth(); // DateOfBirth | Optional description in *Markdown*
+
+            try
+            {
+                DaysOld result = apiInstance.mynhsToolsDaysoldPost(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DigitalHealthToolsApi.mynhsToolsDaysoldPost: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiDigitalHealthToolsApi();
+$body = ; // DateOfBirth | Optional description in *Markdown*
+
+try {
+    $result = $api_instance->mynhsToolsDaysoldPost($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DigitalHealthToolsApi->mynhsToolsDaysoldPost: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DigitalHealthToolsApi;
+
+my $api_instance = WWW::SwaggerClient::DigitalHealthToolsApi->new();
+my $body = WWW::SwaggerClient::Object::DateOfBirth->new(); # DateOfBirth | Optional description in *Markdown*
+
+eval { 
+    my $result = $api_instance->mynhsToolsDaysoldPost(body => $body);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DigitalHealthToolsApi->mynhsToolsDaysoldPost: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-DigitalHealthTools-mynhsToolsDaysoldPost-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.DigitalHealthToolsApi()
+body =  # DateOfBirth | Optional description in *Markdown*
+
+try: 
+    api_response = api_instance.mynhs_tools_daysold_post(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DigitalHealthToolsApi->mynhsToolsDaysoldPost: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                <td>
+                                
+                                
+                                <script>
+                                $(document).ready(function() {
+                                  var schemaWrapper = {
+  "description" : "Optional description in *Markdown*",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/DateOfBirth"
+      }
+    }
+  },
+  "required" : true
+};
+                                  var schema = schemaWrapper.content["application/json"].schema;
+                                  if (schema.$ref != null) {
+                                    schema = defsParser.$refs.get(schema.$ref);
+                                  } else {
+                                    schemaWrapper.components = {};
+                                    schemaWrapper.components.schemas = Object.assign({}, defs);
+                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                      console.log(err);
+                                    });
+                                  }
+                                
+                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+                                  var result = $('#d2e199_mynhsToolsDaysoldPost_body');
+                                  result.empty();
+                                  result.append(view.render());
+                                });
+                                </script>
+                                <div id="d2e199_mynhsToolsDaysoldPost_body"></div>
+                                </td>
+                                </tr>
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - OK </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-mynhsToolsDaysoldPost-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-mynhsToolsDaysoldPost-200-schema">
+                                  <div id='responses-mynhsToolsDaysoldPost-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/DaysOld"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-mynhsToolsDaysoldPost-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-mynhsToolsDaysoldPost-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-mynhsToolsDaysoldPost-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-DigitalHealthTools-mynhsToolsHeartagePost">
                       <article id="api-DigitalHealthTools-mynhsToolsHeartagePost-0" data-group="User" data-name="mynhsToolsHeartagePost" data-version="0">
                         <div class="pull-left">
@@ -6408,7 +7157,9 @@ public class DigitalHealthToolsApiExample {
     public static void main(String[] args) {
         
         DigitalHealthToolsApi apiInstance = new DigitalHealthToolsApi();
-        DigitalHealthCheckRequest body = ; // DigitalHealthCheckRequest | Optional description in *Markdown*
+        DigitalHealthCheckRequestAll body = {
+  "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+}; // DigitalHealthCheckRequestAll | Optional description in *Markdown*
         try {
             DigitalHealthCheckResult result = apiInstance.postHealthCheck(body);
             System.out.println(result);
@@ -6427,7 +7178,9 @@ public class DigitalHealthToolsApiExample {
 
     public static void main(String[] args) {
         DigitalHealthToolsApi apiInstance = new DigitalHealthToolsApi();
-        DigitalHealthCheckRequest body = ; // DigitalHealthCheckRequest | Optional description in *Markdown*
+        DigitalHealthCheckRequestAll body = {
+  "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+}; // DigitalHealthCheckRequestAll | Optional description in *Markdown*
         try {
             DigitalHealthCheckResult result = apiInstance.postHealthCheck(body);
             System.out.println(result);
@@ -6443,7 +7196,9 @@ public class DigitalHealthToolsApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-DigitalHealthTools-postHealthCheck-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">DigitalHealthCheckRequest *body = ; // Optional description in *Markdown*
+                              <pre class="prettyprint"><code class="language-cpp">DigitalHealthCheckRequestAll *body = {
+  "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+}; // Optional description in *Markdown*
 
 DigitalHealthToolsApi *apiInstance = [[DigitalHealthToolsApi alloc] init];
 
@@ -6464,7 +7219,9 @@ DigitalHealthToolsApi *apiInstance = [[DigitalHealthToolsApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 
 var api = new MyNhsGraph.DigitalHealthToolsApi()
-var body = ; // {{DigitalHealthCheckRequest}} Optional description in *Markdown*
+var body = {
+  "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+}; // {{DigitalHealthCheckRequestAll}} Optional description in *Markdown*
 
 var callback = function(error, data, response) {
   if (error) {
@@ -6495,7 +7252,7 @@ namespace Example
         {
 
             var apiInstance = new DigitalHealthToolsApi();
-            var body = new DigitalHealthCheckRequest(); // DigitalHealthCheckRequest | Optional description in *Markdown*
+            var body = new DigitalHealthCheckRequestAll(); // DigitalHealthCheckRequestAll | Optional description in *Markdown*
 
             try
             {
@@ -6518,7 +7275,9 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiDigitalHealthToolsApi();
-$body = ; // DigitalHealthCheckRequest | Optional description in *Markdown*
+$body = {
+  "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+}; // DigitalHealthCheckRequestAll | Optional description in *Markdown*
 
 try {
     $result = $api_instance->postHealthCheck($body);
@@ -6535,7 +7294,7 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DigitalHealthToolsApi;
 
 my $api_instance = WWW::SwaggerClient::DigitalHealthToolsApi->new();
-my $body = WWW::SwaggerClient::Object::DigitalHealthCheckRequest->new(); # DigitalHealthCheckRequest | Optional description in *Markdown*
+my $body = WWW::SwaggerClient::Object::DigitalHealthCheckRequestAll->new(); # DigitalHealthCheckRequestAll | Optional description in *Markdown*
 
 eval { 
     my $result = $api_instance->postHealthCheck(body => $body);
@@ -6555,7 +7314,9 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.DigitalHealthToolsApi()
-body =  # DigitalHealthCheckRequest | Optional description in *Markdown*
+body = {
+  "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+} # DigitalHealthCheckRequestAll | Optional description in *Markdown*
 
 try: 
     # Run a health check on provided data
@@ -6587,7 +7348,12 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/DigitalHealthCheckRequest"
+        "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+      },
+      "examples" : {
+        "All" : {
+          "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+        }
       }
     }
   },
@@ -11030,7 +11796,7 @@ public class ObservationsSubmissionsApiExample {
         String userId = userId_example; // String | The User Id to access
         UUID submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | 
         try {
-            NhsProfile result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdGet(userId, submissionId);
+            SubmissionStatus result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdGet(userId, submissionId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ObservationsSubmissionsApi#mynhsUserIdObservationsSubmissionsSubmissionIdGet");
@@ -11050,7 +11816,7 @@ public class ObservationsSubmissionsApiExample {
         String userId = userId_example; // String | The User Id to access
         UUID submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | 
         try {
-            NhsProfile result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdGet(userId, submissionId);
+            SubmissionStatus result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdGet(userId, submissionId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ObservationsSubmissionsApi#mynhsUserIdObservationsSubmissionsSubmissionIdGet");
@@ -11071,7 +11837,7 @@ ObservationsSubmissionsApi *apiInstance = [[ObservationsSubmissionsApi alloc] in
 
 [apiInstance mynhsUserIdObservationsSubmissionsSubmissionIdGetWith:userId
     submissionId:submissionId
-              completionHandler: ^(NhsProfile output, NSError* error) {
+              completionHandler: ^(SubmissionStatus output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -11123,7 +11889,7 @@ namespace Example
 
             try
             {
-                NhsProfile result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdGet(userId, submissionId);
+                SubmissionStatus result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdGet(userId, submissionId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -11250,13 +12016,16 @@ except ApiException as e:
 
 
                           <h2>Responses</h2>
-                            <h3> Status: 200 - OK </h3>
+                            <h3> Status: 200 - Accepted </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
                                   <a data-toggle="tab" href="#responses-mynhsUserIdObservationsSubmissionsSubmissionIdGet-200-schema">Schema</a>
                                 </li>
 
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-mynhsUserIdObservationsSubmissionsSubmissionIdGet-200-headers">Headers</a>
+                                </li>
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
@@ -11265,11 +12034,23 @@ except ApiException as e:
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
-  "description" : "OK",
+  "description" : "Accepted",
+  "headers" : {
+    "Location" : {
+      "description" : "200 The location that the created resource will be avaliable at. Same as response body ResourceLocation",
+      "style" : "simple",
+      "explode" : false,
+      "schema" : {
+        "type" : "string",
+        "format" : "uri"
+      },
+      "example" : "/mynhs/my/observations/{ResourceId}"
+    }
+  },
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/NhsProfile"
+        "$ref" : "#/components/schemas/SubmissionStatus"
       }
     }
   }
@@ -11295,6 +12076,22 @@ except ApiException as e:
                                     </script>
                                   </div>
                                   <input id='responses-mynhsUserIdObservationsSubmissionsSubmissionIdGet-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                                <div class="tab-pane" id="responses-mynhsUserIdObservationsSubmissionsSubmissionIdGet-200-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Location</td>
+                                            <td>String</td>
+                                            <td>uri</td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
 
@@ -11634,7 +12431,7 @@ except ApiException as e:
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked"></p>
+                        <p class="marked">Submits the request to create the observation submission. A PUT should be fully idempotent, so the result will always be the same. Call GET on /mynhs/{userId}/observations/submissions/{submissionId} to get the current status.</p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/mynhs/{userId}/observations/submissions/{submissionId}/submit</span></code></pre>
@@ -11678,7 +12475,7 @@ public class ObservationsSubmissionsApiExample {
         String userId = userId_example; // String | The User Id to access
         UUID submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | 
         try {
-            NhsProfile result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut(userId, submissionId);
+            SubmissionResponse result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut(userId, submissionId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ObservationsSubmissionsApi#mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut");
@@ -11698,7 +12495,7 @@ public class ObservationsSubmissionsApiExample {
         String userId = userId_example; // String | The User Id to access
         UUID submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | 
         try {
-            NhsProfile result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut(userId, submissionId);
+            SubmissionResponse result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut(userId, submissionId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ObservationsSubmissionsApi#mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut");
@@ -11719,7 +12516,7 @@ ObservationsSubmissionsApi *apiInstance = [[ObservationsSubmissionsApi alloc] in
 
 [apiInstance mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutWith:userId
     submissionId:submissionId
-              completionHandler: ^(NhsProfile output, NSError* error) {
+              completionHandler: ^(SubmissionResponse output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -11771,7 +12568,7 @@ namespace Example
 
             try
             {
-                NhsProfile result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut(userId, submissionId);
+                SubmissionResponse result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut(userId, submissionId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -11898,26 +12695,41 @@ except ApiException as e:
 
 
                           <h2>Responses</h2>
-                            <h3> Status: 200 - OK </h3>
+                            <h3> Status: 202 - Accepted </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-200-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-202-schema">Schema</a>
                                 </li>
 
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-202-headers">Headers</a>
+                                </li>
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-200-schema">
-                                  <div id='responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-202-schema">
+                                  <div id='responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-202-schema-202' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
-  "description" : "OK",
+  "description" : "Accepted",
+  "headers" : {
+    "Location" : {
+      "description" : "202 The location that the created resource will be avaliable at. Same as response body ResourceLocation",
+      "style" : "simple",
+      "explode" : false,
+      "schema" : {
+        "type" : "string",
+        "format" : "uri"
+      },
+      "example" : "/mynhs/my/observations/{ResourceId}"
+    }
+  },
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/NhsProfile"
+        "$ref" : "#/components/schemas/SubmissionResponse"
       }
     }
   }
@@ -11935,14 +12747,30 @@ except ApiException as e:
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-200-schema-200');
+                                        $('#responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-202-schema-data').val(stringify(schema));
+                                        var result = $('#responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-202-schema-202');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-200-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-202-schema-data' type='hidden' value=''></input>
+                                </div>
+                                <div class="tab-pane" id="responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-202-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Location</td>
+                                            <td>String</td>
+                                            <td>uri</td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
 
