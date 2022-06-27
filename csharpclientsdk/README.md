@@ -183,5 +183,4 @@ Class | Method | HTTP request | Description
   - observations.bloodpressure.summary.read: read summary
   - observations.bloodpressure.summary.read.shared: sd
   - healthcheck.execute: Run a health check
-  - write:pets: 
 

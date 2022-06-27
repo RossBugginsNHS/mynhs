@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mynhs.sdk", "src\mynhs.sdk\mynhs.sdk.csproj", "{6B7AE23E-D272-43CD-9CB5-6D873A78B267}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mynhs.sdk", "src\mynhs.sdk\mynhs.sdk.csproj", "{DBF0064E-C8AC-4811-9455-2D18DE994365}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,10 +10,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6B7AE23E-D272-43CD-9CB5-6D873A78B267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6B7AE23E-D272-43CD-9CB5-6D873A78B267}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B7AE23E-D272-43CD-9CB5-6D873A78B267}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6B7AE23E-D272-43CD-9CB5-6D873A78B267}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBF0064E-C8AC-4811-9455-2D18DE994365}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBF0064E-C8AC-4811-9455-2D18DE994365}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBF0064E-C8AC-4811-9455-2D18DE994365}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBF0064E-C8AC-4811-9455-2D18DE994365}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
