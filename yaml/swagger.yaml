@@ -128,6 +128,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DigitalHealthCheckResult'
+      security:
+      - OAuth2:
+        - healthcheck.execute
   /mynhs/tools/heartage:
     post:
       tags:
@@ -1891,6 +1894,9 @@ components:
           authorizationUrl: https://example.com/oauth/authorize
           tokenUrl: https://example.com/oauth/token
           scopes:
+            appointment.read: Read
+            appointment.read.all: Read All
+            appointment.read.shared: Read Shared
             applications.read: Grants read access to applications
             profile.read: Read My Profile- only for owner to read the primary user
               profile
@@ -1910,3 +1916,4 @@ components:
             observations.bloodpressure.delete: Delete existing blood pressure reading
             observations.bloodpressure.summary.read: read summary
             observations.bloodpressure.summary.read.shared: sd
+            healthcheck.execute: Run a health check
