@@ -98,6 +98,7 @@ Class | Method | HTTP request | Description
 *MedicalRecordsApi* | [**MynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet**](docs/MedicalRecordsApi.md#mynhsuseridmedicalrecordsdetailednhsrequestrecordsresultsresultidget) | **GET** /mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords/results/{resultId} | 
 *MedicalRecordsApi* | [**MynhsUserIdMedicalrecordsSummaryNhsGet**](docs/MedicalRecordsApi.md#mynhsuseridmedicalrecordssummarynhsget) | **GET** /mynhs/{userId}/medicalrecords/summary/nhs | 
 *MedicalRecordsApi* | [**MynhsUserIdMedicalrecordsSummaryNhsTrustIdGet**](docs/MedicalRecordsApi.md#mynhsuseridmedicalrecordssummarynhstrustidget) | **GET** /mynhs/{userId}/medicalrecords/summary/nhs/{trustId} | 
+*MyNHSManagementApi* | [**HelloworldHiGet**](docs/MyNHSManagementApi.md#helloworldhiget) | **GET** /helloworld/hi | 
 *MyNHSManagementApi* | [**MynhsmanagementTenantsGet**](docs/MyNHSManagementApi.md#mynhsmanagementtenantsget) | **GET** /mynhsmanagement/tenants | 
 *ObservationsApi* | [**MynhsUserIdObservationsObservationTypeGet**](docs/ObservationsApi.md#mynhsuseridobservationsobservationtypeget) | **GET** /mynhs/{userId}/observations/{observationType} | 
 *ObservationsApi* | [**MynhsUserIdObservationsSummariesGet**](docs/ObservationsApi.md#mynhsuseridobservationssummariesget) | **GET** /mynhs/{userId}/observations/summaries | 
@@ -175,4 +176,5 @@ Class | Method | HTTP request | Description
   - observations.bloodpressure.summary.read: read summary
   - observations.bloodpressure.summary.read.shared: sd
   - healthcheck.execute: Run a health check
+  - write:pets: 
 
