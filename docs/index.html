@@ -1302,9 +1302,9 @@ public class AccessAndApplicationsApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         AccessAndApplicationsApi apiInstance = new AccessAndApplicationsApi();
         try {
@@ -1341,7 +1341,7 @@ public class AccessAndApplicationsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-AccessAndApplications-mynhsApplicationsGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 
 AccessAndApplicationsApi *apiInstance = [[AccessAndApplicationsApi alloc] init];
@@ -1362,9 +1362,9 @@ AccessAndApplicationsApi *apiInstance = [[AccessAndApplicationsApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.AccessAndApplicationsApi()
 var callback = function(error, data, response) {
@@ -1395,7 +1395,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AccessAndApplicationsApi();
@@ -1419,7 +1419,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiAccessAndApplicationsApi();
@@ -1438,7 +1438,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::AccessAndApplicationsApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::AccessAndApplicationsApi->new();
@@ -1459,7 +1459,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -1583,9 +1583,9 @@ public class AccessAndApplicationsApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         AccessAndApplicationsApi apiInstance = new AccessAndApplicationsApi();
         try {
@@ -1622,7 +1622,7 @@ public class AccessAndApplicationsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-AccessAndApplications-mynhsOwnersGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 
 AccessAndApplicationsApi *apiInstance = [[AccessAndApplicationsApi alloc] init];
@@ -1643,9 +1643,9 @@ AccessAndApplicationsApi *apiInstance = [[AccessAndApplicationsApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.AccessAndApplicationsApi()
 var callback = function(error, data, response) {
@@ -1676,7 +1676,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AccessAndApplicationsApi();
@@ -1700,7 +1700,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiAccessAndApplicationsApi();
@@ -1719,7 +1719,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::AccessAndApplicationsApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::AccessAndApplicationsApi->new();
@@ -1740,7 +1740,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -1864,9 +1864,9 @@ public class AccessAndApplicationsApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         AccessAndApplicationsApi apiInstance = new AccessAndApplicationsApi();
         try {
@@ -1903,7 +1903,7 @@ public class AccessAndApplicationsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-AccessAndApplications-mynhsTennantOrOrganisationOrTheNameForWhatRecordsAreLinkedToGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 
 AccessAndApplicationsApi *apiInstance = [[AccessAndApplicationsApi alloc] init];
@@ -1924,9 +1924,9 @@ AccessAndApplicationsApi *apiInstance = [[AccessAndApplicationsApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.AccessAndApplicationsApi()
 var callback = function(error, data, response) {
@@ -1957,7 +1957,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AccessAndApplicationsApi();
@@ -1981,7 +1981,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiAccessAndApplicationsApi();
@@ -2000,7 +2000,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::AccessAndApplicationsApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::AccessAndApplicationsApi->new();
@@ -2021,7 +2021,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -2145,9 +2145,9 @@ public class AccessAndApplicationsApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         AccessAndApplicationsApi apiInstance = new AccessAndApplicationsApi();
         String userId = userId_example; // String | The User Id to access
@@ -2186,7 +2186,7 @@ public class AccessAndApplicationsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-AccessAndApplications-mynhsUserIdUserGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 String *userId = userId_example; // The User Id to access
 
@@ -2208,9 +2208,9 @@ AccessAndApplicationsApi *apiInstance = [[AccessAndApplicationsApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.AccessAndApplicationsApi()
 var userId = userId_example; // {{String}} The User Id to access
@@ -2243,7 +2243,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AccessAndApplicationsApi();
@@ -2268,7 +2268,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiAccessAndApplicationsApi();
@@ -2288,7 +2288,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::AccessAndApplicationsApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::AccessAndApplicationsApi->new();
@@ -2310,7 +2310,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -2464,9 +2464,9 @@ public class AccessAndApplicationsApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         AccessAndApplicationsApi apiInstance = new AccessAndApplicationsApi();
         try {
@@ -2503,7 +2503,7 @@ public class AccessAndApplicationsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-AccessAndApplications-mynhsUsersGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 
 AccessAndApplicationsApi *apiInstance = [[AccessAndApplicationsApi alloc] init];
@@ -2524,9 +2524,9 @@ AccessAndApplicationsApi *apiInstance = [[AccessAndApplicationsApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.AccessAndApplicationsApi()
 var callback = function(error, data, response) {
@@ -2557,7 +2557,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AccessAndApplicationsApi();
@@ -2581,7 +2581,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiAccessAndApplicationsApi();
@@ -2600,7 +2600,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::AccessAndApplicationsApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::AccessAndApplicationsApi->new();
@@ -2621,7 +2621,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -2748,9 +2748,9 @@ public class AppointmentsApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         AppointmentsApi apiInstance = new AppointmentsApi();
         String userId = userId_example; // String | The User Id to access
@@ -2789,7 +2789,7 @@ public class AppointmentsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-Appointments-mynhsUserIdAppointmentsGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 String *userId = userId_example; // The User Id to access
 
@@ -2811,9 +2811,9 @@ AppointmentsApi *apiInstance = [[AppointmentsApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.AppointmentsApi()
 var userId = userId_example; // {{String}} The User Id to access
@@ -2846,7 +2846,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AppointmentsApi();
@@ -2871,7 +2871,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiAppointmentsApi();
@@ -2891,7 +2891,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::AppointmentsApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::AppointmentsApi->new();
@@ -2913,7 +2913,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -3366,9 +3366,9 @@ public class DigitalHealthChecksApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         DigitalHealthChecksApi apiInstance = new DigitalHealthChecksApi();
         String userId = userId_example; // String | The User Id to access
@@ -3413,7 +3413,7 @@ public class DigitalHealthChecksApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-DigitalHealthChecks-mynhsUserIdDigitalhealthchecksHealthCheckIdGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 String *userId = userId_example; // The User Id to access
 UUID *healthCheckId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // 
@@ -3441,9 +3441,9 @@ DigitalHealthChecksApi *apiInstance = [[DigitalHealthChecksApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.DigitalHealthChecksApi()
 var userId = userId_example; // {{String}} The User Id to access
@@ -3480,7 +3480,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DigitalHealthChecksApi();
@@ -3508,7 +3508,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiDigitalHealthChecksApi();
@@ -3531,7 +3531,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DigitalHealthChecksApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::DigitalHealthChecksApi->new();
@@ -3556,7 +3556,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -3780,9 +3780,9 @@ public class DigitalHealthChecksApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         DigitalHealthChecksApi apiInstance = new DigitalHealthChecksApi();
         String userId = userId_example; // String | The User Id to access
@@ -3829,7 +3829,7 @@ public class DigitalHealthChecksApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-DigitalHealthChecks-mynhsUserIdDigitalhealthchecksHealthCheckIdHealthCheckTypeGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 String *userId = userId_example; // The User Id to access
 UUID *healthCheckId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // 
@@ -3859,9 +3859,9 @@ DigitalHealthChecksApi *apiInstance = [[DigitalHealthChecksApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.DigitalHealthChecksApi()
 var userId = userId_example; // {{String}} The User Id to access
@@ -3899,7 +3899,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DigitalHealthChecksApi();
@@ -3928,7 +3928,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiDigitalHealthChecksApi();
@@ -3952,7 +3952,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DigitalHealthChecksApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::DigitalHealthChecksApi->new();
@@ -3978,7 +3978,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -4225,9 +4225,9 @@ public class DigitalHealthChecksSubmissionsApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         DigitalHealthChecksSubmissionsApi apiInstance = new DigitalHealthChecksSubmissionsApi();
         String userId = userId_example; // String | The User Id to access
@@ -4270,7 +4270,7 @@ public class DigitalHealthChecksSubmissionsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-DigitalHealthChecksSubmissions-mynhsUserIdDigitalhealthchecksGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 String *userId = userId_example; // The User Id to access
 Integer *skip = 56; // The number of items to skip before starting to collect the result set. (optional)
@@ -4296,9 +4296,9 @@ DigitalHealthChecksSubmissionsApi *apiInstance = [[DigitalHealthChecksSubmission
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.DigitalHealthChecksSubmissionsApi()
 var userId = userId_example; // {{String}} The User Id to access
@@ -4334,7 +4334,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DigitalHealthChecksSubmissionsApi();
@@ -4361,7 +4361,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiDigitalHealthChecksSubmissionsApi();
@@ -4383,7 +4383,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DigitalHealthChecksSubmissionsApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::DigitalHealthChecksSubmissionsApi->new();
@@ -4407,7 +4407,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -4609,9 +4609,9 @@ public class DigitalHealthChecksSubmissionsApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         DigitalHealthChecksSubmissionsApi apiInstance = new DigitalHealthChecksSubmissionsApi();
         DigitalHealthCheckRequestAll body = {
@@ -4656,7 +4656,7 @@ public class DigitalHealthChecksSubmissionsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-DigitalHealthChecksSubmissions-mynhsUserIdDigitalhealthchecksSubmissionsPost-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 DigitalHealthCheckRequestAll *body = {
   "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
@@ -4682,9 +4682,9 @@ DigitalHealthChecksSubmissionsApi *apiInstance = [[DigitalHealthChecksSubmission
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.DigitalHealthChecksSubmissionsApi()
 var body = {
@@ -4720,7 +4720,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DigitalHealthChecksSubmissionsApi();
@@ -4746,7 +4746,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiDigitalHealthChecksSubmissionsApi();
@@ -4769,7 +4769,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DigitalHealthChecksSubmissionsApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::DigitalHealthChecksSubmissionsApi->new();
@@ -4792,7 +4792,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -4998,9 +4998,9 @@ public class DigitalHealthChecksSubmissionsApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         DigitalHealthChecksSubmissionsApi apiInstance = new DigitalHealthChecksSubmissionsApi();
         String userId = userId_example; // String | The User Id to access
@@ -5041,7 +5041,7 @@ public class DigitalHealthChecksSubmissionsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-DigitalHealthChecksSubmissions-mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 String *userId = userId_example; // The User Id to access
 UUID *submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // 
@@ -5065,9 +5065,9 @@ DigitalHealthChecksSubmissionsApi *apiInstance = [[DigitalHealthChecksSubmission
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.DigitalHealthChecksSubmissionsApi()
 var userId = userId_example; // {{String}} The User Id to access
@@ -5101,7 +5101,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DigitalHealthChecksSubmissionsApi();
@@ -5127,7 +5127,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiDigitalHealthChecksSubmissionsApi();
@@ -5148,7 +5148,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DigitalHealthChecksSubmissionsApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::DigitalHealthChecksSubmissionsApi->new();
@@ -5171,7 +5171,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -5349,9 +5349,9 @@ public class DigitalHealthChecksSubmissionsApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         DigitalHealthChecksSubmissionsApi apiInstance = new DigitalHealthChecksSubmissionsApi();
         DigitalHealthCheckRequest body = {
@@ -5398,7 +5398,7 @@ public class DigitalHealthChecksSubmissionsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-DigitalHealthChecksSubmissions-mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 DigitalHealthCheckRequest *body = {
   "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
@@ -5426,9 +5426,9 @@ DigitalHealthChecksSubmissionsApi *apiInstance = [[DigitalHealthChecksSubmission
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.DigitalHealthChecksSubmissionsApi()
 var body = {
@@ -5465,7 +5465,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DigitalHealthChecksSubmissionsApi();
@@ -5492,7 +5492,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiDigitalHealthChecksSubmissionsApi();
@@ -5516,7 +5516,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DigitalHealthChecksSubmissionsApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::DigitalHealthChecksSubmissionsApi->new();
@@ -5540,7 +5540,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -5778,9 +5778,9 @@ public class DigitalHealthChecksSubmissionsApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         DigitalHealthChecksSubmissionsApi apiInstance = new DigitalHealthChecksSubmissionsApi();
         String userId = userId_example; // String | The User Id to access
@@ -5821,7 +5821,7 @@ public class DigitalHealthChecksSubmissionsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-DigitalHealthChecksSubmissions-mynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 String *userId = userId_example; // The User Id to access
 UUID *submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // 
@@ -5845,9 +5845,9 @@ DigitalHealthChecksSubmissionsApi *apiInstance = [[DigitalHealthChecksSubmission
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.DigitalHealthChecksSubmissionsApi()
 var userId = userId_example; // {{String}} The User Id to access
@@ -5881,7 +5881,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DigitalHealthChecksSubmissionsApi();
@@ -5907,7 +5907,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiDigitalHealthChecksSubmissionsApi();
@@ -5928,7 +5928,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DigitalHealthChecksSubmissionsApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::DigitalHealthChecksSubmissionsApi->new();
@@ -5951,7 +5951,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -7158,9 +7158,9 @@ public class DigitalHealthToolsApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         DigitalHealthToolsApi apiInstance = new DigitalHealthToolsApi();
         DigitalHealthCheckRequestAll body = {
@@ -7203,7 +7203,7 @@ public class DigitalHealthToolsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-DigitalHealthTools-postHealthCheck-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 DigitalHealthCheckRequestAll *body = {
   "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
@@ -7228,9 +7228,9 @@ DigitalHealthToolsApi *apiInstance = [[DigitalHealthToolsApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.DigitalHealthToolsApi()
 var body = {
@@ -7265,7 +7265,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DigitalHealthToolsApi();
@@ -7291,7 +7291,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiDigitalHealthToolsApi();
@@ -7313,7 +7313,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DigitalHealthToolsApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::DigitalHealthToolsApi->new();
@@ -7335,7 +7335,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -7515,9 +7515,9 @@ public class EventsApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         EventsApi apiInstance = new EventsApi();
         String userId = userId_example; // String | The User Id to access
@@ -7556,7 +7556,7 @@ public class EventsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-Events-mynhsUserIdEventsGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 String *userId = userId_example; // The User Id to access
 
@@ -7578,9 +7578,9 @@ EventsApi *apiInstance = [[EventsApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.EventsApi()
 var userId = userId_example; // {{String}} The User Id to access
@@ -7613,7 +7613,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventsApi();
@@ -7638,7 +7638,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiEventsApi();
@@ -7658,7 +7658,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::EventsApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::EventsApi->new();
@@ -7680,7 +7680,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -7837,9 +7837,9 @@ public class MedicalRecordsApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         MedicalRecordsApi apiInstance = new MedicalRecordsApi();
         String userId = userId_example; // String | The User Id to access
@@ -7878,7 +7878,7 @@ public class MedicalRecordsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-MedicalRecords-mynhsUserIdMedicalrecordsDetailedNhsRequestRecordsPost-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 String *userId = userId_example; // The User Id to access
 
@@ -7900,9 +7900,9 @@ MedicalRecordsApi *apiInstance = [[MedicalRecordsApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.MedicalRecordsApi()
 var userId = userId_example; // {{String}} The User Id to access
@@ -7935,7 +7935,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new MedicalRecordsApi();
@@ -7960,7 +7960,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiMedicalRecordsApi();
@@ -7980,7 +7980,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::MedicalRecordsApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::MedicalRecordsApi->new();
@@ -8002,7 +8002,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -8156,9 +8156,9 @@ public class MedicalRecordsApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         MedicalRecordsApi apiInstance = new MedicalRecordsApi();
         String userId = userId_example; // String | The User Id to access
@@ -8199,7 +8199,7 @@ public class MedicalRecordsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-MedicalRecords-mynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 String *userId = userId_example; // The User Id to access
 String *requestId = requestId_example; // 
@@ -8223,9 +8223,9 @@ MedicalRecordsApi *apiInstance = [[MedicalRecordsApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.MedicalRecordsApi()
 var userId = userId_example; // {{String}} The User Id to access
@@ -8259,7 +8259,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new MedicalRecordsApi();
@@ -8285,7 +8285,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiMedicalRecordsApi();
@@ -8306,7 +8306,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::MedicalRecordsApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::MedicalRecordsApi->new();
@@ -8329,7 +8329,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -8503,9 +8503,9 @@ public class MedicalRecordsApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         MedicalRecordsApi apiInstance = new MedicalRecordsApi();
         String userId = userId_example; // String | The User Id to access
@@ -8546,7 +8546,7 @@ public class MedicalRecordsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-MedicalRecords-mynhsUserIdMedicalrecordsDetailedNhsRequestRecordsRequestIdSubmitPut-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 String *userId = userId_example; // The User Id to access
 String *requestId = requestId_example; // 
@@ -8570,9 +8570,9 @@ MedicalRecordsApi *apiInstance = [[MedicalRecordsApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.MedicalRecordsApi()
 var userId = userId_example; // {{String}} The User Id to access
@@ -8606,7 +8606,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new MedicalRecordsApi();
@@ -8632,7 +8632,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiMedicalRecordsApi();
@@ -8653,7 +8653,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::MedicalRecordsApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::MedicalRecordsApi->new();
@@ -8676,7 +8676,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -8850,9 +8850,9 @@ public class MedicalRecordsApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         MedicalRecordsApi apiInstance = new MedicalRecordsApi();
         String userId = userId_example; // String | The User Id to access
@@ -8893,7 +8893,7 @@ public class MedicalRecordsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-MedicalRecords-mynhsUserIdMedicalrecordsDetailedNhsRequestRecordsResultsResultIdGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 String *userId = userId_example; // The User Id to access
 String *resultId = resultId_example; // 
@@ -8917,9 +8917,9 @@ MedicalRecordsApi *apiInstance = [[MedicalRecordsApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.MedicalRecordsApi()
 var userId = userId_example; // {{String}} The User Id to access
@@ -8953,7 +8953,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new MedicalRecordsApi();
@@ -8979,7 +8979,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiMedicalRecordsApi();
@@ -9000,7 +9000,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::MedicalRecordsApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::MedicalRecordsApi->new();
@@ -9023,7 +9023,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -9197,9 +9197,9 @@ public class MedicalRecordsApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         MedicalRecordsApi apiInstance = new MedicalRecordsApi();
         String userId = userId_example; // String | The User Id to access
@@ -9238,7 +9238,7 @@ public class MedicalRecordsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-MedicalRecords-mynhsUserIdMedicalrecordsSummaryNhsGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 String *userId = userId_example; // The User Id to access
 
@@ -9260,9 +9260,9 @@ MedicalRecordsApi *apiInstance = [[MedicalRecordsApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.MedicalRecordsApi()
 var userId = userId_example; // {{String}} The User Id to access
@@ -9295,7 +9295,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new MedicalRecordsApi();
@@ -9320,7 +9320,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiMedicalRecordsApi();
@@ -9340,7 +9340,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::MedicalRecordsApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::MedicalRecordsApi->new();
@@ -9362,7 +9362,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -9516,9 +9516,9 @@ public class MedicalRecordsApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         MedicalRecordsApi apiInstance = new MedicalRecordsApi();
         String userId = userId_example; // String | The User Id to access
@@ -9559,7 +9559,7 @@ public class MedicalRecordsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-MedicalRecords-mynhsUserIdMedicalrecordsSummaryNhsTrustIdGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 String *userId = userId_example; // The User Id to access
 String *trustId = trustId_example; // 
@@ -9583,9 +9583,9 @@ MedicalRecordsApi *apiInstance = [[MedicalRecordsApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.MedicalRecordsApi()
 var userId = userId_example; // {{String}} The User Id to access
@@ -9619,7 +9619,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new MedicalRecordsApi();
@@ -9645,7 +9645,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiMedicalRecordsApi();
@@ -9666,7 +9666,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::MedicalRecordsApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::MedicalRecordsApi->new();
@@ -9689,7 +9689,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -9866,9 +9866,9 @@ public class MyNHSManagementApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         MyNHSManagementApi apiInstance = new MyNHSManagementApi();
         try {
@@ -9905,7 +9905,7 @@ public class MyNHSManagementApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-MyNHSManagement-mynhsmanagementTenantsGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 
 MyNHSManagementApi *apiInstance = [[MyNHSManagementApi alloc] init];
@@ -9926,9 +9926,9 @@ MyNHSManagementApi *apiInstance = [[MyNHSManagementApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.MyNHSManagementApi()
 var callback = function(error, data, response) {
@@ -9959,7 +9959,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new MyNHSManagementApi();
@@ -9983,7 +9983,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiMyNHSManagementApi();
@@ -10002,7 +10002,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::MyNHSManagementApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::MyNHSManagementApi->new();
@@ -10023,7 +10023,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -10828,9 +10828,9 @@ public class ObservationsApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         ObservationsApi apiInstance = new ObservationsApi();
         String userId = userId_example; // String | The User Id to access
@@ -10875,7 +10875,7 @@ public class ObservationsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-Observations-mynhsUserIdObservationsSummariesObservationTypeQueryTypePastDaysGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 String *userId = userId_example; // The User Id to access
 String *observationType = observationType_example; // 
@@ -10903,9 +10903,9 @@ ObservationsApi *apiInstance = [[ObservationsApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.ObservationsApi()
 var userId = userId_example; // {{String}} The User Id to access
@@ -10941,7 +10941,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ObservationsApi();
@@ -10969,7 +10969,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiObservationsApi();
@@ -10992,7 +10992,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::ObservationsApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::ObservationsApi->new();
@@ -11017,7 +11017,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -12857,9 +12857,9 @@ public class ProfileApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         ProfileApi apiInstance = new ProfileApi();
         String userId = userId_example; // String | The User Id to access
@@ -12898,7 +12898,7 @@ public class ProfileApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-Profile-mynhsUserIdProfileCentralnhsGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 String *userId = userId_example; // The User Id to access
 
@@ -12920,9 +12920,9 @@ ProfileApi *apiInstance = [[ProfileApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.ProfileApi()
 var userId = userId_example; // {{String}} The User Id to access
@@ -12955,7 +12955,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ProfileApi();
@@ -12980,7 +12980,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiProfileApi();
@@ -13000,7 +13000,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::ProfileApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::ProfileApi->new();
@@ -13022,7 +13022,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -13176,9 +13176,9 @@ public class ProfileApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         ProfileApi apiInstance = new ProfileApi();
         String userId = userId_example; // String | The User Id to access
@@ -13217,7 +13217,7 @@ public class ProfileApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-Profile-mynhsUserIdProfileGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 String *userId = userId_example; // The User Id to access
 
@@ -13239,9 +13239,9 @@ ProfileApi *apiInstance = [[ProfileApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.ProfileApi()
 var userId = userId_example; // {{String}} The User Id to access
@@ -13274,7 +13274,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ProfileApi();
@@ -13299,7 +13299,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiProfileApi();
@@ -13319,7 +13319,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::ProfileApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::ProfileApi->new();
@@ -13341,7 +13341,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
@@ -13495,9 +13495,9 @@ public class ProfileApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: OAuth2
-        OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-        OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure OAuth2 access token for authorization: MyNhsOAuth2
+        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
+        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
         ProfileApi apiInstance = new ProfileApi();
         String userId = userId_example; // String | The User Id to access
@@ -13536,7 +13536,7 @@ public class ProfileApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-Profile-mynhsUserIdProfileGpGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: OAuth2)
+// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 String *userId = userId_example; // The User Id to access
 
@@ -13558,9 +13558,9 @@ ProfileApi *apiInstance = [[ProfileApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: OAuth2
-var OAuth2 = defaultClient.authentications['OAuth2'];
-OAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
+var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
+MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new MyNhsGraph.ProfileApi()
 var userId = userId_example; // {{String}} The User Id to access
@@ -13593,7 +13593,7 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ProfileApi();
@@ -13618,7 +13618,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: OAuth2
+// Configure OAuth2 access token for authorization: MyNhsOAuth2
 Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Swagger\Client\ApiProfileApi();
@@ -13638,7 +13638,7 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::ProfileApi;
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 $WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 my $api_instance = WWW::SwaggerClient::ProfileApi->new();
@@ -13660,7 +13660,7 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
+# Configure OAuth2 access token for authorization: MyNhsOAuth2
 swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
