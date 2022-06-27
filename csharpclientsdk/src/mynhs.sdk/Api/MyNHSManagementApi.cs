@@ -214,7 +214,7 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            // authentication (OAuth2) required
+            // authentication (MyNhsOAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
@@ -280,7 +280,7 @@ namespace mynhs.sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            // authentication (OAuth2) required
+            // authentication (MyNhsOAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {

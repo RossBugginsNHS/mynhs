@@ -306,7 +306,7 @@ namespace mynhs.sdk.Api
             if (healthCheckId != null) localVarPathParams.Add("healthCheckId", this.Configuration.ApiClient.ParameterToString(healthCheckId)); // path parameter
             if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            // authentication (OAuth2) required
+            // authentication (MyNhsOAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
@@ -390,7 +390,7 @@ namespace mynhs.sdk.Api
             if (healthCheckId != null) localVarPathParams.Add("healthCheckId", this.Configuration.ApiClient.ParameterToString(healthCheckId)); // path parameter
             if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            // authentication (OAuth2) required
+            // authentication (MyNhsOAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
@@ -479,7 +479,7 @@ namespace mynhs.sdk.Api
             if (healthCheckType != null) localVarPathParams.Add("healthCheckType", this.Configuration.ApiClient.ParameterToString(healthCheckType)); // path parameter
             if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            // authentication (OAuth2) required
+            // authentication (MyNhsOAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
@@ -569,7 +569,7 @@ namespace mynhs.sdk.Api
             if (healthCheckType != null) localVarPathParams.Add("healthCheckType", this.Configuration.ApiClient.ParameterToString(healthCheckType)); // path parameter
             if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            // authentication (OAuth2) required
+            // authentication (MyNhsOAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {

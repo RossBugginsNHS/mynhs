@@ -636,7 +636,7 @@ namespace mynhs.sdk.Api
             if (observationType != null) localVarPathParams.Add("observationType", this.Configuration.ApiClient.ParameterToString(observationType)); // path parameter
             if (queryType != null) localVarPathParams.Add("queryType", this.Configuration.ApiClient.ParameterToString(queryType)); // path parameter
             if (pastDays != null) localVarPathParams.Add("pastDays", this.Configuration.ApiClient.ParameterToString(pastDays)); // path parameter
-            // authentication (OAuth2) required
+            // authentication (MyNhsOAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
@@ -726,7 +726,7 @@ namespace mynhs.sdk.Api
             if (observationType != null) localVarPathParams.Add("observationType", this.Configuration.ApiClient.ParameterToString(observationType)); // path parameter
             if (queryType != null) localVarPathParams.Add("queryType", this.Configuration.ApiClient.ParameterToString(queryType)); // path parameter
             if (pastDays != null) localVarPathParams.Add("pastDays", this.Configuration.ApiClient.ParameterToString(pastDays)); // path parameter
-            // authentication (OAuth2) required
+            // authentication (MyNhsOAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {

@@ -31,7 +31,7 @@ namespace Example
     {
         public void main()
         {
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new MedicalRecordsApi();
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[MyNhsOAuth2](../README.md#MyNhsOAuth2)
 
 ### HTTP request headers
 
@@ -91,7 +91,7 @@ namespace Example
     {
         public void main()
         {
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new MedicalRecordsApi();
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[MyNhsOAuth2](../README.md#MyNhsOAuth2)
 
 ### HTTP request headers
 
@@ -153,7 +153,7 @@ namespace Example
     {
         public void main()
         {
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new MedicalRecordsApi();
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[MyNhsOAuth2](../README.md#MyNhsOAuth2)
 
 ### HTTP request headers
 
@@ -215,7 +215,7 @@ namespace Example
     {
         public void main()
         {
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new MedicalRecordsApi();
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[MyNhsOAuth2](../README.md#MyNhsOAuth2)
 
 ### HTTP request headers
 
@@ -277,7 +277,7 @@ namespace Example
     {
         public void main()
         {
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new MedicalRecordsApi();
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[MyNhsOAuth2](../README.md#MyNhsOAuth2)
 
 ### HTTP request headers
 
@@ -337,7 +337,7 @@ namespace Example
     {
         public void main()
         {
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new MedicalRecordsApi();
@@ -371,7 +371,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[MyNhsOAuth2](../README.md#MyNhsOAuth2)
 
 ### HTTP request headers
 

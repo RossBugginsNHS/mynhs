@@ -426,7 +426,7 @@ namespace mynhs.sdk.Api
             if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            // authentication (OAuth2) required
+            // authentication (MyNhsOAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
@@ -504,7 +504,7 @@ namespace mynhs.sdk.Api
             if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            // authentication (OAuth2) required
+            // authentication (MyNhsOAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
@@ -589,7 +589,7 @@ namespace mynhs.sdk.Api
             {
                 localVarPostBody = body; // byte array
             }
-            // authentication (OAuth2) required
+            // authentication (MyNhsOAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
@@ -675,7 +675,7 @@ namespace mynhs.sdk.Api
             {
                 localVarPostBody = body; // byte array
             }
-            // authentication (OAuth2) required
+            // authentication (MyNhsOAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
@@ -752,7 +752,7 @@ namespace mynhs.sdk.Api
 
             if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (submissionId != null) localVarPathParams.Add("submissionId", this.Configuration.ApiClient.ParameterToString(submissionId)); // path parameter
-            // authentication (OAuth2) required
+            // authentication (MyNhsOAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
@@ -830,7 +830,7 @@ namespace mynhs.sdk.Api
 
             if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (submissionId != null) localVarPathParams.Add("submissionId", this.Configuration.ApiClient.ParameterToString(submissionId)); // path parameter
-            // authentication (OAuth2) required
+            // authentication (MyNhsOAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
@@ -921,7 +921,7 @@ namespace mynhs.sdk.Api
             {
                 localVarPostBody = body; // byte array
             }
-            // authentication (OAuth2) required
+            // authentication (MyNhsOAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
@@ -1013,7 +1013,7 @@ namespace mynhs.sdk.Api
             {
                 localVarPostBody = body; // byte array
             }
-            // authentication (OAuth2) required
+            // authentication (MyNhsOAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
@@ -1090,7 +1090,7 @@ namespace mynhs.sdk.Api
 
             if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (submissionId != null) localVarPathParams.Add("submissionId", this.Configuration.ApiClient.ParameterToString(submissionId)); // path parameter
-            // authentication (OAuth2) required
+            // authentication (MyNhsOAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {
@@ -1168,7 +1168,7 @@ namespace mynhs.sdk.Api
 
             if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (submissionId != null) localVarPathParams.Add("submissionId", this.Configuration.ApiClient.ParameterToString(submissionId)); // path parameter
-            // authentication (OAuth2) required
+            // authentication (MyNhsOAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
             {

@@ -47,7 +47,7 @@ namespace Example
     {
         public void main()
         {
-            // Configure OAuth2 access token for authorization: OAuth2
+            // Configure OAuth2 access token for authorization: MyNhsOAuth2
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AccessAndApplicationsApi();
@@ -148,8 +148,8 @@ Class | Method | HTTP request | Description
 <a name="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
-<a name="OAuth2"></a>
-### OAuth2
+<a name="MyNhsOAuth2"></a>
+### MyNhsOAuth2
 
 - **Type**: OAuth
 - **Flow**: accessCode
