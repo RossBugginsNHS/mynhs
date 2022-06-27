@@ -30,6 +30,29 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <remarks>Test</remarks>
+        /// <response code="200">OK</response>
+        [HttpGet]
+        [Route("/NHSX/MyNhs/0.1/helloworld/hi")]
+        [ValidateModelState]
+        [SwaggerOperation("HelloworldHiGet")]
+        [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
+        public virtual IActionResult HelloworldHiGet()
+        { 
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200, default(NhsProfile));
+            string exampleJson = null;
+            exampleJson = "{\n  \"NhsNumber\" : 0\n}";
+            
+                        var example = exampleJson != null
+                        ? JsonConvert.DeserializeObject<NhsProfile>(exampleJson)
+                        : default(NhsProfile);            //TODO: Change the data returned
+            return new ObjectResult(example);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <remarks>Gets a list of all tenancies for the current user. Required OAuth Scopes: [tenants.read]</remarks>
         /// <response code="200">OK</response>
         [HttpGet]

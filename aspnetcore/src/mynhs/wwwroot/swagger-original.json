@@ -47,6 +47,27 @@
     "description" : "is not in the scope of a tenancy - ie covers all."
   } ],
   "paths" : {
+    "/helloworld/hi" : {
+      "get" : {
+        "tags" : [ "My NHS Management" ],
+        "description" : "Test",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/NhsProfile"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "MyNhsOAuth2" : [ "write:pets" ]
+        } ]
+      }
+    },
     "/mynhsmanagement/tenants" : {
       "get" : {
         "tags" : [ "My NHS Management" ],
@@ -2464,7 +2485,8 @@
               "observations.bloodpressure.delete" : "Delete existing blood pressure reading",
               "observations.bloodpressure.summary.read" : "read summary",
               "observations.bloodpressure.summary.read.shared" : "sd",
-              "healthcheck.execute" : "Run a health check"
+              "healthcheck.execute" : "Run a health check",
+              "write:pets" : ""
             }
           }
         }
