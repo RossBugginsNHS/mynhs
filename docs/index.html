@@ -9851,7 +9851,7 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-MyNHSManagement-helloworldHiGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
-\
+-H "X-API-KEY: [[apiKey]]"\
 -H "Accept: application/json"\
 "https://virtserver.swaggerhub.com/NHSX/MyNhs/0.1/helloworld/hi"</code></pre>
                           </div>
@@ -9869,9 +9869,11 @@ public class MyNHSManagementApiExample {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        // Configure OAuth2 access token for authorization: MyNhsOAuth2
-        OAuth MyNhsOAuth2 = (OAuth) defaultClient.getAuthentication("MyNhsOAuth2");
-        MyNhsOAuth2.setAccessToken("YOUR ACCESS TOKEN");
+        // Configure API key authorization: ApiKeyAuth
+        ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+        ApiKeyAuth.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //ApiKeyAuth.setApiKeyPrefix("Token");
 
         MyNHSManagementApi apiInstance = new MyNHSManagementApi();
         try {
@@ -9908,8 +9910,10 @@ public class MyNHSManagementApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-MyNHSManagement-helloworldHiGet-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-// Configure OAuth2 access token for authorization: (authentication scheme: MyNhsOAuth2)
-[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+// Configure API key authorization: (authentication scheme: ApiKeyAuth)
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"X-API-KEY"];
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"X-API-KEY"];
 
 MyNHSManagementApi *apiInstance = [[MyNHSManagementApi alloc] init];
 
@@ -9929,9 +9933,11 @@ MyNHSManagementApi *apiInstance = [[MyNHSManagementApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 var defaultClient = MyNhsGraph.ApiClient.instance;
 
-// Configure OAuth2 access token for authorization: MyNhsOAuth2
-var MyNhsOAuth2 = defaultClient.authentications['MyNhsOAuth2'];
-MyNhsOAuth2.accessToken = "YOUR ACCESS TOKEN"
+// Configure API key authorization: ApiKeyAuth
+var ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+ApiKeyAuth.apiKey = "YOUR API KEY"
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.apiKeyPrefix['X-API-KEY'] = "Token"
 
 var api = new MyNhsGraph.MyNHSManagementApi()
 var callback = function(error, data, response) {
@@ -9962,8 +9968,10 @@ namespace Example
         public void main()
         {
 
-            // Configure OAuth2 access token for authorization: MyNhsOAuth2
-            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyAuth
+            Configuration.Default.ApiKey.Add("X-API-KEY", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("X-API-KEY", "Bearer");
 
             var apiInstance = new MyNHSManagementApi();
 
@@ -9986,8 +9994,10 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: MyNhsOAuth2
-Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ApiKeyAuth
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
 
 $api_instance = new Swagger\Client\ApiMyNHSManagementApi();
 
@@ -10005,8 +10015,10 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::MyNHSManagementApi;
 
-# Configure OAuth2 access token for authorization: MyNhsOAuth2
-$WWW::SwaggerClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
+# Configure API key authorization: ApiKeyAuth
+$WWW::SwaggerClient::Configuration::api_key->{'X-API-KEY'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$WWW::SwaggerClient::Configuration::api_key_prefix->{'X-API-KEY'} = "Bearer";
 
 my $api_instance = WWW::SwaggerClient::MyNHSManagementApi->new();
 
@@ -10026,8 +10038,10 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: MyNhsOAuth2
-swagger_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure API key authorization: ApiKeyAuth
+swagger_client.configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# swagger_client.configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.MyNHSManagementApi()
