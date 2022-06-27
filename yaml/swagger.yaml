@@ -68,7 +68,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NhsProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - tenants.read
   /mynhs/{userId}/appointments:
     get:
@@ -100,7 +100,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NhsProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - appointment.read
         - appointment.read.shared
         - appointment.read.all
@@ -129,7 +129,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/DigitalHealthCheckResult'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - healthcheck.execute
   /mynhs/tools/heartage:
     post:
@@ -252,7 +252,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NhsProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - digitalhealthcheck.read
   /mynhs/{userId}/digitalhealthchecks/submissions:
     post:
@@ -294,7 +294,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NhsProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - digitalhealthcheck.read
   /mynhs/{userId}/digitalhealthchecks/submissions/{submissionId}:
     get:
@@ -335,7 +335,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NhsProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - digitalhealthcheck.read
     put:
       tags:
@@ -391,7 +391,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NhsProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - digitalhealthcheck.read
   /mynhs/{userId}/digitalhealthchecks/submissions/{submissionId}/submit:
     put:
@@ -442,7 +442,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SubmissionResponse'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - digitalhealthcheck.read
   /mynhs/{userId}/digitalhealthchecks/{healthCheckId}:
     get:
@@ -504,7 +504,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NhsProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - digitalhealthcheck.read
   /mynhs/{userId}/digitalhealthchecks/{healthCheckId}/{healthCheckType}:
     get:
@@ -582,7 +582,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NhsProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - digitalhealthcheck.read
   /mynhs/tennantOrOrganisationOrTheNameForWhatRecordsAreLinkedTo:
     get:
@@ -596,7 +596,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NhsProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - tennant.read
   /mynhs/applications:
     get:
@@ -610,7 +610,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NhsProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - applications.read
   /mynhs/owners:
     get:
@@ -624,7 +624,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NhsProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - applications.read
   /mynhs/users:
     get:
@@ -638,7 +638,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - applications.read
   /mynhs/{userId}/user:
     get:
@@ -670,7 +670,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - applications.read
   /mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords:
     post:
@@ -702,7 +702,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/MyNhsProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - profile.read
   /mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords/{requestId}:
     get:
@@ -741,7 +741,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/MyNhsProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - profile.read
   /mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords/{requestId}/submit:
     put:
@@ -780,7 +780,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/MyNhsProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - profile.read
   /mynhs/{userId}/medicalrecords/detailed/nhs/requestRecords/results/{resultId}:
     get:
@@ -819,7 +819,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/MyNhsProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - profile.read
   /mynhs/{userId}/medicalrecords/summary/nhs:
     get:
@@ -851,7 +851,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/MyNhsProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - profile.read
   /mynhs/{userId}/medicalrecords/summary/nhs/{trustId}:
     get:
@@ -890,7 +890,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/MyNhsProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - profile.read
   /mynhs/{userId}/profile/centralnhs:
     get:
@@ -922,7 +922,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NhsProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - profile.read
   /mynhs/{userId}/profile/gp:
     get:
@@ -954,7 +954,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GpProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - profile.read
   /mynhs/{userId}/profile:
     get:
@@ -987,7 +987,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/MyNhsProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - profile.read
         - profile.read.shared
         - profile.read.all
@@ -1344,7 +1344,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NhsProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - observations.bloodpressure.summary.read
   /mynhs/{userId}/events:
     get:
@@ -1376,7 +1376,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NhsProfile'
       security:
-      - OAuth2:
+      - MyNhsOAuth2:
         - events.read
         - events.read.shared
         - events.read.all
@@ -1887,7 +1887,7 @@ components:
         Days: 4329
         Millimeters: 654222
   securitySchemes:
-    OAuth2:
+    MyNhsOAuth2:
       type: oauth2
       flows:
         authorizationCode:
