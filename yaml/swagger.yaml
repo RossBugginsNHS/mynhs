@@ -54,6 +54,21 @@ tags:
 - name: My NHS Management
   description: is not in the scope of a tenancy - ie covers all.
 paths:
+  /helloworld/hi:
+    get:
+      tags:
+      - My NHS Management
+      description: Test
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NhsProfile'
+      security:
+      - MyNhsOAuth2:
+        - write:pets
   /mynhsmanagement/tenants:
     get:
       tags:
@@ -1917,3 +1932,4 @@ components:
             observations.bloodpressure.summary.read: read summary
             observations.bloodpressure.summary.read.shared: sd
             healthcheck.execute: Run a health check
+            write:pets: ""
