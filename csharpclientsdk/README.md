@@ -155,6 +155,9 @@ Class | Method | HTTP request | Description
 - **Flow**: accessCode
 - **Authorization URL**: https://example.com/oauth/authorize
 - **Scopes**: 
+  - appointment.read: Read
+  - appointment.read.all: Read All
+  - appointment.read.shared: Read Shared
   - applications.read: Grants read access to applications
   - profile.read: Read My Profile- only for owner to read the primary user profile
   - profile.read.all: Read All Profiles - ie read profile of primary user if you have been given guest access
@@ -171,4 +174,5 @@ Class | Method | HTTP request | Description
   - observations.bloodpressure.delete: Delete existing blood pressure reading
   - observations.bloodpressure.summary.read: read summary
   - observations.bloodpressure.summary.read.shared: sd
+  - healthcheck.execute: Run a health check
 

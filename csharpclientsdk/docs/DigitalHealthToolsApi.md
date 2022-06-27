@@ -202,6 +202,9 @@ namespace Example
     {
         public void main()
         {
+            // Configure OAuth2 access token for authorization: OAuth2
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new DigitalHealthToolsApi();
             var body = new DigitalHealthCheckRequestAll(); // DigitalHealthCheckRequestAll | Optional description in *Markdown*
 
@@ -232,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 

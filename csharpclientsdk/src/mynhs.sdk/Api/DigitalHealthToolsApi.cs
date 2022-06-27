@@ -799,6 +799,12 @@ namespace mynhs.sdk.Api
             {
                 localVarPostBody = body; // byte array
             }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
@@ -872,6 +878,12 @@ namespace mynhs.sdk.Api
             else
             {
                 localVarPostBody = body; // byte array
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
             }
 
             // make the HTTP request
