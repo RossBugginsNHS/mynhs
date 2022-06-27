@@ -43,7 +43,7 @@ paths:
       tags:
         -  My NHS Management
       security:
-        - OAuth2: [tenants.read]           
+        - MyNhsOAuth2: [tenants.read]           
       responses:
         '200':
           description: OK
@@ -59,7 +59,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/userIdParam'        
       security:
-        - OAuth2: [appointment.read, appointment.read.shared, appointment.read.all]           
+        - MyNhsOAuth2: [appointment.read, appointment.read.shared, appointment.read.all]           
       responses:
         '200':
           description: OK
@@ -73,7 +73,7 @@ paths:
       operationId: PostHealthCheck
       summary: Run a health check on provided data   
       security:
-        - OAuth2: 
+        - MyNhsOAuth2: 
           - healthcheck.execute
       description: '**Does not store anything**, just returns response'
       tags:
@@ -175,7 +175,7 @@ paths:
       tags:
         -  Digital Health Checks|Submissions
       security:
-        - OAuth2: [digitalhealthcheck.read]           
+        - MyNhsOAuth2: [digitalhealthcheck.read]           
       parameters:
         - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/skipParam'
@@ -195,7 +195,7 @@ paths:
       tags:
         -  Digital Health Checks|Submissions
       security:
-        - OAuth2: [digitalhealthcheck.read]  
+        - MyNhsOAuth2: [digitalhealthcheck.read]  
       parameters:
         - $ref: '#/components/parameters/userIdParam'        
       requestBody:
@@ -222,7 +222,7 @@ paths:
       tags:
         -  Digital Health Checks|Submissions
       security:
-        - OAuth2: [digitalhealthcheck.read] 
+        - MyNhsOAuth2: [digitalhealthcheck.read] 
       parameters:
         - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/submissionIdParam'    
@@ -255,7 +255,7 @@ paths:
       tags:
         -  Digital Health Checks|Submissions
       security:
-        - OAuth2: [digitalhealthcheck.read]    
+        - MyNhsOAuth2: [digitalhealthcheck.read]    
       parameters:
         - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/submissionIdParam'        
@@ -276,7 +276,7 @@ paths:
         - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/submissionIdParam'    
       security:
-        - OAuth2: [digitalhealthcheck.read]           
+        - MyNhsOAuth2: [digitalhealthcheck.read]           
       responses:
         '202':
           $ref: '#/components/responses/SubmissionAcceptedResponse'
@@ -292,7 +292,7 @@ paths:
         - $ref: '#/components/parameters/skipParam'
         - $ref: '#/components/parameters/limitParam'          
       security:
-        - OAuth2: [digitalhealthcheck.read]           
+        - MyNhsOAuth2: [digitalhealthcheck.read]           
       responses:
         '200':
           description: OK
@@ -314,7 +314,7 @@ paths:
         - $ref: '#/components/parameters/healthCheckTypeParam'             
         
       security:
-        - OAuth2: [digitalhealthcheck.read]           
+        - MyNhsOAuth2: [digitalhealthcheck.read]           
       responses:
         '200':
           description: OK
@@ -330,7 +330,7 @@ paths:
       tags:
         - Access and Applications
       security:
-        - OAuth2: [tennant.read]         
+        - MyNhsOAuth2: [tennant.read]         
       responses:
         '200':
           description: OK
@@ -345,7 +345,7 @@ paths:
       tags:
         - Access and Applications
       security:
-        - OAuth2: [applications.read]         
+        - MyNhsOAuth2: [applications.read]         
       responses:
         '200':
           description: OK
@@ -360,7 +360,7 @@ paths:
       tags:
         - Access and Applications
       security:
-        - OAuth2: [applications.read]         
+        - MyNhsOAuth2: [applications.read]         
       responses:
         '200':
           description: OK
@@ -375,7 +375,7 @@ paths:
       tags:
         - Access and Applications
       security:
-        - OAuth2: [applications.read]         
+        - MyNhsOAuth2: [applications.read]         
       responses:
         '200':
           description: OK
@@ -389,7 +389,7 @@ paths:
       tags:
         - Access and Applications
       security:
-        - OAuth2: [applications.read]        
+        - MyNhsOAuth2: [applications.read]        
       parameters:
         - $ref: '#/components/parameters/userIdParam'
       responses:
@@ -405,7 +405,7 @@ paths:
       tags:
         - Medical Records
       security:
-        - OAuth2: [profile.read]  
+        - MyNhsOAuth2: [profile.read]  
       parameters:
         - $ref: '#/components/parameters/userIdParam'        
       responses:
@@ -431,7 +431,7 @@ paths:
       tags:
         - Medical Records
       security:
-        - OAuth2: [profile.read]         
+        - MyNhsOAuth2: [profile.read]         
       responses:
         '200':
           description: OK
@@ -453,7 +453,7 @@ paths:
       tags:
         - Medical Records
       security:
-        - OAuth2: [profile.read]         
+        - MyNhsOAuth2: [profile.read]         
       responses:
         '200':
           description: OK
@@ -476,7 +476,7 @@ paths:
       tags:
         - Medical Records
       security:
-        - OAuth2: [profile.read]         
+        - MyNhsOAuth2: [profile.read]         
       responses:
         '200':
           description: OK
@@ -491,7 +491,7 @@ paths:
       tags:
         - Medical Records
       security:
-        - OAuth2: [profile.read]   
+        - MyNhsOAuth2: [profile.read]   
       parameters:
         - $ref: '#/components/parameters/userIdParam'        
       responses:
@@ -515,7 +515,7 @@ paths:
           schema:
             type: string  
       security:
-        - OAuth2: [profile.read]         
+        - MyNhsOAuth2: [profile.read]         
       responses:
         '200':
           description: OK
@@ -533,7 +533,7 @@ paths:
       tags:
         - Profile
       security:
-        - OAuth2: [profile.read]   
+        - MyNhsOAuth2: [profile.read]   
       parameters:
         - $ref: '#/components/parameters/userIdParam'        
       responses:
@@ -550,7 +550,7 @@ paths:
       tags:
         - Profile
       security:
-        - OAuth2: [profile.read]   
+        - MyNhsOAuth2: [profile.read]   
       parameters:
         - $ref: '#/components/parameters/userIdParam'        
       responses:
@@ -567,7 +567,7 @@ paths:
       tags:
         - Profile
       security:
-        - OAuth2: [profile.read, profile.read.shared, profile.read.all]   
+        - MyNhsOAuth2: [profile.read, profile.read.shared, profile.read.all]   
       description: 'Scopes: [profile.read, profile.read.shared, profile.read.all]'
       parameters:
         - $ref: '#/components/parameters/userIdParam' 
@@ -694,7 +694,7 @@ paths:
         - $ref: '#/components/parameters/pastDaysParam'              
       
       security:
-        - OAuth2: [observations.bloodpressure.summary.read]
+        - MyNhsOAuth2: [observations.bloodpressure.summary.read]
       responses:
         '200':
           description: OK
@@ -709,7 +709,7 @@ paths:
       tags:
         - Events
       security:
-        - OAuth2: [events.read, events.read.shared, events.read.all]
+        - MyNhsOAuth2: [events.read, events.read.shared, events.read.all]
       parameters:
         - $ref: '#/components/parameters/userIdParam'        
       responses:
@@ -1178,7 +1178,7 @@ components:
           schema:
             $ref: '#/components/schemas/SubmissionStatus'    
   securitySchemes:
-    OAuth2:
+    MyNhsOAuth2:
       type: oauth2
       flows:
         authorizationCode:
