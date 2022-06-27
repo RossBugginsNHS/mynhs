@@ -5,6 +5,7 @@ All URIs are relative to *https://virtserver.swaggerhub.com/NHSX/MyNhs/0.1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**MynhsToolsBloodpressurePost**](DigitalHealthToolsApi.md#mynhstoolsbloodpressurepost) | **POST** /mynhs/tools/bloodpressure | 
+[**MynhsToolsDaysoldPost**](DigitalHealthToolsApi.md#mynhstoolsdaysoldpost) | **POST** /mynhs/tools/daysold | 
 [**MynhsToolsHeartagePost**](DigitalHealthToolsApi.md#mynhstoolsheartagepost) | **POST** /mynhs/tools/heartage | 
 [**PostHealthCheck**](DigitalHealthToolsApi.md#posthealthcheck) | **POST** /mynhs/tools/healthcheck | Run a health check on provided data
 
@@ -54,6 +55,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BloodPressureResult**](BloodPressureResult.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+<a name="mynhstoolsdaysoldpost"></a>
+# **MynhsToolsDaysoldPost**
+> DaysOld MynhsToolsDaysoldPost (DateOfBirth body)
+
+
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using mynhs.sdk.Api;
+using mynhs.sdk.Client;
+using mynhs.sdk.Model;
+
+namespace Example
+{
+    public class MynhsToolsDaysoldPostExample
+    {
+        public void main()
+        {
+            var apiInstance = new DigitalHealthToolsApi();
+            var body = new DateOfBirth(); // DateOfBirth | Optional description in *Markdown*
+
+            try
+            {
+                DaysOld result = apiInstance.MynhsToolsDaysoldPost(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DigitalHealthToolsApi.MynhsToolsDaysoldPost: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**DateOfBirth**](DateOfBirth.md)| Optional description in *Markdown* | 
+
+### Return type
+
+[**DaysOld**](DaysOld.md)
 
 ### Authorization
 
@@ -124,7 +182,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 <a name="posthealthcheck"></a>
 # **PostHealthCheck**
-> DigitalHealthCheckResult PostHealthCheck (DigitalHealthCheckRequest body)
+> DigitalHealthCheckResult PostHealthCheck (DigitalHealthCheckRequestAll body)
 
 Run a health check on provided data
 
@@ -145,7 +203,7 @@ namespace Example
         public void main()
         {
             var apiInstance = new DigitalHealthToolsApi();
-            var body = new DigitalHealthCheckRequest(); // DigitalHealthCheckRequest | Optional description in *Markdown*
+            var body = new DigitalHealthCheckRequestAll(); // DigitalHealthCheckRequestAll | Optional description in *Markdown*
 
             try
             {
@@ -166,7 +224,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**DigitalHealthCheckRequest**](DigitalHealthCheckRequest.md)| Optional description in *Markdown* | 
+ **body** | [**DigitalHealthCheckRequestAll**](DigitalHealthCheckRequestAll.md)| Optional description in *Markdown* | 
 
 ### Return type
 

@@ -1,9 +1,8 @@
-# mynhs.sdk.Model.Mass
+# mynhs.sdk.Model.BloodSugar
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Grams** | **long?** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

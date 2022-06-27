@@ -22,18 +22,50 @@ using SwaggerDateConverter = mynhs.sdk.Client.SwaggerDateConverter;
 namespace mynhs.sdk.Model
 {
     /// <summary>
-    /// DigitalHealthCheckRequest
+    /// HBA1C
     /// </summary>
     [DataContract]
-        public partial class DigitalHealthCheckRequest :  IEquatable<DigitalHealthCheckRequest>
+        public partial class HBA1C :  IEquatable<HBA1C>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DigitalHealthCheckRequest" /> class.
+        /// Initializes a new instance of the <see cref="HBA1C" /> class.
         /// </summary>
-        public DigitalHealthCheckRequest()
+        /// <param name="testScore">testScore (required).</param>
+        /// <param name="bloodSugarReadingType">bloodSugarReadingType (required) (default to &quot;HBA1C&quot;).</param>
+        public HBA1C(decimal? testScore = default(decimal?), string bloodSugarReadingType = "HBA1C")
         {
+            // to ensure "testScore" is required (not null)
+            if (testScore == null)
+            {
+                throw new InvalidDataException("testScore is a required property for HBA1C and cannot be null");
+            }
+            else
+            {
+                this.TestScore = testScore;
+            }
+            // to ensure "bloodSugarReadingType" is required (not null)
+            if (bloodSugarReadingType == null)
+            {
+                throw new InvalidDataException("bloodSugarReadingType is a required property for HBA1C and cannot be null");
+            }
+            else
+            {
+                this.BloodSugarReadingType = bloodSugarReadingType;
+            }
         }
         
+        /// <summary>
+        /// Gets or Sets TestScore
+        /// </summary>
+        [DataMember(Name="TestScore", EmitDefaultValue=false)]
+        public decimal? TestScore { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BloodSugarReadingType
+        /// </summary>
+        [DataMember(Name="bloodSugarReadingType", EmitDefaultValue=false)]
+        public string BloodSugarReadingType { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -41,7 +73,9 @@ namespace mynhs.sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DigitalHealthCheckRequest {\n");
+            sb.Append("class HBA1C {\n");
+            sb.Append("  TestScore: ").Append(TestScore).Append("\n");
+            sb.Append("  BloodSugarReadingType: ").Append(BloodSugarReadingType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -62,20 +96,30 @@ namespace mynhs.sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DigitalHealthCheckRequest);
+            return this.Equals(input as HBA1C);
         }
 
         /// <summary>
-        /// Returns true if DigitalHealthCheckRequest instances are equal
+        /// Returns true if HBA1C instances are equal
         /// </summary>
-        /// <param name="input">Instance of DigitalHealthCheckRequest to be compared</param>
+        /// <param name="input">Instance of HBA1C to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DigitalHealthCheckRequest input)
+        public bool Equals(HBA1C input)
         {
             if (input == null)
                 return false;
 
-            return false;
+            return 
+                (
+                    this.TestScore == input.TestScore ||
+                    (this.TestScore != null &&
+                    this.TestScore.Equals(input.TestScore))
+                ) && 
+                (
+                    this.BloodSugarReadingType == input.BloodSugarReadingType ||
+                    (this.BloodSugarReadingType != null &&
+                    this.BloodSugarReadingType.Equals(input.BloodSugarReadingType))
+                );
         }
 
         /// <summary>
@@ -87,6 +131,10 @@ namespace mynhs.sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.TestScore != null)
+                    hashCode = hashCode * 59 + this.TestScore.GetHashCode();
+                if (this.BloodSugarReadingType != null)
+                    hashCode = hashCode * 59 + this.BloodSugarReadingType.GetHashCode();
                 return hashCode;
             }
         }

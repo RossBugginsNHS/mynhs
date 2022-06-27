@@ -30,10 +30,18 @@ namespace mynhs.sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Height" /> class.
         /// </summary>
-        /// <param name="millimeters">millimeters.</param>
+        /// <param name="millimeters">millimeters (required).</param>
         public Height(long? millimeters = default(long?))
         {
-            this.Millimeters = millimeters;
+            // to ensure "millimeters" is required (not null)
+            if (millimeters == null)
+            {
+                throw new InvalidDataException("millimeters is a required property for Height and cannot be null");
+            }
+            else
+            {
+                this.Millimeters = millimeters;
+            }
         }
         
         /// <summary>

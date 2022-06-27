@@ -22,15 +22,15 @@ using SwaggerDateConverter = mynhs.sdk.Client.SwaggerDateConverter;
 namespace mynhs.sdk.Model
 {
     /// <summary>
-    /// DigitalHealthCheckRequest
+    /// AnyOfDigitalHealthCheckRequestMinimal
     /// </summary>
     [DataContract]
-        public partial class DigitalHealthCheckRequest :  IEquatable<DigitalHealthCheckRequest>
+        public partial class AnyOfDigitalHealthCheckRequestMinimal :  IEquatable<AnyOfDigitalHealthCheckRequestMinimal>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DigitalHealthCheckRequest" /> class.
+        /// Initializes a new instance of the <see cref="AnyOfDigitalHealthCheckRequestMinimal" /> class.
         /// </summary>
-        public DigitalHealthCheckRequest()
+        public AnyOfDigitalHealthCheckRequestMinimal()
         {
         }
         
@@ -41,7 +41,7 @@ namespace mynhs.sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DigitalHealthCheckRequest {\n");
+            sb.Append("class AnyOfDigitalHealthCheckRequestMinimal {\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -62,15 +62,15 @@ namespace mynhs.sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DigitalHealthCheckRequest);
+            return this.Equals(input as AnyOfDigitalHealthCheckRequestMinimal);
         }
 
         /// <summary>
-        /// Returns true if DigitalHealthCheckRequest instances are equal
+        /// Returns true if AnyOfDigitalHealthCheckRequestMinimal instances are equal
         /// </summary>
-        /// <param name="input">Instance of DigitalHealthCheckRequest to be compared</param>
+        /// <param name="input">Instance of AnyOfDigitalHealthCheckRequestMinimal to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DigitalHealthCheckRequest input)
+        public bool Equals(AnyOfDigitalHealthCheckRequestMinimal input)
         {
             if (input == null)
                 return false;

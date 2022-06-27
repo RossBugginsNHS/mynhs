@@ -88,6 +88,7 @@ Class | Method | HTTP request | Description
 *DigitalHealthChecksSubmissionsApi* | [**MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut**](docs/DigitalHealthChecksSubmissionsApi.md#mynhsuseriddigitalhealthcheckssubmissionssubmissionidput) | **PUT** /mynhs/{userId}/digitalhealthchecks/submissions/{submissionId} | 
 *DigitalHealthChecksSubmissionsApi* | [**MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut**](docs/DigitalHealthChecksSubmissionsApi.md#mynhsuseriddigitalhealthcheckssubmissionssubmissionidsubmitput) | **PUT** /mynhs/{userId}/digitalhealthchecks/submissions/{submissionId}/submit | 
 *DigitalHealthToolsApi* | [**MynhsToolsBloodpressurePost**](docs/DigitalHealthToolsApi.md#mynhstoolsbloodpressurepost) | **POST** /mynhs/tools/bloodpressure | 
+*DigitalHealthToolsApi* | [**MynhsToolsDaysoldPost**](docs/DigitalHealthToolsApi.md#mynhstoolsdaysoldpost) | **POST** /mynhs/tools/daysold | 
 *DigitalHealthToolsApi* | [**MynhsToolsHeartagePost**](docs/DigitalHealthToolsApi.md#mynhstoolsheartagepost) | **POST** /mynhs/tools/heartage | 
 *DigitalHealthToolsApi* | [**PostHealthCheck**](docs/DigitalHealthToolsApi.md#posthealthcheck) | **POST** /mynhs/tools/healthcheck | Run a health check on provided data
 *EventsApi* | [**MynhsUserIdEventsGet**](docs/EventsApi.md#mynhsuserideventsget) | **GET** /mynhs/{userId}/events | 
@@ -113,16 +114,36 @@ Class | Method | HTTP request | Description
 <a name="documentation-for-models"></a>
 ## Documentation for Models
 
+ - [Model.Age](docs/Age.md)
+ - [Model.AnyOfDigitalHealthCheckRequestMinimal](docs/AnyOfDigitalHealthCheckRequestMinimal.md)
  - [Model.BloodPressure](docs/BloodPressure.md)
  - [Model.BloodPressureResult](docs/BloodPressureResult.md)
+ - [Model.BloodSugar](docs/BloodSugar.md)
+ - [Model.Colesterol](docs/Colesterol.md)
+ - [Model.DateOfBirth](docs/DateOfBirth.md)
+ - [Model.DaysOld](docs/DaysOld.md)
  - [Model.DigitalHealthCheckRequest](docs/DigitalHealthCheckRequest.md)
+ - [Model.DigitalHealthCheckRequestAll](docs/DigitalHealthCheckRequestAll.md)
+ - [Model.DigitalHealthCheckRequestMinimal](docs/DigitalHealthCheckRequestMinimal.md)
  - [Model.DigitalHealthCheckResult](docs/DigitalHealthCheckResult.md)
+ - [Model.Glocose](docs/Glocose.md)
  - [Model.GpProfile](docs/GpProfile.md)
+ - [Model.HBA1C](docs/HBA1C.md)
  - [Model.Height](docs/Height.md)
  - [Model.Mass](docs/Mass.md)
+ - [Model.MeanBlood](docs/MeanBlood.md)
  - [Model.MyNhsProfile](docs/MyNhsProfile.md)
  - [Model.NhsProfile](docs/NhsProfile.md)
+ - [Model.OneOfAge](docs/OneOfAge.md)
+ - [Model.OneOfBloodSugar](docs/OneOfBloodSugar.md)
+ - [Model.OneOfDigitalHealthCheckRequest](docs/OneOfDigitalHealthCheckRequest.md)
+ - [Model.StatusEnum](docs/StatusEnum.md)
+ - [Model.SubmissionResponse](docs/SubmissionResponse.md)
+ - [Model.SubmissionResponseDetails](docs/SubmissionResponseDetails.md)
+ - [Model.SubmissionStatus](docs/SubmissionStatus.md)
+ - [Model.SubmissionStatusBase](docs/SubmissionStatusBase.md)
  - [Model.UserProfile](docs/UserProfile.md)
+ - [Model.YearsOld](docs/YearsOld.md)
 
 <a name="documentation-for-authorization"></a>
 ## Documentation for Authorization

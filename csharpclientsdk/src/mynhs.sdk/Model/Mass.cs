@@ -30,10 +30,18 @@ namespace mynhs.sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Mass" /> class.
         /// </summary>
-        /// <param name="grams">grams.</param>
+        /// <param name="grams">grams (required).</param>
         public Mass(long? grams = default(long?))
         {
-            this.Grams = grams;
+            // to ensure "grams" is required (not null)
+            if (grams == null)
+            {
+                throw new InvalidDataException("grams is a required property for Mass and cannot be null");
+            }
+            else
+            {
+                this.Grams = grams;
+            }
         }
         
         /// <summary>

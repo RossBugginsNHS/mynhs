@@ -22,18 +22,27 @@ using SwaggerDateConverter = mynhs.sdk.Client.SwaggerDateConverter;
 namespace mynhs.sdk.Model
 {
     /// <summary>
-    /// DigitalHealthCheckRequest
+    /// DaysOld
     /// </summary>
     [DataContract]
-        public partial class DigitalHealthCheckRequest :  IEquatable<DigitalHealthCheckRequest>
+        public partial class DaysOld :  IEquatable<DaysOld>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DigitalHealthCheckRequest" /> class.
+        /// Initializes a new instance of the <see cref="DaysOld" /> class.
         /// </summary>
-        public DigitalHealthCheckRequest()
+        /// <param name="days">Number of days old (rounded down to whole number).</param>
+        public DaysOld(int? days = default(int?))
         {
+            this.Days = days;
         }
         
+        /// <summary>
+        /// Number of days old (rounded down to whole number)
+        /// </summary>
+        /// <value>Number of days old (rounded down to whole number)</value>
+        [DataMember(Name="Days", EmitDefaultValue=false)]
+        public int? Days { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -41,7 +50,8 @@ namespace mynhs.sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DigitalHealthCheckRequest {\n");
+            sb.Append("class DaysOld {\n");
+            sb.Append("  Days: ").Append(Days).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -62,20 +72,25 @@ namespace mynhs.sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DigitalHealthCheckRequest);
+            return this.Equals(input as DaysOld);
         }
 
         /// <summary>
-        /// Returns true if DigitalHealthCheckRequest instances are equal
+        /// Returns true if DaysOld instances are equal
         /// </summary>
-        /// <param name="input">Instance of DigitalHealthCheckRequest to be compared</param>
+        /// <param name="input">Instance of DaysOld to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DigitalHealthCheckRequest input)
+        public bool Equals(DaysOld input)
         {
             if (input == null)
                 return false;
 
-            return false;
+            return 
+                (
+                    this.Days == input.Days ||
+                    (this.Days != null &&
+                    this.Days.Equals(input.Days))
+                );
         }
 
         /// <summary>
@@ -87,6 +102,8 @@ namespace mynhs.sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Days != null)
+                    hashCode = hashCode * 59 + this.Days.GetHashCode();
                 return hashCode;
             }
         }

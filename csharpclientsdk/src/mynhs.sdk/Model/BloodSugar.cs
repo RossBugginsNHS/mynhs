@@ -17,20 +17,22 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using JsonSubTypes;
 using SwaggerDateConverter = mynhs.sdk.Client.SwaggerDateConverter;
 
 namespace mynhs.sdk.Model
 {
     /// <summary>
-    /// DigitalHealthCheckRequest
+    /// BloodSugar
     /// </summary>
     [DataContract]
-        public partial class DigitalHealthCheckRequest :  IEquatable<DigitalHealthCheckRequest>
+    [JsonConverter(typeof(JsonSubtypes), "BloodSugarReadingType")]
+        public partial class BloodSugar :  IEquatable<BloodSugar>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DigitalHealthCheckRequest" /> class.
+        /// Initializes a new instance of the <see cref="BloodSugar" /> class.
         /// </summary>
-        public DigitalHealthCheckRequest()
+        public BloodSugar()
         {
         }
         
@@ -41,7 +43,7 @@ namespace mynhs.sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DigitalHealthCheckRequest {\n");
+            sb.Append("class BloodSugar {\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -62,15 +64,15 @@ namespace mynhs.sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DigitalHealthCheckRequest);
+            return this.Equals(input as BloodSugar);
         }
 
         /// <summary>
-        /// Returns true if DigitalHealthCheckRequest instances are equal
+        /// Returns true if BloodSugar instances are equal
         /// </summary>
-        /// <param name="input">Instance of DigitalHealthCheckRequest to be compared</param>
+        /// <param name="input">Instance of BloodSugar to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DigitalHealthCheckRequest input)
+        public bool Equals(BloodSugar input)
         {
             if (input == null)
                 return false;

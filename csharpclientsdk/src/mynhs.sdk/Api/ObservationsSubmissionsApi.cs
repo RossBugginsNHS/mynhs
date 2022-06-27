@@ -74,8 +74,8 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>NhsProfile</returns>
-        NhsProfile MynhsUserIdObservationsSubmissionsSubmissionIdGet (string userId, Guid? submissionId);
+        /// <returns>SubmissionStatus</returns>
+        SubmissionStatus MynhsUserIdObservationsSubmissionsSubmissionIdGet (string userId, Guid? submissionId);
 
         /// <summary>
         /// 
@@ -86,8 +86,8 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsUserIdObservationsSubmissionsSubmissionIdGetWithHttpInfo (string userId, Guid? submissionId);
+        /// <returns>ApiResponse of SubmissionStatus</returns>
+        ApiResponse<SubmissionStatus> MynhsUserIdObservationsSubmissionsSubmissionIdGetWithHttpInfo (string userId, Guid? submissionId);
         /// <summary>
         /// 
         /// </summary>
@@ -115,25 +115,25 @@ namespace mynhs.sdk.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Submits the request to create the observation submission. A PUT should be fully idempotent, so the result will always be the same. Call GET on /mynhs/{userId}/observations/submissions/{submissionId} to get the current status.
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>NhsProfile</returns>
-        NhsProfile MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut (string userId, Guid? submissionId);
+        /// <returns>SubmissionResponse</returns>
+        SubmissionResponse MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut (string userId, Guid? submissionId);
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Submits the request to create the observation submission. A PUT should be fully idempotent, so the result will always be the same. Call GET on /mynhs/{userId}/observations/submissions/{submissionId} to get the current status.
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutWithHttpInfo (string userId, Guid? submissionId);
+        /// <returns>ApiResponse of SubmissionResponse</returns>
+        ApiResponse<SubmissionResponse> MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutWithHttpInfo (string userId, Guid? submissionId);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -187,8 +187,8 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsUserIdObservationsSubmissionsSubmissionIdGetAsync (string userId, Guid? submissionId);
+        /// <returns>Task of SubmissionStatus</returns>
+        System.Threading.Tasks.Task<SubmissionStatus> MynhsUserIdObservationsSubmissionsSubmissionIdGetAsync (string userId, Guid? submissionId);
 
         /// <summary>
         /// 
@@ -199,8 +199,8 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdObservationsSubmissionsSubmissionIdGetAsyncWithHttpInfo (string userId, Guid? submissionId);
+        /// <returns>Task of ApiResponse (SubmissionStatus)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SubmissionStatus>> MynhsUserIdObservationsSubmissionsSubmissionIdGetAsyncWithHttpInfo (string userId, Guid? submissionId);
         /// <summary>
         /// 
         /// </summary>
@@ -228,25 +228,25 @@ namespace mynhs.sdk.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Submits the request to create the observation submission. A PUT should be fully idempotent, so the result will always be the same. Call GET on /mynhs/{userId}/observations/submissions/{submissionId} to get the current status.
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutAsync (string userId, Guid? submissionId);
+        /// <returns>Task of SubmissionResponse</returns>
+        System.Threading.Tasks.Task<SubmissionResponse> MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutAsync (string userId, Guid? submissionId);
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// 
+        /// Submits the request to create the observation submission. A PUT should be fully idempotent, so the result will always be the same. Call GET on /mynhs/{userId}/observations/submissions/{submissionId} to get the current status.
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutAsyncWithHttpInfo (string userId, Guid? submissionId);
+        /// <returns>Task of ApiResponse (SubmissionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SubmissionResponse>> MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutAsyncWithHttpInfo (string userId, Guid? submissionId);
         #endregion Asynchronous Operations
     }
 
@@ -626,10 +626,10 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsUserIdObservationsSubmissionsSubmissionIdGet (string userId, Guid? submissionId)
+        /// <returns>SubmissionStatus</returns>
+        public SubmissionStatus MynhsUserIdObservationsSubmissionsSubmissionIdGet (string userId, Guid? submissionId)
         {
-             ApiResponse<NhsProfile> localVarResponse = MynhsUserIdObservationsSubmissionsSubmissionIdGetWithHttpInfo(userId, submissionId);
+             ApiResponse<SubmissionStatus> localVarResponse = MynhsUserIdObservationsSubmissionsSubmissionIdGetWithHttpInfo(userId, submissionId);
              return localVarResponse.Data;
         }
 
@@ -639,8 +639,8 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsUserIdObservationsSubmissionsSubmissionIdGetWithHttpInfo (string userId, Guid? submissionId)
+        /// <returns>ApiResponse of SubmissionStatus</returns>
+        public ApiResponse< SubmissionStatus > MynhsUserIdObservationsSubmissionsSubmissionIdGetWithHttpInfo (string userId, Guid? submissionId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -686,9 +686,9 @@ namespace mynhs.sdk.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
+            return new ApiResponse<SubmissionStatus>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
+                (SubmissionStatus) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SubmissionStatus)));
         }
 
         /// <summary>
@@ -697,10 +697,10 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsUserIdObservationsSubmissionsSubmissionIdGetAsync (string userId, Guid? submissionId)
+        /// <returns>Task of SubmissionStatus</returns>
+        public async System.Threading.Tasks.Task<SubmissionStatus> MynhsUserIdObservationsSubmissionsSubmissionIdGetAsync (string userId, Guid? submissionId)
         {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsUserIdObservationsSubmissionsSubmissionIdGetAsyncWithHttpInfo(userId, submissionId);
+             ApiResponse<SubmissionStatus> localVarResponse = await MynhsUserIdObservationsSubmissionsSubmissionIdGetAsyncWithHttpInfo(userId, submissionId);
              return localVarResponse.Data;
 
         }
@@ -711,8 +711,8 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdObservationsSubmissionsSubmissionIdGetAsyncWithHttpInfo (string userId, Guid? submissionId)
+        /// <returns>Task of ApiResponse (SubmissionStatus)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SubmissionStatus>> MynhsUserIdObservationsSubmissionsSubmissionIdGetAsyncWithHttpInfo (string userId, Guid? submissionId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -758,9 +758,9 @@ namespace mynhs.sdk.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
+            return new ApiResponse<SubmissionStatus>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
+                (SubmissionStatus) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SubmissionStatus)));
         }
 
         /// <summary>
@@ -907,26 +907,26 @@ namespace mynhs.sdk.Api
         }
 
         /// <summary>
-        ///  
+        ///  Submits the request to create the observation submission. A PUT should be fully idempotent, so the result will always be the same. Call GET on /mynhs/{userId}/observations/submissions/{submissionId} to get the current status.
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut (string userId, Guid? submissionId)
+        /// <returns>SubmissionResponse</returns>
+        public SubmissionResponse MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut (string userId, Guid? submissionId)
         {
-             ApiResponse<NhsProfile> localVarResponse = MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutWithHttpInfo(userId, submissionId);
+             ApiResponse<SubmissionResponse> localVarResponse = MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutWithHttpInfo(userId, submissionId);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  
+        ///  Submits the request to create the observation submission. A PUT should be fully idempotent, so the result will always be the same. Call GET on /mynhs/{userId}/observations/submissions/{submissionId} to get the current status.
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutWithHttpInfo (string userId, Guid? submissionId)
+        /// <returns>ApiResponse of SubmissionResponse</returns>
+        public ApiResponse< SubmissionResponse > MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutWithHttpInfo (string userId, Guid? submissionId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -972,33 +972,33 @@ namespace mynhs.sdk.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
+            return new ApiResponse<SubmissionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
+                (SubmissionResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SubmissionResponse)));
         }
 
         /// <summary>
-        ///  
+        ///  Submits the request to create the observation submission. A PUT should be fully idempotent, so the result will always be the same. Call GET on /mynhs/{userId}/observations/submissions/{submissionId} to get the current status.
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutAsync (string userId, Guid? submissionId)
+        /// <returns>Task of SubmissionResponse</returns>
+        public async System.Threading.Tasks.Task<SubmissionResponse> MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutAsync (string userId, Guid? submissionId)
         {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutAsyncWithHttpInfo(userId, submissionId);
+             ApiResponse<SubmissionResponse> localVarResponse = await MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutAsyncWithHttpInfo(userId, submissionId);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        ///  
+        ///  Submits the request to create the observation submission. A PUT should be fully idempotent, so the result will always be the same. Call GET on /mynhs/{userId}/observations/submissions/{submissionId} to get the current status.
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutAsyncWithHttpInfo (string userId, Guid? submissionId)
+        /// <returns>Task of ApiResponse (SubmissionResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SubmissionResponse>> MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutAsyncWithHttpInfo (string userId, Guid? submissionId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1044,9 +1044,9 @@ namespace mynhs.sdk.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
+            return new ApiResponse<SubmissionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
+                (SubmissionResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SubmissionResponse)));
         }
 
     }

@@ -55,9 +55,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
         /// <param name="userId">The User Id to access</param>
         /// <returns>NhsProfile</returns>
-        NhsProfile MynhsUserIdDigitalhealthchecksSubmissionsPost (string userId);
+        NhsProfile MynhsUserIdDigitalhealthchecksSubmissionsPost (DigitalHealthCheckRequestAll body, string userId);
 
         /// <summary>
         /// 
@@ -66,9 +67,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
         /// <param name="userId">The User Id to access</param>
         /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsUserIdDigitalhealthchecksSubmissionsPostWithHttpInfo (string userId);
+        ApiResponse<NhsProfile> MynhsUserIdDigitalhealthchecksSubmissionsPostWithHttpInfo (DigitalHealthCheckRequestAll body, string userId);
         /// <summary>
         /// 
         /// </summary>
@@ -99,10 +101,35 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
         /// <returns>NhsProfile</returns>
-        NhsProfile MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut (string userId, Guid? submissionId);
+        NhsProfile MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut (DigitalHealthCheckRequest body, string userId, Guid? submissionId);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="submissionId"></param>
+        /// <returns>ApiResponse of NhsProfile</returns>
+        ApiResponse<NhsProfile> MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPutWithHttpInfo (DigitalHealthCheckRequest body, string userId, Guid? submissionId);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="submissionId"></param>
+        /// <returns>SubmissionResponse</returns>
+        SubmissionResponse MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut (string userId, Guid? submissionId);
 
         /// <summary>
         /// 
@@ -113,31 +140,8 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPutWithHttpInfo (string userId, Guid? submissionId);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The User Id to access</param>
-        /// <param name="submissionId"></param>
-        /// <returns>NhsProfile</returns>
-        NhsProfile MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut (string userId, Guid? submissionId);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The User Id to access</param>
-        /// <param name="submissionId"></param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPutWithHttpInfo (string userId, Guid? submissionId);
+        /// <returns>ApiResponse of SubmissionResponse</returns>
+        ApiResponse<SubmissionResponse> MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPutWithHttpInfo (string userId, Guid? submissionId);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -172,9 +176,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
         /// <param name="userId">The User Id to access</param>
         /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsUserIdDigitalhealthchecksSubmissionsPostAsync (string userId);
+        System.Threading.Tasks.Task<NhsProfile> MynhsUserIdDigitalhealthchecksSubmissionsPostAsync (DigitalHealthCheckRequestAll body, string userId);
 
         /// <summary>
         /// 
@@ -183,9 +188,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
         /// <param name="userId">The User Id to access</param>
         /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdDigitalhealthchecksSubmissionsPostAsyncWithHttpInfo (string userId);
+        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdDigitalhealthchecksSubmissionsPostAsyncWithHttpInfo (DigitalHealthCheckRequestAll body, string userId);
         /// <summary>
         /// 
         /// </summary>
@@ -216,10 +222,35 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
         /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPutAsync (string userId, Guid? submissionId);
+        System.Threading.Tasks.Task<NhsProfile> MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPutAsync (DigitalHealthCheckRequest body, string userId, Guid? submissionId);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="submissionId"></param>
+        /// <returns>Task of ApiResponse (NhsProfile)</returns>
+        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPutAsyncWithHttpInfo (DigitalHealthCheckRequest body, string userId, Guid? submissionId);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The User Id to access</param>
+        /// <param name="submissionId"></param>
+        /// <returns>Task of SubmissionResponse</returns>
+        System.Threading.Tasks.Task<SubmissionResponse> MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPutAsync (string userId, Guid? submissionId);
 
         /// <summary>
         /// 
@@ -230,31 +261,8 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPutAsyncWithHttpInfo (string userId, Guid? submissionId);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The User Id to access</param>
-        /// <param name="submissionId"></param>
-        /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPutAsync (string userId, Guid? submissionId);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The User Id to access</param>
-        /// <param name="submissionId"></param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPutAsyncWithHttpInfo (string userId, Guid? submissionId);
+        /// <returns>Task of ApiResponse (SubmissionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SubmissionResponse>> MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPutAsyncWithHttpInfo (string userId, Guid? submissionId);
         #endregion Asynchronous Operations
     }
 
@@ -525,11 +533,12 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
         /// <param name="userId">The User Id to access</param>
         /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsUserIdDigitalhealthchecksSubmissionsPost (string userId)
+        public NhsProfile MynhsUserIdDigitalhealthchecksSubmissionsPost (DigitalHealthCheckRequestAll body, string userId)
         {
-             ApiResponse<NhsProfile> localVarResponse = MynhsUserIdDigitalhealthchecksSubmissionsPostWithHttpInfo(userId);
+             ApiResponse<NhsProfile> localVarResponse = MynhsUserIdDigitalhealthchecksSubmissionsPostWithHttpInfo(body, userId);
              return localVarResponse.Data;
         }
 
@@ -537,10 +546,14 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
         /// <param name="userId">The User Id to access</param>
         /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsUserIdDigitalhealthchecksSubmissionsPostWithHttpInfo (string userId)
+        public ApiResponse< NhsProfile > MynhsUserIdDigitalhealthchecksSubmissionsPostWithHttpInfo (DigitalHealthCheckRequestAll body, string userId)
         {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling DigitalHealthChecksSubmissionsApi->MynhsUserIdDigitalhealthchecksSubmissionsPost");
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling DigitalHealthChecksSubmissionsApi->MynhsUserIdDigitalhealthchecksSubmissionsPost");
@@ -555,6 +568,7 @@ namespace mynhs.sdk.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -567,6 +581,14 @@ namespace mynhs.sdk.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
             // authentication (OAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
@@ -596,11 +618,12 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
         /// <param name="userId">The User Id to access</param>
         /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsUserIdDigitalhealthchecksSubmissionsPostAsync (string userId)
+        public async System.Threading.Tasks.Task<NhsProfile> MynhsUserIdDigitalhealthchecksSubmissionsPostAsync (DigitalHealthCheckRequestAll body, string userId)
         {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsUserIdDigitalhealthchecksSubmissionsPostAsyncWithHttpInfo(userId);
+             ApiResponse<NhsProfile> localVarResponse = await MynhsUserIdDigitalhealthchecksSubmissionsPostAsyncWithHttpInfo(body, userId);
              return localVarResponse.Data;
 
         }
@@ -609,10 +632,14 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
         /// <param name="userId">The User Id to access</param>
         /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdDigitalhealthchecksSubmissionsPostAsyncWithHttpInfo (string userId)
+        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdDigitalhealthchecksSubmissionsPostAsyncWithHttpInfo (DigitalHealthCheckRequestAll body, string userId)
         {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling DigitalHealthChecksSubmissionsApi->MynhsUserIdDigitalhealthchecksSubmissionsPost");
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling DigitalHealthChecksSubmissionsApi->MynhsUserIdDigitalhealthchecksSubmissionsPost");
@@ -627,6 +654,7 @@ namespace mynhs.sdk.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -639,6 +667,14 @@ namespace mynhs.sdk.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
             // authentication (OAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
@@ -823,12 +859,13 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
         /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut (string userId, Guid? submissionId)
+        public NhsProfile MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut (DigitalHealthCheckRequest body, string userId, Guid? submissionId)
         {
-             ApiResponse<NhsProfile> localVarResponse = MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPutWithHttpInfo(userId, submissionId);
+             ApiResponse<NhsProfile> localVarResponse = MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPutWithHttpInfo(body, userId, submissionId);
              return localVarResponse.Data;
         }
 
@@ -836,11 +873,15 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
         /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPutWithHttpInfo (string userId, Guid? submissionId)
+        public ApiResponse< NhsProfile > MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPutWithHttpInfo (DigitalHealthCheckRequest body, string userId, Guid? submissionId)
         {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling DigitalHealthChecksSubmissionsApi->MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut");
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling DigitalHealthChecksSubmissionsApi->MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut");
@@ -858,6 +899,7 @@ namespace mynhs.sdk.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -871,6 +913,14 @@ namespace mynhs.sdk.Api
 
             if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (submissionId != null) localVarPathParams.Add("submissionId", this.Configuration.ApiClient.ParameterToString(submissionId)); // path parameter
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
             // authentication (OAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
@@ -900,12 +950,13 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
         /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPutAsync (string userId, Guid? submissionId)
+        public async System.Threading.Tasks.Task<NhsProfile> MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPutAsync (DigitalHealthCheckRequest body, string userId, Guid? submissionId)
         {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPutAsyncWithHttpInfo(userId, submissionId);
+             ApiResponse<NhsProfile> localVarResponse = await MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPutAsyncWithHttpInfo(body, userId, submissionId);
              return localVarResponse.Data;
 
         }
@@ -914,11 +965,15 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Returns an analysis of the given blood pressure reading.</param>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
         /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPutAsyncWithHttpInfo (string userId, Guid? submissionId)
+        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPutAsyncWithHttpInfo (DigitalHealthCheckRequest body, string userId, Guid? submissionId)
         {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling DigitalHealthChecksSubmissionsApi->MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut");
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling DigitalHealthChecksSubmissionsApi->MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut");
@@ -936,6 +991,7 @@ namespace mynhs.sdk.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -949,6 +1005,14 @@ namespace mynhs.sdk.Api
 
             if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (submissionId != null) localVarPathParams.Add("submissionId", this.Configuration.ApiClient.ParameterToString(submissionId)); // path parameter
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
             // authentication (OAuth2) required
             // oauth required
             if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
@@ -980,10 +1044,10 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut (string userId, Guid? submissionId)
+        /// <returns>SubmissionResponse</returns>
+        public SubmissionResponse MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut (string userId, Guid? submissionId)
         {
-             ApiResponse<NhsProfile> localVarResponse = MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPutWithHttpInfo(userId, submissionId);
+             ApiResponse<SubmissionResponse> localVarResponse = MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPutWithHttpInfo(userId, submissionId);
              return localVarResponse.Data;
         }
 
@@ -993,8 +1057,8 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPutWithHttpInfo (string userId, Guid? submissionId)
+        /// <returns>ApiResponse of SubmissionResponse</returns>
+        public ApiResponse< SubmissionResponse > MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPutWithHttpInfo (string userId, Guid? submissionId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1046,9 +1110,9 @@ namespace mynhs.sdk.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
+            return new ApiResponse<SubmissionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
+                (SubmissionResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SubmissionResponse)));
         }
 
         /// <summary>
@@ -1057,10 +1121,10 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPutAsync (string userId, Guid? submissionId)
+        /// <returns>Task of SubmissionResponse</returns>
+        public async System.Threading.Tasks.Task<SubmissionResponse> MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPutAsync (string userId, Guid? submissionId)
         {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPutAsyncWithHttpInfo(userId, submissionId);
+             ApiResponse<SubmissionResponse> localVarResponse = await MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPutAsyncWithHttpInfo(userId, submissionId);
              return localVarResponse.Data;
 
         }
@@ -1071,8 +1135,8 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPutAsyncWithHttpInfo (string userId, Guid? submissionId)
+        /// <returns>Task of ApiResponse (SubmissionResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SubmissionResponse>> MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPutAsyncWithHttpInfo (string userId, Guid? submissionId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1124,9 +1188,9 @@ namespace mynhs.sdk.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
+            return new ApiResponse<SubmissionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
+                (SubmissionResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SubmissionResponse)));
         }
 
     }

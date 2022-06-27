@@ -22,15 +22,15 @@ using SwaggerDateConverter = mynhs.sdk.Client.SwaggerDateConverter;
 namespace mynhs.sdk.Model
 {
     /// <summary>
-    /// DigitalHealthCheckRequest
+    /// SubmissionResponse
     /// </summary>
     [DataContract]
-        public partial class DigitalHealthCheckRequest :  IEquatable<DigitalHealthCheckRequest>
+        public partial class SubmissionResponse : SubmissionStatusBase,  IEquatable<SubmissionResponse>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DigitalHealthCheckRequest" /> class.
+        /// Initializes a new instance of the <see cref="SubmissionResponse" /> class.
         /// </summary>
-        public DigitalHealthCheckRequest()
+        public SubmissionResponse(Guid? submissionId = default(Guid?), Guid? submittedByUserId = default(Guid?), Guid? submittedByAppId = default(Guid?), Guid? resourceId = default(Guid?), DateTimeOffset? dateSubmitted = default(DateTimeOffset?), string submissionStatusLocation = default(string), string resourceLocation = default(string)) : base(submissionId, submittedByUserId, submittedByAppId, resourceId, dateSubmitted, submissionStatusLocation, resourceLocation)
         {
         }
         
@@ -41,7 +41,8 @@ namespace mynhs.sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DigitalHealthCheckRequest {\n");
+            sb.Append("class SubmissionResponse {\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -50,7 +51,7 @@ namespace mynhs.sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -62,20 +63,20 @@ namespace mynhs.sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DigitalHealthCheckRequest);
+            return this.Equals(input as SubmissionResponse);
         }
 
         /// <summary>
-        /// Returns true if DigitalHealthCheckRequest instances are equal
+        /// Returns true if SubmissionResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of DigitalHealthCheckRequest to be compared</param>
+        /// <param name="input">Instance of SubmissionResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DigitalHealthCheckRequest input)
+        public bool Equals(SubmissionResponse input)
         {
             if (input == null)
                 return false;
 
-            return false;
+            return base.Equals(input);
         }
 
         /// <summary>
@@ -86,7 +87,7 @@ namespace mynhs.sdk.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hashCode = base.GetHashCode();
                 return hashCode;
             }
         }

@@ -22,18 +22,28 @@ using SwaggerDateConverter = mynhs.sdk.Client.SwaggerDateConverter;
 namespace mynhs.sdk.Model
 {
     /// <summary>
-    /// DigitalHealthCheckRequest
+    /// DateOfBirth
     /// </summary>
     [DataContract]
-        public partial class DigitalHealthCheckRequest :  IEquatable<DigitalHealthCheckRequest>
+        public partial class DateOfBirth :  IEquatable<DateOfBirth>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DigitalHealthCheckRequest" /> class.
+        /// Initializes a new instance of the <see cref="DateOfBirth" /> class.
         /// </summary>
-        public DigitalHealthCheckRequest()
+        /// <param name="birthdayDoNotUse">Date of birth - * DO NOT USE * this as it means operations will not be repeatable.</param>
+        public DateOfBirth(DateTime? birthdayDoNotUse = default(DateTime?))
         {
+            this.BirthdayDoNotUse = birthdayDoNotUse;
         }
         
+        /// <summary>
+        /// Date of birth - * DO NOT USE * this as it means operations will not be repeatable
+        /// </summary>
+        /// <value>Date of birth - * DO NOT USE * this as it means operations will not be repeatable</value>
+        [DataMember(Name="BirthdayDoNotUse", EmitDefaultValue=false)]
+        [JsonConverter(typeof(SwaggerDateConverter))]
+        public DateTime? BirthdayDoNotUse { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -41,7 +51,8 @@ namespace mynhs.sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DigitalHealthCheckRequest {\n");
+            sb.Append("class DateOfBirth {\n");
+            sb.Append("  BirthdayDoNotUse: ").Append(BirthdayDoNotUse).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -62,20 +73,25 @@ namespace mynhs.sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DigitalHealthCheckRequest);
+            return this.Equals(input as DateOfBirth);
         }
 
         /// <summary>
-        /// Returns true if DigitalHealthCheckRequest instances are equal
+        /// Returns true if DateOfBirth instances are equal
         /// </summary>
-        /// <param name="input">Instance of DigitalHealthCheckRequest to be compared</param>
+        /// <param name="input">Instance of DateOfBirth to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DigitalHealthCheckRequest input)
+        public bool Equals(DateOfBirth input)
         {
             if (input == null)
                 return false;
 
-            return false;
+            return 
+                (
+                    this.BirthdayDoNotUse == input.BirthdayDoNotUse ||
+                    (this.BirthdayDoNotUse != null &&
+                    this.BirthdayDoNotUse.Equals(input.BirthdayDoNotUse))
+                );
         }
 
         /// <summary>
@@ -87,6 +103,8 @@ namespace mynhs.sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.BirthdayDoNotUse != null)
+                    hashCode = hashCode * 59 + this.BirthdayDoNotUse.GetHashCode();
                 return hashCode;
             }
         }

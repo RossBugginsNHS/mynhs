@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 <a name="mynhsuseriddigitalhealthcheckssubmissionspost"></a>
 # **MynhsUserIdDigitalhealthchecksSubmissionsPost**
-> NhsProfile MynhsUserIdDigitalhealthchecksSubmissionsPost (string userId)
+> NhsProfile MynhsUserIdDigitalhealthchecksSubmissionsPost (DigitalHealthCheckRequestAll body, string userId)
 
 
 
@@ -98,11 +98,12 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DigitalHealthChecksSubmissionsApi();
+            var body = new DigitalHealthCheckRequestAll(); // DigitalHealthCheckRequestAll | Returns an analysis of the given blood pressure reading.
             var userId = userId_example;  // string | The User Id to access
 
             try
             {
-                NhsProfile result = apiInstance.MynhsUserIdDigitalhealthchecksSubmissionsPost(userId);
+                NhsProfile result = apiInstance.MynhsUserIdDigitalhealthchecksSubmissionsPost(body, userId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -118,6 +119,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**DigitalHealthCheckRequestAll**](DigitalHealthCheckRequestAll.md)| Returns an analysis of the given blood pressure reading. | 
  **userId** | **string**| The User Id to access | 
 
 ### Return type
@@ -130,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -198,7 +200,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 <a name="mynhsuseriddigitalhealthcheckssubmissionssubmissionidput"></a>
 # **MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut**
-> NhsProfile MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut (string userId, Guid? submissionId)
+> NhsProfile MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut (DigitalHealthCheckRequest body, string userId, Guid? submissionId)
 
 
 
@@ -220,12 +222,13 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DigitalHealthChecksSubmissionsApi();
+            var body = new DigitalHealthCheckRequest(); // DigitalHealthCheckRequest | Returns an analysis of the given blood pressure reading.
             var userId = userId_example;  // string | The User Id to access
             var submissionId = new Guid?(); // Guid? | 
 
             try
             {
-                NhsProfile result = apiInstance.MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut(userId, submissionId);
+                NhsProfile result = apiInstance.MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdPut(body, userId, submissionId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -241,6 +244,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**DigitalHealthCheckRequest**](DigitalHealthCheckRequest.md)| Returns an analysis of the given blood pressure reading. | 
  **userId** | **string**| The User Id to access | 
  **submissionId** | [**Guid?**](Guid?.md)|  | 
 
@@ -254,13 +258,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 <a name="mynhsuseriddigitalhealthcheckssubmissionssubmissionidsubmitput"></a>
 # **MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut**
-> NhsProfile MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut (string userId, Guid? submissionId)
+> SubmissionResponse MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut (string userId, Guid? submissionId)
 
 
 
@@ -287,7 +291,7 @@ namespace Example
 
             try
             {
-                NhsProfile result = apiInstance.MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut(userId, submissionId);
+                SubmissionResponse result = apiInstance.MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut(userId, submissionId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -308,7 +312,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NhsProfile**](NhsProfile.md)
+[**SubmissionResponse**](SubmissionResponse.md)
 
 ### Authorization
 

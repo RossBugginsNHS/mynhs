@@ -126,7 +126,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 <a name="mynhsuseridobservationssubmissionssubmissionidget"></a>
 # **MynhsUserIdObservationsSubmissionsSubmissionIdGet**
-> NhsProfile MynhsUserIdObservationsSubmissionsSubmissionIdGet (string userId, Guid? submissionId)
+> SubmissionStatus MynhsUserIdObservationsSubmissionsSubmissionIdGet (string userId, Guid? submissionId)
 
 
 
@@ -150,7 +150,7 @@ namespace Example
 
             try
             {
-                NhsProfile result = apiInstance.MynhsUserIdObservationsSubmissionsSubmissionIdGet(userId, submissionId);
+                SubmissionStatus result = apiInstance.MynhsUserIdObservationsSubmissionsSubmissionIdGet(userId, submissionId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NhsProfile**](NhsProfile.md)
+[**SubmissionStatus**](SubmissionStatus.md)
 
 ### Authorization
 
@@ -244,9 +244,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 <a name="mynhsuseridobservationssubmissionssubmissionidsubmitput"></a>
 # **MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut**
-> NhsProfile MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut (string userId, Guid? submissionId)
+> SubmissionResponse MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut (string userId, Guid? submissionId)
 
 
+
+Submits the request to create the observation submission. A PUT should be fully idempotent, so the result will always be the same. Call GET on /mynhs/{userId}/observations/submissions/{submissionId} to get the current status.
 
 ### Example
 ```csharp
@@ -268,7 +270,7 @@ namespace Example
 
             try
             {
-                NhsProfile result = apiInstance.MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut(userId, submissionId);
+                SubmissionResponse result = apiInstance.MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut(userId, submissionId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -289,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NhsProfile**](NhsProfile.md)
+[**SubmissionResponse**](SubmissionResponse.md)
 
 ### Authorization
 
