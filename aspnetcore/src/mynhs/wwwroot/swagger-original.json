@@ -64,7 +64,7 @@
           }
         },
         "security" : [ {
-          "MyNhsOAuth2" : [ "write:pets" ]
+          "ApiKeyAuth" : [ ]
         } ]
       }
     },
@@ -2459,6 +2459,11 @@
       }
     },
     "securitySchemes" : {
+      "ApiKeyAuth" : {
+        "type" : "apiKey",
+        "name" : "X-API-KEY",
+        "in" : "header"
+      },
       "MyNhsOAuth2" : {
         "type" : "oauth2",
         "flows" : {

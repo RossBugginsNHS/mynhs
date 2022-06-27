@@ -34,6 +34,7 @@ namespace mynhs.Controllers
         /// <response code="200">OK</response>
         [HttpGet]
         [Route("/NHSX/MyNhs/0.1/helloworld/hi")]
+        [Authorize(AuthenticationSchemes = ApiKeyAuthenticationHandler.SchemeName)]
         [ValidateModelState]
         [SwaggerOperation("HelloworldHiGet")]
         [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]

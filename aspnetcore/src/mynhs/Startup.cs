@@ -66,6 +66,9 @@ namespace mynhs
                 })
                 .AddXmlSerializerFormatters();
 
+            services.AddAuthentication(ApiKeyAuthenticationHandler.SchemeName)
+                .AddScheme<AuthenticationSchemeOptions, ApiKeyAuthenticationHandler>(ApiKeyAuthenticationHandler.SchemeName, null);
+
 
             services
                 .AddSwaggerGen(c =>
