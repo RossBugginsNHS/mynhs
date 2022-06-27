@@ -64,7 +64,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "tenants.read" ]
+          "MyNhsOAuth2" : [ "tenants.read" ]
         } ]
       }
     },
@@ -106,7 +106,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "appointment.read", "appointment.read.shared", "appointment.read.all" ]
+          "MyNhsOAuth2" : [ "appointment.read", "appointment.read.shared", "appointment.read.all" ]
         } ]
       }
     },
@@ -145,7 +145,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "healthcheck.execute" ]
+          "MyNhsOAuth2" : [ "healthcheck.execute" ]
         } ]
       }
     },
@@ -321,7 +321,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "digitalhealthcheck.read" ]
+          "MyNhsOAuth2" : [ "digitalhealthcheck.read" ]
         } ]
       }
     },
@@ -379,7 +379,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "digitalhealthcheck.read" ]
+          "MyNhsOAuth2" : [ "digitalhealthcheck.read" ]
         } ]
       }
     },
@@ -432,7 +432,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "digitalhealthcheck.read" ]
+          "MyNhsOAuth2" : [ "digitalhealthcheck.read" ]
         } ]
       },
       "put" : {
@@ -508,7 +508,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "digitalhealthcheck.read" ]
+          "MyNhsOAuth2" : [ "digitalhealthcheck.read" ]
         } ]
       }
     },
@@ -573,7 +573,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "digitalhealthcheck.read" ]
+          "MyNhsOAuth2" : [ "digitalhealthcheck.read" ]
         } ]
       }
     },
@@ -650,7 +650,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "digitalhealthcheck.read" ]
+          "MyNhsOAuth2" : [ "digitalhealthcheck.read" ]
         } ]
       }
     },
@@ -737,7 +737,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "digitalhealthcheck.read" ]
+          "MyNhsOAuth2" : [ "digitalhealthcheck.read" ]
         } ]
       }
     },
@@ -757,7 +757,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "tennant.read" ]
+          "MyNhsOAuth2" : [ "tennant.read" ]
         } ]
       }
     },
@@ -777,7 +777,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "applications.read" ]
+          "MyNhsOAuth2" : [ "applications.read" ]
         } ]
       }
     },
@@ -797,7 +797,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "applications.read" ]
+          "MyNhsOAuth2" : [ "applications.read" ]
         } ]
       }
     },
@@ -817,7 +817,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "applications.read" ]
+          "MyNhsOAuth2" : [ "applications.read" ]
         } ]
       }
     },
@@ -859,7 +859,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "applications.read" ]
+          "MyNhsOAuth2" : [ "applications.read" ]
         } ]
       }
     },
@@ -901,7 +901,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "profile.read" ]
+          "MyNhsOAuth2" : [ "profile.read" ]
         } ]
       }
     },
@@ -952,7 +952,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "profile.read" ]
+          "MyNhsOAuth2" : [ "profile.read" ]
         } ]
       }
     },
@@ -1003,7 +1003,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "profile.read" ]
+          "MyNhsOAuth2" : [ "profile.read" ]
         } ]
       }
     },
@@ -1054,7 +1054,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "profile.read" ]
+          "MyNhsOAuth2" : [ "profile.read" ]
         } ]
       }
     },
@@ -1096,7 +1096,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "profile.read" ]
+          "MyNhsOAuth2" : [ "profile.read" ]
         } ]
       }
     },
@@ -1147,7 +1147,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "profile.read" ]
+          "MyNhsOAuth2" : [ "profile.read" ]
         } ]
       }
     },
@@ -1189,7 +1189,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "profile.read" ]
+          "MyNhsOAuth2" : [ "profile.read" ]
         } ]
       }
     },
@@ -1231,7 +1231,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "profile.read" ]
+          "MyNhsOAuth2" : [ "profile.read" ]
         } ]
       }
     },
@@ -1274,7 +1274,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "profile.read", "profile.read.shared", "profile.read.all" ]
+          "MyNhsOAuth2" : [ "profile.read", "profile.read.shared", "profile.read.all" ]
         } ]
       }
     },
@@ -1707,7 +1707,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "observations.bloodpressure.summary.read" ]
+          "MyNhsOAuth2" : [ "observations.bloodpressure.summary.read" ]
         } ]
       }
     },
@@ -1749,7 +1749,7 @@
           }
         },
         "security" : [ {
-          "OAuth2" : [ "events.read", "events.read.shared", "events.read.all" ]
+          "MyNhsOAuth2" : [ "events.read", "events.read.shared", "events.read.all" ]
         } ]
       }
     },
@@ -2438,7 +2438,7 @@
       }
     },
     "securitySchemes" : {
-      "OAuth2" : {
+      "MyNhsOAuth2" : {
         "type" : "oauth2",
         "flows" : {
           "authorizationCode" : {
