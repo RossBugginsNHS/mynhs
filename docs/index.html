@@ -700,6 +700,7 @@
   } ]
 };
             defs["AnyOfDigitalHealthCheckRequestMinimal"] = {};
+            defs["AnyOfObservation"] = {};
             defs["BloodPressure"] = {
   "type" : "object",
   "properties" : {
@@ -866,6 +867,23 @@
     }
   }
 };
+            defs["FinishedSubmissionStatusBaseWithoutLocation"] = {
+  "type" : "object",
+  "properties" : {
+    "DateSubmitted" : {
+      "type" : "string",
+      "format" : "date-time"
+    },
+    "SubmissionStatusLocation" : {
+      "type" : "string",
+      "format" : "uri",
+      "example" : "/mynhs/my/observations/submissions/{SubmissionId}"
+    }
+  },
+  "allOf" : [ {
+    "$ref" : "#/components/schemas/SubmissionStatusBase"
+  } ]
+};
             defs["Glocose"] = {
   "required" : [ "bloodSugarReadingType", "mmolL" ],
   "type" : "object",
@@ -959,6 +977,22 @@
     }
   }
 };
+            defs["Observation"] = {
+  "type" : "object",
+  "anyOf" : [ {
+    "$ref" : "#/components/schemas/Age"
+  }, {
+    "$ref" : "#/components/schemas/Height"
+  }, {
+    "$ref" : "#/components/schemas/Mass"
+  }, {
+    "$ref" : "#/components/schemas/BloodPressure"
+  }, {
+    "$ref" : "#/components/schemas/BloodSugar"
+  }, {
+    "$ref" : "#/components/schemas/Colesterol"
+  } ]
+};
             defs["OneOfAge"] = {};
             defs["OneOfBloodSugar"] = {};
             defs["OneOfDigitalHealthCheckRequest"] = {};
@@ -977,7 +1011,7 @@
             defs["SubmissionResponse"] = {
   "type" : "object",
   "allOf" : [ {
-    "$ref" : "#/components/schemas/SubmissionStatusBase"
+    "$ref" : "#/components/schemas/SubmissionStatusBaseWithLocation"
   } ]
 };
             defs["SubmissionResponseDetails"] = {
@@ -1027,7 +1061,7 @@
     }
   },
   "allOf" : [ {
-    "$ref" : "#/components/schemas/SubmissionStatusBase"
+    "$ref" : "#/components/schemas/SubmissionStatusBaseWithLocation"
   } ]
 };
             defs["SubmissionStatusBase"] = {
@@ -1045,6 +1079,24 @@
       "type" : "string",
       "format" : "uuid"
     },
+    "DateSubmissionCreated" : {
+      "type" : "string",
+      "format" : "date-time"
+    },
+    "SubmittedData" : {
+      "type" : "object"
+    }
+  }
+};
+            defs["SubmissionStatusBaseWithDataArray"] = {
+  "type" : "array",
+  "items" : {
+    "$ref" : "#/components/schemas/SubmissionStatusBase"
+  }
+};
+            defs["SubmissionStatusBaseWithLocation"] = {
+  "type" : "object",
+  "properties" : {
     "ResourceId" : {
       "type" : "string",
       "format" : "uuid"
@@ -1064,7 +1116,10 @@
       "format" : "uri",
       "example" : "/mynhs/my/observations/{ResourceId}"
     }
-  }
+  },
+  "allOf" : [ {
+    "$ref" : "#/components/schemas/SubmissionStatusBase"
+  } ]
 };
             defs["UserProfile"] = {
   "type" : "object",
@@ -6029,7 +6084,7 @@ except ApiException as e:
 
 
                           <h2>Responses</h2>
-                            <h3> Status: 202 - Accepted </h3>
+                            <h3> Status: 202 - Note the 202 Accepted response, not a 200 OK. The location of the created resource when created is avaliable from the Location header, or the ResourceLocation property in the response. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
@@ -6047,7 +6102,7 @@ except ApiException as e:
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
-  "description" : "Accepted",
+  "description" : "Note the 202 Accepted response, not a 200 OK. The location of the created resource when created is avaliable from the Location header, or the ResourceLocation property in the response.",
   "headers" : {
     "Location" : {
       "description" : "202 The location that the created resource will be avaliable at. Same as response body ResourceLocation",
@@ -11533,7 +11588,7 @@ public class ObservationsSubmissionsApiExample {
         ObservationsSubmissionsApi apiInstance = new ObservationsSubmissionsApi();
         String userId = userId_example; // String | The User Id to access
         try {
-            NhsProfile result = apiInstance.mynhsUserIdObservationsSubmissionsGet(userId);
+            SubmissionStatusBaseWithDataArray result = apiInstance.mynhsUserIdObservationsSubmissionsGet(userId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ObservationsSubmissionsApi#mynhsUserIdObservationsSubmissionsGet");
@@ -11552,7 +11607,7 @@ public class ObservationsSubmissionsApiExample {
         ObservationsSubmissionsApi apiInstance = new ObservationsSubmissionsApi();
         String userId = userId_example; // String | The User Id to access
         try {
-            NhsProfile result = apiInstance.mynhsUserIdObservationsSubmissionsGet(userId);
+            SubmissionStatusBaseWithDataArray result = apiInstance.mynhsUserIdObservationsSubmissionsGet(userId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ObservationsSubmissionsApi#mynhsUserIdObservationsSubmissionsGet");
@@ -11571,7 +11626,7 @@ public class ObservationsSubmissionsApiExample {
 ObservationsSubmissionsApi *apiInstance = [[ObservationsSubmissionsApi alloc] init];
 
 [apiInstance mynhsUserIdObservationsSubmissionsGetWith:userId
-              completionHandler: ^(NhsProfile output, NSError* error) {
+              completionHandler: ^(SubmissionStatusBaseWithDataArray output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -11621,7 +11676,7 @@ namespace Example
 
             try
             {
-                NhsProfile result = apiInstance.mynhsUserIdObservationsSubmissionsGet(userId);
+                SubmissionStatusBaseWithDataArray result = apiInstance.mynhsUserIdObservationsSubmissionsGet(userId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -11742,7 +11797,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/NhsProfile"
+        "$ref" : "#/components/schemas/SubmissionStatusBaseWithDataArray"
       }
     }
   }
@@ -11808,6 +11863,7 @@ except ApiException as e:
                           <div class="tab-pane active" id="examples-ObservationsSubmissions-mynhsUserIdObservationsSubmissionsPost-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
 -H "Accept: application/json"\
+-H "Content-Type: application/json"\
 "https://virtserver.swaggerhub.com/NHSX/MyNhs/0.1/mynhs/{userId}/observations/submissions"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-ObservationsSubmissions-mynhsUserIdObservationsSubmissionsPost-0-java">
@@ -11824,9 +11880,12 @@ public class ObservationsSubmissionsApiExample {
     public static void main(String[] args) {
         
         ObservationsSubmissionsApi apiInstance = new ObservationsSubmissionsApi();
+        Observation body = {
+  "$ref" : "#/components/examples/ObservationExample"
+}; // Observation | Starts a submission on an observation
         String userId = userId_example; // String | The User Id to access
         try {
-            NhsProfile result = apiInstance.mynhsUserIdObservationsSubmissionsPost(userId);
+            SubmissionStatusBase result = apiInstance.mynhsUserIdObservationsSubmissionsPost(body, userId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ObservationsSubmissionsApi#mynhsUserIdObservationsSubmissionsPost");
@@ -11843,9 +11902,12 @@ public class ObservationsSubmissionsApiExample {
 
     public static void main(String[] args) {
         ObservationsSubmissionsApi apiInstance = new ObservationsSubmissionsApi();
+        Observation body = {
+  "$ref" : "#/components/examples/ObservationExample"
+}; // Observation | Starts a submission on an observation
         String userId = userId_example; // String | The User Id to access
         try {
-            NhsProfile result = apiInstance.mynhsUserIdObservationsSubmissionsPost(userId);
+            SubmissionStatusBase result = apiInstance.mynhsUserIdObservationsSubmissionsPost(body, userId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ObservationsSubmissionsApi#mynhsUserIdObservationsSubmissionsPost");
@@ -11859,12 +11921,16 @@ public class ObservationsSubmissionsApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-ObservationsSubmissions-mynhsUserIdObservationsSubmissionsPost-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">String *userId = userId_example; // The User Id to access
+                              <pre class="prettyprint"><code class="language-cpp">Observation *body = {
+  "$ref" : "#/components/examples/ObservationExample"
+}; // Starts a submission on an observation
+String *userId = userId_example; // The User Id to access
 
 ObservationsSubmissionsApi *apiInstance = [[ObservationsSubmissionsApi alloc] init];
 
-[apiInstance mynhsUserIdObservationsSubmissionsPostWith:userId
-              completionHandler: ^(NhsProfile output, NSError* error) {
+[apiInstance mynhsUserIdObservationsSubmissionsPostWith:body
+    userId:userId
+              completionHandler: ^(SubmissionStatusBase output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -11879,6 +11945,9 @@ ObservationsSubmissionsApi *apiInstance = [[ObservationsSubmissionsApi alloc] in
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 
 var api = new MyNhsGraph.ObservationsSubmissionsApi()
+var body = {
+  "$ref" : "#/components/examples/ObservationExample"
+}; // {{Observation}} Starts a submission on an observation
 var userId = userId_example; // {{String}} The User Id to access
 
 var callback = function(error, data, response) {
@@ -11888,7 +11957,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.mynhsUserIdObservationsSubmissionsPost(userId, callback);
+api.mynhsUserIdObservationsSubmissionsPost(bodyuserId, callback);
 </code></pre>
                             </div>
 
@@ -11910,11 +11979,12 @@ namespace Example
         {
 
             var apiInstance = new ObservationsSubmissionsApi();
+            var body = new Observation(); // Observation | Starts a submission on an observation
             var userId = userId_example;  // String | The User Id to access
 
             try
             {
-                NhsProfile result = apiInstance.mynhsUserIdObservationsSubmissionsPost(userId);
+                SubmissionStatusBase result = apiInstance.mynhsUserIdObservationsSubmissionsPost(body, userId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -11932,10 +12002,13 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiObservationsSubmissionsApi();
+$body = {
+  "$ref" : "#/components/examples/ObservationExample"
+}; // Observation | Starts a submission on an observation
 $userId = userId_example; // String | The User Id to access
 
 try {
-    $result = $api_instance->mynhsUserIdObservationsSubmissionsPost($userId);
+    $result = $api_instance->mynhsUserIdObservationsSubmissionsPost($body, $userId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ObservationsSubmissionsApi->mynhsUserIdObservationsSubmissionsPost: ', $e->getMessage(), PHP_EOL;
@@ -11949,10 +12022,11 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::ObservationsSubmissionsApi;
 
 my $api_instance = WWW::SwaggerClient::ObservationsSubmissionsApi->new();
+my $body = WWW::SwaggerClient::Object::Observation->new(); # Observation | Starts a submission on an observation
 my $userId = userId_example; # String | The User Id to access
 
 eval { 
-    my $result = $api_instance->mynhsUserIdObservationsSubmissionsPost(userId => $userId);
+    my $result = $api_instance->mynhsUserIdObservationsSubmissionsPost(body => $body, userId => $userId);
     print Dumper($result);
 };
 if ($@) {
@@ -11969,10 +12043,13 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.ObservationsSubmissionsApi()
+body = {
+  "$ref" : "#/components/examples/ObservationExample"
+} # Observation | Starts a submission on an observation
 userId = userId_example # String | The User Id to access
 
 try: 
-    api_response = api_instance.mynhs_user_id_observations_submissions_post(userId)
+    api_response = api_instance.mynhs_user_id_observations_submissions_post(body, userId)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ObservationsSubmissionsApi->mynhsUserIdObservationsSubmissionsPost: %s\n" % e)</code></pre>
@@ -12012,6 +12089,55 @@ except ApiException as e:
                             </table>
 
 
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                <td>
+                                
+                                
+                                <script>
+                                $(document).ready(function() {
+                                  var schemaWrapper = {
+  "description" : "Starts a submission on an observation",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Observation"
+      },
+      "examples" : {
+        "DaysOld" : {
+          "$ref" : "#/components/examples/ObservationExample"
+        }
+      }
+    }
+  },
+  "required" : true
+};
+                                  var schema = schemaWrapper.content["application/json"].schema;
+                                  if (schema.$ref != null) {
+                                    schema = defsParser.$refs.get(schema.$ref);
+                                  } else {
+                                    schemaWrapper.components = {};
+                                    schemaWrapper.components.schemas = Object.assign({}, defs);
+                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                      console.log(err);
+                                    });
+                                  }
+                                
+                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+                                  var result = $('#d2e199_mynhsUserIdObservationsSubmissionsPost_body');
+                                  result.empty();
+                                  result.append(view.render());
+                                });
+                                </script>
+                                <div id="d2e199_mynhsUserIdObservationsSubmissionsPost_body"></div>
+                                </td>
+                                </tr>
+                            </table>
 
 
 
@@ -12023,6 +12149,9 @@ except ApiException as e:
                                   <a data-toggle="tab" href="#responses-mynhsUserIdObservationsSubmissionsPost-200-schema">Schema</a>
                                 </li>
 
+                                  <li class="">
+                                    <a data-toggle="tab" href="#responses-mynhsUserIdObservationsSubmissionsPost-200-example-0">Response Example</a>
+                                  </li>
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
@@ -12035,7 +12164,12 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/NhsProfile"
+        "$ref" : "#/components/schemas/SubmissionStatusBase"
+      },
+      "examples" : {
+        "DaysOld" : {
+          "$ref" : "#/components/examples/ObservationResponseExample"
+        }
       }
     }
   }
@@ -12061,6 +12195,9 @@ except ApiException as e:
                                     </script>
                                   </div>
                                   <input id='responses-mynhsUserIdObservationsSubmissionsPost-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                                  <div class="tab-pane" id="responses-mynhsUserIdObservationsSubmissionsPost-200-example-0">
+                                      <pre class="prettyprint"><code class="json"></code></pre>
                                 </div>
                             </div>
 
@@ -12456,6 +12593,7 @@ except ApiException as e:
                           <div class="tab-pane active" id="examples-ObservationsSubmissions-mynhsUserIdObservationsSubmissionsSubmissionIdPut-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
 -H "Accept: application/json"\
+-H "Content-Type: application/json"\
 "https://virtserver.swaggerhub.com/NHSX/MyNhs/0.1/mynhs/{userId}/observations/submissions/{submissionId}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-ObservationsSubmissions-mynhsUserIdObservationsSubmissionsSubmissionIdPut-0-java">
@@ -12472,10 +12610,13 @@ public class ObservationsSubmissionsApiExample {
     public static void main(String[] args) {
         
         ObservationsSubmissionsApi apiInstance = new ObservationsSubmissionsApi();
+        Observation body = {
+  "$ref" : "#/components/examples/ObservationExample"
+}; // Observation | Starts a submission on an observation
         String userId = userId_example; // String | The User Id to access
         UUID submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | 
         try {
-            NhsProfile result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdPut(userId, submissionId);
+            SubmissionStatusBase result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdPut(body, userId, submissionId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ObservationsSubmissionsApi#mynhsUserIdObservationsSubmissionsSubmissionIdPut");
@@ -12492,10 +12633,13 @@ public class ObservationsSubmissionsApiExample {
 
     public static void main(String[] args) {
         ObservationsSubmissionsApi apiInstance = new ObservationsSubmissionsApi();
+        Observation body = {
+  "$ref" : "#/components/examples/ObservationExample"
+}; // Observation | Starts a submission on an observation
         String userId = userId_example; // String | The User Id to access
         UUID submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | 
         try {
-            NhsProfile result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdPut(userId, submissionId);
+            SubmissionStatusBase result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdPut(body, userId, submissionId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ObservationsSubmissionsApi#mynhsUserIdObservationsSubmissionsSubmissionIdPut");
@@ -12509,14 +12653,18 @@ public class ObservationsSubmissionsApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-ObservationsSubmissions-mynhsUserIdObservationsSubmissionsSubmissionIdPut-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">String *userId = userId_example; // The User Id to access
+                              <pre class="prettyprint"><code class="language-cpp">Observation *body = {
+  "$ref" : "#/components/examples/ObservationExample"
+}; // Starts a submission on an observation
+String *userId = userId_example; // The User Id to access
 UUID *submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // 
 
 ObservationsSubmissionsApi *apiInstance = [[ObservationsSubmissionsApi alloc] init];
 
-[apiInstance mynhsUserIdObservationsSubmissionsSubmissionIdPutWith:userId
+[apiInstance mynhsUserIdObservationsSubmissionsSubmissionIdPutWith:body
+    userId:userId
     submissionId:submissionId
-              completionHandler: ^(NhsProfile output, NSError* error) {
+              completionHandler: ^(SubmissionStatusBase output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -12531,6 +12679,9 @@ ObservationsSubmissionsApi *apiInstance = [[ObservationsSubmissionsApi alloc] in
                               <pre class="prettyprint"><code class="language-js">var MyNhsGraph = require('my_nhs_graph');
 
 var api = new MyNhsGraph.ObservationsSubmissionsApi()
+var body = {
+  "$ref" : "#/components/examples/ObservationExample"
+}; // {{Observation}} Starts a submission on an observation
 var userId = userId_example; // {{String}} The User Id to access
 var submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // {{UUID}} 
 
@@ -12541,7 +12692,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.mynhsUserIdObservationsSubmissionsSubmissionIdPut(userId, submissionId, callback);
+api.mynhsUserIdObservationsSubmissionsSubmissionIdPut(bodyuserIdsubmissionId, callback);
 </code></pre>
                             </div>
 
@@ -12563,12 +12714,13 @@ namespace Example
         {
 
             var apiInstance = new ObservationsSubmissionsApi();
+            var body = new Observation(); // Observation | Starts a submission on an observation
             var userId = userId_example;  // String | The User Id to access
             var submissionId = new UUID(); // UUID | 
 
             try
             {
-                NhsProfile result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdPut(userId, submissionId);
+                SubmissionStatusBase result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdPut(body, userId, submissionId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -12586,11 +12738,14 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiObservationsSubmissionsApi();
+$body = {
+  "$ref" : "#/components/examples/ObservationExample"
+}; // Observation | Starts a submission on an observation
 $userId = userId_example; // String | The User Id to access
 $submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | 
 
 try {
-    $result = $api_instance->mynhsUserIdObservationsSubmissionsSubmissionIdPut($userId, $submissionId);
+    $result = $api_instance->mynhsUserIdObservationsSubmissionsSubmissionIdPut($body, $userId, $submissionId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ObservationsSubmissionsApi->mynhsUserIdObservationsSubmissionsSubmissionIdPut: ', $e->getMessage(), PHP_EOL;
@@ -12604,11 +12759,12 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::ObservationsSubmissionsApi;
 
 my $api_instance = WWW::SwaggerClient::ObservationsSubmissionsApi->new();
+my $body = WWW::SwaggerClient::Object::Observation->new(); # Observation | Starts a submission on an observation
 my $userId = userId_example; # String | The User Id to access
 my $submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; # UUID | 
 
 eval { 
-    my $result = $api_instance->mynhsUserIdObservationsSubmissionsSubmissionIdPut(userId => $userId, submissionId => $submissionId);
+    my $result = $api_instance->mynhsUserIdObservationsSubmissionsSubmissionIdPut(body => $body, userId => $userId, submissionId => $submissionId);
     print Dumper($result);
 };
 if ($@) {
@@ -12625,11 +12781,14 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.ObservationsSubmissionsApi()
+body = {
+  "$ref" : "#/components/examples/ObservationExample"
+} # Observation | Starts a submission on an observation
 userId = userId_example # String | The User Id to access
 submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | 
 
 try: 
-    api_response = api_instance.mynhs_user_id_observations_submissions_submission_id_put(userId, submissionId)
+    api_response = api_instance.mynhs_user_id_observations_submissions_submission_id_put(body, userId, submissionId)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ObservationsSubmissionsApi->mynhsUserIdObservationsSubmissionsSubmissionIdPut: %s\n" % e)</code></pre>
@@ -12691,6 +12850,55 @@ except ApiException as e:
                             </table>
 
 
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                <td>
+                                
+                                
+                                <script>
+                                $(document).ready(function() {
+                                  var schemaWrapper = {
+  "description" : "Starts a submission on an observation",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Observation"
+      },
+      "examples" : {
+        "DaysOld" : {
+          "$ref" : "#/components/examples/ObservationExample"
+        }
+      }
+    }
+  },
+  "required" : true
+};
+                                  var schema = schemaWrapper.content["application/json"].schema;
+                                  if (schema.$ref != null) {
+                                    schema = defsParser.$refs.get(schema.$ref);
+                                  } else {
+                                    schemaWrapper.components = {};
+                                    schemaWrapper.components.schemas = Object.assign({}, defs);
+                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                      console.log(err);
+                                    });
+                                  }
+                                
+                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+                                  var result = $('#d2e199_mynhsUserIdObservationsSubmissionsSubmissionIdPut_body');
+                                  result.empty();
+                                  result.append(view.render());
+                                });
+                                </script>
+                                <div id="d2e199_mynhsUserIdObservationsSubmissionsSubmissionIdPut_body"></div>
+                                </td>
+                                </tr>
+                            </table>
 
 
 
@@ -12702,6 +12910,9 @@ except ApiException as e:
                                   <a data-toggle="tab" href="#responses-mynhsUserIdObservationsSubmissionsSubmissionIdPut-200-schema">Schema</a>
                                 </li>
 
+                                  <li class="">
+                                    <a data-toggle="tab" href="#responses-mynhsUserIdObservationsSubmissionsSubmissionIdPut-200-example-0">Response Example</a>
+                                  </li>
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
@@ -12714,7 +12925,12 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/NhsProfile"
+        "$ref" : "#/components/schemas/SubmissionStatusBase"
+      },
+      "examples" : {
+        "DaysOld" : {
+          "$ref" : "#/components/examples/ObservationResponseExample"
+        }
       }
     }
   }
@@ -12740,6 +12956,9 @@ except ApiException as e:
                                     </script>
                                   </div>
                                   <input id='responses-mynhsUserIdObservationsSubmissionsSubmissionIdPut-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                                  <div class="tab-pane" id="responses-mynhsUserIdObservationsSubmissionsSubmissionIdPut-200-example-0">
+                                      <pre class="prettyprint"><code class="json"></code></pre>
                                 </div>
                             </div>
 
@@ -12799,7 +13018,7 @@ public class ObservationsSubmissionsApiExample {
         String userId = userId_example; // String | The User Id to access
         UUID submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | 
         try {
-            SubmissionResponse result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut(userId, submissionId);
+            FinishedSubmissionStatusBaseWithoutLocation result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut(userId, submissionId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ObservationsSubmissionsApi#mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut");
@@ -12819,7 +13038,7 @@ public class ObservationsSubmissionsApiExample {
         String userId = userId_example; // String | The User Id to access
         UUID submissionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | 
         try {
-            SubmissionResponse result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut(userId, submissionId);
+            FinishedSubmissionStatusBaseWithoutLocation result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut(userId, submissionId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ObservationsSubmissionsApi#mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut");
@@ -12840,7 +13059,7 @@ ObservationsSubmissionsApi *apiInstance = [[ObservationsSubmissionsApi alloc] in
 
 [apiInstance mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutWith:userId
     submissionId:submissionId
-              completionHandler: ^(SubmissionResponse output, NSError* error) {
+              completionHandler: ^(FinishedSubmissionStatusBaseWithoutLocation output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -12892,7 +13111,7 @@ namespace Example
 
             try
             {
-                SubmissionResponse result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut(userId, submissionId);
+                FinishedSubmissionStatusBaseWithoutLocation result = apiInstance.mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut(userId, submissionId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -13019,7 +13238,134 @@ except ApiException as e:
 
 
                           <h2>Responses</h2>
-                            <h3> Status: 202 - Accepted </h3>
+                            <h3> Status: 200 - Note the 200 response. This is not saying created, or accepted - but OK it has finished but not created. This actually indicated likely a problem here. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-200-schema">
+                                  <div id='responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Note the 200 response. This is not saying created, or accepted - but OK it has finished but not created. This actually indicated likely a problem here.",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/FinishedSubmissionStatusBaseWithoutLocation"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: 201 - Note the 201 Created response, not a 200 OK. The location of the created resource avaliable from the Location header, or the ResourceLocation property in the response. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-201-schema">Schema</a>
+                                </li>
+
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-201-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-201-schema">
+                                  <div id='responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-201-schema-201' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Note the 201 Created response, not a 200 OK. The location of the created resource avaliable from the Location header, or the ResourceLocation property in the response.",
+  "headers" : {
+    "Location" : {
+      "description" : "202 The location that the created resource will be avaliable at. Same as response body ResourceLocation",
+      "style" : "simple",
+      "explode" : false,
+      "schema" : {
+        "type" : "string",
+        "format" : "uri"
+      },
+      "example" : "/mynhs/my/observations/{ResourceId}"
+    }
+  },
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/SubmissionResponse"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-201-schema-data').val(stringify(schema));
+                                        var result = $('#responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-201-schema-201');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-201-schema-data' type='hidden' value=''></input>
+                                </div>
+                                <div class="tab-pane" id="responses-mynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut-201-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Location</td>
+                                            <td>String</td>
+                                            <td>uri</td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 202 - Note the 202 Accepted response, not a 200 OK. The location of the created resource when created is avaliable from the Location header, or the ResourceLocation property in the response. </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
@@ -13037,7 +13383,7 @@ except ApiException as e:
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
-  "description" : "Accepted",
+  "description" : "Note the 202 Accepted response, not a 200 OK. The location of the created resource when created is avaliable from the Location header, or the ResourceLocation property in the response.",
   "headers" : {
     "Location" : {
       "description" : "202 The location that the created resource will be avaliable at. Same as response body ResourceLocation",
