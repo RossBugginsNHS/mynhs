@@ -23,7 +23,7 @@
     "description" : "Basic Observations"
   }, {
     "name" : "Observations|Submissions",
-    "description" : "Submit new observations in a fully Asyncronous way. Call POST with initital data and to get a submission Id, make changes with PUT, and then to start the submission call PUT on /submit."
+    "description" : "Submit new observations in a fully Asyncronous way supporting idempotency of the full transaction. Call POST with initital data and to get a submission Id, make changes with PUT, and then to start the submission call PUT on /submit."
   }, {
     "name" : "Digital Health Checks",
     "description" : "My Completed Digital Health Checks"
@@ -571,7 +571,7 @@
         } ],
         "responses" : {
           "202" : {
-            "description" : "Accepted",
+            "description" : "Note the 202 Accepted response, not a 200 OK. The location of the created resource when created is avaliable from the Location header, or the ResourceLocation property in the response.",
             "headers" : {
               "Location" : {
                 "description" : "202 The location that the created resource will be avaliable at. Same as response body ResourceLocation",
@@ -1403,7 +1403,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/NhsProfile"
+                  "$ref" : "#/components/schemas/SubmissionStatusBaseWithDataArray"
                 }
               }
             }
@@ -1434,13 +1434,34 @@
             }
           }
         } ],
+        "requestBody" : {
+          "description" : "Starts a submission on an observation",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Observation"
+              },
+              "examples" : {
+                "DaysOld" : {
+                  "$ref" : "#/components/examples/ObservationExample"
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
             "description" : "OK",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/NhsProfile"
+                  "$ref" : "#/components/schemas/SubmissionStatusBase"
+                },
+                "examples" : {
+                  "DaysOld" : {
+                    "$ref" : "#/components/examples/ObservationResponseExample"
+                  }
                 }
               }
             }
@@ -1486,8 +1507,40 @@
           "example" : "baf12b6c-d18b-43ad-b49e-e72ca102a970"
         } ],
         "responses" : {
+          "200" : {
+            "description" : "Note the 200 response. This is not saying created, or accepted - but OK it has finished but not created. This actually indicated likely a problem here.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FinishedSubmissionStatusBaseWithoutLocation"
+                }
+              }
+            }
+          },
+          "201" : {
+            "description" : "Note the 201 Created response, not a 200 OK. The location of the created resource avaliable from the Location header, or the ResourceLocation property in the response.",
+            "headers" : {
+              "Location" : {
+                "description" : "202 The location that the created resource will be avaliable at. Same as response body ResourceLocation",
+                "style" : "simple",
+                "explode" : false,
+                "schema" : {
+                  "type" : "string",
+                  "format" : "uri"
+                },
+                "example" : "/mynhs/my/observations/{ResourceId}"
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SubmissionResponse"
+                }
+              }
+            }
+          },
           "202" : {
-            "description" : "Accepted",
+            "description" : "Note the 202 Accepted response, not a 200 OK. The location of the created resource when created is avaliable from the Location header, or the ResourceLocation property in the response.",
             "headers" : {
               "Location" : {
                 "description" : "202 The location that the created resource will be avaliable at. Same as response body ResourceLocation",
@@ -1607,13 +1660,34 @@
           },
           "example" : "baf12b6c-d18b-43ad-b49e-e72ca102a970"
         } ],
+        "requestBody" : {
+          "description" : "Starts a submission on an observation",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Observation"
+              },
+              "examples" : {
+                "DaysOld" : {
+                  "$ref" : "#/components/examples/ObservationExample"
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
             "description" : "OK",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/NhsProfile"
+                  "$ref" : "#/components/schemas/SubmissionStatusBase"
+                },
+                "examples" : {
+                  "DaysOld" : {
+                    "$ref" : "#/components/examples/ObservationResponseExample"
+                  }
                 }
               }
             }
@@ -1859,6 +1933,22 @@
             "format" : "int64"
           }
         }
+      },
+      "Observation" : {
+        "type" : "object",
+        "anyOf" : [ {
+          "$ref" : "#/components/schemas/Age"
+        }, {
+          "$ref" : "#/components/schemas/Height"
+        }, {
+          "$ref" : "#/components/schemas/Mass"
+        }, {
+          "$ref" : "#/components/schemas/BloodPressure"
+        }, {
+          "$ref" : "#/components/schemas/BloodSugar"
+        }, {
+          "$ref" : "#/components/schemas/Colesterol"
+        } ]
       },
       "DigitalHealthCheckRequest" : {
         "type" : "object",
@@ -2113,7 +2203,7 @@
       "SubmissionResponse" : {
         "type" : "object",
         "allOf" : [ {
-          "$ref" : "#/components/schemas/SubmissionStatusBase"
+          "$ref" : "#/components/schemas/SubmissionStatusBaseWithLocation"
         } ]
       },
       "SubmissionStatusBase" : {
@@ -2131,6 +2221,41 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "DateSubmissionCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "SubmittedData" : {
+            "type" : "object"
+          }
+        }
+      },
+      "SubmissionStatusBaseWithDataArray" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/SubmissionStatusBase"
+        }
+      },
+      "FinishedSubmissionStatusBaseWithoutLocation" : {
+        "type" : "object",
+        "properties" : {
+          "DateSubmitted" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "SubmissionStatusLocation" : {
+            "type" : "string",
+            "format" : "uri",
+            "example" : "/mynhs/my/observations/submissions/{SubmissionId}"
+          }
+        },
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmissionStatusBase"
+        } ]
+      },
+      "SubmissionStatusBaseWithLocation" : {
+        "type" : "object",
+        "properties" : {
           "ResourceId" : {
             "type" : "string",
             "format" : "uuid"
@@ -2150,7 +2275,10 @@
             "format" : "uri",
             "example" : "/mynhs/my/observations/{ResourceId}"
           }
-        }
+        },
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmissionStatusBase"
+        } ]
       },
       "SubmissionStatus" : {
         "type" : "object",
@@ -2170,7 +2298,7 @@
           }
         },
         "allOf" : [ {
-          "$ref" : "#/components/schemas/SubmissionStatusBase"
+          "$ref" : "#/components/schemas/SubmissionStatusBaseWithLocation"
         } ]
       },
       "SubmissionResponseDetails" : {
@@ -2217,7 +2345,7 @@
     },
     "responses" : {
       "SubmissionAcceptedResponse" : {
-        "description" : "Accepted",
+        "description" : "Note the 202 Accepted response, not a 200 OK. The location of the created resource when created is avaliable from the Location header, or the ResourceLocation property in the response.",
         "headers" : {
           "Location" : {
             "description" : "202 The location that the created resource will be avaliable at. Same as response body ResourceLocation",
@@ -2234,6 +2362,38 @@
           "application/json" : {
             "schema" : {
               "$ref" : "#/components/schemas/SubmissionResponse"
+            }
+          }
+        }
+      },
+      "SubmissionCreatedResponse" : {
+        "description" : "Note the 201 Created response, not a 200 OK. The location of the created resource avaliable from the Location header, or the ResourceLocation property in the response.",
+        "headers" : {
+          "Location" : {
+            "description" : "202 The location that the created resource will be avaliable at. Same as response body ResourceLocation",
+            "style" : "simple",
+            "explode" : false,
+            "schema" : {
+              "type" : "string",
+              "format" : "uri"
+            },
+            "example" : "/mynhs/my/observations/{ResourceId}"
+          }
+        },
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/SubmissionResponse"
+            }
+          }
+        }
+      },
+      "SubmissionFinishedResponse" : {
+        "description" : "Note the 200 response. This is not saying created, or accepted - but OK it has finished but not created. This actually indicated likely a problem here.",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/FinishedSubmissionStatusBaseWithoutLocation"
             }
           }
         }
@@ -2380,6 +2540,25 @@
       }
     },
     "examples" : {
+      "ObservationExample" : {
+        "value" : {
+          "Age" : {
+            "Days" : 4329
+          }
+        }
+      },
+      "ObservationResponseExample" : {
+        "value" : {
+          "SubmissionId" : "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "SubmittedByUserId" : "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "SubmittedByAppId" : "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "SubmittedData" : {
+            "Age" : {
+              "Days" : 4329
+            }
+          }
+        }
+      },
       "DaysOldExample" : {
         "summary" : "Number of days old",
         "value" : {
