@@ -34,7 +34,7 @@ namespace mynhs.sdk.Model
         /// <param name="dateSubmitted">dateSubmitted.</param>
         /// <param name="submissionStatusLocation">submissionStatusLocation.</param>
         /// <param name="resourceLocation">The location that the created resource will be avaliable at. Same as response header Location.</param>
-        public SubmissionStatusBaseWithLocation(Guid? resourceId = default(Guid?), DateTimeOffset? dateSubmitted = default(DateTimeOffset?), string submissionStatusLocation = default(string), string resourceLocation = default(string), Guid? submissionId = default(Guid?), Guid? submittedByUserId = default(Guid?), Guid? submittedByAppId = default(Guid?), DateTimeOffset? dateSubmissionCreated = default(DateTimeOffset?), Object submittedData = default(Object)) : base(submissionId, submittedByUserId, submittedByAppId, dateSubmissionCreated, submittedData)
+        public SubmissionStatusBaseWithLocation(Guid? resourceId = default(Guid?), DateTimeOffset? dateSubmitted = default(DateTimeOffset?), string submissionStatusLocation = default(string), string resourceLocation = default(string), Guid? submissionId = default(Guid?), Guid? submittedByUserId = default(Guid?), Guid? submittedByAppId = default(Guid?), DateTimeOffset? dateSubmissionCreated = default(DateTimeOffset?), SubmissionData submittedData = default(SubmissionData)) : base(submissionId, submittedByUserId, submittedByAppId, dateSubmissionCreated, submittedData)
         {
             this.ResourceId = resourceId;
             this.DateSubmitted = dateSubmitted;

@@ -32,7 +32,7 @@ namespace mynhs.sdk.Model
         /// </summary>
         /// <param name="dateSubmitted">dateSubmitted.</param>
         /// <param name="submissionStatusLocation">submissionStatusLocation.</param>
-        public FinishedSubmissionStatusBaseWithoutLocation(DateTimeOffset? dateSubmitted = default(DateTimeOffset?), string submissionStatusLocation = default(string), Guid? submissionId = default(Guid?), Guid? submittedByUserId = default(Guid?), Guid? submittedByAppId = default(Guid?), DateTimeOffset? dateSubmissionCreated = default(DateTimeOffset?), Object submittedData = default(Object)) : base(submissionId, submittedByUserId, submittedByAppId, dateSubmissionCreated, submittedData)
+        public FinishedSubmissionStatusBaseWithoutLocation(DateTimeOffset? dateSubmitted = default(DateTimeOffset?), string submissionStatusLocation = default(string), Guid? submissionId = default(Guid?), Guid? submittedByUserId = default(Guid?), Guid? submittedByAppId = default(Guid?), DateTimeOffset? dateSubmissionCreated = default(DateTimeOffset?), SubmissionData submittedData = default(SubmissionData)) : base(submissionId, submittedByUserId, submittedByAppId, dateSubmissionCreated, submittedData)
         {
             this.DateSubmitted = dateSubmitted;
             this.SubmissionStatusLocation = submissionStatusLocation;

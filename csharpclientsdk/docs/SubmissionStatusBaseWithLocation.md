@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **SubmittedByUserId** | **Guid?** |  | [optional] 
 **SubmittedByAppId** | **Guid?** |  | [optional] 
 **DateSubmissionCreated** | **DateTimeOffset?** |  | [optional] 
-**SubmittedData** | **Object** |  | [optional] 
+**SubmittedData** | [**SubmissionData**](SubmissionData.md) |  | [optional] 
 **ResourceId** | **Guid?** |  | [optional] 
 **DateSubmitted** | **DateTimeOffset?** |  | [optional] 
 **SubmissionStatusLocation** | **string** |  | [optional] 

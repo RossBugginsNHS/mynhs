@@ -35,7 +35,7 @@ namespace mynhs.sdk.Model
         /// <param name="submittedByAppId">submittedByAppId.</param>
         /// <param name="dateSubmissionCreated">dateSubmissionCreated.</param>
         /// <param name="submittedData">submittedData.</param>
-        public SubmissionStatusBase(Guid? submissionId = default(Guid?), Guid? submittedByUserId = default(Guid?), Guid? submittedByAppId = default(Guid?), DateTimeOffset? dateSubmissionCreated = default(DateTimeOffset?), Object submittedData = default(Object))
+        public SubmissionStatusBase(Guid? submissionId = default(Guid?), Guid? submittedByUserId = default(Guid?), Guid? submittedByAppId = default(Guid?), DateTimeOffset? dateSubmissionCreated = default(DateTimeOffset?), SubmissionData submittedData = default(SubmissionData))
         {
             this.SubmissionId = submissionId;
             this.SubmittedByUserId = submittedByUserId;
@@ -72,7 +72,7 @@ namespace mynhs.sdk.Model
         /// Gets or Sets SubmittedData
         /// </summary>
         [DataMember(Name="SubmittedData", EmitDefaultValue=false)]
-        public Object SubmittedData { get; set; }
+        public SubmissionData SubmittedData { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
