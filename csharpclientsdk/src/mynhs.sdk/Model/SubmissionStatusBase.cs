@@ -33,19 +33,15 @@ namespace mynhs.sdk.Model
         /// <param name="submissionId">submissionId.</param>
         /// <param name="submittedByUserId">submittedByUserId.</param>
         /// <param name="submittedByAppId">submittedByAppId.</param>
-        /// <param name="resourceId">resourceId.</param>
-        /// <param name="dateSubmitted">dateSubmitted.</param>
-        /// <param name="submissionStatusLocation">submissionStatusLocation.</param>
-        /// <param name="resourceLocation">The location that the created resource will be avaliable at. Same as response header Location.</param>
-        public SubmissionStatusBase(Guid? submissionId = default(Guid?), Guid? submittedByUserId = default(Guid?), Guid? submittedByAppId = default(Guid?), Guid? resourceId = default(Guid?), DateTimeOffset? dateSubmitted = default(DateTimeOffset?), string submissionStatusLocation = default(string), string resourceLocation = default(string))
+        /// <param name="dateSubmissionCreated">dateSubmissionCreated.</param>
+        /// <param name="submittedData">submittedData.</param>
+        public SubmissionStatusBase(Guid? submissionId = default(Guid?), Guid? submittedByUserId = default(Guid?), Guid? submittedByAppId = default(Guid?), DateTimeOffset? dateSubmissionCreated = default(DateTimeOffset?), Object submittedData = default(Object))
         {
             this.SubmissionId = submissionId;
             this.SubmittedByUserId = submittedByUserId;
             this.SubmittedByAppId = submittedByAppId;
-            this.ResourceId = resourceId;
-            this.DateSubmitted = dateSubmitted;
-            this.SubmissionStatusLocation = submissionStatusLocation;
-            this.ResourceLocation = resourceLocation;
+            this.DateSubmissionCreated = dateSubmissionCreated;
+            this.SubmittedData = submittedData;
         }
         
         /// <summary>
@@ -67,29 +63,16 @@ namespace mynhs.sdk.Model
         public Guid? SubmittedByAppId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ResourceId
+        /// Gets or Sets DateSubmissionCreated
         /// </summary>
-        [DataMember(Name="ResourceId", EmitDefaultValue=false)]
-        public Guid? ResourceId { get; set; }
+        [DataMember(Name="DateSubmissionCreated", EmitDefaultValue=false)]
+        public DateTimeOffset? DateSubmissionCreated { get; set; }
 
         /// <summary>
-        /// Gets or Sets DateSubmitted
+        /// Gets or Sets SubmittedData
         /// </summary>
-        [DataMember(Name="DateSubmitted", EmitDefaultValue=false)]
-        public DateTimeOffset? DateSubmitted { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SubmissionStatusLocation
-        /// </summary>
-        [DataMember(Name="SubmissionStatusLocation", EmitDefaultValue=false)]
-        public string SubmissionStatusLocation { get; set; }
-
-        /// <summary>
-        /// The location that the created resource will be avaliable at. Same as response header Location
-        /// </summary>
-        /// <value>The location that the created resource will be avaliable at. Same as response header Location</value>
-        [DataMember(Name="ResourceLocation", EmitDefaultValue=false)]
-        public string ResourceLocation { get; set; }
+        [DataMember(Name="SubmittedData", EmitDefaultValue=false)]
+        public Object SubmittedData { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -102,10 +85,8 @@ namespace mynhs.sdk.Model
             sb.Append("  SubmissionId: ").Append(SubmissionId).Append("\n");
             sb.Append("  SubmittedByUserId: ").Append(SubmittedByUserId).Append("\n");
             sb.Append("  SubmittedByAppId: ").Append(SubmittedByAppId).Append("\n");
-            sb.Append("  ResourceId: ").Append(ResourceId).Append("\n");
-            sb.Append("  DateSubmitted: ").Append(DateSubmitted).Append("\n");
-            sb.Append("  SubmissionStatusLocation: ").Append(SubmissionStatusLocation).Append("\n");
-            sb.Append("  ResourceLocation: ").Append(ResourceLocation).Append("\n");
+            sb.Append("  DateSubmissionCreated: ").Append(DateSubmissionCreated).Append("\n");
+            sb.Append("  SubmittedData: ").Append(SubmittedData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -156,24 +137,14 @@ namespace mynhs.sdk.Model
                     this.SubmittedByAppId.Equals(input.SubmittedByAppId))
                 ) && 
                 (
-                    this.ResourceId == input.ResourceId ||
-                    (this.ResourceId != null &&
-                    this.ResourceId.Equals(input.ResourceId))
+                    this.DateSubmissionCreated == input.DateSubmissionCreated ||
+                    (this.DateSubmissionCreated != null &&
+                    this.DateSubmissionCreated.Equals(input.DateSubmissionCreated))
                 ) && 
                 (
-                    this.DateSubmitted == input.DateSubmitted ||
-                    (this.DateSubmitted != null &&
-                    this.DateSubmitted.Equals(input.DateSubmitted))
-                ) && 
-                (
-                    this.SubmissionStatusLocation == input.SubmissionStatusLocation ||
-                    (this.SubmissionStatusLocation != null &&
-                    this.SubmissionStatusLocation.Equals(input.SubmissionStatusLocation))
-                ) && 
-                (
-                    this.ResourceLocation == input.ResourceLocation ||
-                    (this.ResourceLocation != null &&
-                    this.ResourceLocation.Equals(input.ResourceLocation))
+                    this.SubmittedData == input.SubmittedData ||
+                    (this.SubmittedData != null &&
+                    this.SubmittedData.Equals(input.SubmittedData))
                 );
         }
 
@@ -192,14 +163,10 @@ namespace mynhs.sdk.Model
                     hashCode = hashCode * 59 + this.SubmittedByUserId.GetHashCode();
                 if (this.SubmittedByAppId != null)
                     hashCode = hashCode * 59 + this.SubmittedByAppId.GetHashCode();
-                if (this.ResourceId != null)
-                    hashCode = hashCode * 59 + this.ResourceId.GetHashCode();
-                if (this.DateSubmitted != null)
-                    hashCode = hashCode * 59 + this.DateSubmitted.GetHashCode();
-                if (this.SubmissionStatusLocation != null)
-                    hashCode = hashCode * 59 + this.SubmissionStatusLocation.GetHashCode();
-                if (this.ResourceLocation != null)
-                    hashCode = hashCode * 59 + this.ResourceLocation.GetHashCode();
+                if (this.DateSubmissionCreated != null)
+                    hashCode = hashCode * 59 + this.DateSubmissionCreated.GetHashCode();
+                if (this.SubmittedData != null)
+                    hashCode = hashCode * 59 + this.SubmittedData.GetHashCode();
                 return hashCode;
             }
         }

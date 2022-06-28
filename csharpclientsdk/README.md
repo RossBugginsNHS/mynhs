@@ -117,6 +117,7 @@ Class | Method | HTTP request | Description
 
  - [Model.Age](docs/Age.md)
  - [Model.AnyOfDigitalHealthCheckRequestMinimal](docs/AnyOfDigitalHealthCheckRequestMinimal.md)
+ - [Model.AnyOfObservation](docs/AnyOfObservation.md)
  - [Model.BloodPressure](docs/BloodPressure.md)
  - [Model.BloodPressureResult](docs/BloodPressureResult.md)
  - [Model.BloodSugar](docs/BloodSugar.md)
@@ -127,6 +128,7 @@ Class | Method | HTTP request | Description
  - [Model.DigitalHealthCheckRequestAll](docs/DigitalHealthCheckRequestAll.md)
  - [Model.DigitalHealthCheckRequestMinimal](docs/DigitalHealthCheckRequestMinimal.md)
  - [Model.DigitalHealthCheckResult](docs/DigitalHealthCheckResult.md)
+ - [Model.FinishedSubmissionStatusBaseWithoutLocation](docs/FinishedSubmissionStatusBaseWithoutLocation.md)
  - [Model.Glocose](docs/Glocose.md)
  - [Model.GpProfile](docs/GpProfile.md)
  - [Model.HBA1C](docs/HBA1C.md)
@@ -135,6 +137,7 @@ Class | Method | HTTP request | Description
  - [Model.MeanBlood](docs/MeanBlood.md)
  - [Model.MyNhsProfile](docs/MyNhsProfile.md)
  - [Model.NhsProfile](docs/NhsProfile.md)
+ - [Model.Observation](docs/Observation.md)
  - [Model.OneOfAge](docs/OneOfAge.md)
  - [Model.OneOfBloodSugar](docs/OneOfBloodSugar.md)
  - [Model.OneOfDigitalHealthCheckRequest](docs/OneOfDigitalHealthCheckRequest.md)
@@ -143,6 +146,8 @@ Class | Method | HTTP request | Description
  - [Model.SubmissionResponseDetails](docs/SubmissionResponseDetails.md)
  - [Model.SubmissionStatus](docs/SubmissionStatus.md)
  - [Model.SubmissionStatusBase](docs/SubmissionStatusBase.md)
+ - [Model.SubmissionStatusBaseWithDataArray](docs/SubmissionStatusBaseWithDataArray.md)
+ - [Model.SubmissionStatusBaseWithLocation](docs/SubmissionStatusBaseWithLocation.md)
  - [Model.UserProfile](docs/UserProfile.md)
  - [Model.YearsOld](docs/YearsOld.md)
 

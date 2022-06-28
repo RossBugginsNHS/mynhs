@@ -22,15 +22,15 @@ using SwaggerDateConverter = mynhs.sdk.Client.SwaggerDateConverter;
 namespace mynhs.sdk.Model
 {
     /// <summary>
-    /// SubmissionResponse
+    /// AnyOfObservation
     /// </summary>
     [DataContract]
-        public partial class SubmissionResponse : SubmissionStatusBaseWithLocation,  IEquatable<SubmissionResponse>
+        public partial class AnyOfObservation :  IEquatable<AnyOfObservation>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SubmissionResponse" /> class.
+        /// Initializes a new instance of the <see cref="AnyOfObservation" /> class.
         /// </summary>
-        public SubmissionResponse(Guid? resourceId = default(Guid?), DateTimeOffset? dateSubmitted = default(DateTimeOffset?), string submissionStatusLocation = default(string), string resourceLocation = default(string)) : base(resourceId, dateSubmitted, submissionStatusLocation, resourceLocation)
+        public AnyOfObservation()
         {
         }
         
@@ -41,8 +41,7 @@ namespace mynhs.sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SubmissionResponse {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
+            sb.Append("class AnyOfObservation {\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -51,7 +50,7 @@ namespace mynhs.sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -63,20 +62,20 @@ namespace mynhs.sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SubmissionResponse);
+            return this.Equals(input as AnyOfObservation);
         }
 
         /// <summary>
-        /// Returns true if SubmissionResponse instances are equal
+        /// Returns true if AnyOfObservation instances are equal
         /// </summary>
-        /// <param name="input">Instance of SubmissionResponse to be compared</param>
+        /// <param name="input">Instance of AnyOfObservation to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SubmissionResponse input)
+        public bool Equals(AnyOfObservation input)
         {
             if (input == null)
                 return false;
 
-            return base.Equals(input);
+            return false;
         }
 
         /// <summary>
@@ -87,7 +86,7 @@ namespace mynhs.sdk.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
+                int hashCode = 41;
                 return hashCode;
             }
         }

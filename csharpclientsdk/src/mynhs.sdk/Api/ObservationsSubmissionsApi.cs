@@ -31,8 +31,8 @@ namespace mynhs.sdk.Api
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
-        /// <returns>NhsProfile</returns>
-        NhsProfile MynhsUserIdObservationsSubmissionsGet (string userId);
+        /// <returns>SubmissionStatusBaseWithDataArray</returns>
+        SubmissionStatusBaseWithDataArray MynhsUserIdObservationsSubmissionsGet (string userId);
 
         /// <summary>
         /// 
@@ -42,8 +42,8 @@ namespace mynhs.sdk.Api
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsUserIdObservationsSubmissionsGetWithHttpInfo (string userId);
+        /// <returns>ApiResponse of SubmissionStatusBaseWithDataArray</returns>
+        ApiResponse<SubmissionStatusBaseWithDataArray> MynhsUserIdObservationsSubmissionsGetWithHttpInfo (string userId);
         /// <summary>
         /// 
         /// </summary>
@@ -51,9 +51,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Starts a submission on an observation</param>
         /// <param name="userId">The User Id to access</param>
-        /// <returns>NhsProfile</returns>
-        NhsProfile MynhsUserIdObservationsSubmissionsPost (string userId);
+        /// <returns>SubmissionStatusBase</returns>
+        SubmissionStatusBase MynhsUserIdObservationsSubmissionsPost (Observation body, string userId);
 
         /// <summary>
         /// 
@@ -62,9 +63,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Starts a submission on an observation</param>
         /// <param name="userId">The User Id to access</param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsUserIdObservationsSubmissionsPostWithHttpInfo (string userId);
+        /// <returns>ApiResponse of SubmissionStatusBase</returns>
+        ApiResponse<SubmissionStatusBase> MynhsUserIdObservationsSubmissionsPostWithHttpInfo (Observation body, string userId);
         /// <summary>
         /// 
         /// </summary>
@@ -95,10 +97,11 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Starts a submission on an observation</param>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>NhsProfile</returns>
-        NhsProfile MynhsUserIdObservationsSubmissionsSubmissionIdPut (string userId, Guid? submissionId);
+        /// <returns>SubmissionStatusBase</returns>
+        SubmissionStatusBase MynhsUserIdObservationsSubmissionsSubmissionIdPut (Observation body, string userId, Guid? submissionId);
 
         /// <summary>
         /// 
@@ -107,10 +110,11 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Starts a submission on an observation</param>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        ApiResponse<NhsProfile> MynhsUserIdObservationsSubmissionsSubmissionIdPutWithHttpInfo (string userId, Guid? submissionId);
+        /// <returns>ApiResponse of SubmissionStatusBase</returns>
+        ApiResponse<SubmissionStatusBase> MynhsUserIdObservationsSubmissionsSubmissionIdPutWithHttpInfo (Observation body, string userId, Guid? submissionId);
         /// <summary>
         /// 
         /// </summary>
@@ -120,8 +124,8 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>SubmissionResponse</returns>
-        SubmissionResponse MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut (string userId, Guid? submissionId);
+        /// <returns>FinishedSubmissionStatusBaseWithoutLocation</returns>
+        FinishedSubmissionStatusBaseWithoutLocation MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut (string userId, Guid? submissionId);
 
         /// <summary>
         /// 
@@ -132,8 +136,8 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>ApiResponse of SubmissionResponse</returns>
-        ApiResponse<SubmissionResponse> MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutWithHttpInfo (string userId, Guid? submissionId);
+        /// <returns>ApiResponse of FinishedSubmissionStatusBaseWithoutLocation</returns>
+        ApiResponse<FinishedSubmissionStatusBaseWithoutLocation> MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutWithHttpInfo (string userId, Guid? submissionId);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -144,8 +148,8 @@ namespace mynhs.sdk.Api
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
-        /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsUserIdObservationsSubmissionsGetAsync (string userId);
+        /// <returns>Task of SubmissionStatusBaseWithDataArray</returns>
+        System.Threading.Tasks.Task<SubmissionStatusBaseWithDataArray> MynhsUserIdObservationsSubmissionsGetAsync (string userId);
 
         /// <summary>
         /// 
@@ -155,8 +159,8 @@ namespace mynhs.sdk.Api
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdObservationsSubmissionsGetAsyncWithHttpInfo (string userId);
+        /// <returns>Task of ApiResponse (SubmissionStatusBaseWithDataArray)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SubmissionStatusBaseWithDataArray>> MynhsUserIdObservationsSubmissionsGetAsyncWithHttpInfo (string userId);
         /// <summary>
         /// 
         /// </summary>
@@ -164,9 +168,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Starts a submission on an observation</param>
         /// <param name="userId">The User Id to access</param>
-        /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsUserIdObservationsSubmissionsPostAsync (string userId);
+        /// <returns>Task of SubmissionStatusBase</returns>
+        System.Threading.Tasks.Task<SubmissionStatusBase> MynhsUserIdObservationsSubmissionsPostAsync (Observation body, string userId);
 
         /// <summary>
         /// 
@@ -175,9 +180,10 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Starts a submission on an observation</param>
         /// <param name="userId">The User Id to access</param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdObservationsSubmissionsPostAsyncWithHttpInfo (string userId);
+        /// <returns>Task of ApiResponse (SubmissionStatusBase)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SubmissionStatusBase>> MynhsUserIdObservationsSubmissionsPostAsyncWithHttpInfo (Observation body, string userId);
         /// <summary>
         /// 
         /// </summary>
@@ -208,10 +214,11 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Starts a submission on an observation</param>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>Task of NhsProfile</returns>
-        System.Threading.Tasks.Task<NhsProfile> MynhsUserIdObservationsSubmissionsSubmissionIdPutAsync (string userId, Guid? submissionId);
+        /// <returns>Task of SubmissionStatusBase</returns>
+        System.Threading.Tasks.Task<SubmissionStatusBase> MynhsUserIdObservationsSubmissionsSubmissionIdPutAsync (Observation body, string userId, Guid? submissionId);
 
         /// <summary>
         /// 
@@ -220,10 +227,11 @@ namespace mynhs.sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Starts a submission on an observation</param>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdObservationsSubmissionsSubmissionIdPutAsyncWithHttpInfo (string userId, Guid? submissionId);
+        /// <returns>Task of ApiResponse (SubmissionStatusBase)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SubmissionStatusBase>> MynhsUserIdObservationsSubmissionsSubmissionIdPutAsyncWithHttpInfo (Observation body, string userId, Guid? submissionId);
         /// <summary>
         /// 
         /// </summary>
@@ -233,8 +241,8 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>Task of SubmissionResponse</returns>
-        System.Threading.Tasks.Task<SubmissionResponse> MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutAsync (string userId, Guid? submissionId);
+        /// <returns>Task of FinishedSubmissionStatusBaseWithoutLocation</returns>
+        System.Threading.Tasks.Task<FinishedSubmissionStatusBaseWithoutLocation> MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutAsync (string userId, Guid? submissionId);
 
         /// <summary>
         /// 
@@ -245,8 +253,8 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>Task of ApiResponse (SubmissionResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SubmissionResponse>> MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutAsyncWithHttpInfo (string userId, Guid? submissionId);
+        /// <returns>Task of ApiResponse (FinishedSubmissionStatusBaseWithoutLocation)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FinishedSubmissionStatusBaseWithoutLocation>> MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutAsyncWithHttpInfo (string userId, Guid? submissionId);
         #endregion Asynchronous Operations
     }
 
@@ -363,10 +371,10 @@ namespace mynhs.sdk.Api
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
-        /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsUserIdObservationsSubmissionsGet (string userId)
+        /// <returns>SubmissionStatusBaseWithDataArray</returns>
+        public SubmissionStatusBaseWithDataArray MynhsUserIdObservationsSubmissionsGet (string userId)
         {
-             ApiResponse<NhsProfile> localVarResponse = MynhsUserIdObservationsSubmissionsGetWithHttpInfo(userId);
+             ApiResponse<SubmissionStatusBaseWithDataArray> localVarResponse = MynhsUserIdObservationsSubmissionsGetWithHttpInfo(userId);
              return localVarResponse.Data;
         }
 
@@ -375,8 +383,8 @@ namespace mynhs.sdk.Api
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsUserIdObservationsSubmissionsGetWithHttpInfo (string userId)
+        /// <returns>ApiResponse of SubmissionStatusBaseWithDataArray</returns>
+        public ApiResponse< SubmissionStatusBaseWithDataArray > MynhsUserIdObservationsSubmissionsGetWithHttpInfo (string userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -418,9 +426,9 @@ namespace mynhs.sdk.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
+            return new ApiResponse<SubmissionStatusBaseWithDataArray>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
+                (SubmissionStatusBaseWithDataArray) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SubmissionStatusBaseWithDataArray)));
         }
 
         /// <summary>
@@ -428,10 +436,10 @@ namespace mynhs.sdk.Api
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
-        /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsUserIdObservationsSubmissionsGetAsync (string userId)
+        /// <returns>Task of SubmissionStatusBaseWithDataArray</returns>
+        public async System.Threading.Tasks.Task<SubmissionStatusBaseWithDataArray> MynhsUserIdObservationsSubmissionsGetAsync (string userId)
         {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsUserIdObservationsSubmissionsGetAsyncWithHttpInfo(userId);
+             ApiResponse<SubmissionStatusBaseWithDataArray> localVarResponse = await MynhsUserIdObservationsSubmissionsGetAsyncWithHttpInfo(userId);
              return localVarResponse.Data;
 
         }
@@ -441,8 +449,8 @@ namespace mynhs.sdk.Api
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdObservationsSubmissionsGetAsyncWithHttpInfo (string userId)
+        /// <returns>Task of ApiResponse (SubmissionStatusBaseWithDataArray)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SubmissionStatusBaseWithDataArray>> MynhsUserIdObservationsSubmissionsGetAsyncWithHttpInfo (string userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -484,20 +492,21 @@ namespace mynhs.sdk.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
+            return new ApiResponse<SubmissionStatusBaseWithDataArray>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
+                (SubmissionStatusBaseWithDataArray) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SubmissionStatusBaseWithDataArray)));
         }
 
         /// <summary>
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Starts a submission on an observation</param>
         /// <param name="userId">The User Id to access</param>
-        /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsUserIdObservationsSubmissionsPost (string userId)
+        /// <returns>SubmissionStatusBase</returns>
+        public SubmissionStatusBase MynhsUserIdObservationsSubmissionsPost (Observation body, string userId)
         {
-             ApiResponse<NhsProfile> localVarResponse = MynhsUserIdObservationsSubmissionsPostWithHttpInfo(userId);
+             ApiResponse<SubmissionStatusBase> localVarResponse = MynhsUserIdObservationsSubmissionsPostWithHttpInfo(body, userId);
              return localVarResponse.Data;
         }
 
@@ -505,10 +514,14 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Starts a submission on an observation</param>
         /// <param name="userId">The User Id to access</param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsUserIdObservationsSubmissionsPostWithHttpInfo (string userId)
+        /// <returns>ApiResponse of SubmissionStatusBase</returns>
+        public ApiResponse< SubmissionStatusBase > MynhsUserIdObservationsSubmissionsPostWithHttpInfo (Observation body, string userId)
         {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling ObservationsSubmissionsApi->MynhsUserIdObservationsSubmissionsPost");
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling ObservationsSubmissionsApi->MynhsUserIdObservationsSubmissionsPost");
@@ -523,6 +536,7 @@ namespace mynhs.sdk.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -535,6 +549,14 @@ namespace mynhs.sdk.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
@@ -549,20 +571,21 @@ namespace mynhs.sdk.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
+            return new ApiResponse<SubmissionStatusBase>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
+                (SubmissionStatusBase) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SubmissionStatusBase)));
         }
 
         /// <summary>
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Starts a submission on an observation</param>
         /// <param name="userId">The User Id to access</param>
-        /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsUserIdObservationsSubmissionsPostAsync (string userId)
+        /// <returns>Task of SubmissionStatusBase</returns>
+        public async System.Threading.Tasks.Task<SubmissionStatusBase> MynhsUserIdObservationsSubmissionsPostAsync (Observation body, string userId)
         {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsUserIdObservationsSubmissionsPostAsyncWithHttpInfo(userId);
+             ApiResponse<SubmissionStatusBase> localVarResponse = await MynhsUserIdObservationsSubmissionsPostAsyncWithHttpInfo(body, userId);
              return localVarResponse.Data;
 
         }
@@ -571,10 +594,14 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Starts a submission on an observation</param>
         /// <param name="userId">The User Id to access</param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdObservationsSubmissionsPostAsyncWithHttpInfo (string userId)
+        /// <returns>Task of ApiResponse (SubmissionStatusBase)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SubmissionStatusBase>> MynhsUserIdObservationsSubmissionsPostAsyncWithHttpInfo (Observation body, string userId)
         {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling ObservationsSubmissionsApi->MynhsUserIdObservationsSubmissionsPost");
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling ObservationsSubmissionsApi->MynhsUserIdObservationsSubmissionsPost");
@@ -589,6 +616,7 @@ namespace mynhs.sdk.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -601,6 +629,14 @@ namespace mynhs.sdk.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -615,9 +651,9 @@ namespace mynhs.sdk.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
+            return new ApiResponse<SubmissionStatusBase>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
+                (SubmissionStatusBase) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SubmissionStatusBase)));
         }
 
         /// <summary>
@@ -767,12 +803,13 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Starts a submission on an observation</param>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>NhsProfile</returns>
-        public NhsProfile MynhsUserIdObservationsSubmissionsSubmissionIdPut (string userId, Guid? submissionId)
+        /// <returns>SubmissionStatusBase</returns>
+        public SubmissionStatusBase MynhsUserIdObservationsSubmissionsSubmissionIdPut (Observation body, string userId, Guid? submissionId)
         {
-             ApiResponse<NhsProfile> localVarResponse = MynhsUserIdObservationsSubmissionsSubmissionIdPutWithHttpInfo(userId, submissionId);
+             ApiResponse<SubmissionStatusBase> localVarResponse = MynhsUserIdObservationsSubmissionsSubmissionIdPutWithHttpInfo(body, userId, submissionId);
              return localVarResponse.Data;
         }
 
@@ -780,11 +817,15 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Starts a submission on an observation</param>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>ApiResponse of NhsProfile</returns>
-        public ApiResponse< NhsProfile > MynhsUserIdObservationsSubmissionsSubmissionIdPutWithHttpInfo (string userId, Guid? submissionId)
+        /// <returns>ApiResponse of SubmissionStatusBase</returns>
+        public ApiResponse< SubmissionStatusBase > MynhsUserIdObservationsSubmissionsSubmissionIdPutWithHttpInfo (Observation body, string userId, Guid? submissionId)
         {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling ObservationsSubmissionsApi->MynhsUserIdObservationsSubmissionsSubmissionIdPut");
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling ObservationsSubmissionsApi->MynhsUserIdObservationsSubmissionsSubmissionIdPut");
@@ -802,6 +843,7 @@ namespace mynhs.sdk.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -815,6 +857,14 @@ namespace mynhs.sdk.Api
 
             if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (submissionId != null) localVarPathParams.Add("submissionId", this.Configuration.ApiClient.ParameterToString(submissionId)); // path parameter
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
@@ -829,21 +879,22 @@ namespace mynhs.sdk.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
+            return new ApiResponse<SubmissionStatusBase>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
+                (SubmissionStatusBase) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SubmissionStatusBase)));
         }
 
         /// <summary>
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Starts a submission on an observation</param>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>Task of NhsProfile</returns>
-        public async System.Threading.Tasks.Task<NhsProfile> MynhsUserIdObservationsSubmissionsSubmissionIdPutAsync (string userId, Guid? submissionId)
+        /// <returns>Task of SubmissionStatusBase</returns>
+        public async System.Threading.Tasks.Task<SubmissionStatusBase> MynhsUserIdObservationsSubmissionsSubmissionIdPutAsync (Observation body, string userId, Guid? submissionId)
         {
-             ApiResponse<NhsProfile> localVarResponse = await MynhsUserIdObservationsSubmissionsSubmissionIdPutAsyncWithHttpInfo(userId, submissionId);
+             ApiResponse<SubmissionStatusBase> localVarResponse = await MynhsUserIdObservationsSubmissionsSubmissionIdPutAsyncWithHttpInfo(body, userId, submissionId);
              return localVarResponse.Data;
 
         }
@@ -852,11 +903,15 @@ namespace mynhs.sdk.Api
         ///  
         /// </summary>
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Starts a submission on an observation</param>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>Task of ApiResponse (NhsProfile)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NhsProfile>> MynhsUserIdObservationsSubmissionsSubmissionIdPutAsyncWithHttpInfo (string userId, Guid? submissionId)
+        /// <returns>Task of ApiResponse (SubmissionStatusBase)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SubmissionStatusBase>> MynhsUserIdObservationsSubmissionsSubmissionIdPutAsyncWithHttpInfo (Observation body, string userId, Guid? submissionId)
         {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling ObservationsSubmissionsApi->MynhsUserIdObservationsSubmissionsSubmissionIdPut");
             // verify the required parameter 'userId' is set
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling ObservationsSubmissionsApi->MynhsUserIdObservationsSubmissionsSubmissionIdPut");
@@ -874,6 +929,7 @@ namespace mynhs.sdk.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -887,6 +943,14 @@ namespace mynhs.sdk.Api
 
             if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
             if (submissionId != null) localVarPathParams.Add("submissionId", this.Configuration.ApiClient.ParameterToString(submissionId)); // path parameter
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
@@ -901,9 +965,9 @@ namespace mynhs.sdk.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<NhsProfile>(localVarStatusCode,
+            return new ApiResponse<SubmissionStatusBase>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (NhsProfile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NhsProfile)));
+                (SubmissionStatusBase) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SubmissionStatusBase)));
         }
 
         /// <summary>
@@ -912,10 +976,10 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>SubmissionResponse</returns>
-        public SubmissionResponse MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut (string userId, Guid? submissionId)
+        /// <returns>FinishedSubmissionStatusBaseWithoutLocation</returns>
+        public FinishedSubmissionStatusBaseWithoutLocation MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut (string userId, Guid? submissionId)
         {
-             ApiResponse<SubmissionResponse> localVarResponse = MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutWithHttpInfo(userId, submissionId);
+             ApiResponse<FinishedSubmissionStatusBaseWithoutLocation> localVarResponse = MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutWithHttpInfo(userId, submissionId);
              return localVarResponse.Data;
         }
 
@@ -925,8 +989,8 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>ApiResponse of SubmissionResponse</returns>
-        public ApiResponse< SubmissionResponse > MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutWithHttpInfo (string userId, Guid? submissionId)
+        /// <returns>ApiResponse of FinishedSubmissionStatusBaseWithoutLocation</returns>
+        public ApiResponse< FinishedSubmissionStatusBaseWithoutLocation > MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutWithHttpInfo (string userId, Guid? submissionId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -972,9 +1036,9 @@ namespace mynhs.sdk.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<SubmissionResponse>(localVarStatusCode,
+            return new ApiResponse<FinishedSubmissionStatusBaseWithoutLocation>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (SubmissionResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SubmissionResponse)));
+                (FinishedSubmissionStatusBaseWithoutLocation) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FinishedSubmissionStatusBaseWithoutLocation)));
         }
 
         /// <summary>
@@ -983,10 +1047,10 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>Task of SubmissionResponse</returns>
-        public async System.Threading.Tasks.Task<SubmissionResponse> MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutAsync (string userId, Guid? submissionId)
+        /// <returns>Task of FinishedSubmissionStatusBaseWithoutLocation</returns>
+        public async System.Threading.Tasks.Task<FinishedSubmissionStatusBaseWithoutLocation> MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutAsync (string userId, Guid? submissionId)
         {
-             ApiResponse<SubmissionResponse> localVarResponse = await MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutAsyncWithHttpInfo(userId, submissionId);
+             ApiResponse<FinishedSubmissionStatusBaseWithoutLocation> localVarResponse = await MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutAsyncWithHttpInfo(userId, submissionId);
              return localVarResponse.Data;
 
         }
@@ -997,8 +1061,8 @@ namespace mynhs.sdk.Api
         /// <exception cref="mynhs.sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <returns>Task of ApiResponse (SubmissionResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SubmissionResponse>> MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutAsyncWithHttpInfo (string userId, Guid? submissionId)
+        /// <returns>Task of ApiResponse (FinishedSubmissionStatusBaseWithoutLocation)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<FinishedSubmissionStatusBaseWithoutLocation>> MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPutAsyncWithHttpInfo (string userId, Guid? submissionId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1044,9 +1108,9 @@ namespace mynhs.sdk.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<SubmissionResponse>(localVarStatusCode,
+            return new ApiResponse<FinishedSubmissionStatusBaseWithoutLocation>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(",", x.Value)),
-                (SubmissionResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SubmissionResponse)));
+                (FinishedSubmissionStatusBaseWithoutLocation) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FinishedSubmissionStatusBaseWithoutLocation)));
         }
 
     }

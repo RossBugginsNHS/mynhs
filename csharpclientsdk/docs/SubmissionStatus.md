@@ -3,9 +3,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SubmissionId** | **Guid?** |  | [optional] 
-**SubmittedByUserId** | **Guid?** |  | [optional] 
-**SubmittedByAppId** | **Guid?** |  | [optional] 
 **ResourceId** | **Guid?** |  | [optional] 
 **DateSubmitted** | **DateTimeOffset?** |  | [optional] 
 **SubmissionStatusLocation** | **string** |  | [optional] 

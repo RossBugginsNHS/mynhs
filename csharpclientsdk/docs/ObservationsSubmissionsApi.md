@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="mynhsuseridobservationssubmissionsget"></a>
 # **MynhsUserIdObservationsSubmissionsGet**
-> NhsProfile MynhsUserIdObservationsSubmissionsGet (string userId)
+> SubmissionStatusBaseWithDataArray MynhsUserIdObservationsSubmissionsGet (string userId)
 
 
 
@@ -35,7 +35,7 @@ namespace Example
 
             try
             {
-                NhsProfile result = apiInstance.MynhsUserIdObservationsSubmissionsGet(userId);
+                SubmissionStatusBaseWithDataArray result = apiInstance.MynhsUserIdObservationsSubmissionsGet(userId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NhsProfile**](NhsProfile.md)
+[**SubmissionStatusBaseWithDataArray**](SubmissionStatusBaseWithDataArray.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 <a name="mynhsuseridobservationssubmissionspost"></a>
 # **MynhsUserIdObservationsSubmissionsPost**
-> NhsProfile MynhsUserIdObservationsSubmissionsPost (string userId)
+> SubmissionStatusBase MynhsUserIdObservationsSubmissionsPost (Observation body, string userId)
 
 
 
@@ -88,11 +88,12 @@ namespace Example
         public void main()
         {
             var apiInstance = new ObservationsSubmissionsApi();
+            var body = new Observation(); // Observation | Starts a submission on an observation
             var userId = userId_example;  // string | The User Id to access
 
             try
             {
-                NhsProfile result = apiInstance.MynhsUserIdObservationsSubmissionsPost(userId);
+                SubmissionStatusBase result = apiInstance.MynhsUserIdObservationsSubmissionsPost(body, userId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -108,11 +109,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**Observation**](Observation.md)| Starts a submission on an observation | 
  **userId** | **string**| The User Id to access | 
 
 ### Return type
 
-[**NhsProfile**](NhsProfile.md)
+[**SubmissionStatusBase**](SubmissionStatusBase.md)
 
 ### Authorization
 
@@ -120,7 +122,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -185,7 +187,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 <a name="mynhsuseridobservationssubmissionssubmissionidput"></a>
 # **MynhsUserIdObservationsSubmissionsSubmissionIdPut**
-> NhsProfile MynhsUserIdObservationsSubmissionsSubmissionIdPut (string userId, Guid? submissionId)
+> SubmissionStatusBase MynhsUserIdObservationsSubmissionsSubmissionIdPut (Observation body, string userId, Guid? submissionId)
 
 
 
@@ -204,12 +206,13 @@ namespace Example
         public void main()
         {
             var apiInstance = new ObservationsSubmissionsApi();
+            var body = new Observation(); // Observation | Starts a submission on an observation
             var userId = userId_example;  // string | The User Id to access
             var submissionId = new Guid?(); // Guid? | 
 
             try
             {
-                NhsProfile result = apiInstance.MynhsUserIdObservationsSubmissionsSubmissionIdPut(userId, submissionId);
+                SubmissionStatusBase result = apiInstance.MynhsUserIdObservationsSubmissionsSubmissionIdPut(body, userId, submissionId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -225,12 +228,13 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**Observation**](Observation.md)| Starts a submission on an observation | 
  **userId** | **string**| The User Id to access | 
  **submissionId** | [**Guid?**](Guid?.md)|  | 
 
 ### Return type
 
-[**NhsProfile**](NhsProfile.md)
+[**SubmissionStatusBase**](SubmissionStatusBase.md)
 
 ### Authorization
 
@@ -238,13 +242,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 <a name="mynhsuseridobservationssubmissionssubmissionidsubmitput"></a>
 # **MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut**
-> SubmissionResponse MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut (string userId, Guid? submissionId)
+> FinishedSubmissionStatusBaseWithoutLocation MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut (string userId, Guid? submissionId)
 
 
 
@@ -270,7 +274,7 @@ namespace Example
 
             try
             {
-                SubmissionResponse result = apiInstance.MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut(userId, submissionId);
+                FinishedSubmissionStatusBaseWithoutLocation result = apiInstance.MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut(userId, submissionId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -291,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SubmissionResponse**](SubmissionResponse.md)
+[**FinishedSubmissionStatusBaseWithoutLocation**](FinishedSubmissionStatusBaseWithoutLocation.md)
 
 ### Authorization
 

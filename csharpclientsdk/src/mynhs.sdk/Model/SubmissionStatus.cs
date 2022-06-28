@@ -25,7 +25,7 @@ namespace mynhs.sdk.Model
     /// SubmissionStatus
     /// </summary>
     [DataContract]
-        public partial class SubmissionStatus : SubmissionStatusBase,  IEquatable<SubmissionStatus>
+        public partial class SubmissionStatus : SubmissionStatusBaseWithLocation,  IEquatable<SubmissionStatus>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubmissionStatus" /> class.
@@ -33,7 +33,7 @@ namespace mynhs.sdk.Model
         /// <param name="status">status.</param>
         /// <param name="percentComplete">percentComplete.</param>
         /// <param name="stagesDetails">stagesDetails.</param>
-        public SubmissionStatus(StatusEnum status = default(StatusEnum), int? percentComplete = default(int?), Collection<SubmissionResponseDetails> stagesDetails = default(Collection<SubmissionResponseDetails>), Guid? submissionId = default(Guid?), Guid? submittedByUserId = default(Guid?), Guid? submittedByAppId = default(Guid?), Guid? resourceId = default(Guid?), DateTimeOffset? dateSubmitted = default(DateTimeOffset?), string submissionStatusLocation = default(string), string resourceLocation = default(string)) : base(submissionId, submittedByUserId, submittedByAppId, resourceId, dateSubmitted, submissionStatusLocation, resourceLocation)
+        public SubmissionStatus(StatusEnum status = default(StatusEnum), int? percentComplete = default(int?), Collection<SubmissionResponseDetails> stagesDetails = default(Collection<SubmissionResponseDetails>), Guid? resourceId = default(Guid?), DateTimeOffset? dateSubmitted = default(DateTimeOffset?), string submissionStatusLocation = default(string), string resourceLocation = default(string)) : base(resourceId, dateSubmitted, submissionStatusLocation, resourceLocation)
         {
             this.Status = status;
             this.PercentComplete = percentComplete;
