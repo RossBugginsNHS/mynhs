@@ -20,7 +20,7 @@ tags:
   - name: Observations
     description: Basic Observations
   - name: Observations|Submissions
-    description: Submit new observations in a fully Asyncronous way. Call POST with initital data and to get a submission Id, make changes with PUT, and then to start the submission call PUT on /submit.
+    description: Submit new observations in a fully Asyncronous way supporting idempotency of the full transaction. Call POST with initital data and to get a submission Id, make changes with PUT, and then to start the submission call PUT on /submit.
   - name: Digital Health Checks
     description: My Completed Digital Health Checks
   - name: Digital Health Checks|Submissions
@@ -619,16 +619,29 @@ paths:
       tags:
         - Observations|Submissions   
       parameters:
-        - $ref: '#/components/parameters/userIdParam'        
+        - $ref: '#/components/parameters/userIdParam'      
+      requestBody:
+        description: Starts a submission on an observation
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Observation'
+            examples:
+              DaysOld:
+                $ref: '#/components/examples/ObservationExample'               
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                #  ----- Added line  ----------------------------------------
-                $ref: '#/components/schemas/NhsProfile'
-                #  ---- /Added line  ----------------------------------------  
+                $ref: '#/components/schemas/SubmissionStatusBase'
+              examples:
+                DaysOld:
+                  $ref: '#/components/examples/ObservationResponseExample'                     
+                
+                
     get:
       tags:
         - Observations|Submissions    
@@ -640,18 +653,22 @@ paths:
           content:
             application/json:
               schema:
-                #  ----- Added line  ----------------------------------------
-                $ref: '#/components/schemas/NhsProfile'
-                #  ---- /Added line  ----------------------------------------
+                $ref: '#/components/schemas/SubmissionStatusBaseWithDataArray'
+                
   /mynhs/{userId}/observations/submissions/{submissionId}/submit:
     put:
       description: 'Submits the request to create the observation submission. A PUT should be fully idempotent, so the result will always be the same. Call GET on /mynhs/{userId}/observations/submissions/{submissionId} to get the current status.'
       tags:
         - Observations|Submissions     
+        
       parameters:
         - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/submissionIdParam'   
       responses:
+        '200':
+          $ref: '#/components/responses/SubmissionFinishedResponse'
+        '201':
+          $ref: '#/components/responses/SubmissionCreatedResponse'          
         '202':
           $ref: '#/components/responses/SubmissionAcceptedResponse'
 
@@ -672,15 +689,26 @@ paths:
       parameters:
         - $ref: '#/components/parameters/userIdParam'
         - $ref: '#/components/parameters/submissionIdParam'   
+      requestBody:
+        description: Starts a submission on an observation
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Observation'
+            examples:
+              DaysOld:
+                $ref: '#/components/examples/ObservationExample'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                #  ----- Added line  ----------------------------------------
-                $ref: '#/components/schemas/NhsProfile'
-                #  ---- /Added line  ----------------------------------------       
+                $ref: '#/components/schemas/SubmissionStatusBase'
+              examples:
+                DaysOld:
+                  $ref: '#/components/examples/ObservationResponseExample'          
     
                
   /mynhs/{userId}/observations/summaries:
@@ -786,6 +814,17 @@ components:
           type: integer
           format: int64
 
+    Observation:
+      type: object    
+      anyOf:
+        - $ref: '#/components/schemas/Age'
+        - $ref: '#/components/schemas/Height'
+        - $ref: '#/components/schemas/Mass'
+        - $ref: '#/components/schemas/BloodPressure'
+        - $ref: '#/components/schemas/BloodSugar'
+        - $ref: '#/components/schemas/Colesterol'    
+        
+        
     DigitalHealthCheckRequest:
       type: object
       oneOf:
@@ -990,8 +1029,8 @@ components:
     SubmissionResponse:
       type: object
       allOf:
-        - $ref: '#/components/schemas/SubmissionStatusBase' 
-    
+        - $ref: '#/components/schemas/SubmissionStatusBaseWithLocation' 
+
     SubmissionStatusBase:
       type: object
       properties:
@@ -1003,7 +1042,39 @@ components:
           format: uuid
         SubmittedByAppId:
           type: string
-          format: uuid        
+          format: uuid    
+        DateSubmissionCreated:
+          type: string
+          format: date-time        
+        SubmittedData:
+          type: object    
+          
+
+    SubmissionStatusBaseWithDataArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/SubmissionStatusBase'
+    
+  
+    FinishedSubmissionStatusBaseWithoutLocation:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/SubmissionStatusBase'       
+      properties:                     
+        DateSubmitted:
+          type: string
+          format: date-time
+        SubmissionStatusLocation:
+          type: string
+          format: uri
+          example: '/mynhs/my/observations/submissions/{SubmissionId}'
+          
+                          
+    SubmissionStatusBaseWithLocation:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/SubmissionStatusBase'       
+      properties:
         ResourceId:
           type: string
           format: uuid                       
@@ -1023,7 +1094,7 @@ components:
     SubmissionStatus:
       type: object
       allOf:
-        - $ref: '#/components/schemas/SubmissionStatusBase' 
+        - $ref: '#/components/schemas/SubmissionStatusBaseWithLocation' 
       properties:
         Status:
           $ref: '#/components/schemas/StatusEnum' 
@@ -1070,6 +1141,19 @@ components:
       default: 0      
   
   examples:
+    ObservationExample:
+      value:
+        Age:
+          Days: 4329
+    ObservationResponseExample:
+      value:
+        SubmissionId: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+        SubmittedByUserId: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+        SubmittedByAppId: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+        SubmittedData: 
+          Age:
+            Days: 4329
+
     DaysOldExample:
       value:
         Days: 4329
@@ -1166,7 +1250,7 @@ components:
   
   responses:
     SubmissionAcceptedResponse:
-        description: Accepted
+        description:  'Note the 202 Accepted response, not a 200 OK. The location of the created resource when created is avaliable from the Location header, or the ResourceLocation property in the response.'
         headers:
           Location:
             schema:
@@ -1178,6 +1262,27 @@ components:
           application/json:
             schema:
               $ref: '#/components/schemas/SubmissionResponse'
+              
+    SubmissionCreatedResponse:
+        description:  'Note the 201 Created response, not a 200 OK. The location of the created resource avaliable from the Location header, or the ResourceLocation property in the response.'
+        headers:
+          Location:
+            schema:
+              type: string
+              format: uri
+            description: '202 The location that the created resource will be avaliable at. Same as response body ResourceLocation'
+            example: '/mynhs/my/observations/{ResourceId}'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubmissionResponse'  
+              
+    SubmissionFinishedResponse:
+        description:  'Note the 200 response. This is not saying created, or accepted - but OK it has finished but not created. This actually indicated likely a problem here.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FinishedSubmissionStatusBaseWithoutLocation'                     
 
     SubmissionStatusResponse:
       description: Accepted
