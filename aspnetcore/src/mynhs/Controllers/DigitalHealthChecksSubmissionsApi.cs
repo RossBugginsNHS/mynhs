@@ -130,12 +130,12 @@ namespace mynhs.Controllers
         /// </summary>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <response code="202">Accepted</response>
+        /// <response code="202">Note the 202 Accepted response, not a 200 OK. The location of the created resource when created is avaliable from the Location header, or the ResourceLocation property in the response.</response>
         [HttpPut]
         [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/digitalhealthchecks/submissions/{submissionId}/submit")]
         [ValidateModelState]
         [SwaggerOperation("MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut")]
-        [SwaggerResponse(statusCode: 202, type: typeof(SubmissionResponse), description: "Accepted")]
+        [SwaggerResponse(statusCode: 202, type: typeof(SubmissionResponse), description: "Note the 202 Accepted response, not a 200 OK. The location of the created resource when created is avaliable from the Location header, or the ResourceLocation property in the response.")]
         public virtual IActionResult MynhsUserIdDigitalhealthchecksSubmissionsSubmissionIdSubmitPut([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromRoute][Required]Guid? submissionId)
         { 
             //TODO: Uncomment the next line to return response 202 or use other options such as return this.NotFound(), return this.BadRequest(..), ...

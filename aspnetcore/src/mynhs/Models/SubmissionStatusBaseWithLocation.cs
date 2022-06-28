@@ -24,42 +24,36 @@ namespace mynhs.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class SubmissionStatusBase : IEquatable<SubmissionStatusBase>
+    public partial class SubmissionStatusBaseWithLocation : SubmissionStatusBase, IEquatable<SubmissionStatusBaseWithLocation>
     { 
         /// <summary>
-        /// Gets or Sets SubmissionId
+        /// Gets or Sets ResourceId
         /// </summary>
 
-        [DataMember(Name="SubmissionId")]
-        public Guid? SubmissionId { get; set; }
+        [DataMember(Name="ResourceId")]
+        public Guid? ResourceId { get; set; }
 
         /// <summary>
-        /// Gets or Sets SubmittedByUserId
+        /// Gets or Sets DateSubmitted
         /// </summary>
 
-        [DataMember(Name="SubmittedByUserId")]
-        public Guid? SubmittedByUserId { get; set; }
+        [DataMember(Name="DateSubmitted")]
+        public DateTimeOffset? DateSubmitted { get; set; }
 
         /// <summary>
-        /// Gets or Sets SubmittedByAppId
+        /// Gets or Sets SubmissionStatusLocation
         /// </summary>
 
-        [DataMember(Name="SubmittedByAppId")]
-        public Guid? SubmittedByAppId { get; set; }
+        [DataMember(Name="SubmissionStatusLocation")]
+        public string SubmissionStatusLocation { get; set; }
 
         /// <summary>
-        /// Gets or Sets DateSubmissionCreated
+        /// The location that the created resource will be avaliable at. Same as response header Location
         /// </summary>
+        /// <value>The location that the created resource will be avaliable at. Same as response header Location</value>
 
-        [DataMember(Name="DateSubmissionCreated")]
-        public DateTimeOffset? DateSubmissionCreated { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SubmittedData
-        /// </summary>
-
-        [DataMember(Name="SubmittedData")]
-        public Object SubmittedData { get; set; }
+        [DataMember(Name="ResourceLocation")]
+        public string ResourceLocation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,12 +62,11 @@ namespace mynhs.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SubmissionStatusBase {\n");
-            sb.Append("  SubmissionId: ").Append(SubmissionId).Append("\n");
-            sb.Append("  SubmittedByUserId: ").Append(SubmittedByUserId).Append("\n");
-            sb.Append("  SubmittedByAppId: ").Append(SubmittedByAppId).Append("\n");
-            sb.Append("  DateSubmissionCreated: ").Append(DateSubmissionCreated).Append("\n");
-            sb.Append("  SubmittedData: ").Append(SubmittedData).Append("\n");
+            sb.Append("class SubmissionStatusBaseWithLocation {\n");
+            sb.Append("  ResourceId: ").Append(ResourceId).Append("\n");
+            sb.Append("  DateSubmitted: ").Append(DateSubmitted).Append("\n");
+            sb.Append("  SubmissionStatusLocation: ").Append(SubmissionStatusLocation).Append("\n");
+            sb.Append("  ResourceLocation: ").Append(ResourceLocation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -82,7 +75,7 @@ namespace mynhs.Models
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public  new string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -96,44 +89,39 @@ namespace mynhs.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((SubmissionStatusBase)obj);
+            return obj.GetType() == GetType() && Equals((SubmissionStatusBaseWithLocation)obj);
         }
 
         /// <summary>
-        /// Returns true if SubmissionStatusBase instances are equal
+        /// Returns true if SubmissionStatusBaseWithLocation instances are equal
         /// </summary>
-        /// <param name="other">Instance of SubmissionStatusBase to be compared</param>
+        /// <param name="other">Instance of SubmissionStatusBaseWithLocation to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SubmissionStatusBase other)
+        public bool Equals(SubmissionStatusBaseWithLocation other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    SubmissionId == other.SubmissionId ||
-                    SubmissionId != null &&
-                    SubmissionId.Equals(other.SubmissionId)
+                    ResourceId == other.ResourceId ||
+                    ResourceId != null &&
+                    ResourceId.Equals(other.ResourceId)
                 ) && 
                 (
-                    SubmittedByUserId == other.SubmittedByUserId ||
-                    SubmittedByUserId != null &&
-                    SubmittedByUserId.Equals(other.SubmittedByUserId)
+                    DateSubmitted == other.DateSubmitted ||
+                    DateSubmitted != null &&
+                    DateSubmitted.Equals(other.DateSubmitted)
                 ) && 
                 (
-                    SubmittedByAppId == other.SubmittedByAppId ||
-                    SubmittedByAppId != null &&
-                    SubmittedByAppId.Equals(other.SubmittedByAppId)
+                    SubmissionStatusLocation == other.SubmissionStatusLocation ||
+                    SubmissionStatusLocation != null &&
+                    SubmissionStatusLocation.Equals(other.SubmissionStatusLocation)
                 ) && 
                 (
-                    DateSubmissionCreated == other.DateSubmissionCreated ||
-                    DateSubmissionCreated != null &&
-                    DateSubmissionCreated.Equals(other.DateSubmissionCreated)
-                ) && 
-                (
-                    SubmittedData == other.SubmittedData ||
-                    SubmittedData != null &&
-                    SubmittedData.Equals(other.SubmittedData)
+                    ResourceLocation == other.ResourceLocation ||
+                    ResourceLocation != null &&
+                    ResourceLocation.Equals(other.ResourceLocation)
                 );
         }
 
@@ -147,16 +135,14 @@ namespace mynhs.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (SubmissionId != null)
-                    hashCode = hashCode * 59 + SubmissionId.GetHashCode();
-                    if (SubmittedByUserId != null)
-                    hashCode = hashCode * 59 + SubmittedByUserId.GetHashCode();
-                    if (SubmittedByAppId != null)
-                    hashCode = hashCode * 59 + SubmittedByAppId.GetHashCode();
-                    if (DateSubmissionCreated != null)
-                    hashCode = hashCode * 59 + DateSubmissionCreated.GetHashCode();
-                    if (SubmittedData != null)
-                    hashCode = hashCode * 59 + SubmittedData.GetHashCode();
+                    if (ResourceId != null)
+                    hashCode = hashCode * 59 + ResourceId.GetHashCode();
+                    if (DateSubmitted != null)
+                    hashCode = hashCode * 59 + DateSubmitted.GetHashCode();
+                    if (SubmissionStatusLocation != null)
+                    hashCode = hashCode * 59 + SubmissionStatusLocation.GetHashCode();
+                    if (ResourceLocation != null)
+                    hashCode = hashCode * 59 + ResourceLocation.GetHashCode();
                 return hashCode;
             }
         }
@@ -164,12 +150,12 @@ namespace mynhs.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(SubmissionStatusBase left, SubmissionStatusBase right)
+        public static bool operator ==(SubmissionStatusBaseWithLocation left, SubmissionStatusBaseWithLocation right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(SubmissionStatusBase left, SubmissionStatusBase right)
+        public static bool operator !=(SubmissionStatusBaseWithLocation left, SubmissionStatusBaseWithLocation right)
         {
             return !Equals(left, right);
         }

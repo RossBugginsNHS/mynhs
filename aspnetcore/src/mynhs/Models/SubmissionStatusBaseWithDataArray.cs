@@ -24,7 +24,7 @@ namespace mynhs.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class SubmissionResponse : SubmissionStatusBaseWithLocation, IEquatable<SubmissionResponse>
+    public partial class SubmissionStatusBaseWithDataArray : Collection<SubmissionStatusBase>, IEquatable<SubmissionStatusBaseWithDataArray>
     { 
         /// <summary>
         /// Returns the string presentation of the object
@@ -33,7 +33,7 @@ namespace mynhs.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SubmissionResponse {\n");
+            sb.Append("class SubmissionStatusBaseWithDataArray {\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -56,15 +56,15 @@ namespace mynhs.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((SubmissionResponse)obj);
+            return obj.GetType() == GetType() && Equals((SubmissionStatusBaseWithDataArray)obj);
         }
 
         /// <summary>
-        /// Returns true if SubmissionResponse instances are equal
+        /// Returns true if SubmissionStatusBaseWithDataArray instances are equal
         /// </summary>
-        /// <param name="other">Instance of SubmissionResponse to be compared</param>
+        /// <param name="other">Instance of SubmissionStatusBaseWithDataArray to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SubmissionResponse other)
+        public bool Equals(SubmissionStatusBaseWithDataArray other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -89,12 +89,12 @@ namespace mynhs.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(SubmissionResponse left, SubmissionResponse right)
+        public static bool operator ==(SubmissionStatusBaseWithDataArray left, SubmissionStatusBaseWithDataArray right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(SubmissionResponse left, SubmissionResponse right)
+        public static bool operator !=(SubmissionStatusBaseWithDataArray left, SubmissionStatusBaseWithDataArray right)
         {
             return !Equals(left, right);
         }

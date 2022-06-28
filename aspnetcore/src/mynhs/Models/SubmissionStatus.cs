@@ -24,7 +24,7 @@ namespace mynhs.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class SubmissionStatus : SubmissionStatusBase, IEquatable<SubmissionStatus>
+    public partial class SubmissionStatus : SubmissionStatusBaseWithLocation, IEquatable<SubmissionStatus>
     { 
         /// <summary>
         /// Gets or Sets Status

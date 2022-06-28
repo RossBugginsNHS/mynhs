@@ -24,7 +24,7 @@ namespace mynhs.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class SubmissionResponse : SubmissionStatusBaseWithLocation, IEquatable<SubmissionResponse>
+    public partial class Observation : IEquatable<Observation>
     { 
         /// <summary>
         /// Returns the string presentation of the object
@@ -33,7 +33,7 @@ namespace mynhs.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SubmissionResponse {\n");
+            sb.Append("class Observation {\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -42,7 +42,7 @@ namespace mynhs.Models
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public  new string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -56,15 +56,15 @@ namespace mynhs.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((SubmissionResponse)obj);
+            return obj.GetType() == GetType() && Equals((Observation)obj);
         }
 
         /// <summary>
-        /// Returns true if SubmissionResponse instances are equal
+        /// Returns true if Observation instances are equal
         /// </summary>
-        /// <param name="other">Instance of SubmissionResponse to be compared</param>
+        /// <param name="other">Instance of Observation to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SubmissionResponse other)
+        public bool Equals(Observation other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -89,12 +89,12 @@ namespace mynhs.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(SubmissionResponse left, SubmissionResponse right)
+        public static bool operator ==(Observation left, Observation right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(SubmissionResponse left, SubmissionResponse right)
+        public static bool operator !=(Observation left, Observation right)
         {
             return !Equals(left, right);
         }

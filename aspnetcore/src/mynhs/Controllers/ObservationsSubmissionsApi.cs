@@ -36,40 +36,41 @@ namespace mynhs.Controllers
         [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/observations/submissions")]
         [ValidateModelState]
         [SwaggerOperation("MynhsUserIdObservationsSubmissionsGet")]
-        [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
+        [SwaggerResponse(statusCode: 200, type: typeof(SubmissionStatusBaseWithDataArray), description: "OK")]
         public virtual IActionResult MynhsUserIdObservationsSubmissionsGet([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(NhsProfile));
+            // return StatusCode(200, default(SubmissionStatusBaseWithDataArray));
             string exampleJson = null;
-            exampleJson = "{\n  \"NhsNumber\" : 0\n}";
+            exampleJson = "[ {\n  \"SubmittedData\" : { },\n  \"SubmittedByUserId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"DateSubmissionCreated\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"SubmittedByAppId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"SubmissionId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\"\n}, {\n  \"SubmittedData\" : { },\n  \"SubmittedByUserId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"DateSubmissionCreated\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"SubmittedByAppId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"SubmissionId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\"\n} ]";
             
                         var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<NhsProfile>(exampleJson)
-                        : default(NhsProfile);            //TODO: Change the data returned
+                        ? JsonConvert.DeserializeObject<SubmissionStatusBaseWithDataArray>(exampleJson)
+                        : default(SubmissionStatusBaseWithDataArray);            //TODO: Change the data returned
             return new ObjectResult(example);
         }
 
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="body">Starts a submission on an observation</param>
         /// <param name="userId">The User Id to access</param>
         /// <response code="200">OK</response>
         [HttpPost]
         [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/observations/submissions")]
         [ValidateModelState]
         [SwaggerOperation("MynhsUserIdObservationsSubmissionsPost")]
-        [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
-        public virtual IActionResult MynhsUserIdObservationsSubmissionsPost([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId)
+        [SwaggerResponse(statusCode: 200, type: typeof(SubmissionStatusBase), description: "OK")]
+        public virtual IActionResult MynhsUserIdObservationsSubmissionsPost([FromBody]Observation body, [FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(NhsProfile));
+            // return StatusCode(200, default(SubmissionStatusBase));
             string exampleJson = null;
-            exampleJson = "{\n  \"NhsNumber\" : 0\n}";
+            exampleJson = "{\n  \"SubmittedData\" : { },\n  \"SubmittedByUserId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"DateSubmissionCreated\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"SubmittedByAppId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"SubmissionId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\"\n}";
             
                         var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<NhsProfile>(exampleJson)
-                        : default(NhsProfile);            //TODO: Change the data returned
+                        ? JsonConvert.DeserializeObject<SubmissionStatusBase>(exampleJson)
+                        : default(SubmissionStatusBase);            //TODO: Change the data returned
             return new ObjectResult(example);
         }
 
@@ -100,6 +101,7 @@ namespace mynhs.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="body">Starts a submission on an observation</param>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
         /// <response code="200">OK</response>
@@ -107,17 +109,17 @@ namespace mynhs.Controllers
         [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/observations/submissions/{submissionId}")]
         [ValidateModelState]
         [SwaggerOperation("MynhsUserIdObservationsSubmissionsSubmissionIdPut")]
-        [SwaggerResponse(statusCode: 200, type: typeof(NhsProfile), description: "OK")]
-        public virtual IActionResult MynhsUserIdObservationsSubmissionsSubmissionIdPut([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromRoute][Required]Guid? submissionId)
+        [SwaggerResponse(statusCode: 200, type: typeof(SubmissionStatusBase), description: "OK")]
+        public virtual IActionResult MynhsUserIdObservationsSubmissionsSubmissionIdPut([FromBody]Observation body, [FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromRoute][Required]Guid? submissionId)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(NhsProfile));
+            // return StatusCode(200, default(SubmissionStatusBase));
             string exampleJson = null;
-            exampleJson = "{\n  \"NhsNumber\" : 0\n}";
+            exampleJson = "{\n  \"SubmittedData\" : { },\n  \"SubmittedByUserId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"DateSubmissionCreated\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"SubmittedByAppId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"SubmissionId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\"\n}";
             
                         var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<NhsProfile>(exampleJson)
-                        : default(NhsProfile);            //TODO: Change the data returned
+                        ? JsonConvert.DeserializeObject<SubmissionStatusBase>(exampleJson)
+                        : default(SubmissionStatusBase);            //TODO: Change the data returned
             return new ObjectResult(example);
         }
 
@@ -127,22 +129,32 @@ namespace mynhs.Controllers
         /// <remarks>Submits the request to create the observation submission. A PUT should be fully idempotent, so the result will always be the same. Call GET on /mynhs/{userId}/observations/submissions/{submissionId} to get the current status.</remarks>
         /// <param name="userId">The User Id to access</param>
         /// <param name="submissionId"></param>
-        /// <response code="202">Accepted</response>
+        /// <response code="200">Note the 200 response. This is not saying created, or accepted - but OK it has finished but not created. This actually indicated likely a problem here.</response>
+        /// <response code="201">Note the 201 Created response, not a 200 OK. The location of the created resource avaliable from the Location header, or the ResourceLocation property in the response.</response>
+        /// <response code="202">Note the 202 Accepted response, not a 200 OK. The location of the created resource when created is avaliable from the Location header, or the ResourceLocation property in the response.</response>
         [HttpPut]
         [Route("/NHSX/MyNhs/0.1/mynhs/{userId}/observations/submissions/{submissionId}/submit")]
         [ValidateModelState]
         [SwaggerOperation("MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut")]
-        [SwaggerResponse(statusCode: 202, type: typeof(SubmissionResponse), description: "Accepted")]
+        [SwaggerResponse(statusCode: 200, type: typeof(FinishedSubmissionStatusBaseWithoutLocation), description: "Note the 200 response. This is not saying created, or accepted - but OK it has finished but not created. This actually indicated likely a problem here.")]
+        [SwaggerResponse(statusCode: 201, type: typeof(SubmissionResponse), description: "Note the 201 Created response, not a 200 OK. The location of the created resource avaliable from the Location header, or the ResourceLocation property in the response.")]
+        [SwaggerResponse(statusCode: 202, type: typeof(SubmissionResponse), description: "Note the 202 Accepted response, not a 200 OK. The location of the created resource when created is avaliable from the Location header, or the ResourceLocation property in the response.")]
         public virtual IActionResult MynhsUserIdObservationsSubmissionsSubmissionIdSubmitPut([FromRoute][Required][RegularExpression("/^my$|[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}/")]string userId, [FromRoute][Required]Guid? submissionId)
         { 
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200, default(FinishedSubmissionStatusBaseWithoutLocation));
+
+            //TODO: Uncomment the next line to return response 201 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(201, default(SubmissionResponse));
+
             //TODO: Uncomment the next line to return response 202 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(202, default(SubmissionResponse));
             string exampleJson = null;
-            exampleJson = "\"\"";
+            exampleJson = "{\n  \"SubmissionStatusLocation\" : \"/mynhs/my/observations/submissions/{SubmissionId}\",\n  \"DateSubmitted\" : \"2000-01-23T04:56:07.000+00:00\"\n}";
             
                         var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<SubmissionResponse>(exampleJson)
-                        : default(SubmissionResponse);            //TODO: Change the data returned
+                        ? JsonConvert.DeserializeObject<FinishedSubmissionStatusBaseWithoutLocation>(exampleJson)
+                        : default(FinishedSubmissionStatusBaseWithoutLocation);            //TODO: Change the data returned
             return new ObjectResult(example);
         }
     }
