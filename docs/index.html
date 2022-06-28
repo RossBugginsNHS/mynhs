@@ -996,6 +996,7 @@
             defs["OneOfAge"] = {};
             defs["OneOfBloodSugar"] = {};
             defs["OneOfDigitalHealthCheckRequest"] = {};
+            defs["OneOfSubmissionData"] = {};
             defs["PercentComplete"] = {
   "maximum" : 100,
   "minimum" : 0,
@@ -1007,6 +1008,14 @@
             defs["StatusEnum"] = {
   "type" : "string",
   "enum" : [ "Not Started", "In progress", "Success", "Failed" ]
+};
+            defs["SubmissionData"] = {
+  "type" : "object",
+  "oneOf" : [ {
+    "$ref" : "#/components/schemas/Observation"
+  }, {
+    "$ref" : "#/components/schemas/DigitalHealthCheckRequestAll"
+  } ]
 };
             defs["SubmissionResponse"] = {
   "type" : "object",
@@ -1084,7 +1093,7 @@
       "format" : "date-time"
     },
     "SubmittedData" : {
-      "type" : "object"
+      "$ref" : "#/components/schemas/SubmissionData"
     }
   }
 };
