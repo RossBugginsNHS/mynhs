@@ -42,7 +42,7 @@ namespace mynhs.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(SubmissionStatusBaseWithDataArray));
             string exampleJson = null;
-            exampleJson = "[ {\n  \"SubmittedData\" : { },\n  \"SubmittedByUserId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"DateSubmissionCreated\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"SubmittedByAppId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"SubmissionId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\"\n}, {\n  \"SubmittedData\" : { },\n  \"SubmittedByUserId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"DateSubmissionCreated\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"SubmittedByAppId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"SubmissionId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\"\n} ]";
+            exampleJson = "[ {\n  \"SubmittedData\" : \"\",\n  \"SubmittedByUserId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"DateSubmissionCreated\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"SubmittedByAppId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"SubmissionId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\"\n}, {\n  \"SubmittedData\" : \"\",\n  \"SubmittedByUserId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"DateSubmissionCreated\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"SubmittedByAppId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"SubmissionId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\"\n} ]";
             
                         var example = exampleJson != null
                         ? JsonConvert.DeserializeObject<SubmissionStatusBaseWithDataArray>(exampleJson)
@@ -66,7 +66,7 @@ namespace mynhs.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(SubmissionStatusBase));
             string exampleJson = null;
-            exampleJson = "{\n  \"SubmittedData\" : { },\n  \"SubmittedByUserId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"DateSubmissionCreated\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"SubmittedByAppId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"SubmissionId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\"\n}";
+            exampleJson = "{\n  \"SubmittedData\" : \"\",\n  \"SubmittedByUserId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"DateSubmissionCreated\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"SubmittedByAppId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"SubmissionId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\"\n}";
             
                         var example = exampleJson != null
                         ? JsonConvert.DeserializeObject<SubmissionStatusBase>(exampleJson)
@@ -115,7 +115,7 @@ namespace mynhs.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(SubmissionStatusBase));
             string exampleJson = null;
-            exampleJson = "{\n  \"SubmittedData\" : { },\n  \"SubmittedByUserId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"DateSubmissionCreated\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"SubmittedByAppId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"SubmissionId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\"\n}";
+            exampleJson = "{\n  \"SubmittedData\" : \"\",\n  \"SubmittedByUserId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"DateSubmissionCreated\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"SubmittedByAppId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\",\n  \"SubmissionId\" : \"046b6c7f-0b8a-43b9-b35d-6489e6daee91\"\n}";
             
                         var example = exampleJson != null
                         ? JsonConvert.DeserializeObject<SubmissionStatusBase>(exampleJson)

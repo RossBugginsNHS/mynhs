@@ -59,7 +59,7 @@ namespace mynhs.Models
         /// </summary>
 
         [DataMember(Name="SubmittedData")]
-        public Object SubmittedData { get; set; }
+        public SubmissionData SubmittedData { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
