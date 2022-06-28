@@ -1031,6 +1031,12 @@ components:
       allOf:
         - $ref: '#/components/schemas/SubmissionStatusBaseWithLocation' 
 
+    SubmissionData:
+      type: object
+      oneOf:
+          - $ref: '#/components/schemas/Observation'  
+          - $ref: '#/components/schemas/DigitalHealthCheckRequestAll'  
+          
     SubmissionStatusBase:
       type: object
       properties:
@@ -1047,7 +1053,7 @@ components:
           type: string
           format: date-time        
         SubmittedData:
-          type: object    
+             $ref: '#/components/schemas/SubmissionData'   
           
 
     SubmissionStatusBaseWithDataArray:
